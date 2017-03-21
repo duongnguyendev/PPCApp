@@ -39,8 +39,6 @@ class MainTabVC: UITabBarController {
         moreNav.tabBarItem = tabMoreBarItem
         
         self.viewControllers = [homeNav, PostNav, newsNav, moreNav]
-        
-        
     }
 
 }
