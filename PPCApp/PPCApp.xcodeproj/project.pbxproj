@@ -86,6 +86,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E4DD76B1E8217A100C0CD9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E4DD76F1E82184800C0CD9B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4ED32DCB1E7F809C0075BF3F = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +123,8 @@
 		4ED32DD61E7F809C0075BF3F /* PPCApp */ = {
 			isa = PBXGroup;
 			children = (
+				4E4DD76F1E82184800C0CD9B /* Models */,
+				4E4DD76B1E8217A100C0CD9B /* View */,
 				4ED32E021E7FBC4B0075BF3F /* Controller */,
 				4ED32DD71E7F809C0075BF3F /* AppDelegate.swift */,
 				4ED32DD91E7F809C0075BF3F /* ViewController.swift */,
