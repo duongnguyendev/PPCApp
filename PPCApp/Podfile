@@ -6,7 +6,8 @@ target 'PPCApp' do
   use_frameworks!
 
 	pod 'FontAwesome.swift'
-
+pod ‘Alamofire’
+pod ‘SwiftyJSON’
   # Pods for PPCApp
 
   target 'PPCAppTests' do

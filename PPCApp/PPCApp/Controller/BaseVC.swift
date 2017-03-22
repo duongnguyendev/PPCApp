@@ -10,11 +10,9 @@ import UIKit
 
 class BaseVC: UIViewController {
 
+    var presented : Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-
-=======
         setupBackIcon()
     }
     
@@ -46,6 +44,5 @@ class BaseVC: UIViewController {
     func push(viewController : BaseVC){
         viewController.presented = false
         self.navigationController?.pushViewController(viewController, animated: true)
->>>>>>> 836bac179441be8e8d3096d9b086ca7536f9d689
     }
 }

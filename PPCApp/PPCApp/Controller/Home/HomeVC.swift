@@ -13,17 +13,15 @@ class HomeVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
         view.backgroundColor = UIColor.white
         title = "Home"
         let assets = PHAsset.fetchAssets(with: .image, options: nil)
         PHImageManager.default().requestImage(for: assets[0], targetSize: CGSize(width: 1000, height: 1000), contentMode: .default, options: nil, resultHandler: { (image, nil) in
             self.view.backgroundColor = UIColor.init(patternImage: image!)
         })
-=======
+
         view.backgroundColor = UIColor.blue
         title = "Home"
         // Do any additional setup after loading the view.
->>>>>>> parent of 4b0ba19... Update pod file
     }
 }

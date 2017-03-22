@@ -10,7 +10,7 @@ import UIKit
 
 class NewsVC: BaseVC {
     
-    var news = [NewDataModel]()
+//    var news = [NewDataModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.red
@@ -19,9 +19,9 @@ class NewsVC: BaseVC {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       APIService.shareInstanse.getNews { (news) in
-            self.news = news
-        }
+//       APIService.shareInstanse.getNews { (news) in
+//            self.news = news
+//        }
         
         
     }
