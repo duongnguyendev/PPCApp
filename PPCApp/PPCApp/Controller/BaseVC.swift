@@ -15,7 +15,6 @@ class BaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackIcon()
-        
     }
     
     func setupBackIcon(){
@@ -28,7 +27,6 @@ class BaseVC: UIViewController {
             self.navigationItem.leftBarButtonItem = leftButton
         }
     }
-    
     
     func goBack(){
         if presented! {

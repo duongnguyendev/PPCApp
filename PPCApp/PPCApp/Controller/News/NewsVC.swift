@@ -9,11 +9,20 @@
 import UIKit
 
 class NewsVC: BaseVC {
-
+    
+    var news = [NewDataModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News"
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+       APIService.shareInstanse.getNews { (news) in
+            self.news = news
+        }
+        
+        
     }
 
 }
