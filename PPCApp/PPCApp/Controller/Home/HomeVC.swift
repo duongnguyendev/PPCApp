@@ -22,6 +22,14 @@ class HomeVC: BaseVC {
 
         view.backgroundColor = UIColor.blue
         title = "Home"
-        // Do any additional setup after loading the view.
+        
+        PostService.shared.getPosts { (data, error) in
+            if error == nil {
+                print(data as Any)
+                
+            }else{
+                print(error?.localizedDescription as Any)
+            }
+        }
     }
 }
