@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E48ED1E1E80031A002E862E /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E48ED1D1E80031A002E862E /* PostDetailVC.swift */; };
-		4E6977CA1E80C08200CF7F8F /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6977C81E80C08200CF7F8F /* NewsVC.swift */; };
-		4E6977CB1E80C08200CF7F8F /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6977C91E80C08200CF7F8F /* NewsVC.xib */; };
-		4E6977CE1E80C10000CF7F8F /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6977CC1E80C10000CF7F8F /* MoreVC.swift */; };
-		4E6977CF1E80C10000CF7F8F /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6977CD1E80C10000CF7F8F /* MoreVC.xib */; };
 		4ED32DD81E7F809C0075BF3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32DD71E7F809C0075BF3F /* AppDelegate.swift */; };
 		4ED32DDA1E7F809C0075BF3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32DD91E7F809C0075BF3F /* ViewController.swift */; };
 		4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED32DDB1E7F809C0075BF3F /* Main.storyboard */; };
@@ -22,6 +17,8 @@
 		4ED32E041E7FBC600075BF3F /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E031E7FBC600075BF3F /* MainTabVC.swift */; };
 		4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E091E7FBCAE0075BF3F /* HomeVC.swift */; };
 		4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E0B1E7FBCBF0075BF3F /* PostVC.swift */; };
+		4ED32E0E1E7FBCD00075BF3F /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E0D1E7FBCD00075BF3F /* NewsVC.swift */; };
+		4ED32E101E7FBCDC0075BF3F /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E0F1E7FBCDC0075BF3F /* MoreVC.swift */; };
 		4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E111E7FC38F0075BF3F /* BaseVC.swift */; };
 		75048553B0E176D8E9E727B9 /* Pods_PPCApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EEFB10212C2556A9870E92 /* Pods_PPCApp.framework */; };
 		FACC84D0C2BD28A811DAC99C /* Pods_PPCAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FD0D050E0182ED9B44A883 /* Pods_PPCAppTests.framework */; };
@@ -41,11 +38,6 @@
 		25EEFB10212C2556A9870E92 /* Pods_PPCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE0FCB6F5347FFE291379D4 /* Pods-PPCAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PPCAppTests/Pods-PPCAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		31FD0D050E0182ED9B44A883 /* Pods_PPCAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E48ED1D1E80031A002E862E /* PostDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
-		4E6977C81E80C08200CF7F8F /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
-		4E6977C91E80C08200CF7F8F /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
-		4E6977CC1E80C10000CF7F8F /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
-		4E6977CD1E80C10000CF7F8F /* MoreVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
 		4ED32DD41E7F809C0075BF3F /* PPCApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPCApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED32DD71E7F809C0075BF3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED32DD91E7F809C0075BF3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +52,8 @@
 		4ED32E031E7FBC600075BF3F /* MainTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabVC.swift; sourceTree = "<group>"; };
 		4ED32E091E7FBCAE0075BF3F /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		4ED32E0B1E7FBCBF0075BF3F /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		4ED32E0D1E7FBCD00075BF3F /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		4ED32E0F1E7FBCDC0075BF3F /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		4ED32E111E7FC38F0075BF3F /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		63481EF2B4BF94E4C4BA930C /* Pods-PPCApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PPCApp/Pods-PPCApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7F8229B89E27EB125E266AEC /* Pods-PPCAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PPCAppTests/Pods-PPCAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				4ED32E091E7FBCAE0075BF3F /* HomeVC.swift */,
-				4E48ED1D1E80031A002E862E /* PostDetailVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -179,8 +172,7 @@
 		4ED32E071E7FBC820075BF3F /* News */ = {
 			isa = PBXGroup;
 			children = (
-				4E6977C81E80C08200CF7F8F /* NewsVC.swift */,
-				4E6977C91E80C08200CF7F8F /* NewsVC.xib */,
+				4ED32E0D1E7FBCD00075BF3F /* NewsVC.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -188,8 +180,7 @@
 		4ED32E081E7FBC930075BF3F /* More */ = {
 			isa = PBXGroup;
 			children = (
-				4E6977CC1E80C10000CF7F8F /* MoreVC.swift */,
-				4E6977CD1E80C10000CF7F8F /* MoreVC.xib */,
+				4ED32E0F1E7FBCDC0075BF3F /* MoreVC.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -305,9 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E6977CF1E80C10000CF7F8F /* MoreVC.xib in Resources */,
 				4ED32DE51E7F809C0075BF3F /* LaunchScreen.storyboard in Resources */,
-				4E6977CB1E80C08200CF7F8F /* NewsVC.xib in Resources */,
 				4ED32DE21E7F809C0075BF3F /* Assets.xcassets in Resources */,
 				4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */,
 			);
@@ -423,13 +412,12 @@
 				4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */,
 				4ED32DDA1E7F809C0075BF3F /* ViewController.swift in Sources */,
 				4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */,
+				4ED32E101E7FBCDC0075BF3F /* MoreVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
+				4ED32E0E1E7FBCD00075BF3F /* NewsVC.swift in Sources */,
 				4ED32DE01E7F809C0075BF3F /* PPCApp.xcdatamodeld in Sources */,
-				4E48ED1E1E80031A002E862E /* PostDetailVC.swift in Sources */,
 				4ED32DD81E7F809C0075BF3F /* AppDelegate.swift in Sources */,
 				4ED32E041E7FBC600075BF3F /* MainTabVC.swift in Sources */,
-				4E6977CA1E80C08200CF7F8F /* NewsVC.swift in Sources */,
-				4E6977CE1E80C10000CF7F8F /* MoreVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

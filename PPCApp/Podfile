@@ -6,8 +6,6 @@ target 'PPCApp' do
   use_frameworks!
 
 	pod 'FontAwesome.swift'
-    	pod 'Alamofire'
-    	pod 'SwiftyJSON'
 
   # Pods for PPCApp
 
@@ -15,4 +13,5 @@ target 'PPCApp' do
     inherit! :search_paths
     # Pods for testing
   end
+
 end
