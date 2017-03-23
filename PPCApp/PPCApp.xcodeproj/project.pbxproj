@@ -16,6 +16,10 @@
 		4E13D2551E836BC1002E03A1 /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E13D2531E836BC1002E03A1 /* MoreVC.xib */; };
 		4E13D2581E836BDC002E03A1 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D2561E836BDC002E03A1 /* NewsVC.swift */; };
 		4E13D2591E836BDC002E03A1 /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E13D2571E836BDC002E03A1 /* NewsVC.xib */; };
+		4E13D25B1E837E7A002E03A1 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D25A1E837E7A002E03A1 /* HomeCell.swift */; };
+		4E13D25E1E8382E9002E03A1 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D25D1E8382E9002E03A1 /* PostCell.swift */; };
+		4E13D2601E83B742002E03A1 /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D25F1E83B742002E03A1 /* PostDetailVC.swift */; };
+		4E13D2621E83BCED002E03A1 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D2611E83BCED002E03A1 /* FilterVC.swift */; };
 		4ED32DD81E7F809C0075BF3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32DD71E7F809C0075BF3F /* AppDelegate.swift */; };
 		4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED32DDB1E7F809C0075BF3F /* Main.storyboard */; };
 		4ED32DE01E7F809C0075BF3F /* PPCApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32DDE1E7F809C0075BF3F /* PPCApp.xcdatamodeld */; };
@@ -59,6 +63,10 @@
 		4E13D2531E836BC1002E03A1 /* MoreVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
 		4E13D2561E836BDC002E03A1 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		4E13D2571E836BDC002E03A1 /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
+		4E13D25A1E837E7A002E03A1 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCell.swift; path = ../HomeCell.swift; sourceTree = "<group>"; };
+		4E13D25D1E8382E9002E03A1 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		4E13D25F1E83B742002E03A1 /* PostDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
+		4E13D2611E83BCED002E03A1 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		4ED32DD41E7F809C0075BF3F /* PPCApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPCApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED32DD71E7F809C0075BF3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED32DDC1E7F809C0075BF3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,9 +124,19 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4E13D25C1E837EC1002E03A1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4E13D25A1E837E7A002E03A1 /* HomeCell.swift */,
+				4E13D25D1E8382E9002E03A1 /* PostCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		4E4DD76B1E8217A100C0CD9B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4E13D25C1E837EC1002E03A1 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				4ED32E091E7FBCAE0075BF3F /* HomeVC.swift */,
+				4E13D25F1E83B742002E03A1 /* PostDetailVC.swift */,
+				4E13D2611E83BCED002E03A1 /* FilterVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -459,6 +479,10 @@
 				4E13D2541E836BC1002E03A1 /* MoreVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
 				4E13D2581E836BDC002E03A1 /* NewsVC.swift in Sources */,
+				4E13D25B1E837E7A002E03A1 /* HomeCell.swift in Sources */,
+				4E13D2601E83B742002E03A1 /* PostDetailVC.swift in Sources */,
+				4E13D2621E83BCED002E03A1 /* FilterVC.swift in Sources */,
+				4E13D25E1E8382E9002E03A1 /* PostCell.swift in Sources */,
 				4E13D22F1E836035002E03A1 /* PostService.swift in Sources */,
 				4E13D2511E8365B3002E03A1 /* Extensions.swift in Sources */,
 				4E13D22E1E836035002E03A1 /* APIService.swift in Sources */,

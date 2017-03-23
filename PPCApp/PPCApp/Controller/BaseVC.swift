@@ -13,13 +13,15 @@ class BaseVC: UIViewController {
     var presented : Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         setupNavBar()
         setupBackIcon()
+        setupView()
     }
     func setupNavBar(){
         self.navigationController?.navigationBar.titleTextAttributes =
-            [NSForegroundColorAttributeName: UIColor.white,
-             NSFontAttributeName: UIFont.systemFont(ofSize: 18)]
+            [NSForegroundColorAttributeName: UIColor.rgb(red: 251, green: 250, blue: 206),
+             NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)]
         
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor.navigationBar()
@@ -54,5 +56,9 @@ class BaseVC: UIViewController {
     func push(viewController : BaseVC){
         viewController.presented = false
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func setupView(){
+        
     }
 }
