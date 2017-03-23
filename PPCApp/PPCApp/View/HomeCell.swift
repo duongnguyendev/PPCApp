@@ -28,7 +28,7 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
     lazy var collectionViewPost : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.clear
+        cv.backgroundColor = UIColor.lightGray
         cv.delegate = self
         cv.dataSource = self
         cv.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +59,7 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellHeight = self.frame.size.width * 9 / 16 + 100
+        let cellHeight = self.frame.size.width * 9 / 16 + 80
         return CGSize(width: self.frame.size.width, height: cellHeight)
     }
     
@@ -68,6 +68,9 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
             self.delegate?.seleted!(index: indexPath)
         }
     
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
 }
