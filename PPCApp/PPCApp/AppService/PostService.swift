@@ -9,17 +9,13 @@
 import UIKit
 import SwiftyJSON
 
-class PostService: NSObject {
+class PostService: BaseService {
     
     static let shared = PostService()
-    
-    override init() {
-        super.init()
-    }
-    
+
     func getPosts(completion: @escaping ((JSON?, Error?)->())){
         let url = "resort/all"
-        APIService.shared.get(url: url) { (data, error) in
+        apiService.get(url: url) { (data, error) in
             if error == nil {
                 completion(data, nil)
             }else{
@@ -27,4 +23,6 @@ class PostService: NSObject {
             }
         }
     }
+    
 }
+
