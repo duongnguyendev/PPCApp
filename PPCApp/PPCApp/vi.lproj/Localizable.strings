@@ -2,7 +2,6 @@
   Localizable.strings
   PPCApp
 
-  Created by Nguyen Duy Duong on 3/22/17.
+  Created by Nguyen Duy Duong on 3/23/17.
   Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 */
-domain = "http://api.ppc-timeshare.com/api/vi/";
