@@ -7,3 +7,4 @@
 */
 
 domain = "http://api.ppc-timeshare.com/api/";
+domainPPC = "http://api.perfectpropertyvn.com/v2/vi/";

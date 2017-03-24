@@ -13,7 +13,6 @@ import SwiftyJSON
 class APIService: NSObject {
     
     func post(url : String, parameters: Parameters, completion: @escaping ((JSON?, Error?)->())){
-        
         Alamofire.request(self.urlFrom(request: url), method: .post, parameters: parameters).responseJSON { (response) in
             switch response.result {
             case .success(let value):
@@ -41,7 +40,7 @@ class APIService: NSObject {
         }
     }
     func urlFrom(request: String) -> String{
-        return LanguageManager.shared.localized(string: "domain")! + request
+        return LanguageManager.shared.localized(string: "domainPPC")! + request
     }
     
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1C81E83702000E6300F /* NewDataModel.swift */; };
+		0323E1CF1E83B70B00E6300F /* NewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0323E1CE1E83B70B00E6300F /* NewCell.xib */; };
+		0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1D01E83BAF600E6300F /* NewCell.swift */; };
+		03EF40301E836F7000D14F0D /* NewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF402F1E836F7000D14F0D /* NewService.swift */; };
 		4E13D22E1E836035002E03A1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22C1E836035002E03A1 /* APIService.swift */; };
 		4E13D22F1E836035002E03A1 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22D1E836035002E03A1 /* PostService.swift */; };
 		4E13D2321E836059002E03A1 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D2311E836059002E03A1 /* LanguageManager.swift */; };
@@ -45,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0323E1C81E83702000E6300F /* NewDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewDataModel.swift; path = PPCApp/AppService/NewDataModel.swift; sourceTree = SOURCE_ROOT; };
+		0323E1CE1E83B70B00E6300F /* NewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCell.xib; sourceTree = "<group>"; };
+		0323E1D01E83BAF600E6300F /* NewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCell.swift; sourceTree = "<group>"; };
+		03EF402F1E836F7000D14F0D /* NewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewService.swift; sourceTree = "<group>"; };
 		25EEFB10212C2556A9870E92 /* Pods_PPCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE0FCB6F5347FFE291379D4 /* Pods-PPCAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PPCAppTests/Pods-PPCAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		31FD0D050E0182ED9B44A883 /* Pods_PPCAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +119,7 @@
 			children = (
 				4E13D22C1E836035002E03A1 /* APIService.swift */,
 				4E13D22D1E836035002E03A1 /* PostService.swift */,
+				03EF402F1E836F7000D14F0D /* NewService.swift */,
 			);
 			path = AppService;
 			sourceTree = "<group>";
@@ -144,6 +153,7 @@
 		4E4DD76F1E82184800C0CD9B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0323E1C81E83702000E6300F /* NewDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +242,8 @@
 			children = (
 				4E13D2561E836BDC002E03A1 /* NewsVC.swift */,
 				4E13D2571E836BDC002E03A1 /* NewsVC.xib */,
+				0323E1CE1E83B70B00E6300F /* NewCell.xib */,
+				0323E1D01E83BAF600E6300F /* NewCell.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -362,6 +374,7 @@
 				4E13D2431E83621C002E03A1 /* Localizable.strings in Resources */,
 				4E13D2591E836BDC002E03A1 /* NewsVC.xib in Resources */,
 				4ED32DE21E7F809C0075BF3F /* Assets.xcassets in Resources */,
+				0323E1CF1E83B70B00E6300F /* NewCell.xib in Resources */,
 				4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,7 +486,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */,
 				4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */,
+				0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */,
 				4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */,
 				4E13D2321E836059002E03A1 /* LanguageManager.swift in Sources */,
 				4E13D2541E836BC1002E03A1 /* MoreVC.swift in Sources */,
@@ -486,6 +501,7 @@
 				4E13D22F1E836035002E03A1 /* PostService.swift in Sources */,
 				4E13D2511E8365B3002E03A1 /* Extensions.swift in Sources */,
 				4E13D22E1E836035002E03A1 /* APIService.swift in Sources */,
+				03EF40301E836F7000D14F0D /* NewService.swift in Sources */,
 				4ED32DE01E7F809C0075BF3F /* PPCApp.xcdatamodeld in Sources */,
 				4ED32DD81E7F809C0075BF3F /* AppDelegate.swift in Sources */,
 				4ED32E041E7FBC600075BF3F /* MainTabVC.swift in Sources */,
