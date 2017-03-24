@@ -40,7 +40,6 @@ class MainTabVC: UITabBarController {
         
         self.viewControllers = [homeNav, PostNav, newsNav, moreNav]
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
