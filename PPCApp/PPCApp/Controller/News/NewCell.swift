@@ -15,6 +15,7 @@ class NewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     var heightImage:CGFloat = 0.0
+    
     override func layoutSubviews() {
         super.layoutSubviews()
     }
