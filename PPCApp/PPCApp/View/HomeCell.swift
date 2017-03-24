@@ -45,7 +45,7 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         collectionViewPost.register(PostCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(collectionViewPost)
-        addConstraintWithFormat(format: "V:|[v0]-50-|", views: collectionViewPost)
+        addConstraintWithFormat(format: "V:|[v0]-45-|", views: collectionViewPost)
         addConstraintWithFormat(format: "H:|[v0]|", views: collectionViewPost)
     }
     
