@@ -8,4 +8,7 @@
 
 domain = "http://api.ppc-timeshare.com/api/vi/";
 domainPPC = "http://api.perfectpropertyvn.com/v2/vi/";
-
+recruitment = "Tuyển dụng";
+partners = "Đối Tác";
+introduction = "Giới thiệu PPC";
+terms = "Điều Kiện";

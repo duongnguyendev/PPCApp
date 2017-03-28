@@ -10,17 +10,15 @@ import UIKit
 import FontAwesome_swift
 
 class MainTabVC: UITabBarController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // home
         let tabHome = HomeVC()
         let homeNav = UINavigationController(rootViewController: tabHome)
         let homeIcon = UIImage.fontAwesomeIcon(name: .home, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
         let tabHomeBarItem = UITabBarItem(title: "Home", image: homeIcon, selectedImage: homeIcon)
         tabHomeBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
-                                               NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
+                                            NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)
         homeNav.tabBarItem = tabHomeBarItem
         

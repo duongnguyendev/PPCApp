@@ -9,7 +9,6 @@
 import Foundation
 import SwiftyJSON
 class NewDataModel: NSObject {
-    
     let id:Int
     let id_category:Int
     let image:String
@@ -19,7 +18,6 @@ class NewDataModel: NSObject {
     let status:Int
     let slug:String
     let title:String
-    
     init(json: JSON) {
         id = json["id"].int ?? -1
         id_category = json["id_category"].int ?? -1

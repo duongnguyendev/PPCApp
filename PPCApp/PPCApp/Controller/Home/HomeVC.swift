@@ -104,7 +104,6 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         self.navigationItem.rightBarButtonItem = filterButton
     }
     
-    
     //MARK: - Post detail delegate
     
     func seleted(index: IndexPath) {

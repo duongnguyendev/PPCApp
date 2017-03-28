@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 
 class APIService: NSObject {
-    
     func post(url : String, parameters: Parameters, completion: @escaping ((JSON?, Error?)->())){
         Alamofire.request(self.urlFrom(request: url), method: .post, parameters: parameters).responseJSON { (response) in
             switch response.result {
@@ -25,7 +24,6 @@ class APIService: NSObject {
             }
         }
     }
-    
     func get(url : String, completion:@escaping ((JSON?,Error?)->())){
         Alamofire.request(self.urlFrom(request: url)).responseJSON { (response) in
             switch response.result {
