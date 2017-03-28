@@ -12,7 +12,7 @@ class NewService: BaseService{
     static let shared = NewService()
     
     //Get Info News
-    func getNews(completion: @escaping (_ news: [NewDataModel])->Void) {
+    func getNews(completion: @escaping ([NewDataModel]?)->Void) {
         let url = "getnews"
         apiService.get(url: url) { (json, error) in
             if error == nil{
@@ -24,9 +24,9 @@ class NewService: BaseService{
                 completion(news)
             }
             else{
-                print("Error:\(error?.localizedDescription)")
+                completion(nil)
             }
-
         }
     }//end getNews
+    
 }

@@ -5,11 +5,13 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoreVC" customModule="PPCApp" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="0Np-ci-q5s" id="JgA-JX-RwO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,7 +19,44 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQG-fs-LR7">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="FMf-sn-GxD">
+                            <rect key="frame" x="162.5" y="22" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="WfW-c1-EoY"/>
+                                <constraint firstAttribute="height" constant="50" id="XT7-cR-4wh"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="FMf-sn-GxD" firstAttribute="centerX" secondItem="PQG-fs-LR7" secondAttribute="centerX" id="Rof-jk-2wv"/>
+                        <constraint firstAttribute="width" secondItem="PQG-fs-LR7" secondAttribute="height" multiplier="4:1" id="TJg-Jx-bbI"/>
+                        <constraint firstItem="FMf-sn-GxD" firstAttribute="centerY" secondItem="PQG-fs-LR7" secondAttribute="centerY" id="ohi-JE-b3K"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Np-ci-q5s">
+                    <rect key="frame" x="0.0" y="94" width="375" height="573"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="PQG-fs-LR7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bsu-bc-BiL"/>
+                <constraint firstAttribute="trailing" secondItem="0Np-ci-q5s" secondAttribute="trailing" id="Iel-Du-OpG"/>
+                <constraint firstAttribute="trailing" secondItem="PQG-fs-LR7" secondAttribute="trailing" id="a0B-Sm-IRH"/>
+                <constraint firstAttribute="bottom" secondItem="0Np-ci-q5s" secondAttribute="bottom" id="fwS-fE-Hew"/>
+                <constraint firstItem="0Np-ci-q5s" firstAttribute="top" secondItem="PQG-fs-LR7" secondAttribute="bottom" id="hy0-yN-f4M"/>
+                <constraint firstItem="0Np-ci-q5s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w05-mZ-BkS"/>
+                <constraint firstItem="PQG-fs-LR7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wEr-xv-mXo"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="65.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="sign" width="75" height="75"/>
+    </resources>
 </document>

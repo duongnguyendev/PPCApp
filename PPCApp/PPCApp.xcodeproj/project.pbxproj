@@ -7,9 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0314F0BE1E8A019400A4E15D /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0BD1E8A019400A4E15D /* TermsVC.swift */; };
+		0314F0C01E8A01C500A4E15D /* TermsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0314F0BF1E8A01C500A4E15D /* TermsVC.xib */; };
+		0314F0C31E8A033800A4E15D /* RecruitmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */; };
+		0314F0C51E8A036000A4E15D /* RecruitmentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0314F0C41E8A036000A4E15D /* RecruitmentVC.xib */; };
+		0314F0C81E8A047E00A4E15D /* IntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0C71E8A047E00A4E15D /* IntroductionVC.swift */; };
+		0314F0CA1E8A04B900A4E15D /* IntroductionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0314F0C91E8A04B900A4E15D /* IntroductionVC.xib */; };
+		0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0CC1E8A050900A4E15D /* PartnersVC.swift */; };
+		0314F0CF1E8A053100A4E15D /* PartnersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0314F0CE1E8A053100A4E15D /* PartnersVC.xib */; };
+		0322FDD71E88FBAB009B589B /* MoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0322FDD61E88FBAB009B589B /* MoreCell.xib */; };
+		0322FDD91E88FDA5009B589B /* MoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322FDD81E88FDA5009B589B /* MoreCell.swift */; };
+		0322FDDB1E89069A009B589B /* MoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322FDDA1E89069A009B589B /* MoreDataModel.swift */; };
 		0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1C81E83702000E6300F /* NewDataModel.swift */; };
 		0323E1CF1E83B70B00E6300F /* NewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0323E1CE1E83B70B00E6300F /* NewCell.xib */; };
 		0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1D01E83BAF600E6300F /* NewCell.swift */; };
+		03DFAED21E8917670051F37F /* MoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DFAED11E8917670051F37F /* MoreService.swift */; };
 		03EF40301E836F7000D14F0D /* NewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF402F1E836F7000D14F0D /* NewService.swift */; };
 		4E13D22E1E836035002E03A1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22C1E836035002E03A1 /* APIService.swift */; };
 		4E13D22F1E836035002E03A1 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22D1E836035002E03A1 /* PostService.swift */; };
@@ -49,9 +61,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0314F0BD1E8A019400A4E15D /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		0314F0BF1E8A01C500A4E15D /* TermsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsVC.xib; sourceTree = "<group>"; };
+		0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentVC.swift; sourceTree = "<group>"; };
+		0314F0C41E8A036000A4E15D /* RecruitmentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecruitmentVC.xib; sourceTree = "<group>"; };
+		0314F0C71E8A047E00A4E15D /* IntroductionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionVC.swift; sourceTree = "<group>"; };
+		0314F0C91E8A04B900A4E15D /* IntroductionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroductionVC.xib; sourceTree = "<group>"; };
+		0314F0CC1E8A050900A4E15D /* PartnersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersVC.swift; sourceTree = "<group>"; };
+		0314F0CE1E8A053100A4E15D /* PartnersVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnersVC.xib; sourceTree = "<group>"; };
+		0322FDD61E88FBAB009B589B /* MoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreCell.xib; sourceTree = "<group>"; };
+		0322FDD81E88FDA5009B589B /* MoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreCell.swift; sourceTree = "<group>"; };
+		0322FDDA1E89069A009B589B /* MoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreDataModel.swift; path = PPCApp/Controller/More/MoreDataModel.swift; sourceTree = SOURCE_ROOT; };
 		0323E1C81E83702000E6300F /* NewDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewDataModel.swift; path = PPCApp/AppService/NewDataModel.swift; sourceTree = SOURCE_ROOT; };
 		0323E1CE1E83B70B00E6300F /* NewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCell.xib; sourceTree = "<group>"; };
 		0323E1D01E83BAF600E6300F /* NewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCell.swift; sourceTree = "<group>"; };
+		03DFAED11E8917670051F37F /* MoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreService.swift; sourceTree = "<group>"; };
 		03EF402F1E836F7000D14F0D /* NewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewService.swift; sourceTree = "<group>"; };
 		25EEFB10212C2556A9870E92 /* Pods_PPCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE0FCB6F5347FFE291379D4 /* Pods-PPCAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PPCAppTests/Pods-PPCAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,12 +138,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0314F0BC1E8A017400A4E15D /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				0314F0BD1E8A019400A4E15D /* TermsVC.swift */,
+				0314F0BF1E8A01C500A4E15D /* TermsVC.xib */,
+			);
+			name = Terms;
+			sourceTree = "<group>";
+		};
+		0314F0C11E8A031500A4E15D /* Recruitment */ = {
+			isa = PBXGroup;
+			children = (
+				0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */,
+				0314F0C41E8A036000A4E15D /* RecruitmentVC.xib */,
+			);
+			name = Recruitment;
+			sourceTree = "<group>";
+		};
+		0314F0C61E8A041600A4E15D /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				0314F0C71E8A047E00A4E15D /* IntroductionVC.swift */,
+				0314F0C91E8A04B900A4E15D /* IntroductionVC.xib */,
+			);
+			name = Introduction;
+			sourceTree = "<group>";
+		};
+		0314F0CB1E8A04F600A4E15D /* Partners */ = {
+			isa = PBXGroup;
+			children = (
+				0314F0CC1E8A050900A4E15D /* PartnersVC.swift */,
+				0314F0CE1E8A053100A4E15D /* PartnersVC.xib */,
+			);
+			name = Partners;
+			sourceTree = "<group>";
+		};
 		4E13D22B1E836035002E03A1 /* AppService */ = {
 			isa = PBXGroup;
 			children = (
 				4E13D22C1E836035002E03A1 /* APIService.swift */,
 				4E13D22D1E836035002E03A1 /* PostService.swift */,
 				03EF402F1E836F7000D14F0D /* NewService.swift */,
+				03DFAED11E8917670051F37F /* MoreService.swift */,
 			);
 			path = AppService;
 			sourceTree = "<group>";
@@ -154,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				0323E1C81E83702000E6300F /* NewDataModel.swift */,
+				0322FDDA1E89069A009B589B /* MoreDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,8 +313,14 @@
 		4ED32E081E7FBC930075BF3F /* More */ = {
 			isa = PBXGroup;
 			children = (
+				0314F0CB1E8A04F600A4E15D /* Partners */,
+				0314F0C61E8A041600A4E15D /* Introduction */,
+				0314F0C11E8A031500A4E15D /* Recruitment */,
+				0314F0BC1E8A017400A4E15D /* Terms */,
 				4E13D2521E836BC1002E03A1 /* MoreVC.swift */,
 				4E13D2531E836BC1002E03A1 /* MoreVC.xib */,
+				0322FDD61E88FBAB009B589B /* MoreCell.xib */,
+				0322FDD81E88FDA5009B589B /* MoreCell.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -333,7 +401,7 @@
 				TargetAttributes = {
 					4ED32DD31E7F809C0075BF3F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FE5FXN233L;
+						DevelopmentTeam = 7R93MWJ8VY;
 						ProvisioningStyle = Automatic;
 					};
 					4ED32DEA1E7F809C0075BF3F = {
@@ -369,13 +437,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0322FDD71E88FBAB009B589B /* MoreCell.xib in Resources */,
 				4E13D2551E836BC1002E03A1 /* MoreVC.xib in Resources */,
 				4ED32DE51E7F809C0075BF3F /* LaunchScreen.storyboard in Resources */,
 				4E13D2431E83621C002E03A1 /* Localizable.strings in Resources */,
 				4E13D2591E836BDC002E03A1 /* NewsVC.xib in Resources */,
+				0314F0C51E8A036000A4E15D /* RecruitmentVC.xib in Resources */,
 				4ED32DE21E7F809C0075BF3F /* Assets.xcassets in Resources */,
+				0314F0CF1E8A053100A4E15D /* PartnersVC.xib in Resources */,
+				0314F0C01E8A01C500A4E15D /* TermsVC.xib in Resources */,
 				0323E1CF1E83B70B00E6300F /* NewCell.xib in Resources */,
 				4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */,
+				0314F0CA1E8A04B900A4E15D /* IntroductionVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,18 +559,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0314F0BE1E8A019400A4E15D /* TermsVC.swift in Sources */,
+				0314F0C31E8A033800A4E15D /* RecruitmentVC.swift in Sources */,
+				0322FDD91E88FDA5009B589B /* MoreCell.swift in Sources */,
 				0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */,
 				4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */,
 				0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */,
 				4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */,
 				4E13D2321E836059002E03A1 /* LanguageManager.swift in Sources */,
+				03DFAED21E8917670051F37F /* MoreService.swift in Sources */,
 				4E13D2541E836BC1002E03A1 /* MoreVC.swift in Sources */,
+				0314F0C81E8A047E00A4E15D /* IntroductionVC.swift in Sources */,
+				0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
 				4E13D2581E836BDC002E03A1 /* NewsVC.swift in Sources */,
 				4E13D25B1E837E7A002E03A1 /* HomeCell.swift in Sources */,
 				4E13D2601E83B742002E03A1 /* PostDetailVC.swift in Sources */,
 				4E13D2621E83BCED002E03A1 /* FilterVC.swift in Sources */,
 				4E13D25E1E8382E9002E03A1 /* PostCell.swift in Sources */,
+				0322FDDB1E89069A009B589B /* MoreDataModel.swift in Sources */,
 				4E13D22F1E836035002E03A1 /* PostService.swift in Sources */,
 				4E13D2511E8365B3002E03A1 /* Extensions.swift in Sources */,
 				4E13D22E1E836035002E03A1 /* APIService.swift in Sources */,
@@ -661,7 +741,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FE5FXN233L;
+				DEVELOPMENT_TEAM = 7R93MWJ8VY;
 				INFOPLIST_FILE = PPCApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -677,7 +757,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FE5FXN233L;
+				DEVELOPMENT_TEAM = 7R93MWJ8VY;
 				INFOPLIST_FILE = PPCApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

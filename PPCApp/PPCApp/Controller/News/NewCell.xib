@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,36 +16,36 @@
             <rect key="frame" x="0.0" y="0.0" width="267" height="228"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYB-qx-Zqg" id="dJ2-ca-y8P">
-                <rect key="frame" x="0.0" y="0.0" width="267" height="227"/>
+                <rect key="frame" x="0.0" y="0.0" width="267" height="227.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bDf-5F-sYk">
-                        <rect key="frame" x="0.0" y="0.0" width="267" height="145"/>
+                        <rect key="frame" x="0.0" y="0.0" width="267" height="150"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="145" id="sB8-52-2Mw"/>
+                            <constraint firstAttribute="width" secondItem="bDf-5F-sYk" secondAttribute="height" multiplier="16:9" id="VDO-ad-q5W"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEASONS AVANUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lN2-ed-g5x">
-                        <rect key="frame" x="8" y="155" width="147" height="21"/>
+                        <rect key="frame" x="8" y="160" width="147" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAD-WD-Tcq">
-                        <rect key="frame" x="8" y="186" width="62" height="16"/>
+                        <rect key="frame" x="8" y="191" width="62" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="bDf-5F-sYk" firstAttribute="leading" secondItem="dJ2-ca-y8P" secondAttribute="leading" id="2Bc-sM-MJ1"/>
-                    <constraint firstItem="lAD-WD-Tcq" firstAttribute="leading" secondItem="dJ2-ca-y8P" secondAttribute="leadingMargin" id="2fE-5V-Qrk"/>
-                    <constraint firstItem="lN2-ed-g5x" firstAttribute="leading" secondItem="dJ2-ca-y8P" secondAttribute="leadingMargin" id="6uY-SV-hn2"/>
-                    <constraint firstItem="bDf-5F-sYk" firstAttribute="top" secondItem="dJ2-ca-y8P" secondAttribute="top" id="8W5-sv-4LD"/>
-                    <constraint firstAttribute="trailing" secondItem="bDf-5F-sYk" secondAttribute="trailing" id="DOc-xz-x37"/>
-                    <constraint firstItem="lN2-ed-g5x" firstAttribute="top" secondItem="bDf-5F-sYk" secondAttribute="bottom" constant="10" id="s2K-Nz-5Xb"/>
-                    <constraint firstItem="lAD-WD-Tcq" firstAttribute="top" secondItem="lN2-ed-g5x" secondAttribute="bottom" constant="10" id="uY4-WD-djj"/>
+                    <constraint firstItem="bDf-5F-sYk" firstAttribute="leading" secondItem="dJ2-ca-y8P" secondAttribute="leading" id="IdQ-21-8kw"/>
+                    <constraint firstAttribute="trailing" secondItem="bDf-5F-sYk" secondAttribute="trailing" id="JJh-m7-pup"/>
+                    <constraint firstItem="lN2-ed-g5x" firstAttribute="leading" secondItem="dJ2-ca-y8P" secondAttribute="leadingMargin" id="O60-2x-ew0"/>
+                    <constraint firstItem="lAD-WD-Tcq" firstAttribute="leading" secondItem="dJ2-ca-y8P" secondAttribute="leadingMargin" id="OwP-gD-j1I"/>
+                    <constraint firstItem="lAD-WD-Tcq" firstAttribute="top" secondItem="lN2-ed-g5x" secondAttribute="bottom" constant="10" id="Tis-Au-QT7"/>
+                    <constraint firstItem="lN2-ed-g5x" firstAttribute="top" secondItem="bDf-5F-sYk" secondAttribute="bottom" constant="10" id="aYi-Jy-QfS"/>
+                    <constraint firstItem="bDf-5F-sYk" firstAttribute="top" secondItem="dJ2-ca-y8P" secondAttribute="top" id="cE9-CJ-MET"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -52,7 +53,7 @@
                 <outlet property="newImage" destination="bDf-5F-sYk" id="rGV-aF-ljB"/>
                 <outlet property="titleLabel" destination="lN2-ed-g5x" id="Cy8-Ii-8Fg"/>
             </connections>
-            <point key="canvasLocation" x="-79.5" y="-22"/>
+            <point key="canvasLocation" x="-130" y="-5"/>
         </tableViewCell>
     </objects>
 </document>
