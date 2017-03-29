@@ -17,6 +17,14 @@ extension UIBarButtonItem{
     }
 }
 
+extension String {
+    static func heightWith(string: String, size : CGSize, font : UIFont) -> CGFloat{
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        let estimatedRect = NSString(string: string).boundingRect(with: size, options: options, attributes: [NSFontAttributeName : font], context: nil)
+        return estimatedRect.height
+    }
+}
+
 extension UIColor {
     static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
@@ -27,6 +35,9 @@ extension UIColor {
     
     static func navigationBar() -> UIColor{
         return UIColor.rgb(red: 52, green: 34, blue: 20)
+    }
+    static func title() -> UIColor{
+        return UIColor.rgb(red: 251, green: 250, blue: 206)
     }
 }
 

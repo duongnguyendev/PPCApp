@@ -8,13 +8,142 @@
 
 import UIKit
 
-class PostDetailVC: BaseVC {
-
+class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    let margin : CGFloat = 20.0
+    let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = "Name Project"
+        collectionViewImage.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
     }
+    
+    let mainScrollView : UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    let contentView : UIView = {
+        
+        //content all view
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let imageViewPoster : CustomImageView = {
+        let iv = CustomImageView(image: UIImage(named: "vinpearl"))
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
+    
+    let buttonCall : UIButton = {
+        let button = UIButton(type: UIButtonType.custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleCallButton(_:)), for: .touchUpInside)
+        button.setTitle("Call", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
+        button.setTitleColor(UIColor.title(), for: .normal)
+        button.backgroundColor = UIColor.navigationBar()
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 5
+        return button
+    }()
+    
+    let buttonEmail : UIButton = {
+        let button = UIButton(type: UIButtonType.custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleEmailButton(_:)), for: .touchUpInside)
+        button.setTitle("Mail", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
+        button.setTitleColor(UIColor.navigationBar(), for: .normal)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 5
+        button.layer.borderColor = UIColor.navigationBar().cgColor
+        button.layer.borderWidth = 2
+        
+        return button
+    }()
+    
+    let textViewdDescription : UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightLight)
+        textView.textAlignment = .justified
+        textView.isScrollEnabled = false
+        textView.isEditable = false
+        return textView
+    }()
+    
+    lazy var collectionViewImage : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.showsHorizontalScrollIndicator = false
+        cv.delegate = self
+        cv.dataSource = self
+        cv.backgroundColor = UIColor.clear
+        return cv
+    }()
+    
+    let buttonGeneralLayout : GeneralButton = {
+        let button = GeneralButton(type: UIButtonType.custom)
+        button.addTarget(self, action: #selector(handleGeneralLayoutButton(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    let projectView : PostDetailInfoView = {
+        let view = PostDetailInfoView()
+        view.title = "Project"
+        view.content = "Seasons Avenue"
+        return view
+    }()
+    let investorsView : PostDetailInfoView = {
+        let view = PostDetailInfoView()
+        view.title = "Investors"
+        view.content = "Novaland Group"
+        return view
+    }()
+    let locationsView : PostDetailInfoView = {
+        let view = PostDetailInfoView()
+        view.title = "Locations"
+        view.content = "537 Nguy Duy Trinh, District 2, Ho Chi Minh City, VietNam"
+        return view
+    }()
+    let formsOfPropertyView : PostDetailInfoView = {
+        let view = PostDetailInfoView()
+        view.title = "Forms of property ownership"
+        view.content = "Freehold for local Vietnamese, 50 years long term lease for foreignes"
+        return view
+    }()
+    let projectAreaView : PostDetailInfoView = {
+        let view = PostDetailInfoView()
+        view.title = "Project area"
+        view.content = "40m2"
+        return view
+    }()
+    let apartmentInfomationView : PostDetailInfoView = {
+        let view = PostDetailInfoView()
+        view.title = "Apartmet infomation"
+        view.content = "Floors: 2\nBedrooms: 2\nBathrooms: 1"
+        return view
+    }()
+    let totalApartmentView : PostDetailInfoView = {
+        let view = PostDetailInfoView()
+        view.title = "Total Apartments"
+        view.content = "25 apartments"
+        return view
+    }()
+    let convenientServicesView : PostDetailInfoView = {
+        let view = PostDetailInfoView()
+        view.title = "Convenient Services"
+        view.content = "Swimming pool\nMulti-purpose hall\nGym\nOutdoor Family Corner\nPicnicLawn\nFood reflexology track\nChildren Playground\nBBQ Cabana"
+        return view
+    }()
+    
+    //MARK: - Setup View
     override func setupView() {
         super.setupView()
         setupMainScrollView()
@@ -206,4 +335,5 @@ class PostDetailVC: BaseVC {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width/4 - 0.5, height: view.frame.size.width/4 - 0.5)
     }
+    
 }

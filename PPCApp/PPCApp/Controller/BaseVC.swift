@@ -20,7 +20,7 @@ class BaseVC: UIViewController {
     }
     func setupNavBar(){
         self.navigationController?.navigationBar.titleTextAttributes =
-            [NSForegroundColorAttributeName: UIColor.rgb(red: 251, green: 250, blue: 206),
+            [NSForegroundColorAttributeName: UIColor.title(),
              NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)]
         
         navigationController?.navigationBar.isTranslucent = false
@@ -59,5 +59,6 @@ class BaseVC: UIViewController {
     }
     
     func setupView(){
+        
     }
 }
