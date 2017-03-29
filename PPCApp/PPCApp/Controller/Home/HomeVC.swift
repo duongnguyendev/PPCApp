@@ -13,7 +13,7 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
+        title = LanguageManager.shared.localized(string: "home")
         //        let assets = PHAsset.fetchAssets(with: .image, options: nil)
         //        PHImageManager.default().requestImage(for: assets[0], targetSize: CGSize(width: 1000, height: 1000), contentMode: .default, options: nil, resultHandler: { (image, nil) in
         //            self.view.backgroundColor = UIColor.init(patternImage: image!)
@@ -47,6 +47,7 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     override func setupNavBar() {
         super.setupNavBar()
         addFilterButton()
+        addSearchButton()
         
     }
     
@@ -68,9 +69,14 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         self.homeCollectionView.scrollToItem(at: index, at: .left, animated: true)
     }
     
-    //Mark: - filter
+    //Mark: - nav button handle
     
     func handleFilter(){
+        let filterVC = FilterVC()
+        self.present(viewController: filterVC)
+    }
+    
+    func handleSearch() {
         let filterVC = FilterVC()
         self.present(viewController: filterVC)
     }
@@ -103,6 +109,13 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         filterButton.customTitle()
         self.navigationItem.rightBarButtonItem = filterButton
     }
+    func addSearchButton(){
+        let searchButton = UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: .search, textColor: UIColor.white, size: CGSize(width: 25, height: 30)), style: .done, target: self, action: #selector(handleSearch))
+        searchButton.customTitle()
+        searchButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = searchButton
+    }
+    
     
     //MARK: - Post detail delegate
     
