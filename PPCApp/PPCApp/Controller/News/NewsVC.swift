@@ -19,7 +19,6 @@ class NewsVC: BaseVC {
         tableView.delegate = self
         tableView.register(UINib(nibName: "NewCell", bundle: nil), forCellReuseIdentifier: "NewCell")
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,7 +33,6 @@ class NewsVC: BaseVC {
             }
         }
     }
-    
     /*
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -63,7 +61,7 @@ extension NewsVC: UITableViewDataSource,UITableViewDelegate{
          let estimatedRect = NSString(string: text!).boundingRect(with: size, options: options, attributes: [NSFontAttributeName : UIFont.init(name: "Roboto-Medium", size: 14) as Any], context: nil)*/
         //print("Height TableView: \(view.frame.width * 9 / 16 + 80)")
         //print("Height Screen: \(view.frame.width * 9 / 16)")
-        return CGFloat(view.frame.width * 9 / 16 + 80)
+        return CGFloat(view.frame.width * 9 / 16 + 90)
         
     }
 }

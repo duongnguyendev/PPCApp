@@ -7,3 +7,5 @@
 */
 
 domain = "http://api.ppc-timeshare.com/api/";
+use_terms = "";
+desc_terms = "";

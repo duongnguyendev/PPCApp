@@ -7,7 +7,11 @@
 //
 
 import Foundation
+import UIKit
 class TermsVC: BaseVC {
+    
+    @IBOutlet weak var useTermsLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +22,10 @@ class TermsVC: BaseVC {
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(_ animated: Bool) {
-        
+        let useTerms = LanguageManager.shared.localized(string: "use_terms")
+        let descTerms = LanguageManager.shared.localized(string: "desc_terms")
+        useTermsLabel.text = useTerms
+        descLabel.text = descTerms
     }
 
 }

@@ -8,9 +8,7 @@
 
 import Foundation
 class NewService: BaseService{
-    
     static let shared = NewService()
-    
     //Get Info News
     func getNews(completion: @escaping ([NewDataModel]?)->Void) {
         let url = "getnews"

@@ -12,4 +12,5 @@ recruitment = "Recruitment";
 partners = "Partners";
 introduction = "Introduction PPC";
 terms = "Terms";
-
+use_terms = "";
+desc_terms = "";
