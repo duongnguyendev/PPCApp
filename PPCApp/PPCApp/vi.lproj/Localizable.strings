@@ -13,3 +13,37 @@ partners = "Đối Tác";
 introduction = "Giới thiệu PPC";
 terms = "Điều Kiện";
 home = "Trang chủ";
+use_terms = "ĐIỀU KIỆN SỬ DỤNG(PPC app)";
+desc_terms = "ỨNG DỤNG PPC thuộc quyền sử dụng và quản lý công\n";
+            //"ty cổ phần môi giới bất động sản Perfect Property Compa-\n"
+            //"ny.KHI TRUY CẬP ỨNG DỤNG NÀY,QUÝ\n"
+            //"KHÁCH ĐÃ MẶC NHIÊN ĐỒNG Ý VỚI CÁC ĐIỀU KHOẢN\n"
+            //"VÀ ĐIỀU KIỆN ĐÃ RA Ở ĐÂY.DO VẬY ĐỀ NGHỊ QUÝ\n"
+            //"KHÁCH ĐỌC VÀ NGHIÊN CỨU TRƯỚC KHI SỬ DỤNG\n"
+            //"TIẾP."
+            //"1.Điều khoản chung\n"
+            //"Khi sử dụng PPC,Quý khách đã mặc nhiên chấp\n"
+            //"thuận các điều khoản và điều kiện sử dụng được quy định\n"
+            //"dưới đây.Để biết được các sữa đổi mới nhất,Quý khách\n"
+            //"nên thường xuyên kiểm tra lại 'Điều kiện sử dụng'.PPC\n"
+            //"có quyền thay đổi,điều chỉnh,thêm bớt các nội dung\n"
+            //"của 'Điều kiện sử dụng' tại bất kỳ thời điểm nào.Nếu Quý khách\n"
+            //"vẫn tiếp tục sử dụng app sau khi có các thay đổi\n"
+            //"như vậy có nghĩa là Quý khách đã chấp thuận các thay\n"
+            //"đổi đó."
+            //"2.Dịch vụ và trách nhiệm của PPC\n"
+            //"Cung cấp thông tin điện tử tổng hợp và tích hợp với mạng\n"
+            //"xã hội.PPC có quyền và không cần thông báo trước,điều\n"
+            //"chỉnh những dịch vụ hoặc xoá những thông tin\n"
+            //"mà bạn coment trên app để đảm bảo những thông tin\n"
+            //"được đăng tải phù hợp với quy chế app.\n"
+            //"3.Trách nhiệm của bạn\n"
+            //"Không sử dụng vào các mục đích phi pháp,bị cấm\n"
+            //"theo quy định của pháp luật(ở đây được ngầm hiểu là\n"
+            //"Pháp luật nước Cộng Hoà Xã Hội Chủ Nghĩa Việt Nam)\n"
+            //"hoặc vi phạm các quyền hợp pháp,gây trở ngại,hạn chế\n"
+            //"việc sử dụng dịch vụ của người khác.\n"
+            //"Không được gây thiệt hại,phá hoại,làm suy yếu hoặc\n"
+            //"hư hại dịch vụ và app của PPC.Không được phát tán các tập\n"
+            //"tin chứa virus,các chương trình phá hoại,hoặc các tập\n"
+            //"tin,chương trình phần mềm gây hại đến dịch vụ.";

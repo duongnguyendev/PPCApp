@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,46 +18,56 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQG-fs-LR7">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="FMf-sn-GxD">
-                            <rect key="frame" x="162.5" y="22" width="50" height="50"/>
+                            <rect key="frame" x="135" y="35" width="50" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="WfW-c1-EoY"/>
-                                <constraint firstAttribute="height" constant="50" id="XT7-cR-4wh"/>
+                                <constraint firstAttribute="height" constant="50" id="1Q3-8a-e1I"/>
+                                <constraint firstAttribute="width" constant="50" id="OBx-IX-477"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in/Sign up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSn-J7-8t0">
+                            <rect key="frame" x="109" y="90" width="103" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="FMf-sn-GxD" firstAttribute="centerX" secondItem="PQG-fs-LR7" secondAttribute="centerX" id="Rof-jk-2wv"/>
-                        <constraint firstAttribute="width" secondItem="PQG-fs-LR7" secondAttribute="height" multiplier="4:1" id="TJg-Jx-bbI"/>
-                        <constraint firstItem="FMf-sn-GxD" firstAttribute="centerY" secondItem="PQG-fs-LR7" secondAttribute="centerY" id="ohi-JE-b3K"/>
+                        <constraint firstItem="FMf-sn-GxD" firstAttribute="centerX" secondItem="PQG-fs-LR7" secondAttribute="centerX" id="Edz-Lr-acP"/>
+                        <constraint firstItem="sSn-J7-8t0" firstAttribute="top" secondItem="FMf-sn-GxD" secondAttribute="bottom" constant="5" id="d55-rP-ogK"/>
+                        <constraint firstItem="sSn-J7-8t0" firstAttribute="centerX" secondItem="PQG-fs-LR7" secondAttribute="centerX" id="kKf-Cc-nRC"/>
+                        <constraint firstItem="FMf-sn-GxD" firstAttribute="centerY" secondItem="PQG-fs-LR7" secondAttribute="centerY" id="t7a-kg-xHO"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Np-ci-q5s">
-                    <rect key="frame" x="0.0" y="94" width="375" height="573"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Np-ci-q5s">
+                    <rect key="frame" x="0.0" y="128" width="320" height="176"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="176" id="enM-wf-Kk5"/>
+                    </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="PQG-fs-LR7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bsu-bc-BiL"/>
-                <constraint firstAttribute="trailing" secondItem="0Np-ci-q5s" secondAttribute="trailing" id="Iel-Du-OpG"/>
-                <constraint firstAttribute="trailing" secondItem="PQG-fs-LR7" secondAttribute="trailing" id="a0B-Sm-IRH"/>
-                <constraint firstAttribute="bottom" secondItem="0Np-ci-q5s" secondAttribute="bottom" id="fwS-fE-Hew"/>
-                <constraint firstItem="0Np-ci-q5s" firstAttribute="top" secondItem="PQG-fs-LR7" secondAttribute="bottom" id="hy0-yN-f4M"/>
-                <constraint firstItem="0Np-ci-q5s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w05-mZ-BkS"/>
-                <constraint firstItem="PQG-fs-LR7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wEr-xv-mXo"/>
+                <constraint firstItem="PQG-fs-LR7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FPJ-1e-jLr"/>
+                <constraint firstItem="0Np-ci-q5s" firstAttribute="top" secondItem="PQG-fs-LR7" secondAttribute="bottom" constant="8" symbolic="YES" id="Npm-74-Jli"/>
+                <constraint firstItem="PQG-fs-LR7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QVT-cg-WpF"/>
+                <constraint firstItem="PQG-fs-LR7" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:4" id="UUx-vq-V75"/>
+                <constraint firstAttribute="trailing" secondItem="PQG-fs-LR7" secondAttribute="trailing" id="gUz-kv-0tF"/>
+                <constraint firstAttribute="trailing" secondItem="0Np-ci-q5s" secondAttribute="trailing" id="lKn-UW-EIi"/>
+                <constraint firstItem="0Np-ci-q5s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tQk-fh-3AQ"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="65.5"/>
+            <point key="canvasLocation" x="33" y="65"/>
         </view>
     </objects>
     <resources>
-        <image name="sign" width="75" height="75"/>
+        <image name="sign" width="32" height="32"/>
     </resources>
 </document>

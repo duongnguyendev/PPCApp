@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TermsVC" customModule="PPCApp" customModuleProvider="target">
             <connections>
+                <outlet property="descLabel" destination="eW9-5I-L6j" id="kJE-H8-BWr"/>
+                <outlet property="useTermsLabel" destination="6zX-HE-zVc" id="pY1-9i-T2Q"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jCV-gy-Wag"/>
             </connections>
         </placeholder>
@@ -18,17 +20,25 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ĐIỀU KHOẢN SỬ DỤNG(PPC app)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zX-HE-zVc">
-                    <rect key="frame" x="58.5" y="8" width="260" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zX-HE-zVc">
+                    <rect key="frame" x="171" y="8" width="33.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eW9-5I-L6j">
+                    <rect key="frame" x="10" y="35" width="33" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="eW9-5I-L6j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="8X4-Ry-Uku"/>
                 <constraint firstItem="6zX-HE-zVc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TKw-rC-1Vd"/>
                 <constraint firstItem="6zX-HE-zVc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ZEa-5h-KYZ"/>
+                <constraint firstItem="eW9-5I-L6j" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="qkh-Oe-vs7"/>
             </constraints>
         </view>
     </objects>
