@@ -25,7 +25,6 @@
 		03A9EA9E1E8B8FD500EE1150 /* PartnersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A9EA9D1E8B8FD500EE1150 /* PartnersService.swift */; };
 		03DFAED21E8917670051F37F /* MoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DFAED11E8917670051F37F /* MoreService.swift */; };
 		03EF40301E836F7000D14F0D /* NewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF402F1E836F7000D14F0D /* NewService.swift */; };
-		4E0414111E8B9FBF00458B0A /* PostDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0414101E8B9FBF00458B0A /* PostDetailInfoView.swift */; };
 		03FDC76A1E8B4FBF001A2CD7 /* PartnersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FDC7691E8B4FBF001A2CD7 /* PartnersCell.swift */; };
 		03FDC76D1E8B5244001A2CD7 /* PartnersDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FDC76C1E8B5244001A2CD7 /* PartnersDataModel.swift */; };
 		4E13D22E1E836035002E03A1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22C1E836035002E03A1 /* APIService.swift */; };
@@ -41,6 +40,8 @@
 		4E13D25E1E8382E9002E03A1 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D25D1E8382E9002E03A1 /* PostCell.swift */; };
 		4E13D2601E83B742002E03A1 /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D25F1E83B742002E03A1 /* PostDetailVC.swift */; };
 		4E13D2621E83BCED002E03A1 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D2611E83BCED002E03A1 /* FilterVC.swift */; };
+		4E456C561E8BF831003D8C55 /* PostDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E456C551E8BF831003D8C55 /* PostDetailInfoView.swift */; };
+		4E456C581E8BF84D003D8C55 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E456C571E8BF84D003D8C55 /* SearchVC.swift */; };
 		4ED32DD81E7F809C0075BF3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32DD71E7F809C0075BF3F /* AppDelegate.swift */; };
 		4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED32DDB1E7F809C0075BF3F /* Main.storyboard */; };
 		4ED32DE01E7F809C0075BF3F /* PPCApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32DDE1E7F809C0075BF3F /* PPCApp.xcdatamodeld */; };
@@ -51,7 +52,6 @@
 		4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E091E7FBCAE0075BF3F /* HomeVC.swift */; };
 		4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E0B1E7FBCBF0075BF3F /* PostVC.swift */; };
 		4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32E111E7FC38F0075BF3F /* BaseVC.swift */; };
-		4EFAD3B01E8A636900D14919 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFAD3AF1E8A636900D14919 /* SearchVC.swift */; };
 		75048553B0E176D8E9E727B9 /* Pods_PPCApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EEFB10212C2556A9870E92 /* Pods_PPCApp.framework */; };
 		FACC84D0C2BD28A811DAC99C /* Pods_PPCAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FD0D050E0182ED9B44A883 /* Pods_PPCAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -92,7 +92,6 @@
 		25EEFB10212C2556A9870E92 /* Pods_PPCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE0FCB6F5347FFE291379D4 /* Pods-PPCAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PPCAppTests/Pods-PPCAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		31FD0D050E0182ED9B44A883 /* Pods_PPCAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E0414101E8B9FBF00458B0A /* PostDetailInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailInfoView.swift; sourceTree = "<group>"; };
 		4E13D22C1E836035002E03A1 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		4E13D22D1E836035002E03A1 /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		4E13D2311E836059002E03A1 /* LanguageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
@@ -112,6 +111,8 @@
 		4E13D25D1E8382E9002E03A1 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		4E13D25F1E83B742002E03A1 /* PostDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
 		4E13D2611E83BCED002E03A1 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		4E456C551E8BF831003D8C55 /* PostDetailInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailInfoView.swift; sourceTree = "<group>"; };
+		4E456C571E8BF84D003D8C55 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		4ED32DD41E7F809C0075BF3F /* PPCApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPCApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED32DD71E7F809C0075BF3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED32DDC1E7F809C0075BF3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,7 +127,6 @@
 		4ED32E091E7FBCAE0075BF3F /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		4ED32E0B1E7FBCBF0075BF3F /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		4ED32E111E7FC38F0075BF3F /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
-		4EFAD3AF1E8A636900D14919 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		63481EF2B4BF94E4C4BA930C /* Pods-PPCApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PPCApp/Pods-PPCApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7F8229B89E27EB125E266AEC /* Pods-PPCAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PPCAppTests/Pods-PPCAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C14D28E8AEF7AAEA4C41A0E4 /* Pods-PPCApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PPCApp/Pods-PPCApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,12 +188,6 @@
 			name = Partners;
 			sourceTree = "<group>";
 		};
-		4E04140F1E8B9C0800458B0A /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-				4E0414101E8B9FBF00458B0A /* PostDetailInfoView.swift */,
-			);
-			path = CustomView;
 		03A9EA9B1E8B8FAE00EE1150 /* More */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,10 +273,18 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		4E456C541E8BF831003D8C55 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				4E456C551E8BF831003D8C55 /* PostDetailInfoView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		4E4DD76B1E8217A100C0CD9B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4E04140F1E8B9C0800458B0A /* CustomView */,
+				4E456C541E8BF831003D8C55 /* CustomView */,
 				4E13D25C1E837EC1002E03A1 /* Cell */,
 			);
 			path = View;
@@ -361,10 +363,10 @@
 		4ED32E051E7FBC6A0075BF3F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4E456C571E8BF84D003D8C55 /* SearchVC.swift */,
 				4ED32E091E7FBCAE0075BF3F /* HomeVC.swift */,
 				4E13D25F1E83B742002E03A1 /* PostDetailVC.swift */,
 				4E13D2611E83BCED002E03A1 /* FilterVC.swift */,
-				4EFAD3AF1E8A636900D14919 /* SearchVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -470,12 +472,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Nguyen Duy Duong";
 				TargetAttributes = {
 					4ED32DD31E7F809C0075BF3F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FE5FXN233L;
+						DevelopmentTeam = 7R93MWJ8VY;
 						ProvisioningStyle = Automatic;
 					};
 					4ED32DEA1E7F809C0075BF3F = {
@@ -637,12 +639,11 @@
 				0314F0BE1E8A019400A4E15D /* TermsVC.swift in Sources */,
 				0314F0C31E8A033800A4E15D /* RecruitmentVC.swift in Sources */,
 				0322FDD91E88FDA5009B589B /* MoreCell.swift in Sources */,
-				4EFAD3B01E8A636900D14919 /* SearchVC.swift in Sources */,
+				4E456C561E8BF831003D8C55 /* PostDetailInfoView.swift in Sources */,
 				0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */,
 				03A9EA9E1E8B8FD500EE1150 /* PartnersService.swift in Sources */,
 				4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */,
 				0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */,
-				4E0414111E8B9FBF00458B0A /* PostDetailInfoView.swift in Sources */,
 				4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */,
 				4E13D2321E836059002E03A1 /* LanguageManager.swift in Sources */,
 				03DFAED21E8917670051F37F /* MoreService.swift in Sources */,
@@ -650,6 +651,7 @@
 				0314F0C81E8A047E00A4E15D /* IntroductionVC.swift in Sources */,
 				0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
+				4E456C581E8BF84D003D8C55 /* SearchVC.swift in Sources */,
 				4E13D2581E836BDC002E03A1 /* NewsVC.swift in Sources */,
 				4E13D25B1E837E7A002E03A1 /* HomeCell.swift in Sources */,
 				4E13D2601E83B742002E03A1 /* PostDetailVC.swift in Sources */,
@@ -771,7 +773,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -816,7 +818,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -831,14 +833,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FE5FXN233L;
+				DEVELOPMENT_TEAM = 7R93MWJ8VY;
 				INFOPLIST_FILE = PPCApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = duyduong.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -849,14 +849,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FE5FXN233L;
+				DEVELOPMENT_TEAM = 7R93MWJ8VY;
 				INFOPLIST_FILE = PPCApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = duyduong.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
