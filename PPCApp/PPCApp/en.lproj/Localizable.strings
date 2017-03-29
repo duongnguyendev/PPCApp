@@ -13,3 +13,5 @@ partners = "Partners";
 introduction = "Introduction PPC";
 terms = "Terms";
 home = "Home";
+use_terms = "";
+desc_terms = "";
