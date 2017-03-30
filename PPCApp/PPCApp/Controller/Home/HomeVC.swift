@@ -77,8 +77,8 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     
     func handleSearch() {
-        let filterVC = FilterVC()
-        self.present(viewController: filterVC)
+        let searchVC = SearchVC()
+        self.present(viewController: searchVC)
     }
     
     // collection delegate
