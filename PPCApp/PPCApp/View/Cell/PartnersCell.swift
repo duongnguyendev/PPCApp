@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 class PartnersCell: UITableViewCell {
-    
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var fieldLabel: UILabel!
@@ -18,7 +17,7 @@ class PartnersCell: UITableViewCell {
         super.awakeFromNib()
         //Initialization code
         companyLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightMedium)
-        fieldLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightThin)
+        fieldLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightThin)
     }
     var partners: PartnersDataModel!{
         didSet{

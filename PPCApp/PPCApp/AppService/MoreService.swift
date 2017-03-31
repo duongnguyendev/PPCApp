@@ -17,6 +17,7 @@ class MoreService: NSObject {
         mores.append(addMore(icon: "partners.png", desc: getDesc(key: "partners")))
         mores.append(addMore(icon: "introduction.png", desc: getDesc(key: "introduction")))
         mores.append(addMore(icon: "terms.png", desc: getDesc(key: "terms")))
+        mores.append(addMore(icon: "history.png", desc: getDesc(key: "history")))
         
         complention(mores)
     }

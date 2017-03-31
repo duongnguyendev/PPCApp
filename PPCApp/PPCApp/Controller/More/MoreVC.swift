@@ -70,6 +70,10 @@ extension MoreVC: UITableViewDataSource,UITableViewDelegate{
             //Present Detail Terms
             let terms = TermsVC()
             present(viewController: terms)
+        case 4:
+            let history = HistoryVC()
+            present(viewController: history)
+            
         default:
             break;
         }
