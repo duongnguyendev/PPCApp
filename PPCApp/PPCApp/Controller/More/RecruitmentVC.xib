@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecruitmentVC" customModule="PPCApp" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="z6D-5m-E0V" id="NS1-9z-bF2"/>
                 <outlet property="view" destination="iN0-l3-epB" id="oeX-C0-kdy"/>
             </connections>
         </placeholder>
@@ -18,8 +19,20 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z6D-5m-E0V">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="81" y="-225"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="z6D-5m-E0V" secondAttribute="bottom" id="3a9-sM-gj2"/>
+                <constraint firstItem="z6D-5m-E0V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="k8k-y9-edu"/>
+                <constraint firstItem="z6D-5m-E0V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pEP-LS-ahA"/>
+                <constraint firstAttribute="trailing" secondItem="z6D-5m-E0V" secondAttribute="trailing" id="prc-D8-6iG"/>
+            </constraints>
+            <point key="canvasLocation" x="81" y="-304"/>
         </view>
     </objects>
 </document>

@@ -10,13 +10,11 @@ import Foundation
 import UIKit
 
 extension UIBarButtonItem{
-    
     func customTitle(){
         self.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white,
                                      NSFontAttributeName: UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular)], for: .normal)
     }
 }
-
 extension String {
     static func heightWith(string: String, size : CGSize, font : UIFont) -> CGFloat{
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)

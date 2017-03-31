@@ -37,6 +37,7 @@ class APIService: NSObject {
             }
         }
     }
+    
     func urlFrom(request: String) -> String{
         return LanguageManager.shared.localized(string: "domainPPC")! + request
     }

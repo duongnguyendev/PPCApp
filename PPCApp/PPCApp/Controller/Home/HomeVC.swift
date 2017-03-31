@@ -10,7 +10,6 @@ import UIKit
 import Photos
 
 class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PostVCDelegate {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = LanguageManager.shared.localized(string: "home")
@@ -20,7 +19,6 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         //        })
         segmentedPostType.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         homeCollectionView.register(HomeCell.self, forCellWithReuseIdentifier: cellId)
-        
     }
     
     let segmentedPostType : UISegmentedControl = {

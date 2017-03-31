@@ -24,14 +24,17 @@ class NewsVC: BaseVC {
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(_ animated: Bool) {
-        NewService.shared.getNews { (news) in
+        /*NewService.shared.getNews { (news) in
             if news != nil{
                 self.news = news!
                 self.tableView.reloadData()
             }else{
                 
             }
-        }
+        }*/
+        
+        self.tableView.reloadData()
+
     }
     /*
     // MARK: - Navigation

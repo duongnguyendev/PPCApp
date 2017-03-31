@@ -11,7 +11,7 @@ import UIKit
 class TermsVC: BaseVC {
     
     @IBOutlet weak var useTermsLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var descTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class TermsVC: BaseVC {
         let useTerms = LanguageManager.shared.localized(string: "use_terms")
         let descTerms = LanguageManager.shared.localized(string: "desc_terms")
         useTermsLabel.text = useTerms
-        descLabel.text = descTerms
+        descTextView.text = descTerms
     }
 
 }

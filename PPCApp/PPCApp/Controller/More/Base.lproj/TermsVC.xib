@@ -4,13 +4,14 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TermsVC" customModule="PPCApp" customModuleProvider="target">
             <connections>
-                <outlet property="descLabel" destination="eW9-5I-L6j" id="kJE-H8-BWr"/>
+                <outlet property="descTextView" destination="TKU-4H-Sa9" id="PpA-Kf-djv"/>
                 <outlet property="useTermsLabel" destination="6zX-HE-zVc" id="pY1-9i-T2Q"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jCV-gy-Wag"/>
             </connections>
@@ -21,25 +22,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zX-HE-zVc">
-                    <rect key="frame" x="171" y="8" width="33.5" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="169.5" y="8" width="37.5" height="23.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eW9-5I-L6j">
-                    <rect key="frame" x="10" y="35" width="33" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="TKU-4H-Sa9">
+                    <rect key="frame" x="0.0" y="39" width="375" height="628"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="eW9-5I-L6j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="8X4-Ry-Uku"/>
+                <constraint firstItem="TKU-4H-Sa9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fgf-Ue-3zj"/>
                 <constraint firstItem="6zX-HE-zVc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TKw-rC-1Vd"/>
+                <constraint firstItem="TKU-4H-Sa9" firstAttribute="top" secondItem="6zX-HE-zVc" secondAttribute="bottom" constant="8" id="Wca-s1-E0B"/>
                 <constraint firstItem="6zX-HE-zVc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ZEa-5h-KYZ"/>
-                <constraint firstItem="eW9-5I-L6j" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="qkh-Oe-vs7"/>
+                <constraint firstAttribute="bottom" secondItem="TKU-4H-Sa9" secondAttribute="bottom" id="qqw-am-SXZ"/>
+                <constraint firstAttribute="trailing" secondItem="TKU-4H-Sa9" secondAttribute="trailing" id="yaa-au-eqs"/>
             </constraints>
+            <point key="canvasLocation" x="37" y="44"/>
         </view>
     </objects>
 </document>
