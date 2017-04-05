@@ -9,7 +9,6 @@
 import UIKit
 
 class BaseVC: UIViewController {
-
     var presented : Bool?
     override func viewDidLoad() {
         super.viewDidLoad()

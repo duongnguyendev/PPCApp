@@ -11,7 +11,6 @@ import UIKit
 class RecruitmentVC: BaseVC {
     
     @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Recruitment"
@@ -43,6 +42,9 @@ extension RecruitmentVC: UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Click Select Index Recruitment
+        
+        let detailVC = RecruitmentDetailVC()
+        present(viewController: detailVC)
     }
 
 }

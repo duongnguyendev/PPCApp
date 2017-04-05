@@ -11,10 +11,12 @@
 		0314F0BE1E8A019400A4E15D /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0BD1E8A019400A4E15D /* TermsVC.swift */; };
 		0314F0C31E8A033800A4E15D /* RecruitmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */; };
 		0314F0C51E8A036000A4E15D /* RecruitmentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0314F0C41E8A036000A4E15D /* RecruitmentVC.xib */; };
-		0314F0C81E8A047E00A4E15D /* IntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0C71E8A047E00A4E15D /* IntroductionVC.swift */; };
-		0314F0CA1E8A04B900A4E15D /* IntroductionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0314F0C91E8A04B900A4E15D /* IntroductionVC.xib */; };
+		0314F0CA1E8A04B900A4E15D /* AboutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0314F0C91E8A04B900A4E15D /* AboutVC.xib */; };
 		0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0CC1E8A050900A4E15D /* PartnersVC.swift */; };
 		0314F0CF1E8A053100A4E15D /* PartnersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0314F0CE1E8A053100A4E15D /* PartnersVC.xib */; };
+		03152B971E9340140056C339 /* RecruitmentDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03152B961E9340140056C339 /* RecruitmentDetailVC.xib */; };
+		03152B991E9340300056C339 /* RecruitmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03152B981E9340300056C339 /* RecruitmentDetailVC.swift */; };
+		03152B9B1E934A980056C339 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03152B9A1E934A980056C339 /* AboutVC.swift */; };
 		031F5F2B1E8A475000CBE3C6 /* TermsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 031F5F2D1E8A475000CBE3C6 /* TermsVC.xib */; };
 		0320CF611E8C9EE000287090 /* RecruitmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0320CF601E8C9EE000287090 /* RecruitmentCell.xib */; };
 		0320CF631E8C9F0F00287090 /* RecruitmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0320CF621E8C9F0F00287090 /* RecruitmentCell.swift */; };
@@ -24,10 +26,12 @@
 		0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1C81E83702000E6300F /* NewDataModel.swift */; };
 		0323E1CF1E83B70B00E6300F /* NewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0323E1CE1E83B70B00E6300F /* NewCell.xib */; };
 		0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1D01E83BAF600E6300F /* NewCell.swift */; };
-		037D4D3B1E8E3D4700A132BE /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037D4D3A1E8E3D4700A132BE /* HistoryVC.swift */; };
-		037D4D3D1E8E3D8500A132BE /* HistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037D4D3C1E8E3D8500A132BE /* HistoryVC.xib */; };
+		037D4D3B1E8E3D4700A132BE /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037D4D3A1E8E3D4700A132BE /* SettingVC.swift */; };
+		037D4D3D1E8E3D8500A132BE /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037D4D3C1E8E3D8500A132BE /* SettingVC.xib */; };
 		039A054F1E8A6B3200002290 /* PartnersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039A054E1E8A6B3200002290 /* PartnersCell.xib */; };
 		03A9EA9E1E8B8FD500EE1150 /* PartnersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A9EA9D1E8B8FD500EE1150 /* PartnersService.swift */; };
+		03CD04111E91E5D3001DBB12 /* ProjectManagerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CD04101E91E5D3001DBB12 /* ProjectManagerVC.xib */; };
+		03CD04131E91E5E5001DBB12 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CD04121E91E5E5001DBB12 /* ProjectManager.swift */; };
 		03DFAED21E8917670051F37F /* MoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DFAED11E8917670051F37F /* MoreService.swift */; };
 		03EF40301E836F7000D14F0D /* NewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF402F1E836F7000D14F0D /* NewService.swift */; };
 		03FDC76A1E8B4FBF001A2CD7 /* PartnersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FDC7691E8B4FBF001A2CD7 /* PartnersCell.swift */; };
@@ -75,10 +79,12 @@
 		0314F0BD1E8A019400A4E15D /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentVC.swift; sourceTree = "<group>"; };
 		0314F0C41E8A036000A4E15D /* RecruitmentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecruitmentVC.xib; sourceTree = "<group>"; };
-		0314F0C71E8A047E00A4E15D /* IntroductionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionVC.swift; sourceTree = "<group>"; };
-		0314F0C91E8A04B900A4E15D /* IntroductionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroductionVC.xib; sourceTree = "<group>"; };
+		0314F0C91E8A04B900A4E15D /* AboutVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutVC.xib; sourceTree = "<group>"; };
 		0314F0CC1E8A050900A4E15D /* PartnersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersVC.swift; sourceTree = "<group>"; };
 		0314F0CE1E8A053100A4E15D /* PartnersVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnersVC.xib; sourceTree = "<group>"; };
+		03152B961E9340140056C339 /* RecruitmentDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecruitmentDetailVC.xib; sourceTree = "<group>"; };
+		03152B981E9340300056C339 /* RecruitmentDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentDetailVC.swift; sourceTree = "<group>"; };
+		03152B9A1E934A980056C339 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		031F5F2C1E8A475000CBE3C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TermsVC.xib; sourceTree = "<group>"; };
 		031F5F2F1E8A475400CBE3C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TermsVC.strings; sourceTree = "<group>"; };
 		031F5F311E8A475700CBE3C6 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TermsVC.strings; sourceTree = "<group>"; };
@@ -90,10 +96,12 @@
 		0323E1C81E83702000E6300F /* NewDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewDataModel.swift; path = PPCApp/AppService/NewDataModel.swift; sourceTree = SOURCE_ROOT; };
 		0323E1CE1E83B70B00E6300F /* NewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewCell.xib; path = ../../Controller/News/NewCell.xib; sourceTree = "<group>"; };
 		0323E1D01E83BAF600E6300F /* NewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewCell.swift; path = ../../Controller/News/NewCell.swift; sourceTree = "<group>"; };
-		037D4D3A1E8E3D4700A132BE /* HistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
-		037D4D3C1E8E3D8500A132BE /* HistoryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryVC.xib; sourceTree = "<group>"; };
+		037D4D3A1E8E3D4700A132BE /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		037D4D3C1E8E3D8500A132BE /* SettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		039A054E1E8A6B3200002290 /* PartnersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartnersCell.xib; path = ../../Controller/More/PartnersCell.xib; sourceTree = "<group>"; };
 		03A9EA9D1E8B8FD500EE1150 /* PartnersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersService.swift; sourceTree = "<group>"; };
+		03CD04101E91E5D3001DBB12 /* ProjectManagerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectManagerVC.xib; sourceTree = "<group>"; };
+		03CD04121E91E5E5001DBB12 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 		03DFAED11E8917670051F37F /* MoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreService.swift; sourceTree = "<group>"; };
 		03EF402F1E836F7000D14F0D /* NewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewService.swift; sourceTree = "<group>"; };
 		03FDC7691E8B4FBF001A2CD7 /* PartnersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersCell.swift; sourceTree = "<group>"; };
@@ -172,19 +180,21 @@
 		0314F0C11E8A031500A4E15D /* Recruitment */ = {
 			isa = PBXGroup;
 			children = (
-				0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */,
+				03152B961E9340140056C339 /* RecruitmentDetailVC.xib */,
+				03152B981E9340300056C339 /* RecruitmentDetailVC.swift */,
 				0314F0C41E8A036000A4E15D /* RecruitmentVC.xib */,
+				0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */,
 			);
 			name = Recruitment;
 			sourceTree = "<group>";
 		};
-		0314F0C61E8A041600A4E15D /* Introduction */ = {
+		0314F0C61E8A041600A4E15D /* About */ = {
 			isa = PBXGroup;
 			children = (
-				0314F0C71E8A047E00A4E15D /* IntroductionVC.swift */,
-				0314F0C91E8A04B900A4E15D /* IntroductionVC.xib */,
+				0314F0C91E8A04B900A4E15D /* AboutVC.xib */,
+				03152B9A1E934A980056C339 /* AboutVC.swift */,
 			);
-			name = Introduction;
+			name = About;
 			sourceTree = "<group>";
 		};
 		0314F0CB1E8A04F600A4E15D /* Partners */ = {
@@ -205,13 +215,13 @@
 			name = Recruitment;
 			sourceTree = "<group>";
 		};
-		037D4D391E8E3CEF00A132BE /* History */ = {
+		037D4D391E8E3CEF00A132BE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				037D4D3C1E8E3D8500A132BE /* HistoryVC.xib */,
-				037D4D3A1E8E3D4700A132BE /* HistoryVC.swift */,
+				037D4D3C1E8E3D8500A132BE /* SettingVC.xib */,
+				037D4D3A1E8E3D4700A132BE /* SettingVC.swift */,
 			);
-			name = History;
+			name = Setting;
 			sourceTree = "<group>";
 		};
 		03A9EA9B1E8B8FAE00EE1150 /* More */ = {
@@ -229,6 +239,15 @@
 				03A9EA9D1E8B8FD500EE1150 /* PartnersService.swift */,
 			);
 			name = Partners;
+			sourceTree = "<group>";
+		};
+		03CD040F1E91E5A0001DBB12 /* ProjectManager */ = {
+			isa = PBXGroup;
+			children = (
+				03CD04101E91E5D3001DBB12 /* ProjectManagerVC.xib */,
+				03CD04121E91E5E5001DBB12 /* ProjectManager.swift */,
+			);
+			name = ProjectManager;
 			sourceTree = "<group>";
 		};
 		03FDC76B1E8B51D0001A2CD7 /* More */ = {
@@ -418,11 +437,12 @@
 		4ED32E081E7FBC930075BF3F /* More */ = {
 			isa = PBXGroup;
 			children = (
-				037D4D391E8E3CEF00A132BE /* History */,
-				0314F0CB1E8A04F600A4E15D /* Partners */,
-				0314F0C61E8A041600A4E15D /* Introduction */,
 				0314F0C11E8A031500A4E15D /* Recruitment */,
+				0314F0CB1E8A04F600A4E15D /* Partners */,
+				0314F0C61E8A041600A4E15D /* About */,
 				0314F0BC1E8A017400A4E15D /* Terms */,
+				037D4D391E8E3CEF00A132BE /* Setting */,
+				03CD040F1E91E5A0001DBB12 /* ProjectManager */,
 				4E13D2521E836BC1002E03A1 /* MoreVC.swift */,
 				4E13D2531E836BC1002E03A1 /* MoreVC.xib */,
 			);
@@ -505,7 +525,7 @@
 				TargetAttributes = {
 					4ED32DD31E7F809C0075BF3F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 7R93MWJ8VY;
+						DevelopmentTeam = 2ZMA98SWR3;
 						ProvisioningStyle = Automatic;
 					};
 					4ED32DEA1E7F809C0075BF3F = {
@@ -541,6 +561,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CD04111E91E5D3001DBB12 /* ProjectManagerVC.xib in Resources */,
 				0322FDD71E88FBAB009B589B /* MoreCell.xib in Resources */,
 				4E13D2551E836BC1002E03A1 /* MoreVC.xib in Resources */,
 				4ED32DE51E7F809C0075BF3F /* LaunchScreen.storyboard in Resources */,
@@ -549,13 +570,14 @@
 				4E13D2591E836BDC002E03A1 /* NewsVC.xib in Resources */,
 				0314F0C51E8A036000A4E15D /* RecruitmentVC.xib in Resources */,
 				4ED32DE21E7F809C0075BF3F /* Assets.xcassets in Resources */,
+				03152B971E9340140056C339 /* RecruitmentDetailVC.xib in Resources */,
 				0314F0CF1E8A053100A4E15D /* PartnersVC.xib in Resources */,
 				039A054F1E8A6B3200002290 /* PartnersCell.xib in Resources */,
 				031F5F2B1E8A475000CBE3C6 /* TermsVC.xib in Resources */,
 				0323E1CF1E83B70B00E6300F /* NewCell.xib in Resources */,
-				037D4D3D1E8E3D8500A132BE /* HistoryVC.xib in Resources */,
+				037D4D3D1E8E3D8500A132BE /* SettingVC.xib in Resources */,
 				4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */,
-				0314F0CA1E8A04B900A4E15D /* IntroductionVC.xib in Resources */,
+				0314F0CA1E8A04B900A4E15D /* AboutVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,16 +698,18 @@
 				4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */,
 				0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */,
 				4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */,
+				03152B991E9340300056C339 /* RecruitmentDetailVC.swift in Sources */,
 				4E13D2321E836059002E03A1 /* LanguageManager.swift in Sources */,
 				03DFAED21E8917670051F37F /* MoreService.swift in Sources */,
 				030D94791E8DFEFA00F32857 /* PartnersDataModel.swift in Sources */,
 				4E13D2541E836BC1002E03A1 /* MoreVC.swift in Sources */,
-				0314F0C81E8A047E00A4E15D /* IntroductionVC.swift in Sources */,
+				03CD04131E91E5E5001DBB12 /* ProjectManager.swift in Sources */,
 				0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
 				4E456C581E8BF84D003D8C55 /* SearchVC.swift in Sources */,
 				4E13D2581E836BDC002E03A1 /* NewsVC.swift in Sources */,
-				037D4D3B1E8E3D4700A132BE /* HistoryVC.swift in Sources */,
+				037D4D3B1E8E3D4700A132BE /* SettingVC.swift in Sources */,
+				03152B9B1E934A980056C339 /* AboutVC.swift in Sources */,
 				4E13D25B1E837E7A002E03A1 /* HomeCell.swift in Sources */,
 				4E13D2601E83B742002E03A1 /* PostDetailVC.swift in Sources */,
 				4E13D2621E83BCED002E03A1 /* FilterVC.swift in Sources */,
@@ -865,11 +889,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7R93MWJ8VY;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2ZMA98SWR3;
 				INFOPLIST_FILE = PPCApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = duyduong.PPCApp;
+				PRODUCT_BUNDLE_IDENTIFIER = dinhphong.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -881,11 +906,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7R93MWJ8VY;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2ZMA98SWR3;
 				INFOPLIST_FILE = PPCApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = duyduong.PPCApp;
+				PRODUCT_BUNDLE_IDENTIFIER = dinhphong.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

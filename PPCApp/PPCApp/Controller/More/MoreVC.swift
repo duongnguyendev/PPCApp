@@ -11,6 +11,7 @@ import UIKit
 class MoreVC: BaseVC {
     @IBOutlet weak var tableView: UITableView!
     var mores = [MoreDataModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "More"
@@ -22,13 +23,14 @@ class MoreVC: BaseVC {
             self.mores = mores
             self.tableView.reloadData()
         }
-        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         
     }
     
@@ -41,7 +43,6 @@ class MoreVC: BaseVC {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 extension MoreVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,24 +57,26 @@ extension MoreVC: UITableViewDataSource,UITableViewDelegate{
         switch indexPath.row {
         case 0:
             //Present Detail Recruitment
-            let recruitment = RecruitmentVC()
-            present(viewController: recruitment)
+            let recruitmentVC = RecruitmentVC()
+            present(viewController: recruitmentVC)
         case 1:
             //Present Detail Partners
-            let partners = PartnersVC()
-            present(viewController: partners)
+            let partnersVC = PartnersVC()
+            present(viewController: partnersVC)
         case 2:
             //Present Introduction PPC
-            let introduction = IntroductionVC()
-            present(viewController: introduction)
+            let aboutVC = AboutVC()
+            present(viewController: aboutVC)
         case 3:
             //Present Detail Terms
-            let terms = TermsVC()
-            present(viewController: terms)
+            let termsVC = TermsVC()
+            present(viewController: termsVC)
         case 4:
-            let history = HistoryVC()
-            present(viewController: history)
-            
+            let settingVC = SettingVC()
+            present(viewController: settingVC)
+        case 5:
+            let projectVC = ProjectManagerVC()
+            present(viewController: projectVC)
         default:
             break;
         }

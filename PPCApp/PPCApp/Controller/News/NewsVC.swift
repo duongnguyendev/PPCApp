@@ -8,7 +8,6 @@
 
 import UIKit
 class NewsVC: BaseVC {
-
     @IBOutlet weak var tableView: UITableView!
     var news = [NewDataModel]()
     override func viewDidLoad() {
@@ -29,12 +28,9 @@ class NewsVC: BaseVC {
                 self.news = news!
                 self.tableView.reloadData()
             }else{
-                
             }
         }*/
-        
         self.tableView.reloadData()
-
     }
     /*
     // MARK: - Navigation
@@ -47,13 +43,13 @@ class NewsVC: BaseVC {
 }
 extension NewsVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return news.count
+        return 6
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = Bundle.main.loadNibNamed("NewCell", owner: self, options: nil)?.first as! NewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewCell") as! NewCell
         //cell.heightImage = view.frame.width
-        cell.new = news[indexPath.row]
+        //cell.new = news[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

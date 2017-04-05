@@ -32,6 +32,14 @@ class NewCell: UITableViewCell {
         titleLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
         descLabel.numberOfLines = 3
         descLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightThin)
+        
+        newImage.image = UIImage(named: "home.jpeg")
+        titleLabel.text = "SEASONS AVANUE"
+        descLabel.text = "VinHomes Skylake owns the gold position on Pham Hung streets"
+            + "crosses with Duong Dinh Nghe Street,opposite to Cau Giay lake."
+            + "The project covers an areas of 32 hectater,in-cluding 19 hectater"
+            + "of water surface,statisfying the criteria of occupational status,"
+            + "choosing the place of living"
     }
     
     var new: NewDataModel!{

@@ -13,20 +13,18 @@ class MoreService: NSObject {
     
     func getMores(complention: ([MoreDataModel]) ->Void){
         var mores = [MoreDataModel]()
-        mores.append(addMore(icon: "recruitment.png", desc: getDesc(key: "recruitment")))
-        mores.append(addMore(icon: "partners.png", desc: getDesc(key: "partners")))
-        mores.append(addMore(icon: "introduction.png", desc: getDesc(key: "introduction")))
-        mores.append(addMore(icon: "terms.png", desc: getDesc(key: "terms")))
-        mores.append(addMore(icon: "history.png", desc: getDesc(key: "history")))
+        mores.append(addMore(icon: "recruitment.png", desc: LanguageManager.shared.localized(string: "recruitment")!))
+        mores.append(addMore(icon: "partners.png", desc: LanguageManager.shared.localized(string: "partners")!))
+        mores.append(addMore(icon: "introduction.png", desc: LanguageManager.shared.localized(string: "about")!))
+        mores.append(addMore(icon: "terms.png", desc: LanguageManager.shared.localized(string: "terms")!))
+        mores.append(addMore(icon: "", desc: LanguageManager.shared.localized(string: "setting")!))
+        mores.append(addMore(icon: "", desc:LanguageManager.shared.localized(string: "projectmanager")!))
         
         complention(mores)
     }
     func addMore(icon: String,desc: String)-> MoreDataModel{
         
         return MoreDataModel.init(icon: icon, desc: desc)
-    }
-    func getDesc(key: String) -> String {
-        return LanguageManager.shared.localized(string: key)!
     }
     
 }

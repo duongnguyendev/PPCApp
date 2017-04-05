@@ -11,7 +11,6 @@ import UIKit
 @objc protocol PostVCDelegate {
     @objc optional func seleted(index : IndexPath)
 }
-
 class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     let cellId = "cellId"
     var type : Int?{
@@ -72,7 +71,6 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
 }
 
 class BaseCell: UICollectionViewCell {
