@@ -9,8 +9,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
 class APIService: NSObject {
+    
     func post(url : String, parameters: Parameters, completion: @escaping ((JSON?, Error?)->())){
         Alamofire.request(self.urlFrom(request: url), method: .post, parameters: parameters).responseJSON { (response) in
             switch response.result {
@@ -41,9 +41,7 @@ class APIService: NSObject {
     func urlFrom(request: String) -> String{
         return LanguageManager.shared.localized(string: "domainPPC")! + request
     }
-    
 }
-
 class BaseService: NSObject {
     
     let apiService = APIService()

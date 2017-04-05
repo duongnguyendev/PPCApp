@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjectManagerVC" customModule="PPCApp" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="kaC-5z-xXF" id="igu-rE-PEJ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="xZ1-aT-3ef"/>
             </connections>
         </placeholder>
@@ -18,7 +19,20 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kaC-5z-xXF">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="kaC-5z-xXF" secondAttribute="trailing" id="PKM-yN-05i"/>
+                <constraint firstAttribute="bottom" secondItem="kaC-5z-xXF" secondAttribute="bottom" id="StQ-a1-h8E"/>
+                <constraint firstItem="kaC-5z-xXF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="enT-o7-jSv"/>
+                <constraint firstItem="kaC-5z-xXF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="npk-1T-eGv"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="102.5"/>
         </view>
     </objects>
 </document>

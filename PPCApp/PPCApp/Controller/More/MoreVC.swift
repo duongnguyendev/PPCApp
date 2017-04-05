@@ -9,6 +9,7 @@
 import UIKit
 
 class MoreVC: BaseVC {
+    
     @IBOutlet weak var tableView: UITableView!
     var mores = [MoreDataModel]()
     
@@ -24,13 +25,11 @@ class MoreVC: BaseVC {
             self.tableView.reloadData()
         }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(_ animated: Bool) {
-        
         
     }
     
@@ -72,6 +71,7 @@ extension MoreVC: UITableViewDataSource,UITableViewDelegate{
             let termsVC = TermsVC()
             present(viewController: termsVC)
         case 4:
+            //Present Detail Setting
             let settingVC = SettingVC()
             present(viewController: settingVC)
         case 5:

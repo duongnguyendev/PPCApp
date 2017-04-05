@@ -8,9 +8,7 @@
 
 import UIKit
 
-class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    
+class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
     override func viewDidLoad() {
         collectionSearchResult.register(PostCell.self, forCellWithReuseIdentifier: cellId)
         textFieldSearch.addTarget(self, action: #selector(textFielDidChange(_:)), for: .editingChanged)
