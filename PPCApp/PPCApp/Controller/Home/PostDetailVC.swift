@@ -142,6 +142,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         view.content = "Swimming pool\nMulti-purpose hall\nGym\nOutdoor Family Corner\nPicnicLawn\nFood reflexology track\nChildren Playground\nBBQ Cabana"
         return view
     }()
+    let imageLauncher = ImageDetailLauncher()
     
     //MARK: - Setup View
     override func setupView() {
@@ -335,5 +336,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width/4 - 0.5, height: view.frame.size.width/4 - 0.5)
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        imageLauncher.show()
+    }
 }
