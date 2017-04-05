@@ -111,6 +111,8 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let searchButton = UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: .search, textColor: UIColor.white, size: CGSize(width: 25, height: 30)), style: .done, target: self, action: #selector(handleSearch))
         searchButton.customTitle()
         searchButton.tintColor = UIColor.white
+        searchButton.imageInsets.left = -10
+        
         self.navigationItem.leftBarButtonItem = searchButton
     }
     
