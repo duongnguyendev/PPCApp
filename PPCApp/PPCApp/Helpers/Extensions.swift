@@ -21,6 +21,15 @@ extension String {
         let estimatedRect = NSString(string: string).boundingRect(with: size, options: options, attributes: [NSFontAttributeName : font], context: nil)
         return estimatedRect.height
     }
+    func htmlAttributedString(completion: ((_ string : NSAttributedString?)->())) {
+        if let data = try? self.data(using: String.Encoding.utf8, allowLossyConversion: true){
+            let html = try? NSMutableAttributedString(data: data!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+            completion(html)
+        }else{
+            completion(nil)
+        }
+    }
+    
 }
 
 extension UIColor {
@@ -57,7 +66,6 @@ extension UIView{
 
 extension UIImage{
     func resize(newWidth : CGFloat) -> UIImage {
-        
         let scale = newWidth / self.size.width
         let newHeight = self.size.height * scale
         

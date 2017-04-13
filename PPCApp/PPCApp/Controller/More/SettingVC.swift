@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 class SettingVC: BaseVC {
-    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +19,7 @@ class SettingVC: BaseVC {
         tableView.register(UINib(nibName: "SettingCell", bundle: nil), forCellReuseIdentifier: "SettingCell")
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         
     }
 }

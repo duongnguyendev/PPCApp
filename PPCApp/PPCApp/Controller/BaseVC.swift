@@ -27,7 +27,6 @@ class BaseVC: UIViewController {
     }
     
     func setupBackIcon(){
-        
         let backImage = UIImage.fontAwesomeIcon(name: .angleLeft, textColor: UIColor.black, size: CGSize(width: 40, height: 40))
         let leftButton = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(goBack))
         leftButton.imageInsets.right = 20

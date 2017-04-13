@@ -9,22 +9,18 @@
 import Foundation
 class NewService: BaseService{
     static let shared = NewService()
-    //Get Info News
-    func getNews(completion: @escaping ([NewDataModel]?)->Void) {
-        let url = "getnews"
+    
+    func getNew(indexPage: String,completion: @escaping (NewDataModel?)->Void){
+        let url = "news/all?page=" + indexPage
         apiService.get(url: url) { (json, error) in
             if error == nil{
-                var news = [NewDataModel]()
-                json?["data"].array?.forEach({ (json) in
-                    let new = NewDataModel(json: json)
-                    news.append(new)
-                })
-                completion(news)
-            }
-            else{
+                let json = json?["data"]
+                let new = NewDataModel(json: json!)
+                completion(new)
+            }else{
                 completion(nil)
             }
         }
-    }//end getNews
-    
+        
+    }
 }

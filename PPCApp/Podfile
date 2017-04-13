@@ -8,6 +8,7 @@ target 'PPCApp' do
 pod 'FontAwesome.swift'
 pod ‘Alamofire’
 pod ‘SwiftyJSON’
+pod 'AlamofireImage'
   # Pods for PPCApp
 
   target 'PPCAppTests' do
