@@ -6,8 +6,8 @@
   Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 */
 
-domain = "http://api.ppc-timeshare.com/api/";
-domainPPC = "http://api.perfectpropertyvn.com/v2/vi/";
+//domain = "http://api.ppc-timeshare.com/api/";
+domainPPC = "http://api.perfectpropertyvn.com/vi/";
 recruitment = "Recruitment";
 partners = "Partners";
 about = "About PPC";

@@ -11,12 +11,17 @@ import UIKit
 class MoreVC: BaseVC {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewSignIn: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var avatarButton: UIButton!
+    
     var mores = [MoreDataModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "More"
         // Do any additional setup after loading the view.
+        title = "More"
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MoreCell", bundle: nil), forCellReuseIdentifier: "MoreCell")
@@ -25,12 +30,19 @@ class MoreVC: BaseVC {
             self.tableView.reloadData()
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         
+    }
+    
+    @IBAction func avatarHandle(_ sender: Any) {
+        let signin = SignInVC()
+        present(viewController: signin)
     }
     
     /*

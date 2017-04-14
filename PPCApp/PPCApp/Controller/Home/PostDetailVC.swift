@@ -14,7 +14,6 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Name Project"
         collectionViewImage.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
     }

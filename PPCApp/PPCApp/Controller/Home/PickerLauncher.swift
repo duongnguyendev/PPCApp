@@ -9,7 +9,6 @@
 import UIKit
 
 class PickerLauncher: BaseLauncher, UIPickerViewDelegate, UIPickerViewDataSource {
-    
     override init() {
         super.init()
         fretchItem()

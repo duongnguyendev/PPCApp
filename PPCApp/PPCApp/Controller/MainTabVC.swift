@@ -15,8 +15,10 @@ class MainTabVC: UITabBarController {
         // home
         let tabHome = HomeVC()
         let homeNav = UINavigationController(rootViewController: tabHome)
-        let homeIcon = UIImage.fontAwesomeIcon(name: .home, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
-        let tabHomeBarItem = UITabBarItem(title: "Home", image: homeIcon, selectedImage: homeIcon)
+        //let homeIcon = UIImage.fontAwesomeIcon(name: .home, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
+        let homeIcon = UIImage(named: "home.png")
+        let homeIconSelect = UIImage(named: "home_select.png")
+        let tabHomeBarItem = UITabBarItem(title: "Home", image: homeIcon, selectedImage: homeIconSelect)
         tabHomeBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                             NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)
@@ -25,8 +27,10 @@ class MainTabVC: UITabBarController {
         // post
         let tabPost = PostVC()
         let PostNav = UINavigationController(rootViewController: tabPost)
-        let postIcon = UIImage.fontAwesomeIcon(name: .upload, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
-        let tabPostBarItem = UITabBarItem(title: "Post", image: postIcon, selectedImage: postIcon)
+        //let postIcon = UIImage.fontAwesomeIcon(name: .upload, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
+        let postIcon = UIImage(named: "post.png")
+        let postIconSelect = UIImage(named: "post_select.png")
+        let tabPostBarItem = UITabBarItem(title: "Post", image: postIcon, selectedImage: postIconSelect)
         tabPostBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                                NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)
@@ -35,8 +39,10 @@ class MainTabVC: UITabBarController {
         //news
         let tabNews = NewsVC()
         let newsNav = UINavigationController(rootViewController: tabNews)
-        let newsIcon = UIImage.fontAwesomeIcon(name: .newspaperO, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
-        let tabNewsBarItem = UITabBarItem(title: "News", image: newsIcon, selectedImage: newsIcon)
+        //let newsIcon = UIImage.fontAwesomeIcon(name: .newspaperO, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
+        let newsIcon = UIImage(named: "news.png")
+        let newsIconSelect = UIImage(named: "news_select.png")
+        let tabNewsBarItem = UITabBarItem(title: "News", image: newsIcon, selectedImage: newsIconSelect)
         tabNewsBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                                NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)
@@ -46,8 +52,10 @@ class MainTabVC: UITabBarController {
         //more
         let tabMore = MoreVC()
         let moreNav = UINavigationController(rootViewController: tabMore)
-        let moreIcon = UIImage.fontAwesomeIcon(name: .ellipsisH, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
-        let tabMoreBarItem = UITabBarItem(title: "More", image: moreIcon, selectedImage: moreIcon)
+        //let moreIcon = UIImage.fontAwesomeIcon(name: .ellipsisH, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
+        let moreIcon = UIImage(named: "more.png")
+        let moreIconSelect = UIImage(named: "more_select.png")
+        let tabMoreBarItem = UITabBarItem(title: "More", image: moreIcon, selectedImage: moreIconSelect)
         tabMoreBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                                NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)

@@ -43,8 +43,6 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         return bt
         
     }()
-    
-    
     override func setupView() {
         super.setupView()
         let labelSearchIcon = UILabel()
