@@ -17,8 +17,7 @@ class MoreService: NSObject {
         mores.append(addMore(icon: "partners.png", desc: LanguageManager.shared.localized(string: "partners")!))
         mores.append(addMore(icon: "introduction.png", desc: LanguageManager.shared.localized(string: "about")!))
         mores.append(addMore(icon: "terms.png", desc: LanguageManager.shared.localized(string: "terms")!))
-        mores.append(addMore(icon: "", desc: LanguageManager.shared.localized(string: "setting")!))
-        mores.append(addMore(icon: "", desc:LanguageManager.shared.localized(string: "projectmanager")!))
+        mores.append(addMore(icon: "setting.png", desc: LanguageManager.shared.localized(string: "setting")!))
         
         complention(mores)
     }

@@ -16,7 +16,7 @@ class PostCell: BaseCell {
     }()
     let lableName : UILabel = {
         let label = UILabel()
-        label.text = "SUNRISE CITY"
+        label.text = "Home City"
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
         return label
     }()
@@ -63,4 +63,16 @@ class PostCell: BaseCell {
         labelAcreage.heightAnchor.constraint(equalTo: iconHome.heightAnchor, multiplier: 1).isActive = true
     }
 
+    var home: HomeDataModel?{
+        didSet{
+            APIService.shared.getImage(url: (home!.image)) { (image, error) in
+                self.posterImageView.image = image
+            }
+            self.lableName.text = home?.title
+            self.lableAddress.text = home?.address
+            let acreage = ((home?.acreage)?.description)! + " m2"
+            self.labelAcreage.text = acreage
+
+        }
+    }
 }

@@ -11,6 +11,7 @@ import UIKit
 class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     let margin : CGFloat = 20.0
     let cellId = "cellId"
+    var home = HomeDataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

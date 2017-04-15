@@ -48,7 +48,6 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         addSearchButton()
         
     }
-    
     override func setupView() {
         segmentedPostType.heightAnchor.constraint(equalToConstant: 25).isActive = true
         segmentedPostType.widthAnchor.constraint(equalToConstant: 180).isActive = true
@@ -115,15 +114,10 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
         self.navigationItem.leftBarButtonItem = searchButton
     }
-    
-    
     //MARK: - Post detail delegate
     
     func seleted(index: IndexPath) {
         let detailVC = PostDetailVC()
         self.present(viewController: detailVC)
     }
-    
-    
- 
 }

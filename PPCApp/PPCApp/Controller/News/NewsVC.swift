@@ -9,8 +9,9 @@
 import UIKit
 class NewsVC: BaseVC {
     @IBOutlet weak var tableView: UITableView!
-    let indexPage: Int = 1
     var news = [NewDataModel]()
+    var indexPage: Int = 1
+    var nextPage: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News"
@@ -19,46 +20,42 @@ class NewsVC: BaseVC {
         tableView.delegate = self
         tableView.register(UINib(nibName: "NewCell", bundle: nil), forCellReuseIdentifier: "NewCell")
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func viewDidAppear(_ animated: Bool) {
-        NewService.shared.getNew(indexPage: String(indexPage)) { (new) in
-            if let new = new{
-                self.news.append(new)
+        NewService.shared.getNews(indexPage: String(indexPage)) { (news, currentPage, next_page_url) in
+            self.indexPage = currentPage
+            self.nextPage = next_page_url
+            self.news = self.news + news!
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                 self.tableView.reloadData()
             }
         }
     }
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidDisappear(_ animated: Bool) {
+        self.nextPage = ""
+        self.indexPage = 1
+        self.news.removeAll()
     }
-    */
 }
 extension NewsVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if news.count == 0{
-            return 0
-        }else{
-            return news[indexPage - 1].datas.count
-        }
+       return news.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewCell") as! NewCell
-        cell.data = news[indexPage - 1].datas[indexPath.row]
+        cell.new = news[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailNew = DetailNewVC()
-        present(viewController: detailNew)
+        let newDetailVC = NewDetailVC()
+        newDetailVC.new = news[indexPath.row]
+        present(viewController: newDetailVC)
     }
-       func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //use text height of desc
         /*let size = CGSize(width: frame.width - margin - margin - 10, height: 1000)
          let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
@@ -69,7 +66,18 @@ extension NewsVC: UITableViewDataSource,UITableViewDelegate{
         return CGFloat(view.frame.width * 9 / 16 + 90)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
+        let index = indexPath.row
+        if index == news.count - 1{
+            if self.nextPage != ""{
+                NewService.shared.getNews(indexPage: String(self.indexPage + 1)) { (news, currentPage, next_page_url) in
+                    self.nextPage = next_page_url
+                    self.news = self.news + news!
+                    self.tableView.reloadData()
+                }
+
+            }
+          
+        }
     }
 
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-class SaleDataModel: NSObject{
+class HomeDataModel: NSObject{
     let id: Int
     let project_id: Int
     let country_id : Int
@@ -41,7 +41,42 @@ class SaleDataModel: NSObject{
     let info: String
     let ownership: String
     let service: String
-    let images: [Image]
+    let images: [String]
+    override init() {
+        id = -1
+        project_id = -1
+        country_id = -1
+        provine_id = -1
+        district_id = -1
+        type =  -1
+        floor = -1
+        apartment = -1
+        bedroom = -1
+        bathroom = -1
+        acreage = -1
+        area_apartment = -1
+        sale = ""
+        invoice = ""
+        price = ""
+        image = ""
+        address = ""
+        latitude = -1
+        longtitude = -1
+        phone = ""
+        email = ""
+        furniture = ""
+        create_at = ""
+        update_at = ""
+        status = -1
+        image_overall = ""
+        investor = ""
+        id_user = -1
+        title = ""
+        info = ""
+        ownership = ""
+        service = ""
+        images = []
+    }
     init(json: JSON) {
         id = json["id"].int ?? -1
         project_id = json["project_id"].int ?? -1
@@ -75,14 +110,6 @@ class SaleDataModel: NSObject{
         info = json["info"].string ?? ""
         ownership = json["ownership"].string ?? ""
         service = json["service"].string ?? ""
-        images = json["images"].array?.map{ return Image(json: $0) } ?? []
-    }
-}
-class Image: NSObject{
-    
-    let image: String
-    
-    init(json: JSON) {
-        image = json["image"].string ?? ""
+        images = json["images"].array?.map{ return String(describing: $0) } ?? []
     }
 }

@@ -25,16 +25,16 @@ class MainTabVC: UITabBarController {
         homeNav.tabBarItem = tabHomeBarItem
         
         // post
-        let tabPost = PostVC()
-        let PostNav = UINavigationController(rootViewController: tabPost)
+        let tabProject = ProjectVC()
+        let projectNav = UINavigationController(rootViewController: tabProject)
         //let postIcon = UIImage.fontAwesomeIcon(name: .upload, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
-        let postIcon = UIImage(named: "post.png")
-        let postIconSelect = UIImage(named: "post_select.png")
-        let tabPostBarItem = UITabBarItem(title: "Post", image: postIcon, selectedImage: postIconSelect)
+        let projectIcon = UIImage(named: "project.png")
+        let projectIconSelect = UIImage(named: "project_select.png")
+        let tabPostBarItem = UITabBarItem(title: "Project Manager", image: projectIcon, selectedImage: projectIconSelect)
         tabPostBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                                NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)
-        PostNav.tabBarItem = tabPostBarItem
+        projectNav.tabBarItem = tabPostBarItem
         
         //news
         let tabNews = NewsVC()
@@ -62,7 +62,7 @@ class MainTabVC: UITabBarController {
         moreNav.tabBarItem = tabMoreBarItem
         
         
-        self.viewControllers = [homeNav, PostNav, newsNav, moreNav]
+        self.viewControllers = [homeNav, projectNav, newsNav, moreNav]
         
     }
     

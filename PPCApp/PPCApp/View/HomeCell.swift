@@ -13,12 +13,15 @@ import UIKit
 }
 class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     let cellId = "cellId"
+    let indexPage: Int = 1
+    var homes = [HomeDataModel]()
+    
     var type : Int?{
         didSet{
             if type == 0{
-                fetchSale()
+                fetchSale(type: type!)
             }else{
-                fetchRent()
+                fetchRent(type: type!)
             }
         }
     }
@@ -34,11 +37,25 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         return cv
     }()
     
-    func fetchSale(){
+    func fetchSale(type: Int){
 //        self.backgroundColor = UIColor.red
+        HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (homes, currentPage, next_page_url) in
+            self.homes = homes!
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                self.collectionViewPost.reloadData()
+            }
+        }
+
     }
-    func fetchRent(){
+    func fetchRent(type: Int){
 //        self.backgroundColor = UIColor.blue
+        HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (homes, currentPage, next_page_url) in
+            self.homes = homes!
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                self.collectionViewPost.reloadData()
+            }
+        }
+
     }
     override func setupView() {
         collectionViewPost.register(PostCell.self, forCellWithReuseIdentifier: cellId)
@@ -51,10 +68,11 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
     // MARK: - collection view delegate
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return homes.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PostCell
+        cell.home = self.homes[indexPath.row]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -66,7 +84,6 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         if self.delegate != nil{
             self.delegate?.seleted!(index: indexPath)
         }
-    
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -79,7 +96,6 @@ class BaseCell: UICollectionViewCell {
         super.init(frame: frame)
         setupView()
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
