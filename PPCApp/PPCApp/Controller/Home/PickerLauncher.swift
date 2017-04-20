@@ -7,11 +7,17 @@
 //
 
 import UIKit
-
+@objc protocol PickerViewDelegate {
+    @objc optional func selectedProjectType(place : Place)
+    @objc optional func selectedCountry(place : Place)
+    @objc optional func selectedProvince(place : Place)
+    @objc optional func selectedDistrict(place : Place)
+}
 class PickerLauncher: BaseLauncher, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var delegate: PickerViewDelegate?
     override init() {
         super.init()
-        fretchItem()
     }
     let buttonClose : UIButton = {
         let button = UIButton()
@@ -51,7 +57,6 @@ class PickerLauncher: BaseLauncher, UIPickerViewDelegate, UIPickerViewDataSource
     
     override func show() {
         super.show()
-        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.contentView.frame = CGRect(x: 0, y: self.windowFrame.height - self.height, width: self.windowFrame.width, height: self.height)
         }, completion: nil)
@@ -59,13 +64,11 @@ class PickerLauncher: BaseLauncher, UIPickerViewDelegate, UIPickerViewDataSource
     
     override func close() {
         super.close()
-        
         UIView.animate(withDuration: 0.5, animations: {
             self.contentView.frame = CGRect(x: 0, y: self.windowFrame.height, width: self.windowFrame.width, height: self.height)
         }) { (Bool) in
             
         }
-
     }
     
     func handleCloseButton(_ sender : UIButton){
@@ -81,12 +84,10 @@ class PickerLauncher: BaseLauncher, UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 10
     }
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(row)"
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(row)
         self.close()
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -95,25 +96,56 @@ class PickerLauncher: BaseLauncher, UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 40.0
     }
+    
 }
-
-
-//MARK: - Country Launcher
-class CountryLauncher: PickerLauncher {
+//MARK: - Type of project Launcher
+class TypeOfProjectLauncher: PickerLauncher {
+    var projects: [Place]?
     
-    var countries : [Place]?
-    
+    override init() {
+        super.init()
+        fretchItem()
+    }
+
     override func fretchItem() {
-        
-        let vi = Place(id: 1, name: "Viet Nam")
-        let thai = Place(id: 2, name: "Thailand")
-        let countries = [vi,thai]
-        self.countries = countries
-        picker.reloadAllComponents()
+        HomeService.shared.fetchPlaces(pageUrl: "project") { (places, errMess) in
+            self.projects = places
+            self.picker.reloadAllComponents()
+        }
+    }
+    override func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if self.projects == nil {
+            return 0
+        }
+        return self.projects!.count
+    }
+    override func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return projects?[row].name
+    }
+    override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        let project = projects?[row]
+        if delegate != nil{
+            delegate?.selectedProjectType!(place: project!)
+        }
+        self.close()
     }
     
+}
+//MARK: - Country Launcher
+class CountryLauncher: PickerLauncher {
+    var countries : [Place]?
+    
+    override init() {
+        super.init()
+        fretchItem()
+    }
+    override func fretchItem() {
+        HomeService.shared.fetchPlaces(pageUrl: "country") { (places, errMess) in
+            self.countries = places
+            self.picker.reloadAllComponents()
+        }
+    }
     override func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
         if self.countries == nil {
             return 0
         }
@@ -122,36 +154,71 @@ class CountryLauncher: PickerLauncher {
     override func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return countries?[row].name
     }
+    override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        let country = countries?[row]
+        if delegate != nil{
+            delegate?.selectedCountry!(place: country!)
+        }
+        self.close()
+    }
 }
-
 //MARK: - ProvinceLauncher
 class ProvinceLauncher: PickerLauncher {
-
+    var provinces: [Place]?
+    var id: NSNumber?{
+        didSet{
+            HomeService.shared.fetchPlaces(pageUrl: "province?id_country=\(id!)") { (places, errMess) in
+                self.provinces = places
+                self.picker.reloadAllComponents()
+            }
+        }
+    }
+    override func fretchItem() {
+        
+    }
     override func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 20
+        if self.provinces == nil {
+            return 0
+        }
+        return self.provinces!.count
     }
     override func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "Province \(row)"
+        return provinces?[row].name
+    }
+    override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        let dictrict = provinces?[row]
+        if delegate != nil{
+            delegate?.selectedProvince!(place: dictrict!)
+        }
+        self.close()
     }
 }
 
 //MARK: - District Launcher
 class DistrictLauncher: PickerLauncher {
-    
+    var dictricts: [Place]?
+    var id: NSNumber?{
+        didSet{
+            HomeService.shared.fetchPlaces(pageUrl: "district?id_province=\(id!)") { (places, errMess) in
+                self.dictricts = places
+                self.picker.reloadAllComponents()
+            }
+        }
+    }
     override func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 20
+        if self.dictricts == nil {
+            return 0
+        }
+        return self.dictricts!.count
     }
     override func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "District \(row)"
+        return dictricts?[row].name
     }
-}
-//MARK: - Type of project Launcher
-class TypeOfProjectLauncher: PickerLauncher {
-    
-    override func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 20
-    }
-    override func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "Type \(row)"
+    override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        let district = dictricts?[row]
+        if delegate != nil{
+            delegate?.selectedDistrict!(place: district!)
+        }
+        self.close()
     }
 }

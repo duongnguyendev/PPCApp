@@ -9,15 +9,11 @@
 import Foundation
 import SwiftyJSON
 class Place: NSObject {
-    var index : Int?
-    var id : NSNumber?
-    var name : String?
+    //var index : Int?
+    let id : NSNumber?
+    let name : String?
     init(id : NSNumber, name : String) {
         self.id = id
         self.name = name
-    }
-    init(json: JSON) {
-        self.id = json["id"].number ?? -1
-        self.name = json["name"].string ?? ""
     }
 }

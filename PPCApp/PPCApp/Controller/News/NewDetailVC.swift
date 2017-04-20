@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 class NewDetailVC: BaseVC{
+    
+    @IBOutlet weak var bgrImage: CustomImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
-    @IBOutlet weak var bgrImage: UIImageView!
-    
     var new = NewDataModel()
     
     override func viewDidLoad() {
@@ -20,9 +20,10 @@ class NewDetailVC: BaseVC{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        APIService.shared.getImage(url: (new.image)) { (image, error) in
-            self.bgrImage.image = image
-        }
+        //APIService.shared.getImage(url: (new.image)) { (image, error) in
+            //self.bgrImage.image = image
+        //}
+        bgrImage.loadImageUsingUrlString(urlString: new.image)
         titleLabel.text = new.title
         new.content.htmlAttributedString(completion: { (mString) in
             contentTextView.attributedText = mString

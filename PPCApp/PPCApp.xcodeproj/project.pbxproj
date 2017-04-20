@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030077221EA5B97C0050BEEA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030077211EA5B97C0050BEEA /* ImageCell.swift */; };
+		0305399F1EA47A9A00DFFF79 /* PostProjectVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305399E1EA47A9A00DFFF79 /* PostProjectVC1.swift */; };
+		030539A11EA47AAB00DFFF79 /* PostProjectVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030539A01EA47AAB00DFFF79 /* PostProjectVC1.xib */; };
 		030D94791E8DFEFA00F32857 /* PartnersDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D94781E8DFEFA00F32857 /* PartnersDataModel.swift */; };
 		0314F0BE1E8A019400A4E15D /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0BD1E8A019400A4E15D /* TermsVC.swift */; };
 		0314F0C31E8A033800A4E15D /* RecruitmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */; };
@@ -92,6 +95,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030077211EA5B97C0050BEEA /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		0305399E1EA47A9A00DFFF79 /* PostProjectVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostProjectVC1.swift; sourceTree = "<group>"; };
+		030539A01EA47AAB00DFFF79 /* PostProjectVC1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostProjectVC1.xib; sourceTree = "<group>"; };
 		030D94781E8DFEFA00F32857 /* PartnersDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersDataModel.swift; sourceTree = SOURCE_ROOT; };
 		0314F0BD1E8A019400A4E15D /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		0314F0C21E8A033800A4E15D /* RecruitmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentVC.swift; sourceTree = "<group>"; };
@@ -202,6 +208,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0305399D1EA479BA00DFFF79 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				030539A01EA47AAB00DFFF79 /* PostProjectVC1.xib */,
+				0305399E1EA47A9A00DFFF79 /* PostProjectVC1.swift */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
 		030854E21EA0DA0800BB3B84 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +347,7 @@
 			children = (
 				4E13D25A1E837E7A002E03A1 /* HomeCell.swift */,
 				4E13D25D1E8382E9002E03A1 /* PostCell.swift */,
+				030077211EA5B97C0050BEEA /* ImageCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -549,6 +565,7 @@
 		4ED32E061E7FBC750075BF3F /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				0305399D1EA479BA00DFFF79 /* Post */,
 				03CD04101E91E5D3001DBB12 /* ProjectVC.xib */,
 				03CD04121E91E5E5001DBB12 /* ProjectVC.swift */,
 			);
@@ -712,6 +729,7 @@
 				0314F0CF1E8A053100A4E15D /* PartnersVC.xib in Resources */,
 				039A054F1E8A6B3200002290 /* PartnersCell.xib in Resources */,
 				031F5F2B1E8A475000CBE3C6 /* TermsVC.xib in Resources */,
+				030539A11EA47AAB00DFFF79 /* PostProjectVC1.xib in Resources */,
 				0323E1CF1E83B70B00E6300F /* NewCell.xib in Resources */,
 				4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */,
 				0314F0CA1E8A04B900A4E15D /* AboutVC.xib in Resources */,
@@ -844,9 +862,11 @@
 				03FACBE51EA1FAAC00950E5E /* HomeService.swift in Sources */,
 				03DFAED21E8917670051F37F /* MoreService.swift in Sources */,
 				030D94791E8DFEFA00F32857 /* PartnersDataModel.swift in Sources */,
+				030077221EA5B97C0050BEEA /* ImageCell.swift in Sources */,
 				4E13D2541E836BC1002E03A1 /* MoreVC.swift in Sources */,
 				033DFFA71E94953400D6F04B /* SettingVC.swift in Sources */,
 				03CD04131E91E5E5001DBB12 /* ProjectVC.swift in Sources */,
+				0305399F1EA47A9A00DFFF79 /* PostProjectVC1.swift in Sources */,
 				0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
 				03FCEBD51E9C7A3C00F0E962 /* NewDetailVC.swift in Sources */,

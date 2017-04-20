@@ -15,18 +15,8 @@ class NewsVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News"
-        // Do any additional setup after loading the view.
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UINib(nibName: "NewCell", bundle: nil), forCellReuseIdentifier: "NewCell")
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        NewService.shared.getNews(indexPage: String(indexPage)) { (news, currentPage, next_page_url) in
+        NewService.shared.getNews(indexPage: String(indexPage)){
+            (news,currentPage, next_page_url) in
             self.indexPage = currentPage
             self.nextPage = next_page_url
             self.news = self.news + news!
@@ -34,12 +24,24 @@ class NewsVC: BaseVC {
                 self.tableView.reloadData()
             }
         }
+        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "NewCell", bundle: nil), forCellReuseIdentifier: "NewCell")
+        
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     override func viewDidDisappear(_ animated: Bool) {
-        self.nextPage = ""
-        self.indexPage = 1
-        self.news.removeAll()
+        
     }
+    
 }
 extension NewsVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,8 +63,6 @@ extension NewsVC: UITableViewDataSource,UITableViewDelegate{
          let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
          let text = resorts[indexPath.item].introduce
          let estimatedRect = NSString(string: text!).boundingRect(with: size, options: options, attributes: [NSFontAttributeName : UIFont.init(name: "Roboto-Medium", size: 14) as Any], context: nil)*/
-        //print("Height TableView: \(view.frame.width * 9 / 16 + 80)")
-        //print("Height Screen: \(view.frame.width * 9 / 16)")
         return CGFloat(view.frame.width * 9 / 16 + 90)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -70,13 +70,13 @@ extension NewsVC: UITableViewDataSource,UITableViewDelegate{
         if index == news.count - 1{
             if self.nextPage != ""{
                 NewService.shared.getNews(indexPage: String(self.indexPage + 1)) { (news, currentPage, next_page_url) in
+                    self.indexPage = currentPage
                     self.nextPage = next_page_url
                     self.news = self.news + news!
                     self.tableView.reloadData()
                 }
 
             }
-          
         }
     }
 

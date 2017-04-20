@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewDetailVC" customModule="PPCApp" customModuleProvider="target">
             <connections>
-                <outlet property="bgrImage" destination="Ge8-cs-v9W" id="npO-hG-ept"/>
+                <outlet property="bgrImage" destination="Ge8-cs-v9W" id="nWD-XD-aVo"/>
                 <outlet property="contentTextView" destination="YAJ-ZV-stb" id="JPp-J2-qDI"/>
                 <outlet property="titleLabel" destination="czi-Xg-yMl" id="vkR-GJ-jqq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bad-aJ-OSP"/>
@@ -29,7 +29,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="building" translatesAutoresizingMaskIntoConstraints="NO" id="Ge8-cs-v9W">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ge8-cs-v9W" customClass="CustomImageView" customModule="PPCApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="57.5" width="375" height="211"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Ge8-cs-v9W" secondAttribute="height" multiplier="16:9" id="RaR-Hr-Zik"/>
@@ -57,7 +57,4 @@
             <point key="canvasLocation" x="37" y="6"/>
         </view>
     </objects>
-    <resources>
-        <image name="building" width="375" height="205"/>
-    </resources>
 </document>

@@ -38,8 +38,10 @@ class ProjectVC: BaseVC {
         projectButton.customTitle()
         self.navigationItem.rightBarButtonItem = projectButton
     }
+    
     func handlePost(){
-        
+        let postProVC1 = PostProjectVC1()
+        present(viewController: postProVC1)
     }
 
 }

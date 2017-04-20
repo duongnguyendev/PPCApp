@@ -9,8 +9,7 @@
 import UIKit
 
 class PostCell: BaseCell {
-    
-    let posterImageView : CustomImageView = {
+    var posterImageView : CustomImageView = {
         let iv = CustomImageView(image: UIImage(named: "vinpearl"))
         return iv
     }()
@@ -65,14 +64,11 @@ class PostCell: BaseCell {
 
     var home: HomeDataModel?{
         didSet{
-            APIService.shared.getImage(url: (home!.image)) { (image, error) in
-                self.posterImageView.image = image
-            }
+            self.posterImageView.loadImageUsingUrlString(urlString: (home?.image)!)
             self.lableName.text = home?.title
             self.lableAddress.text = home?.address
             let acreage = ((home?.acreage)?.description)! + " m2"
             self.labelAcreage.text = acreage
-
         }
     }
 }

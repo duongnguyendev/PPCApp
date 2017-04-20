@@ -9,11 +9,13 @@
 import UIKit
 
 @objc protocol PostVCDelegate {
-    @objc optional func seleted(index : IndexPath)
+    //@objc optional func seleted(index : IndexPath)
+    @objc optional func seleted(home : HomeDataModel)
 }
 class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     let cellId = "cellId"
-    let indexPage: Int = 1
+    var indexPage: Int = 1
+    var nextPage: String = ""
     var homes = [HomeDataModel]()
     
     var type : Int?{
@@ -26,7 +28,6 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         }
     }
     var delegate : PostVCDelegate?
-    
     lazy var collectionViewPost : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -39,27 +40,28 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func fetchSale(type: Int){
 //        self.backgroundColor = UIColor.red
-        HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (homes, currentPage, next_page_url) in
-            self.homes = homes!
+        HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (mhomes, currentPage, next_page_url) in
+            self.indexPage = currentPage
+            self.nextPage = next_page_url
+            self.homes = mhomes!
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                 self.collectionViewPost.reloadData()
             }
         }
-
     }
     func fetchRent(type: Int){
 //        self.backgroundColor = UIColor.blue
-        HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (homes, currentPage, next_page_url) in
-            self.homes = homes!
+        HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (mhomes, currentPage, next_page_url) in
+            self.indexPage = currentPage
+            self.nextPage = next_page_url
+            self.homes = mhomes!
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                 self.collectionViewPost.reloadData()
             }
         }
-
     }
     override func setupView() {
         collectionViewPost.register(PostCell.self, forCellWithReuseIdentifier: cellId)
-        
         addSubview(collectionViewPost)
         addConstraintWithFormat(format: "V:|[v0]-49-|", views: collectionViewPost)
         addConstraintWithFormat(format: "H:|[v0]|", views: collectionViewPost)
@@ -72,7 +74,7 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PostCell
-        cell.home = self.homes[indexPath.row]
+        cell.home = self.homes[indexPath.item]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -82,11 +84,28 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if self.delegate != nil{
-            self.delegate?.seleted!(index: indexPath)
+            let home = homes[indexPath.row]
+            self.delegate?.seleted!(home: home)
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == homes.count - 1{
+            if self.nextPage != ""{
+                HomeService.shared.getHomes(indexPage: String(indexPage + 1), type: type!) { (mhomes, currentPage, next_page_url) in
+                    self.indexPage = currentPage
+                    self.nextPage = next_page_url
+                    self.homes = self.homes + mhomes!
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                        self.collectionViewPost.reloadData()
+                    }
+                }
+
+            }
+            
+        }
     }
 }
 
