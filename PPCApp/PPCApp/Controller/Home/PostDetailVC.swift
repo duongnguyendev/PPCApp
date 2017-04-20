@@ -11,11 +11,31 @@ import UIKit
 class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     let margin : CGFloat = 20.0
     let cellId = "cellId"
-    
+    var home = HomeDataModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Name Project"
-        collectionViewImage.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        title = home.title
+        collectionViewImage.register(ImageCell.self, forCellWithReuseIdentifier: "ImageCell")
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        showInfoHome()
+        collectionViewImage.reloadData()
+    }
+    
+    func showInfoHome(){
+        imageViewPoster.loadImageUsingUrlString(urlString: home.image)
+        home.info.htmlAttributedString { (mInfo) in
+            textViewdDescription.attributedText = mInfo
+        }
+        projectView.content = home.title
+        investorsView.content = home.investor
+        locationsView.content = home.address
+        projectAreaView.content = ((home.acreage).description) + " m2"
+        apartmentInfomationView.content = "Floors: \(((home.floor).description))\nBedrooms: \(((home.bedroom).description))\nBathrooms: \(((home.bathroom).description))"
+        totalApartmentView.content = ((home.bedroom).description)
+        home.service.htmlAttributedString { (mService) in
+            convenientServicesView.content = mService?.string
+        }
     }
     
     let mainScrollView : UIScrollView = {
@@ -24,7 +44,6 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         return scrollView
     }()
     let contentView : UIView = {
-        
         //content all view
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -318,11 +337,12 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     //MARK: - collectionView delegate
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return home.images.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = UIColor.blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        cell.detailImage.loadImageUsingUrlString(urlString: home.images[indexPath.item])
+        
         return cell
     }
     

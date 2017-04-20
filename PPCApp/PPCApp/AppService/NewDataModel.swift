@@ -8,25 +8,35 @@
 
 import Foundation
 import SwiftyJSON
-class NewDataModel: NSObject {
-    let per_page: Int
-    let current_page: Int
+/*class NewDataModel: NSObject {
+    //let per_page: Int
+    //let current_page: Int
     let next_page_url: String
-    let prev_page_url: String
-    let from: Int
-    let to: Int
+    //let prev_page_url: String
+    //let from: Int
+    //let to: Int
     let datas: [Datas]
+    override init(){
+        //per_page = -1
+        //current_page = -1
+        next_page_url = ""
+        //prev_page_url = ""
+       // from = -1
+        //to = -1
+        datas = []
+    }
+    
     init(json: JSON) {
-        per_page = json["per_page"].int ?? -1
-        current_page = json["current_page"].int ?? -1
+        //per_page = json["per_page"].int ?? -1
+        //current_page = json["current_page"].int ?? -1
         next_page_url = json["next_page_url"].string ?? ""
-        prev_page_url = json["prev_page_url"].string ?? ""
-        from = json["from"].int ?? -1
-        to = json["to"].int ?? -1
+        ////prev_page_url = json["prev_page_url"].string ?? ""
+        //from = json["from"].int ?? -1
+        //to = json["to"].int ?? -1
         datas = json["data"].array?.map { return Datas(json: $0) } ?? []
     }
-}
-class Datas: NSObject{
+}*/
+class NewDataModel: NSObject{
     let id:Int
     let id_category:Int
     let image:String
@@ -39,6 +49,21 @@ class Datas: NSObject{
     let new_id: Int
     let title:String
     let content: String
+    
+    override init() {
+        id = -1
+        id_category = -1
+        image = ""
+        type = ""
+        created_at = ""
+        updated_at = ""
+        status = -1
+        slug = ""
+        lang = ""
+        new_id = -1
+        title = ""
+        content = ""
+    }
     init(json: JSON) {
         id = json["id"].int ?? -1
         id_category = json["id_category"].int ?? -1

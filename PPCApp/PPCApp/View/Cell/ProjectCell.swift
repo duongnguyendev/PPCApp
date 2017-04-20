@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class PMCell: UITableViewCell {
+class ProjectCell: UITableViewCell {
     
     @IBOutlet weak var deleteButton: UIButton!
     

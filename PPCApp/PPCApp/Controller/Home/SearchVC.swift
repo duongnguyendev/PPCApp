@@ -8,14 +8,17 @@
 
 import UIKit
 
-class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
+class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    var searchs = [HomeDataModel]()
+    var indexPage: Int = 1
+    var nextPage: String = ""
+    var textSearch:String?
     override func viewDidLoad() {
         collectionSearchResult.register(PostCell.self, forCellWithReuseIdentifier: cellId)
         textFieldSearch.addTarget(self, action: #selector(textFielDidChange(_:)), for: .editingChanged)
         super.viewDidLoad()
         title = "Search"
     }
-    
     lazy var collectionSearchResult : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
@@ -66,7 +69,6 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         
         buttonMic.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         buttonMic.centerYAnchor.constraint(equalTo: textFieldSearch.centerYAnchor, constant: 0).isActive = true
-        
     }
     
     func handleButtonMic (_ sender : UIButton){
@@ -75,6 +77,13 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
     }
     
     func handleSearch(text: String){
+        self.textSearch = text
+        HomeService.shared.fetchHomesSearch(textSearch: textSearch!,indexPgae: indexPage) { (searchs, errMess, currentPage, next_page_url) in
+            self.indexPage = currentPage
+            self.nextPage = next_page_url
+            self.searchs = searchs
+            self.collectionSearchResult.reloadData()
+        }
         print("Searching with text \(text)")
     }
     
@@ -91,14 +100,14 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
     
     //MARK: - CollectionViewDelegate
     let cellId = "cellId"
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+        return searchs.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PostCell
+        cell.home = searchs[indexPath.item]
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellHeight = view.frame.size.width * 9 / 16 + 80
         return CGSize(width: view.frame.size.width, height: cellHeight)
@@ -106,5 +115,22 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let index = indexPath.item
+        if index == searchs.count - 1{
+            if self.nextPage != ""{
+                HomeService.shared.fetchHomesSearch(textSearch: textSearch!,indexPgae: indexPage + 1) { (mSearchs, errMess, currentPage, next_page_url) in
+                    self.indexPage = currentPage
+                    self.nextPage = next_page_url
+                    self.searchs = self.searchs + mSearchs
+                    self.collectionSearchResult.reloadData()
+                }
+                
+            }
+        }
+
+    }
 }

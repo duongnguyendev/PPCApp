@@ -10,7 +10,6 @@ import UIKit
 import SwiftyJSON
 
 class PostService: BaseService {
-    
     static let shared = PostService()
     func getPosts(completion: @escaping ((JSON?, Error?)->())){
         let url = "resort/all"

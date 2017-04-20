@@ -12,7 +12,6 @@ import AlamofireImage
 import SwiftyJSON
 class APIService: NSObject {
     static let shared = APIService()
-    
     func post(url : String, parameters: Parameters, completion: @escaping ((JSON?, Error?)->())){
         Alamofire.request(self.urlFrom(request: url), method: .post, parameters: parameters).responseJSON { (response) in
             switch response.result {
@@ -51,6 +50,7 @@ class APIService: NSObject {
 
         }
     }
+    
     func urlFrom(request: String) -> String{
         return LanguageManager.shared.localized(string: "domainPPC")! + request
     }
