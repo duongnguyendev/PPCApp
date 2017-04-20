@@ -13,7 +13,21 @@ import SwiftyJSON
 class APIService: NSObject {
     static let shared = APIService()
     func post(url : String, parameters: Parameters, completion: @escaping ((JSON?, Error?)->())){
+       
         Alamofire.request(self.urlFrom(request: url), method: .post, parameters: parameters).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(json, nil)
+               // print("JSON: \(json)")
+            case .failure(let error):
+                completion(nil, error)
+                print(error)
+            }
+        }
+    }
+    func posturl(url:String,parameters:Parameters,completion: @escaping ((JSON?,Error?)->())){
+        Alamofire.request(url, method: .post, parameters: parameters).responseJSON { (response) in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -31,7 +45,7 @@ class APIService: NSObject {
             case .success(let value):
                 let json = JSON(value)
                 completion(json, nil)
-                print("JSON: \(json)")
+                //print("JSON: \(json)")
             case .failure(let error):
                 completion(nil, error)
                 print(error)

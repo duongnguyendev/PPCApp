@@ -21,9 +21,9 @@ class PartnersCell: UITableViewCell {
     }
     var partners: PartnersDataModel!{
         didSet{
-            logoImage.image = UIImage(named: partners.logo)
-            companyLabel.text = partners.company
-            fieldLabel.text = partners.field
+            logoImage.loadImageurl(link: partners.image)
+            companyLabel.text = partners.name
+            fieldLabel.text = partners.link
         }
     }
 }

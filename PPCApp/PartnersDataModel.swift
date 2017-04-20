@@ -7,14 +7,20 @@
 //
 
 import Foundation
+import SwiftyJSON
 class PartnersDataModel: NSObject{
-    let logo: String
-    let company: String
-    let field: String
+    let id:Int
+    let image: String
+    let link: String
+    let name:String
+    let status:String
     
-    init(logo: String,company: String,field: String) {
-        self.logo = logo
-        self.company = company
-        self.field = field
-    }
+    init(json:JSON) {
+
+        self.id = json["id"].int ?? -1
+        self.image = json["image"].string ?? ""
+        self.link = json["link"].string ?? ""
+        self.name = json["name"].string ?? ""
+        self.status = json["status"].string ?? ""
+     }
 }

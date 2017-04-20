@@ -8,6 +8,36 @@
 
 import Foundation
 import UIKit
+//extension UIImage{
+//    func load(link:String){
+//        if let url:URL = URL(string: link){
+//            let session = URLSession.shared.dataTask(with: url, completionHandler: { (data, reponse, err) in
+//                if err == nil{
+//                    DispatchQueue.main.async {
+//                        self = UIImage(data: data!)
+//                    }
+//                }
+//            })
+//            session.resume()
+//        }
+//    }
+//}
+extension UIImageView{
+    func loadImageurl(link:String){
+        if  let url:URL = URL(string: link){
+            let session = URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                if err == nil{
+                    DispatchQueue.main.async {
+                        self.image = UIImage(data: data!)
+                    }
+                }
+            }
+            
+            session.resume()
+        }
+    }
+}
+
 extension UIBarButtonItem{
     func customTitle(){
         self.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white,

@@ -11,12 +11,20 @@ import UIKit
 class RecruitmentVC: BaseVC {
     
     @IBOutlet weak var tableView: UITableView!
+    var RecruitmentServices = [RecruitmentDataModel]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Recruitment"
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "RecruitmentCell", bundle: nil), forCellReuseIdentifier: "RecruitmentCell")
+        RecruitmentService.share.getRecruitmentData(indexPage: "") { (RecruitmentDatas) in
+            self.RecruitmentServices = RecruitmentDatas
+            self.tableView.reloadData()
+        }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,13 +38,13 @@ class RecruitmentVC: BaseVC {
 }
 extension RecruitmentVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return RecruitmentServices.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecruitmentCell") as! RecruitmentCell
-        let index = String(indexPath.row)
-        cell.positionLabel.text = "Recruitment " + index
+       // let index = String(indexPath.row)
+        cell.positionLabel.text = RecruitmentServices[indexPath.row].title
         return cell
         
     }
@@ -44,6 +52,8 @@ extension RecruitmentVC: UITableViewDataSource,UITableViewDelegate{
         //Click Select Index Recruitment
         
         let detailVC = RecruitmentDetailVC()
+        detailVC.objectRecruiment = RecruitmentServices[indexPath.row]
+        
         present(viewController: detailVC)
     }
 

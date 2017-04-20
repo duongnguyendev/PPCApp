@@ -10,22 +10,45 @@ import Foundation
 import UIKit
 class TermsVC: BaseVC {
     
-    @IBOutlet weak var useTermsLabel: UILabel!
-    @IBOutlet weak var descTextView: UITextView!
     
+    @IBOutlet weak var tblTerms: UITableView!
+    var Termss = [TermsModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Terms"
+        tblTerms.delegate = self
+        tblTerms.dataSource = self
+        let nib = UINib(nibName: "TermsCell", bundle: nil)
+        tblTerms.register(nib, forCellReuseIdentifier: "TermCell")
+        self.tblTerms.separatorStyle = .none
+        tblTerms.rowHeight = UITableViewAutomaticDimension
+        tblTerms.estimatedRowHeight = 140
+        TermsService.share.getTermsData(indexpage: "") { (termss) in
+            self.Termss = termss
+            self.tblTerms.reloadData()
+        }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewDidAppear(_ animated: Bool) {
-        let useTerms = LanguageManager.shared.localized(string: "use_terms")
-        let descTerms = LanguageManager.shared.localized(string: "desc_terms")
-        useTermsLabel.text = useTerms
-        descTextView.text = descTerms
-    }
+  
 
+}
+extension TermsVC:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Termss.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath) as! TermsCell
+        if indexPath.row == 0{
+            cell.title.textAlignment = .center
+        }
+        else{
+            cell.title.textAlignment = .left
+        }
+        cell.term = Termss[indexPath.row]
+        return cell
+    }
 }

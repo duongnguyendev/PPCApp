@@ -7,18 +7,22 @@
 //
 
 import UIKit
-
-class MoreVC: BaseVC {
+var Login:Bool = false
+class MoreVC: BaseVC,SuccessLogin {
     
+   
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var viewSignIn: UIView!
+   
+    @IBOutlet weak var signImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarButton: UIButton!
-    
+    let getuser:UserDefaults = UserDefaults()
+    //var user:SigninModel = SigninModel()
     var mores = [MoreDataModel]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+         signImage.layer.cornerRadius = 40
+        signImage.clipsToBounds = true
         // Do any additional setup after loading the view.
         title = "More"
 
@@ -29,8 +33,27 @@ class MoreVC: BaseVC {
             self.mores = mores
             self.tableView.reloadData()
         }
+        
+       //login()
+       
     }
-    
+   
+    func getUser(user: SigninModel) {
+        self.signImage.loadImageurl(link: user.avatar)
+        print("oooooooo\(user.avatar)")
+    }
+//    func login(){
+//        if Login == true{
+//         let user = getuser.object(forKey: "user") as? [String:Any]
+////        if user?["message"] as! Int == 1{
+////        print("avatalol\(user?["avata"] as! String)")
+////            self.signImage.loadImageurl(link: user?["avata"] as! String)
+////
+////            
+////        }
+//        
+//        }
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,18 +65,11 @@ class MoreVC: BaseVC {
     
     @IBAction func avatarHandle(_ sender: Any) {
         let signin = SignInVC()
+        signin.delegate = self
         present(viewController: signin)
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 extension MoreVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
