@@ -8,6 +8,35 @@
 
 import Foundation
 import UIKit
+//extension UIImage{
+//    func load(link:String){
+//        if let url:URL = URL(string: link){
+//            let session = URLSession.shared.dataTask(with: url, completionHandler: { (data, reponse, err) in
+//                if err == nil{
+//                    DispatchQueue.main.async {
+//                        self = UIImage(data: data!)
+//                    }
+//                }
+//            })
+//            session.resume()
+//        }
+//    }
+//}
+extension UIImageView{
+    func loadImageurl(link:String){
+        if  let url:URL = URL(string: link){
+            let session = URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                if err == nil{
+                    DispatchQueue.main.async {
+                        self.image = UIImage(data: data!)
+                    }
+                }
+            }
+            
+            session.resume()
+        }
+    }
+}
 
 extension UIBarButtonItem{
     func customTitle(){
@@ -22,13 +51,24 @@ extension String {
         return estimatedRect.height
     }
     func htmlAttributedString(completion: ((_ string : NSAttributedString?)->())) {
-        if let data = try? self.data(using: String.Encoding.utf8, allowLossyConversion: true){
-            let html = try? NSMutableAttributedString(data: data!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
-            completion(html)
+        if let htmlData = try? self.data(using: String.Encoding(rawValue: String.Encoding.unicode.rawValue)){
+            let attributedString = try! NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+            completion(attributedString)
         }else{
             completion(nil)
         }
     }
+//    func htmlAttributedString(completion: ((_ string : NSAttributedString?)->())) {
+//        
+//        if let data = try? self.data(using: String.Encoding.utf8, allowLossyConversion: true){
+//            let html = try? NSMutableAttributedString(data: data!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+//            completion(html)
+//        }else{
+//            completion(nil)
+//        }
+//        
+//        
+//    }
     
 }
 
