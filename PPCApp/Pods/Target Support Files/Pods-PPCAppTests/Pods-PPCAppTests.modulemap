@@ -1,0 +1,6 @@
+framework module Pods_PPCAppTests {
+  umbrella header "Pods-PPCAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
