@@ -10,8 +10,11 @@ import UIKit
 import FontAwesome_swift
 import Photos
 import Alamofire
-class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+import SwiftyJSON
+class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
 
+    var delegate:SuccessLogin?
+    var sigup:SigninModel = SigninModel()
     let controller = UIImagePickerController()
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var avatabtn: UIButton!
@@ -50,6 +53,9 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
     @IBOutlet weak var completebtn: UIButton!
     @IBAction func Acompletebtn(_ sender: Any) {
        uploadSigup(link: "http://api.perfectpropertyvn.com/vi/user/create")
+        if sigup.message == 1{
+            
+        }
     }
     
 
@@ -68,13 +74,13 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
         avataImg.image = UIImage.fontAwesomeIcon(name: .camera, textColor: .darkGray, size: CGSize(width: 120, height: 120))
         userImage.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.darkGray, size: CGSize(width: 40, height: 40))
         passImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: UIColor.darkGray, size: CGSize(width: 40, height: 40))
-        repassImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: .darkGray, size: CGSize(width: 40, height: 40))
+        //repassImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         fullnameImage.image = UIImage.fontAwesomeIcon(name: .laptop, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         phoneImage.image = UIImage.fontAwesomeIcon(name: .phone, textColor: UIColor.darkGray, size: CGSize(width: 40, height: 40))
         adressImage.image = UIImage.fontAwesomeIcon(name: .map, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         emailImage.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: .UIKeyboardWillHide, object: nil)
         
         
         // Do any additional setup after loading the view.
@@ -93,7 +99,7 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
     func keyboardWillShow(notification: NSNotification){
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height , right: 0.0)
             self.scroll.contentInset = contentInsets
             self.scroll.scrollIndicatorInsets = contentInsets
             var aRect = self.view.frame
@@ -129,7 +135,7 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
             "address":address.text
         ]
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            if let image = UIImageJPEGRepresentation(img!, 1){
+            if let image = UIImageJPEGRepresentation(img!, 0.1){
                 multipartFormData.append(image, withName: "avatar", fileName: "avata.jpeg", mimeType: "image/jpeg")
                 
             }
@@ -144,7 +150,27 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
                 })
                 
                 upload.responseJSON { response in
-                    print("ppppppppp\(response.result.value as Any)")
+                    //print("ppppppppp\(response.result.value as Any)")
+                    if let result = response.result.value as? Dictionary<String,Any>{
+                        if result["message"] as! String == "1"{
+                        Login = true
+                        self.sigup = SigninModel(message: Int(result["message"] as! String)!, dic: result["data"] as! Dictionary<String, Any>)
+                            let sigup = self.sigup.toDic(log: self.sigup)
+                            UserDefaults.standard.set(sigup, forKey: "user")
+                            self.delegate?.signUpSuccess(user: self.sigup)
+                            self.dismiss(animated: true, completion: nil)
+                       // print("iiiiiii\(self.sigup.avatar)")
+                            
+                        }
+                        else{
+                            let alert = UIAlertController(title: "Dang ky Khong Thanh Cong", message: result["note"] as? String, preferredStyle: UIAlertControllerStyle.alert)
+                            let alertacation = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+                            alert.addAction(alertacation)
+                            self.present(alert, animated: true, completion: nil)
+                            
+                        }
+                    }
+                    //sigup = SigninModel(message: (response.result.value?["message"])!, json: <#T##JSON#>)
                 }
                 break
 
@@ -156,5 +182,7 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
     }
 }
 
-
+protocol Usersignup {
+    func getusersignup(user:SigninModel)
+}
 

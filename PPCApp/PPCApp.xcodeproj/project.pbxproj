@@ -60,8 +60,12 @@
 		229691A21EA6108F001EC516 /* SiginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229691A11EA6108F001EC516 /* SiginService.swift */; };
 		22C1D0671EA0A2C300FB02BC /* RecruitmentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1D0661EA0A2C200FB02BC /* RecruitmentDataModel.swift */; };
 		22C1D06A1EA0A5CD00FB02BC /* RecuitmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1D0691EA0A5CD00FB02BC /* RecuitmentService.swift */; };
-		22DB86941EA5AA8800DE558C /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB86921EA5AA8800DE558C /* Signup.swift */; };
-		22DB86951EA5AA8800DE558C /* Signup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DB86931EA5AA8800DE558C /* Signup.xib */; };
+		22DA008B1EA9C1FD000B8F23 /* UpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA00891EA9C1FD000B8F23 /* UpdateVC.swift */; };
+		22DA008C1EA9C1FD000B8F23 /* UpdateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA008A1EA9C1FD000B8F23 /* UpdateVC.xib */; };
+		22DA00901EA9C840000B8F23 /* ChangePassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA008E1EA9C840000B8F23 /* ChangePassVC.swift */; };
+		22DA00911EA9C840000B8F23 /* ChangePassVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA008F1EA9C840000B8F23 /* ChangePassVC.xib */; };
+		22DB86941EA5AA8800DE558C /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB86921EA5AA8800DE558C /* SignupVC.swift */; };
+		22DB86951EA5AA8800DE558C /* SignupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DB86931EA5AA8800DE558C /* SignupVC.xib */; };
 		4E13D22E1E836035002E03A1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22C1E836035002E03A1 /* APIService.swift */; };
 		4E13D22F1E836035002E03A1 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22D1E836035002E03A1 /* PostService.swift */; };
 		4E13D2321E836059002E03A1 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D2311E836059002E03A1 /* LanguageManager.swift */; };
@@ -162,8 +166,12 @@
 		229691A11EA6108F001EC516 /* SiginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiginService.swift; sourceTree = "<group>"; };
 		22C1D0661EA0A2C200FB02BC /* RecruitmentDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentDataModel.swift; sourceTree = "<group>"; };
 		22C1D0691EA0A5CD00FB02BC /* RecuitmentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecuitmentService.swift; sourceTree = "<group>"; };
-		22DB86921EA5AA8800DE558C /* Signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
-		22DB86931EA5AA8800DE558C /* Signup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Signup.xib; sourceTree = "<group>"; };
+		22DA00891EA9C1FD000B8F23 /* UpdateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateVC.swift; sourceTree = "<group>"; };
+		22DA008A1EA9C1FD000B8F23 /* UpdateVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateVC.xib; sourceTree = "<group>"; };
+		22DA008E1EA9C840000B8F23 /* ChangePassVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassVC.swift; sourceTree = "<group>"; };
+		22DA008F1EA9C840000B8F23 /* ChangePassVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePassVC.xib; sourceTree = "<group>"; };
+		22DB86921EA5AA8800DE558C /* SignupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		22DB86931EA5AA8800DE558C /* SignupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupVC.xib; sourceTree = "<group>"; };
 		25EEFB10212C2556A9870E92 /* Pods_PPCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE0FCB6F5347FFE291379D4 /* Pods-PPCAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PPCAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PPCAppTests/Pods-PPCAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		31FD0D050E0182ED9B44A883 /* Pods_PPCAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PPCAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,11 +509,29 @@
 			name = Recruitment;
 			sourceTree = "<group>";
 		};
+		22DA00881EA9C1D3000B8F23 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				22DA00891EA9C1FD000B8F23 /* UpdateVC.swift */,
+				22DA008A1EA9C1FD000B8F23 /* UpdateVC.xib */,
+			);
+			name = Update;
+			sourceTree = "<group>";
+		};
+		22DA008D1EA9C813000B8F23 /* ChangePass */ = {
+			isa = PBXGroup;
+			children = (
+				22DA008E1EA9C840000B8F23 /* ChangePassVC.swift */,
+				22DA008F1EA9C840000B8F23 /* ChangePassVC.xib */,
+			);
+			name = ChangePass;
+			sourceTree = "<group>";
+		};
 		22DB86911EA5A9EE00DE558C /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				22DB86921EA5AA8800DE558C /* Signup.swift */,
-				22DB86931EA5AA8800DE558C /* Signup.xib */,
+				22DB86921EA5AA8800DE558C /* SignupVC.swift */,
+				22DB86931EA5AA8800DE558C /* SignupVC.xib */,
 			);
 			name = SignUp;
 			sourceTree = "<group>";
@@ -684,6 +710,8 @@
 		4ED32E081E7FBC930075BF3F /* More */ = {
 			isa = PBXGroup;
 			children = (
+				22DA008D1EA9C813000B8F23 /* ChangePass */,
+				22DA00881EA9C1D3000B8F23 /* Update */,
 				2235AB8A1EA8B7EA0098AAF0 /* Profile */,
 				031CF7541E9B2E2A00A58994 /* SignIn */,
 				0314F0C11E8A031500A4E15D /* Recruitment */,
@@ -817,9 +845,10 @@
 				0322FDD71E88FBAB009B589B /* MoreCell.xib in Resources */,
 				4E13D2551E836BC1002E03A1 /* MoreVC.xib in Resources */,
 				031CF7561E9B2EDF00A58994 /* SignInVC.xib in Resources */,
+				22DA00911EA9C840000B8F23 /* ChangePassVC.xib in Resources */,
 				4ED32DE51E7F809C0075BF3F /* LaunchScreen.storyboard in Resources */,
 				03FCEBD71E9C7A6000F0E962 /* DetailNewVC.xib in Resources */,
-				22DB86951EA5AA8800DE558C /* Signup.xib in Resources */,
+				22DB86951EA5AA8800DE558C /* SignupVC.xib in Resources */,
 				226931681EA45D090004EDDE /* AboutusCell.xib in Resources */,
 				4E13D2431E83621C002E03A1 /* Localizable.strings in Resources */,
 				0320CF611E8C9EE000287090 /* RecruitmentCell.xib in Resources */,
@@ -830,6 +859,7 @@
 				4ED32DE21E7F809C0075BF3F /* Assets.xcassets in Resources */,
 				033DFFB81E94C80C00D6F04B /* PMCell.xib in Resources */,
 				03152B971E9340140056C339 /* RecruitmentDetailVC.xib in Resources */,
+				22DA008C1EA9C1FD000B8F23 /* UpdateVC.xib in Resources */,
 				0314F0CF1E8A053100A4E15D /* PartnersVC.xib in Resources */,
 				039A054F1E8A6B3200002290 /* PartnersCell.xib in Resources */,
 				031F5F2B1E8A475000CBE3C6 /* TermsVC.xib in Resources */,
@@ -946,6 +976,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DA008B1EA9C1FD000B8F23 /* UpdateVC.swift in Sources */,
 				229691A21EA6108F001EC516 /* SiginService.swift in Sources */,
 				0314F0BE1E8A019400A4E15D /* TermsVC.swift in Sources */,
 				033DFFBB1E94F9FF00D6F04B /* SettingCell.swift in Sources */,
@@ -964,6 +995,7 @@
 				0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */,
 				03A9EA9E1E8B8FD500EE1150 /* PartnersService.swift in Sources */,
 				4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */,
+				22DA00901EA9C840000B8F23 /* ChangePassVC.swift in Sources */,
 				033DFFB61E94C80200D6F04B /* PMCell.swift in Sources */,
 				0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */,
 				4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */,
@@ -984,7 +1016,7 @@
 				03152B9B1E934A980056C339 /* AboutVC.swift in Sources */,
 				031CF7581E9B2EF000A58994 /* SignInVC.swift in Sources */,
 				4E872DCD1E9246A000B0592F /* PickerLauncher.swift in Sources */,
-				22DB86941EA5AA8800DE558C /* Signup.swift in Sources */,
+				22DB86941EA5AA8800DE558C /* SignupVC.swift in Sources */,
 				4E13D25B1E837E7A002E03A1 /* HomeCell.swift in Sources */,
 				4E13D2601E83B742002E03A1 /* PostDetailVC.swift in Sources */,
 				4E13D2621E83BCED002E03A1 /* FilterVC.swift in Sources */,
