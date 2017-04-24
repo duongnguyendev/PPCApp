@@ -46,6 +46,7 @@
 		03DFAED21E8917670051F37F /* MoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DFAED11E8917670051F37F /* MoreService.swift */; };
 		03E92B301E9F17C500DC5D70 /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E92B2F1E9F17C500DC5D70 /* HomeDataModel.swift */; };
 		03EF40301E836F7000D14F0D /* NewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF402F1E836F7000D14F0D /* NewService.swift */; };
+		03FA82611EAA0EC300ED00FF /* SpeechLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FA82601EAA0EC300ED00FF /* SpeechLauncher.swift */; };
 		03FACBDE1EA1B83E00950E5E /* BlockAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FACBDD1EA1B83E00950E5E /* BlockAlias.swift */; };
 		03FACBE51EA1FAAC00950E5E /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FACBE41EA1FAAC00950E5E /* HomeService.swift */; };
 		03FCEBD51E9C7A3C00F0E962 /* NewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FCEBD41E9C7A3C00F0E962 /* NewDetailVC.swift */; };
@@ -136,6 +137,7 @@
 		03DFAED11E8917670051F37F /* MoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreService.swift; sourceTree = "<group>"; };
 		03E92B2F1E9F17C500DC5D70 /* HomeDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		03EF402F1E836F7000D14F0D /* NewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewService.swift; sourceTree = "<group>"; };
+		03FA82601EAA0EC300ED00FF /* SpeechLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechLauncher.swift; sourceTree = "<group>"; };
 		03FACBDD1EA1B83E00950E5E /* BlockAlias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockAlias.swift; sourceTree = "<group>"; };
 		03FACBE41EA1FAAC00950E5E /* HomeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		03FCEBD41E9C7A3C00F0E962 /* NewDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDetailVC.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				4E872DCC1E9246A000B0592F /* PickerLauncher.swift */,
 				4E600B2D1E9352120028C3F1 /* ImageDetailLauncher.swift */,
 				4E600B2F1E9377620028C3F1 /* BaseLauncher.swift */,
+				03FA82601EAA0EC300ED00FF /* SpeechLauncher.swift */,
 			);
 			path = Launcher;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				TargetAttributes = {
 					4ED32DD31E7F809C0075BF3F = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7R93MWJ8VY;
 						ProvisioningStyle = Automatic;
 					};
 					4ED32DEA1E7F809C0075BF3F = {
@@ -866,6 +870,7 @@
 				4E13D2541E836BC1002E03A1 /* MoreVC.swift in Sources */,
 				033DFFA71E94953400D6F04B /* SettingVC.swift in Sources */,
 				03CD04131E91E5E5001DBB12 /* ProjectVC.swift in Sources */,
+				03FA82611EAA0EC300ED00FF /* SpeechLauncher.swift in Sources */,
 				0305399F1EA47A9A00DFFF79 /* PostProjectVC1.swift in Sources */,
 				0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
@@ -1059,9 +1064,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7R93MWJ8VY;
 				INFOPLIST_FILE = PPCApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dinhphong.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1076,9 +1081,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7R93MWJ8VY;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = PPCApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dinhphong.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
