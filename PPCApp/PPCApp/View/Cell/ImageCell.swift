@@ -9,13 +9,10 @@
 import Foundation
 import UIKit
 class ImageCell: BaseCell{
-    
-//    @IBOutlet weak var detailImage: CustomImageView!
     let detailImage : CustomImageView = {
         let iv = CustomImageView()
         return iv
     }()
-    
     override func setupView() {
         addSubview(detailImage)
         

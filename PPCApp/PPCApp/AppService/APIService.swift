@@ -52,7 +52,7 @@ class APIService: NSObject {
             }
         }
     }
-    func getImage(url: String,completion: @escaping ((UIImage?,Error?)->())){
+    /*func getImage(url: String,completion: @escaping ((UIImage?,Error?)->())){
         Alamofire.request(url).responseImage { response in
             switch response.result {
             case .success(let value):
@@ -63,8 +63,7 @@ class APIService: NSObject {
             }
 
         }
-    }
-    
+    }*/
     func urlFrom(request: String) -> String{
         return LanguageManager.shared.localized(string: "domainPPC")! + request
     }

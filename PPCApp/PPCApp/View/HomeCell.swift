@@ -37,7 +37,6 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
-    
     func fetchSale(type: Int){
 //        self.backgroundColor = UIColor.red
         HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (mhomes, currentPage, next_page_url) in
@@ -104,7 +103,6 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
                 }
 
             }
-            
         }
     }
 }

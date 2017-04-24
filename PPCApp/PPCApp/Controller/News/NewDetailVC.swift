@@ -17,18 +17,15 @@ class NewDetailVC: BaseVC{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.numberOfLines = 2
     }
-    
     override func viewDidAppear(_ animated: Bool) {
-        //APIService.shared.getImage(url: (new.image)) { (image, error) in
-            //self.bgrImage.image = image
-        //}
+        title = new.title
         bgrImage.loadImageUsingUrlString(urlString: new.image)
         titleLabel.text = new.title
         new.content.htmlAttributedString(completion: { (mString) in
             contentTextView.attributedText = mString
         })
-
     }
     
 }

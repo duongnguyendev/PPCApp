@@ -9,10 +9,12 @@
 import UIKit
 
 class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     var searchs = [HomeDataModel]()
     var indexPage: Int = 1
     var nextPage: String = ""
     var textSearch:String?
+    
     override func viewDidLoad() {
         collectionSearchResult.register(PostCell.self, forCellWithReuseIdentifier: cellId)
         textFieldSearch.addTarget(self, action: #selector(textFielDidChange(_:)), for: .editingChanged)
@@ -60,11 +62,8 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         view.addSubview(collectionSearchResult)
         
         view.addConstraintWithFormat(format: "V:|[v0(40)][v1]|", views: textFieldSearch, collectionSearchResult)
-        
         view.addConstraintWithFormat(format: "H:|[v0(40)][v1][v2(40)]|", views: labelSearchIcon, textFieldSearch, buttonMic)
-        
         view.addConstraintWithFormat(format: "H:|[v0]|", views: collectionSearchResult)
-        
         labelSearchIcon.centerYAnchor.constraint(equalTo: textFieldSearch.centerYAnchor, constant: 0).isActive = true
         
         buttonMic.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
@@ -73,6 +72,8 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
     
     func handleButtonMic (_ sender : UIButton){
         self.view.endEditing(true)
+        let speechLauncher = SpeechLauncher()
+        speechLauncher.show()
         print("handleButtonMic")
     }
     
@@ -116,7 +117,9 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let postDetailVC = PostDetailVC()
+        postDetailVC.home = searchs[indexPath.item]
+        present(viewController: postDetailVC)
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let index = indexPath.item
@@ -131,6 +134,5 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
                 
             }
         }
-
     }
 }

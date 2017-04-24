@@ -9,6 +9,7 @@
 import UIKit
 
 class PostCell: BaseCell {
+    
     var posterImageView : CustomImageView = {
         let iv = CustomImageView(image: UIImage(named: "vinpearl"))
         return iv

@@ -10,7 +10,6 @@ import UIKit
 class FilterVC: BaseVC {
     let spaceLine : CGFloat = 2.0
     let itemSize : CGFloat = 40.0
-    
     var id_projectType: NSNumber = 0
     var id_country: NSNumber = 0
     var id_province: NSNumber = 0
@@ -19,7 +18,6 @@ class FilterVC: BaseVC {
         super.viewDidLoad()
         title = "Filter"
     }
-    
     override func viewDidDisappear(_ animated: Bool) {
         
     }
@@ -108,7 +106,6 @@ class FilterVC: BaseVC {
         HomeService.shared.fetchHomesFilter(id_projectType: id_projectType, id_country: id_country, id_province: id_province, id_district: id_district) { (homes, errMess, currentPage, next_page_url) in
             self.goBack()
         }
-        
     }
 }
 extension FilterVC: PickerViewDelegate{
