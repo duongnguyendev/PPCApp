@@ -58,7 +58,11 @@ class BaseVC: UIViewController {
         viewController.presented = false
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
+    func pod(viewcontroller:BaseVC){
+        if let nav = self.navigationController{
+            nav.pushViewController(viewcontroller, animated: true)
+        }
+    }
     func setupView(){
         
     }

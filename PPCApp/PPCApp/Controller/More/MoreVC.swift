@@ -10,7 +10,7 @@ import UIKit
 var Login:Bool = false
 class MoreVC: BaseVC,SuccessLogin {
     
-   
+//   let signupaa = SignupVC()
     @IBOutlet weak var tableView: UITableView!
    
     @IBOutlet weak var signImage: UIImageView!
@@ -21,11 +21,13 @@ class MoreVC: BaseVC,SuccessLogin {
     var mores = [MoreDataModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
          signImage.layer.cornerRadius = 40
         signImage.clipsToBounds = true
         // Do any additional setup after loading the view.
         title = "More"
 
+//        signupaa.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MoreCell", bundle: nil), forCellReuseIdentifier: "MoreCell")
@@ -40,7 +42,14 @@ class MoreVC: BaseVC,SuccessLogin {
    
     func getUser(user: SigninModel) {
         self.signImage.loadImageurl(link: user.avatar)
-        print("oooooooo\(user.avatar)")
+        
+    }
+    func signUpSuccess(user: SigninModel) {
+        self.signImage.loadImageurl(link: user.avatar)
+
+    }
+    func getusersignup(user: SigninModel) {
+        self.signImage.loadImageurl(link: user.avatar)
     }
 //    func login(){
 //        if Login == true{
@@ -64,9 +73,18 @@ class MoreVC: BaseVC,SuccessLogin {
     }
     
     @IBAction func avatarHandle(_ sender: Any) {
+        if Login == false{
         let signin = SignInVC()
         signin.delegate = self
+        
         present(viewController: signin)
+            //push(viewController: signin)
+        }
+        else{
+            let profile = Profile()
+            
+            present(viewController: profile)
+        }
     }
     
 
