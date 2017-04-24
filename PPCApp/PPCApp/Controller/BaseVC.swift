@@ -17,6 +17,9 @@ class BaseVC: UIViewController {
         setupBackIcon()
         setupView()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     func setupNavBar(){
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.title(),

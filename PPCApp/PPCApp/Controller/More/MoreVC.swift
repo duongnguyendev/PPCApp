@@ -120,9 +120,6 @@ extension MoreVC: UITableViewDataSource,UITableViewDelegate{
             //Present Detail Setting
             let settingVC = SettingVC()
             present(viewController: settingVC)
-        case 5:
-            let projectVC = ProjectManagerVC()
-            present(viewController: projectVC)
         default:
             break;
         }

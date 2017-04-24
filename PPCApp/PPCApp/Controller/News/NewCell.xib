@@ -20,20 +20,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="399" height="288"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bDf-5F-sYk">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bDf-5F-sYk" customClass="CustomImageView" customModule="PPCApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="399" height="224"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="bDf-5F-sYk" secondAttribute="height" multiplier="16:9" id="VDO-ad-q5W"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEASONS AVANUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lN2-ed-g5x">
-                        <rect key="frame" x="8" y="234" width="150.5" height="20"/>
+                        <rect key="frame" x="8" y="234" width="151" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzW-OV-kL8">
-                        <rect key="frame" x="8" y="260" width="383" height="17.5"/>
+                        <rect key="frame" x="8" y="260" width="383" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="qzW-OV-kL8" id="8F2-ZS-2jS"/>
-                <outlet property="newImage" destination="bDf-5F-sYk" id="rGV-aF-ljB"/>
+                <outlet property="newImage" destination="bDf-5F-sYk" id="R4d-cO-7gZ"/>
                 <outlet property="titleLabel" destination="lN2-ed-g5x" id="Cy8-Ii-8Fg"/>
             </connections>
             <point key="canvasLocation" x="-201.5" y="-30.5"/>

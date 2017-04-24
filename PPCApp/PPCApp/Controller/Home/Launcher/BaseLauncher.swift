@@ -37,7 +37,6 @@ class BaseLauncher: NSObject {
             blackView.alpha = 0
         }
     }
-    
     func show(){
         self.blackView.isHidden = false
         self.contentView.isHidden = false

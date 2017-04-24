@@ -7,7 +7,7 @@
 */
 
 //domain = "http://api.ppc-timeshare.com/api/";
-domainPPC = "http://api.perfectpropertyvn.com/vi/";
+domainPPC = "http://api.perfectpropertyvn.com/en/";
 recruitment = "Recruitment";
 partners = "Partners";
 about = "About PPC";

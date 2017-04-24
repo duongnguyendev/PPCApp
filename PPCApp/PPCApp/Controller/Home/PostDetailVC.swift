@@ -7,15 +7,36 @@
 //
 
 import UIKit
+import MessageUI
 
-class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MFMailComposeViewControllerDelegate {
     let margin : CGFloat = 20.0
     let cellId = "cellId"
-    
+    var home = HomeDataModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Name Project"
-        collectionViewImage.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        title = home.title
+        collectionViewImage.register(ImageCell.self, forCellWithReuseIdentifier: "ImageCell")
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        showInfoHome()
+        collectionViewImage.reloadData()
+    }
+    
+    func showInfoHome(){
+        imageViewPoster.loadImageUsingUrlString(urlString: home.image)
+        home.info.htmlAttributedString { (mInfo) in
+            textViewdDescription.attributedText = mInfo
+        }
+        projectView.content = home.title
+        investorsView.content = home.investor
+        locationsView.content = home.address
+        projectAreaView.content = ((home.acreage).description) + " m2"
+        apartmentInfomationView.content = "Floors: \(((home.floor).description))\nBedrooms: \(((home.bedroom).description))\nBathrooms: \(((home.bathroom).description))"
+        totalApartmentView.content = ((home.bedroom).description)
+        home.service.htmlAttributedString { (mService) in
+            convenientServicesView.content = mService?.string
+        }
     }
     
     let mainScrollView : UIScrollView = {
@@ -24,7 +45,6 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         return scrollView
     }()
     let contentView : UIView = {
-        
         //content all view
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -224,7 +244,6 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         let size = CGSize(width: view.frame.width - margin - margin, height: 1000)
         let height = String.heightWith(string: text, size: size, font: textViewdDescription.font!)
         
-        
         textViewdDescription.topAnchor.constraint(equalTo: buttonCall.bottomAnchor, constant: margin/2).isActive = true
         contentView.addConstraintWithFormat(format: "H:|-\(margin - 5)-[v0]-\(margin - 5)-|", views: textViewdDescription)
         textViewdDescription.heightAnchor.constraint(equalToConstant: height + 20).isActive = true
@@ -304,10 +323,19 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     //MARK: - Handle button
     
     func handleCallButton(_ sender : UIButton) {
+        if let url = URL(string: "tel://\(home.phone)") {
+            UIApplication.shared.open(url, options: [:])
+        }
         print("Call")
     }
     
     func handleEmailButton(_ sender : UIButton) {
+        let mailComposeVC = configuredMailComposeVC()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeVC, animated: true, completion: nil)
+        } else {
+            
+        }
         print("Email")
     }
     
@@ -315,17 +343,26 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         print("General Layout")
     }
     
-    //MARK: - collectionView delegate
+    func configuredMailComposeVC() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients([home.email])
+        mailComposerVC.setSubject(home.title)
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        return mailComposerVC
+    }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+    //MARK: - collectionView delegate
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+        return home.images.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = UIColor.blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        cell.detailImage.loadImageUsingUrlString(urlString: home.images[indexPath.item])
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.5
     }
@@ -336,6 +373,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         return CGSize(width: view.frame.size.width/4 - 0.5, height: view.frame.size.width/4 - 0.5)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        imageLauncher.show()
+        imageLauncher.images = home.images
+        imageLauncher.show(index: indexPath)
     }
 }
