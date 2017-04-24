@@ -10,6 +10,7 @@ import UIKit
 
 class Profile: BaseVC {
 
+    varelegate:SuccessLogin? = nil
     @IBOutlet weak var sroll: UIScrollView!
     
     @IBOutlet weak var AvataImg: UIImageView!
@@ -48,7 +49,7 @@ class Profile: BaseVC {
     if Login == true{
         let userLogin:UserDefaults = UserDefaults()
         if userLogin.object(forKey: "user") != nil{
-        print("asassassss\(userLogin.object(forKey: "user") as! Dictionary<String,Any>)")
+       // print("asassassss\(userLogin.object(forKey: "user") as! Dictionary<String,Any>)")
         user = SigninModel(dic: userLogin.object(forKey: "user") as! Dictionary<String, Any>)
         usertxt.text = user.fullname
         emailtxt.text = user.email
@@ -76,7 +77,8 @@ class Profile: BaseVC {
     
     func goUpdate(){
         let update = UpdateVC()
-        present(viewController: update)
+        update.delegate = self.delegate
+       push(viewController: update)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

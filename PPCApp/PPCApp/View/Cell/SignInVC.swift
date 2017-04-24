@@ -100,4 +100,5 @@ class SignInVC: BaseVC,UITextFieldDelegate{
 protocol SuccessLogin {
     func getUser(user:SigninModel)
     func signUpSuccess(user : SigninModel)
+    func updateSuccess(user:SigninModel)
 }
