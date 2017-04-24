@@ -51,8 +51,8 @@ extension String {
         return estimatedRect.height
     }
     func htmlAttributedString(completion: ((_ string : NSAttributedString?)->())) {
-        if let htmlData = try? self.data(using: String.Encoding(rawValue: String.Encoding.unicode.rawValue)){
-             let attributedString = try! NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        if let htmlData = self.data(using: String.Encoding(rawValue: String.Encoding.unicode.rawValue)){
+             let attributedString = try! NSAttributedString(data: htmlData, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
             completion(attributedString)
         }else{
             completion(nil)

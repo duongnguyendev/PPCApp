@@ -49,8 +49,6 @@
 		03FA82611EAA0EC300ED00FF /* SpeechLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FA82601EAA0EC300ED00FF /* SpeechLauncher.swift */; };
 		03FACBDE1EA1B83E00950E5E /* BlockAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FACBDD1EA1B83E00950E5E /* BlockAlias.swift */; };
 		03FACBE51EA1FAAC00950E5E /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FACBE41EA1FAAC00950E5E /* HomeService.swift */; };
-		03FCEBD51E9C7A3C00F0E962 /* NewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FCEBD41E9C7A3C00F0E962 /* NewDetailVC.swift */; };
-		03FCEBD71E9C7A6000F0E962 /* NewDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FCEBD61E9C7A6000F0E962 /* NewDetailVC.xib */; };
 		03FDC76A1E8B4FBF001A2CD7 /* PartnersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FDC7691E8B4FBF001A2CD7 /* PartnersCell.swift */; };
 		2235AB8D1EA8B8220098AAF0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235AB8B1EA8B8220098AAF0 /* Profile.swift */; };
 		2235AB8E1EA8B8220098AAF0 /* Profile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2235AB8C1EA8B8220098AAF0 /* Profile.xib */; };
@@ -88,6 +86,8 @@
 		4E600B301E9377620028C3F1 /* BaseLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E600B2F1E9377620028C3F1 /* BaseLauncher.swift */; };
 		4E872DCB1E9238EA00B0592F /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E872DCA1E9238EA00B0592F /* FilterButton.swift */; };
 		4E872DCD1E9246A000B0592F /* PickerLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E872DCC1E9246A000B0592F /* PickerLauncher.swift */; };
+		4E8BDBA81EAD93E70061D68C /* NewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FCEBD41E9C7A3C00F0E962 /* NewDetailVC.swift */; };
+		4E8BDBA91EAD93E70061D68C /* NewDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FCEBD61E9C7A6000F0E962 /* NewDetailVC.xib */; };
 		4ED32DD81E7F809C0075BF3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32DD71E7F809C0075BF3F /* AppDelegate.swift */; };
 		4ED32DDD1E7F809C0075BF3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED32DDB1E7F809C0075BF3F /* Main.storyboard */; };
 		4ED32DE01E7F809C0075BF3F /* PPCApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4ED32DDE1E7F809C0075BF3F /* PPCApp.xcdatamodeld */; };
@@ -817,12 +817,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Nguyen Duy Duong";
 				TargetAttributes = {
 					4ED32DD31E7F809C0075BF3F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 7R93MWJ8VY;
+						DevelopmentTeam = FE5FXN233L;
 						ProvisioningStyle = Automatic;
 					};
 					4ED32DEA1E7F809C0075BF3F = {
@@ -866,8 +866,7 @@
 				4E13D2551E836BC1002E03A1 /* MoreVC.xib in Resources */,
 				031CF7561E9B2EDF00A58994 /* SignInVC.xib in Resources */,
 				4ED32DE51E7F809C0075BF3F /* LaunchScreen.storyboard in Resources */,
-				03FCEBD71E9C7A6000F0E962 /* NewDetailVC.xib in Resources */,
-				03FCEBD71E9C7A6000F0E962 /* DetailNewVC.xib in Resources */,
+				4E8BDBA91EAD93E70061D68C /* NewDetailVC.xib in Resources */,
 				22DB86951EA5AA8800DE558C /* Signup.xib in Resources */,
 				226931681EA45D090004EDDE /* AboutusCell.xib in Resources */,
 				4E13D2431E83621C002E03A1 /* Localizable.strings in Resources */,
@@ -1029,9 +1028,8 @@
 				0305399F1EA47A9A00DFFF79 /* PostProjectVC1.swift in Sources */,
 				0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
-				03FCEBD51E9C7A3C00F0E962 /* NewDetailVC.swift in Sources */,
+				4E8BDBA81EAD93E70061D68C /* NewDetailVC.swift in Sources */,
 				2296919C1EA603EF001EC516 /* TermsService.swift in Sources */,
-				03FCEBD51E9C7A3C00F0E962 /* DetailNewVC.swift in Sources */,
 				4E456C581E8BF84D003D8C55 /* SearchVC.swift in Sources */,
 				4E13D2581E836BDC002E03A1 /* NewsVC.swift in Sources */,
 				229691991EA60309001EC516 /* TermsModel.swift in Sources */,
@@ -1165,7 +1163,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1210,10 +1208,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1226,9 +1224,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7R93MWJ8VY;
+				DEVELOPMENT_TEAM = FE5FXN233L;
 				INFOPLIST_FILE = PPCApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dinhphong.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1243,10 +1241,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7R93MWJ8VY;
+				DEVELOPMENT_TEAM = FE5FXN233L;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = PPCApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dinhphong.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
