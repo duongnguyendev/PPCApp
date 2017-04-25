@@ -33,7 +33,6 @@
 		0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1D01E83BAF600E6300F /* NewCell.swift */; };
 		033DFFA71E94953400D6F04B /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DFFA61E94953400D6F04B /* SettingVC.swift */; };
 		033DFFA91E94956500D6F04B /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFA81E94956500D6F04B /* SettingVC.xib */; };
-		033DFFB61E94C80200D6F04B /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DFFB51E94C80200D6F04B /* ProjectCell.swift */; };
 		033DFFB81E94C80C00D6F04B /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFB71E94C80C00D6F04B /* ProjectCell.xib */; };
 		033DFFBB1E94F9FF00D6F04B /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DFFBA1E94F9FF00D6F04B /* SettingCell.swift */; };
 		033DFFBD1E94FA0900D6F04B /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFBC1E94FA0900D6F04B /* SettingCell.xib */; };
@@ -52,6 +51,8 @@
 		03FDC76A1E8B4FBF001A2CD7 /* PartnersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FDC7691E8B4FBF001A2CD7 /* PartnersCell.swift */; };
 		2235AB8D1EA8B8220098AAF0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235AB8B1EA8B8220098AAF0 /* Profile.swift */; };
 		2235AB8E1EA8B8220098AAF0 /* Profile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2235AB8C1EA8B8220098AAF0 /* Profile.xib */; };
+		224E021A1EAD9FFA006DB24D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DFFB51E94C80200D6F04B /* ProjectCell.swift */; };
+		224E021B1EAD9FFB006DB24D /* SignupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DB86931EA5AA8800DE558C /* SignupVC.xib */; };
 		226931601EA4554D0004EDDE /* AboutusDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2269315F1EA4554D0004EDDE /* AboutusDataModels.swift */; };
 		226931631EA458660004EDDE /* AboutusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226931621EA458660004EDDE /* AboutusService.swift */; };
 		226931671EA45D090004EDDE /* AboutusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226931651EA45D090004EDDE /* AboutusCell.swift */; };
@@ -69,7 +70,6 @@
 		22DA00901EA9C840000B8F23 /* ChangePassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA008E1EA9C840000B8F23 /* ChangePassVC.swift */; };
 		22DA00911EA9C840000B8F23 /* ChangePassVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA008F1EA9C840000B8F23 /* ChangePassVC.xib */; };
 		22DB86941EA5AA8800DE558C /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB86921EA5AA8800DE558C /* SignupVC.swift */; };
-		22DB86951EA5AA8800DE558C /* SignupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DB86931EA5AA8800DE558C /* SignupVC.xib */; };
 		4E13D22E1E836035002E03A1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22C1E836035002E03A1 /* APIService.swift */; };
 		4E13D22F1E836035002E03A1 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D22D1E836035002E03A1 /* PostService.swift */; };
 		4E13D2321E836059002E03A1 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13D2311E836059002E03A1 /* LanguageManager.swift */; };
@@ -308,7 +308,6 @@
 		031CF7541E9B2E2A00A58994 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				22DB86911EA5A9EE00DE558C /* SignUp */,
 				031CF7551E9B2EDF00A58994 /* SignInVC.xib */,
 				031CF7571E9B2EF000A58994 /* SignInVC.swift */,
 			);
@@ -578,6 +577,7 @@
 				22DB86931EA5AA8800DE558C /* SignupVC.xib */,
 			);
 			name = SignUp;
+			path = ../../View/Cell;
 			sourceTree = "<group>";
 		};
 		4E13D22B1E836035002E03A1 /* AppService */ = {
@@ -762,6 +762,7 @@
 				22DA008D1EA9C813000B8F23 /* ChangePass */,
 				22DA00881EA9C1D3000B8F23 /* Update */,
 				2235AB8A1EA8B7EA0098AAF0 /* Profile */,
+				22DB86911EA5A9EE00DE558C /* SignUp */,
 				031CF7541E9B2E2A00A58994 /* SignIn */,
 				0314F0C11E8A031500A4E15D /* Recruitment */,
 				0314F0CB1E8A04F600A4E15D /* Partners */,
@@ -845,7 +846,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Nguyen Duy Duong";
 				TargetAttributes = {
 					4ED32DD31E7F809C0075BF3F = {
@@ -895,10 +896,8 @@
 				031CF7561E9B2EDF00A58994 /* SignInVC.xib in Resources */,
 				22DA00911EA9C840000B8F23 /* ChangePassVC.xib in Resources */,
 				4ED32DE51E7F809C0075BF3F /* LaunchScreen.storyboard in Resources */,
-				03FCEBD71E9C7A6000F0E962 /* DetailNewVC.xib in Resources */,
-				22DB86951EA5AA8800DE558C /* SignupVC.xib in Resources */,
+				224E021B1EAD9FFB006DB24D /* SignupVC.xib in Resources */,
 				4E8BDBA91EAD93E70061D68C /* NewDetailVC.xib in Resources */,
-				22DB86951EA5AA8800DE558C /* Signup.xib in Resources */,
 				226931681EA45D090004EDDE /* AboutusCell.xib in Resources */,
 				4E13D2431E83621C002E03A1 /* Localizable.strings in Resources */,
 				0320CF611E8C9EE000287090 /* RecruitmentCell.xib in Resources */,
@@ -1045,10 +1044,8 @@
 				4E600B2E1E9352120028C3F1 /* ImageDetailLauncher.swift in Sources */,
 				0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */,
 				03A9EA9E1E8B8FD500EE1150 /* PartnersService.swift in Sources */,
-				4ED32E0C1E7FBCBF0075BF3F /* PostVC.swift in Sources */,
 				22DA00901EA9C840000B8F23 /* ChangePassVC.swift in Sources */,
-				033DFFB61E94C80200D6F04B /* PMCell.swift in Sources */,
-				033DFFB61E94C80200D6F04B /* ProjectCell.swift in Sources */,
+				224E021A1EAD9FFA006DB24D /* ProjectCell.swift in Sources */,
 				0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */,
 				4ED32E0A1E7FBCAE0075BF3F /* HomeVC.swift in Sources */,
 				03152B991E9340300056C339 /* RecruitmentDetailVC.swift in Sources */,

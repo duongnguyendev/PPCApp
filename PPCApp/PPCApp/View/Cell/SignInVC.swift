@@ -27,7 +27,7 @@ class SignInVC: BaseVC,UITextFieldDelegate{
             if self.signin.message == 1
             {
                 print("Thanhcong")
-                Login = true
+               // Login = true
                 let login:Dictionary<String,Any> = self.signin.toDic(log: self.signin)
                 UserDefaults.standard.set(login, forKey: "user")
                 self.delegate?.getUser(user: self.signin)

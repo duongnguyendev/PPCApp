@@ -47,9 +47,15 @@ extension SettingVC: UITableViewDataSource,UITableViewDelegate{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /*if indexPath.row == 0{
-            let detailVC = DetailLanguageVC()
-            present(viewController: detailVC)
-        }*/
+//        if indexPath.row == 0{
+//            let detailVC = DetailLanguageVC()
+//            present(viewController: detailVC)
+//        }
+        if indexPath.row == 1{
+            let sigout:UserDefaults = UserDefaults.standard
+            sigout.removeObject(forKey: "user")
+            let more = MoreVC()
+            present(viewController: more)
+        }
     }
 }

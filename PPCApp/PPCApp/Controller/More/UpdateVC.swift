@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Alamofire
+class UpdateVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
 
-class UpdateVC: BaseVC {
-
-    let delegate:SuccessLogin? = nil
+    var delegate:SuccessLogin?
     var userupdate:UserDefaults = UserDefaults()
     var userget:SigninModel = SigninModel()
     @IBOutlet weak var scroll: UIScrollView!
     @IBAction func Aavatarbtn(_ sender: Any) {
+        let controller = UIImagePickerController()
+        controller.delegate = self
+        controller.sourceType = .photoLibrary
+        present(controller, animated: true, completion: nil)
     }
     @IBOutlet weak var avatarImg: UIImageView!
     @IBOutlet weak var userImg: UIImageView!
@@ -35,8 +39,10 @@ class UpdateVC: BaseVC {
         super.viewDidLoad()
 
         title = "Update"
+        avatarImg.layer.cornerRadius = avatarImg.bounds.size.height / 2.0 - 10
+        avatarImg.clipsToBounds = true
         userImg.image = UIImage.fontAwesomeIcon(name: .user, textColor: .darkGray, size: CGSize(width: 40, height: 40))
-        fullnameImg.image = UIImage.fontAwesomeIcon(name: .laptop, textColor: .darkGray, size: CGSize(width: 40, height: 40))
+        fullnameImg.image = UIImage.fontAwesomeIcon(name: .addressCard, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         emailImg.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         phoneImg.image = UIImage.fontAwesomeIcon(name: .phone, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         addressImg.image = UIImage.fontAwesomeIcon(name: .map, textColor: .darkGray, size: CGSize(width: 40, height: 40))
@@ -46,6 +52,10 @@ class UpdateVC: BaseVC {
         setupDate()
     }
 
+    var phone1:String{
+        let phone1 = phonetxt.text
+        return phone1!
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,8 +80,17 @@ class UpdateVC: BaseVC {
         self.scroll.contentInset = contentInsets
         self.scroll.scrollIndicatorInsets = contentInsets
     }
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     func setupDate(){
+        usertxt.delegate = self
+        fullnametxt.delegate = self
+        addresstxt.delegate = self
+        emailtxt.delegate = self
+        phonetxt.delegate = self
         if let user = userupdate.object(forKey: "user") {
             
             userget = SigninModel(dic: user as! Dictionary<String,Any>)
@@ -82,19 +101,55 @@ class UpdateVC: BaseVC {
             phonetxt.text = userget.phone
             addresstxt.text = userget.address
             
+            
+        }
+        let update = UIBarButtonItem(title: "Complete", style: .plain, target: self, action: #selector(completeupdate))
+        update.tintColor = UIColor.white
+        if presented != nil{
+            self.navigationItem.rightBarButtonItem = update
         }
     }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let selected = info[UIImagePickerControllerOriginalImage] as! UIImage
+        avatarImg.image = selected
+        dismiss(animated: true, completion: nil)
+    }
+
     func completeupdate(){
-        
+        let emailReg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailReg)
+        if emailTest.evaluate(with: emailtxt.text) == false {
+            let alert = UIAlertController(title: "Thong Bao", message: "Email Khong Dung Vui Long Nhap Lai", preferredStyle: .alert)
+            let act = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(act)
+            present(alert, animated: true, completion: nil)
+            
+        }
+        if phone1.characters.count < 9 && phone1.characters.count > 11{
+            let alert1 = UIAlertController(title: "Thong Bao", message: "SDT Khong Dung Vui Long Nhap Lai", preferredStyle: .alert)
+            let act1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert1.addAction(act1)
+            present(alert1, animated: true, completion: nil)
+            
+        }
+
+        else{
+        uploadSigup(link: "http://api.perfectpropertyvn.com/user/update")
+        }
     }
     func uploadSigup(link:String){
         let img = avatarImg.image
         let parameters = [
-            "username":usertxt.text,
-            "fullname":fullnametxt.text,
-            "email":emailtxt.text,
-            "phone":phonetxt.text,
-            "address":a
+            "username":usertxt.text ?? "",
+            "fullname":fullnametxt.text ?? "",
+            "email":emailtxt.text ?? "",
+            "phone":phonetxt.text ?? "",
+            "address":addresstxt.text ?? "",
+            "id":String(userget.id)
+
         ]
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             if let image = UIImageJPEGRepresentation(img!, 0.1){
@@ -102,7 +157,7 @@ class UpdateVC: BaseVC {
                 
             }
             for (key,value) in parameters{
-                multipartFormData.append((value?.data(using: .utf8))!, withName: key)
+                multipartFormData.append((value.data(using: .utf8))!, withName: key)
             }
         }, to: link) { (result) in
             switch result{
@@ -112,27 +167,26 @@ class UpdateVC: BaseVC {
                 })
                 
                 upload.responseJSON { response in
-                    //print("ppppppppp\(response.result.value as Any)")
+                    
                     if let result = response.result.value as? Dictionary<String,Any>{
-                        if result["message"] as! String == "1"{
-                            Login = true
-                            self.sigup = SigninModel(message: Int(result["message"] as! String)!, dic: result["data"] as! Dictionary<String, Any>)
-                            let sigup = self.sigup.toDic(log: self.sigup)
+                        if result["message"] as! Int == 1{
+                            self.userget = SigninModel(message: result["message"] as! Int, dic: result["data"] as! Dictionary<String, Any>)
+                            let sigup = self.userget.toDic(log: self.userget)
                             UserDefaults.standard.set(sigup, forKey: "user")
-                            self.delegate?.signUpSuccess(user: self.sigup)
+                            self.delegate?.updateSuccess(user: self.userget)
+                            print("0000000\(self.userget.fullname)")
                             self.dismiss(animated: true, completion: nil)
-                            // print("iiiiiii\(self.sigup.avatar)")
-                            
+
                         }
                         else{
-                            let alert = UIAlertController(title: "Dang ky Khong Thanh Cong", message: result["note"] as? String, preferredStyle: UIAlertControllerStyle.alert)
+                            let alert = UIAlertController(title: "Update Khong Thanh Cong", message: result["note"] as? String, preferredStyle: UIAlertControllerStyle.alert)
                             let alertacation = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
                             alert.addAction(alertacation)
                             self.present(alert, animated: true, completion: nil)
                             
                         }
                     }
-                    //sigup = SigninModel(message: (response.result.value?["message"])!, json: <#T##JSON#>)
+                    
                 }
                 break
                 
