@@ -35,7 +35,7 @@ class Profile: BaseVC {
         title = "Profile"
         userImg.image = UIImage.fontAwesomeIcon(name: .user, textColor: .darkGray, size: CGSize(width: userImg.frame.width, height: userImg.frame.height))
         emailImg.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: .darkGray, size: CGSize(width: emailImg.frame.width, height: emailImg.frame.height))
-        phoneImg.image = UIImage.fontAwesomeIcon(name: .phone, textColor: .darkGray, size: CGSize(width: phoneImg.frame.width, height: phoneImg.frame.height))
+        phoneImg.image = UIImage.fontAwesomeIcon(name: .addressCard, textColor: .darkGray, size: CGSize(width: phoneImg.frame.width, height: phoneImg.frame.height))
         addressImg.image = UIImage.fontAwesomeIcon(name: .map, textColor: .darkGray, size: CGSize(width: addressImg.frame.width, height: addressImg.frame.height))
         showProfile()
         AvataImg.layer.cornerRadius = AvataImg.frame.height / 2 - 10
