@@ -83,7 +83,6 @@ class ImageDetailLauncher: BaseLauncher {
     func show(index : IndexPath)
     {
         self.show()
-        
         self.cvImageDetail.scrollToItem(at: index, at: .left, animated: true)
     }
 }

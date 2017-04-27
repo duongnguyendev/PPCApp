@@ -9,10 +9,7 @@
 import UIKit
 var Login:Bool = false
 class MoreVC: BaseVC,SuccessLogin {
-    
-   
     @IBOutlet weak var tableView: UITableView!
-   
     @IBOutlet weak var signImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarButton: UIButton!
@@ -21,11 +18,10 @@ class MoreVC: BaseVC,SuccessLogin {
     var mores = [MoreDataModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
-         signImage.layer.cornerRadius = 40
+        signImage.layer.cornerRadius = 40
         signImage.clipsToBounds = true
         // Do any additional setup after loading the view.
         title = "More"
-
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MoreCell", bundle: nil), forCellReuseIdentifier: "MoreCell")
@@ -33,7 +29,6 @@ class MoreVC: BaseVC,SuccessLogin {
             self.mores = mores
             self.tableView.reloadData()
         }
-        
        //login()
        
     }
@@ -62,14 +57,11 @@ class MoreVC: BaseVC,SuccessLogin {
     override func viewDidAppear(_ animated: Bool) {
         
     }
-    
     @IBAction func avatarHandle(_ sender: Any) {
         let signin = SignInVC()
         signin.delegate = self
         present(viewController: signin)
     }
-    
-
 }
 extension MoreVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

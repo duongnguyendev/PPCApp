@@ -7,6 +7,10 @@
 //
 
 import UIKit
+@objc protocol HomeVCDelegate {
+    //@objc optional func seleted(index : IndexPath)
+    @objc optional func Filter(projects : [HomeDataModel],currentPage: Int,next_page_url: String)
+}
 class FilterVC: BaseVC {
     let spaceLine : CGFloat = 2.0
     let itemSize : CGFloat = 40.0
@@ -14,6 +18,10 @@ class FilterVC: BaseVC {
     var id_country: NSNumber = 0
     var id_province: NSNumber = 0
     var id_district: NSNumber = 0
+    var typeSegementControl: NSNumber = 0
+    
+    var delegate: HomeVCDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Filter"
@@ -56,7 +64,6 @@ class FilterVC: BaseVC {
     let provinceLauncher = ProvinceLauncher()
     let districtLauncher = DistrictLauncher()
     let typeOfProjectLauncher = TypeOfProjectLauncher()
-    
     
     override func setupView() {
         super.setupView()
@@ -101,12 +108,17 @@ class FilterVC: BaseVC {
         self.navigationItem.rightBarButtonItem = filterButton
     }
     
-    //Phong Chua Xong
     func handleComplete(_ sender : UIBarButtonItem){
-        HomeService.shared.fetchHomesFilter(id_projectType: id_projectType, id_country: id_country, id_province: id_province, id_district: id_district) { (homes, errMess, currentPage, next_page_url) in
-            self.goBack()
+        HomeService.shared.fetchHomesFilter(id_projectType: id_projectType, id_country: id_country, id_province: id_province, id_district: id_district,type: typeSegementControl) { (homes, errMess, currentPage, next_page_url) in
+            if errMess == 1{
+                if self.delegate != nil{
+                    self.delegate?.Filter!(projects: homes, currentPage: currentPage, next_page_url: next_page_url)
+                    self.goBack()
+                }
+            }
         }
     }
+    
 }
 extension FilterVC: PickerViewDelegate{
     func selectedProjectType(place: Place) {

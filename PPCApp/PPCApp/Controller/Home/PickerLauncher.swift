@@ -106,7 +106,6 @@ class TypeOfProjectLauncher: PickerLauncher {
         super.init()
         fretchItem()
     }
-
     override func fretchItem() {
         HomeService.shared.fetchPlaces(pageUrl: "project") { (places, errMess) in
             self.projects = places

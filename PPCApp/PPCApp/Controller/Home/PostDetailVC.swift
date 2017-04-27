@@ -251,7 +251,6 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         
     }
     func setupCollectionViewImage() {
-        
         collectionViewImage.topAnchor.constraint(equalTo: textViewdDescription.bottomAnchor, constant: 0).isActive = true
         contentView.addConstraintWithFormat(format: "H:|[v0]|", views: collectionViewImage)
         collectionViewImage.heightAnchor.constraint(equalToConstant: view.frame.size.width/2).isActive = true

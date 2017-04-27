@@ -9,7 +9,6 @@
 import UIKit
 
 class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     var searchs = [HomeDataModel]()
     var indexPage: Int = 1
     var nextPage: String = ""
@@ -20,6 +19,7 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         textFieldSearch.addTarget(self, action: #selector(textFielDidChange(_:)), for: .editingChanged)
         super.viewDidLoad()
         title = "Search"
+        self.collectionSearchResult.keyboardDismissMode = UIScrollViewKeyboardDismissMode.onDrag
     }
     lazy var collectionSearchResult : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -72,8 +72,6 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
     
     func handleButtonMic (_ sender : UIButton){
         self.view.endEditing(true)
-        let speechLauncher = SpeechLauncher()
-        speechLauncher.show()
         print("handleButtonMic")
     }
     
@@ -119,7 +117,7 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let postDetailVC = PostDetailVC()
         postDetailVC.home = searchs[indexPath.item]
-        present(viewController: postDetailVC)
+        push(viewController: postDetailVC)
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let index = indexPath.item
@@ -131,7 +129,6 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
                     self.searchs = self.searchs + mSearchs
                     self.collectionSearchResult.reloadData()
                 }
-                
             }
         }
     }

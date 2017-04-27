@@ -9,6 +9,8 @@
 import UIKit
 import Photos
 class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PostVCDelegate {
+    var typeSegmentControl: NSNumber = 0
+    var indexPath: IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
         title = LanguageManager.shared.localized(string: "home")
@@ -19,7 +21,6 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         segmentedPostType.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         homeCollectionView.register(HomeCell.self, forCellWithReuseIdentifier: cellId)
     }
-    
     let segmentedPostType : UISegmentedControl = {
         let segmented = UISegmentedControl()
         segmented.insertSegment(withTitle: "Sale", at: 0, animated: true)
@@ -56,15 +57,16 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     //MARK: - segment
     func segmentedValueChanged(_ sender : UISegmentedControl){
-//        print(sender.selectedSegmentIndex)
+        self.typeSegmentControl = NSNumber(value: sender.selectedSegmentIndex)
         let index = IndexPath(item: sender.selectedSegmentIndex, section: 0)
         self.homeCollectionView.scrollToItem(at: index, at: .left, animated: true)
     }
-    
     //Mark: - nav button handle
     
     func handleFilter(){
         let filterVC = FilterVC()
+        filterVC.delegate = self
+        filterVC.typeSegementControl = self.typeSegmentControl
         self.present(viewController: filterVC)
     }
     func handleSearch() {
@@ -79,6 +81,7 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeCell
         cell.delegate = self
         cell.type = indexPath.item
+        self.indexPath = indexPath
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -90,6 +93,7 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let index = targetContentOffset.pointee.x / view.frame.width
         segmentedPostType.selectedSegmentIndex = Int(index)
+        self.typeSegmentControl = NSNumber(value: segmentedPostType.selectedSegmentIndex)
     }
     //MARK: - setup nav
     func addFilterButton(){
@@ -111,5 +115,15 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         detailVC.home = home
         self.present(viewController: detailVC)
     }
-    
+}
+extension HomeVC: HomeVCDelegate{
+    //Bug Không Load Data
+    func Filter(projects: [HomeDataModel], currentPage: Int, next_page_url: String) {
+        let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath!) as! HomeCell
+        cell.indexPage = currentPage
+        cell.nextPage = next_page_url
+        cell.homes = projects
+        
+        cell.collectionViewPost.reloadData()
+    }
 }

@@ -11,19 +11,12 @@ import FontAwesome_swift
 import Photos
 import Alamofire
 class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
-
     let controller = UIImagePickerController()
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var avatabtn: UIButton!
-    
     @IBOutlet weak var avataImg: UIImageView!
     @IBAction func Aavatabtn(_ sender: Any) {
         print("Click")
-//                let assets = PHAsset.fetchAssets(with: .image, options: nil)
-//                PHImageManager.default().requestImage(for: assets[0], targetSize: CGSize(width: 1000, height: 1000), contentMode: .default, options: nil, resultHandler: { (image, nil) in
-//                    //self.view.backgroundColor = UIColor.init(patternImage: image!)
-//                    self.avataImg.image = image
-//                })
         controller.delegate = self
         controller.sourceType = .photoLibrary
         present(controller, animated: true, completion: nil)
@@ -36,8 +29,6 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
     @IBOutlet weak var phoneImage: UIImageView!
     @IBOutlet weak var adressImage: UIImageView!
     
-    
-    
     @IBOutlet weak var usertxt: UITextField!
     @IBOutlet weak var passtxt: UITextField!
     @IBOutlet weak var repasstxt: UITextField!
@@ -46,17 +37,14 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
     @IBOutlet weak var address: UITextField!
     @IBOutlet weak var phonetxt: UITextField!
     
-    
     @IBOutlet weak var completebtn: UIButton!
     @IBAction func Acompletebtn(_ sender: Any) {
        uploadSigup(link: "http://api.perfectpropertyvn.com/vi/user/create")
     }
-    
-
     var avataImage:UIImage = UIImage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         title = "SignUp"
         
         emailtxt.delegate = self
@@ -74,9 +62,6 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
         adressImage.image = UIImage.fontAwesomeIcon(name: .map, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         emailImage.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: .darkGray, size: CGSize(width: 40, height: 40))
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        
-        
-        
         // Do any additional setup after loading the view.
     }
 
@@ -87,8 +72,8 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        
         return false
+        
     }
     func keyboardWillShow(notification: NSNotification){
         
@@ -115,7 +100,7 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selected = info[UIImagePickerControllerOriginalImage] as! UIImage
         avataImg.image = selected
-        avataImage = selected
+        //avataImage = selected
         dismiss(animated: true, completion: nil)
     }
     func uploadSigup(link:String){
@@ -131,7 +116,6 @@ class Signup: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImageP
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             if let image = UIImageJPEGRepresentation(img!, 1){
                 multipartFormData.append(image, withName: "avatar", fileName: "avata.jpeg", mimeType: "image/jpeg")
-                
             }
             for (key,value) in parameters{
                 multipartFormData.append((value?.data(using: .utf8))!, withName: key)

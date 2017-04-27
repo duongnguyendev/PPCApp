@@ -41,6 +41,7 @@ class HomeDataModel: NSObject{
     let info: String
     let ownership: String
     let service: String
+    let project: String
     let images: [String]
     override init() {
         id = -1
@@ -76,6 +77,7 @@ class HomeDataModel: NSObject{
         ownership = ""
         service = ""
         images = []
+        project = ""
     }
     init(json: JSON) {
         id = json["id"].int ?? -1
@@ -108,6 +110,7 @@ class HomeDataModel: NSObject{
         id_user = json["id_user"].int ?? -1
         title = json["title"].string ?? ""
         info = json["info"].string ?? ""
+        project = json["project"].string ?? ""
         ownership = json["ownership"].string ?? ""
         service = json["service"].string ?? ""
         images = json["images"].array?.map{ return String(describing: $0) } ?? []

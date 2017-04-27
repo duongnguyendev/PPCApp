@@ -9,7 +9,6 @@
 import UIKit
 
 class BaseView: UIView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -17,14 +16,12 @@ class BaseView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     func setupView(){
         
     }
 }
 
 class PostDetailInfoView: BaseView {
-
     var title : String?{
         didSet{
             labelTitle.text = title
@@ -50,6 +47,7 @@ class PostDetailInfoView: BaseView {
         textView.textColor = UIColor.lightGray
         return textView
     }()
+    
     override func setupView() {
         self.translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.white
@@ -95,11 +93,7 @@ class GeneralButton: UIButton {
         rightArrowImage.centerYAnchor.constraint(equalTo: iconImage.centerYAnchor, constant: 0).isActive = true
         rightArrowImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
-    
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }

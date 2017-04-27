@@ -11,10 +11,7 @@ import UIKit
 import FontAwesome_swift
 //let userLogin:UserDefaults = UserDefaults()
 class SignInVC: BaseVC,UITextFieldDelegate{
-    
-     var delegate:SuccessLogin?
-    
-    
+    var delegate:SuccessLogin?
     @IBOutlet weak var userimage: UIImageView!
     @IBOutlet weak var passimage: UIImageView!
     @IBOutlet weak var usertxt: UITextField!
@@ -31,6 +28,7 @@ class SignInVC: BaseVC,UITextFieldDelegate{
                 Login = true
                 let login:Dictionary<String,Any> = self.signin.toDic(log: self.signin)
                 UserDefaults.standard.set(login, forKey: "user")
+                
                 self.delegate?.getUser(user: self.signin)
 //                let manhinh = MoreVC()
 //                self.present(viewController: manhinh)
@@ -65,6 +63,7 @@ class SignInVC: BaseVC,UITextFieldDelegate{
 //        signinbtn.layer.cornerRadius = 5
         signupbtn.layer.cornerRadius = 5
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -75,7 +74,6 @@ class SignInVC: BaseVC,UITextFieldDelegate{
         return false
     }
     func keyboardWillShow(notification: NSNotification){
-        
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
             self.scroll.contentInset = contentInsets

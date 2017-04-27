@@ -67,13 +67,14 @@ class HomeService: BaseService {
         }
     }
     
-    func fetchHomesFilter(id_projectType: NSNumber,id_country: NSNumber,id_province: NSNumber,id_district: NSNumber,callback: @escaping HomeCallback){
+    func fetchHomesFilter(id_projectType: NSNumber,id_country: NSNumber,id_province: NSNumber,id_district: NSNumber,type: NSNumber,callback: @escaping HomeCallback){
         let url = "property/filter"
         let parameters = [
             "id_project": id_projectType,
             "id_country": id_country,
             "id_province": id_province,
-            "id_district": id_district
+            "id_district": id_district,
+            "type": type
         ]
         apiService.post(url: url, parameters: parameters) { (json, error) in
             if error == nil{

@@ -38,7 +38,6 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         return cv
     }()
     func fetchSale(type: Int){
-//        self.backgroundColor = UIColor.red
         HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (mhomes, currentPage, next_page_url) in
             self.indexPage = currentPage
             self.nextPage = next_page_url
@@ -49,7 +48,6 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         }
     }
     func fetchRent(type: Int){
-//        self.backgroundColor = UIColor.blue
         HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (mhomes, currentPage, next_page_url) in
             self.indexPage = currentPage
             self.nextPage = next_page_url
