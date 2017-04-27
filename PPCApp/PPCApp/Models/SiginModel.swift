@@ -9,13 +9,14 @@
 import Foundation
 import SwiftyJSON
 class SigninModel: AnyObject {
-    let message:Int
-    let id:Int
-    let username: String
-    let fullname: String
-    let email: String
-    let phone: String
-    let avatar: String
+    var message:Int
+    var id:Int
+    var username: String
+    var fullname: String
+    var email: String
+    var phone: String
+    var avatar: String
+    var address:String
    
     init() {
         message = -1
@@ -25,6 +26,7 @@ class SigninModel: AnyObject {
         email = ""
         avatar = ""
         phone = ""
+        address = ""
     }
     init(message:Int,json:JSON) {
         self.message = message
@@ -34,9 +36,33 @@ class SigninModel: AnyObject {
         self.email = json["email"].string ?? "loi"
         self.avatar = json["avatar"].string ?? "loi"
         self.phone = json["phone"].string ?? "loi"
+        self.address = json["address"].string ?? "loi"
+    }
+    init(dic:Dictionary<String,Any>){
+        self.id = dic["id"] as! Int
+        self.address = dic["address"] as! String
+        self.avatar = dic["avatar"] as! String
+        self.email = dic["email"] as! String
+        self.fullname = dic["fullname"] as! String
+        self.message = dic["message"] as! Int
+        self.username = dic["username"] as! String
+        self.phone = dic["phone"] as! String
+        
+        
+    }
+    init(message:Int,dic:Dictionary<String,Any>){
+        self.id = dic["id"] as! Int
+        self.address = dic["address"] as! String
+        self.avatar = dic["avatar"] as! String
+        self.email = dic["email"] as! String
+        self.fullname = dic["fullname"] as! String
+        self.message = message
+        self.username = dic["username"] as! String
+        self.phone = dic["phone"] as! String
+
     }
     func toDic(log:SigninModel)->Dictionary<String,Any>{
-        let logs:Dictionary<String,Any> = ["id":log.id,"username":log.username,"fullname":log.fullname,"email":log.email,"avata":log.avatar,"phone":log.phone,"message":log.message]
+        let logs:Dictionary<String,Any> = ["id":log.id,"username":log.username,"fullname":log.fullname,"email":log.email,"avatar":log.avatar,"phone":log.phone,"message":log.message,"address":log.address]
         return logs
     }
 }

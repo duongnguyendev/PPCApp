@@ -48,6 +48,7 @@ class PhotoVC: BaseVC{
     }
 }
 extension PhotoVC: UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
+    
     //MARK: - collectionView delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return images.count
@@ -66,5 +67,5 @@ extension PhotoVC: UICollectionViewDataSource,UICollectionViewDelegate,UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width/3 - 0.5, height: view.frame.size.width/3 - 0.5)
     }
-
+    
 }

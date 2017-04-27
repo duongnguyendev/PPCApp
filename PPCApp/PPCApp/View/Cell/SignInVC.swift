@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import FontAwesome_swift
-//let userLogin:UserDefaults = UserDefaults()
 class SignInVC: BaseVC,UITextFieldDelegate{
     var delegate:SuccessLogin?
     @IBOutlet weak var userimage: UIImageView!
@@ -30,8 +29,6 @@ class SignInVC: BaseVC,UITextFieldDelegate{
                 UserDefaults.standard.set(login, forKey: "user")
                 
                 self.delegate?.getUser(user: self.signin)
-//                let manhinh = MoreVC()
-//                self.present(viewController: manhinh)
                 self.dismiss(animated: true, completion: nil)
             }
             else{
@@ -45,10 +42,14 @@ class SignInVC: BaseVC,UITextFieldDelegate{
     @IBOutlet weak var signupbtn: UIButton!
     var signin:SigninModel = SigninModel()
     @IBAction func Asignupbtn(_ sender: Any) {
-        let sigup = Signup()
-       present(viewController: sigup)
+        let sigup = SignupVC()
+        sigup.delegate = self.delegate
+        push(viewController: sigup)
+      // present(viewController: sigup)
         }
     @IBAction func forgotpassbtn(_ sender: Any) {
+        
+        
     }
     @IBOutlet weak var scroll: UIScrollView!
     override func viewDidLoad() {
@@ -58,12 +59,12 @@ class SignInVC: BaseVC,UITextFieldDelegate{
         passtxt.delegate = self
         userimage.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.darkGray, size: CGSize(width: 40, height: 40))
         passimage.image = UIImage.fontAwesomeIcon(name: FontAwesome.lock, textColor: UIColor.darkGray, size: CGSize(width: 40, height: 40))
-        signupbtn.layer.borderWidth = 3
+        signupbtn.layer.borderWidth = 2
         signupbtn.layer.borderColor = signinbtn.layer.backgroundColor
-//        signinbtn.layer.cornerRadius = 5
         signupbtn.layer.cornerRadius = 5
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: .UIKeyboardWillHide, object: nil)
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -75,7 +76,7 @@ class SignInVC: BaseVC,UITextFieldDelegate{
     }
     func keyboardWillShow(notification: NSNotification){
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height + 100, right: 0.0)
             self.scroll.contentInset = contentInsets
             self.scroll.scrollIndicatorInsets = contentInsets
             var aRect = self.view.frame
@@ -96,4 +97,5 @@ class SignInVC: BaseVC,UITextFieldDelegate{
 
 protocol SuccessLogin {
     func getUser(user:SigninModel)
+    func signUpSuccess(user : SigninModel)
 }
