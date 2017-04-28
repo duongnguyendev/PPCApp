@@ -51,11 +51,12 @@ class SignInVC: BaseVC,UITextFieldDelegate{
         
         
     }
+    
     @IBOutlet weak var scroll: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "SignIn"
-       usertxt.delegate = self
+        usertxt.delegate = self
         passtxt.delegate = self
         userimage.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.darkGray, size: CGSize(width: 40, height: 40))
         passimage.image = UIImage.fontAwesomeIcon(name: FontAwesome.lock, textColor: UIColor.darkGray, size: CGSize(width: 40, height: 40))

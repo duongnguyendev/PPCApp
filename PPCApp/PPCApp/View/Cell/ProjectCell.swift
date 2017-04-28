@@ -12,7 +12,6 @@ import UIKit
     @objc optional func selected(project : HomeDataModel)
 }
 class ProjectCell: UITableViewCell {
-    
     @IBOutlet weak var generalImage: CustomImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var typeProjectLabel: UILabel!

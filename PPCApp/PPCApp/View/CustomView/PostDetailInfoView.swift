@@ -66,7 +66,6 @@ class PostDetailInfoView: BaseView {
 }
 
 class GeneralButton: UIButton {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -96,4 +95,33 @@ class GeneralButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+class GeneralPost: BaseButton {
+    var name: String?{
+        didSet{
+            nameLabel.text = name
+        }
+    }
+    let nameLabel: UILabel = {
+        let lablel = UILabel()
+        lablel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium)
+        lablel.textColor = UIColor.navigationBar()
+        return lablel
+    }()
+    
+    override func setupView() {
+        super.setupView()
+        let rightArrowImage = UIImageView(image: UIImage.fontAwesomeIcon(name: .angleRight, textColor: UIColor.lightGray, size: CGSize(width: 100, height: 100)))
+        rightArrowImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(nameLabel)
+        addSubview(rightArrowImage)
+        
+        addConstraintWithFormat(format: "H:|-10-[v0]-10-[v1(30)]|", views: nameLabel,rightArrowImage)
+        addConstraintWithFormat(format: "V:|-10-[v0]-10-|", views: nameLabel)
+        
+        rightArrowImage.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor, constant: 0).isActive = true
+        rightArrowImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
 }

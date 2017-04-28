@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 import UIKit
+import Photos
 class ProjectService: BaseService{
     static let shared = ProjectService()
     

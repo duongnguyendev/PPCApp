@@ -7,9 +7,7 @@
 //
 
 import UIKit
-
 @objc protocol PostVCDelegate {
-    //@objc optional func seleted(index : IndexPath)
     @objc optional func seleted(home : HomeDataModel)
 }
 class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

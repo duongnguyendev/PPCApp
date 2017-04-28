@@ -30,7 +30,7 @@ class MainTabVC: UITabBarController {
         //let postIcon = UIImage.fontAwesomeIcon(name: .upload, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
         let projectIcon = UIImage(named: "project.png")
         let projectIconSelect = UIImage(named: "project_select.png")
-        let tabPostBarItem = UITabBarItem(title: "Project Manager", image: projectIcon, selectedImage: projectIconSelect)
+        let tabPostBarItem = UITabBarItem(title: "Project", image: projectIcon, selectedImage: projectIconSelect)
         tabPostBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                                NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)

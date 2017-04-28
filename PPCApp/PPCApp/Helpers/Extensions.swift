@@ -8,20 +8,6 @@
 
 import Foundation
 import UIKit
-//extension UIImage{
-//    func load(link:String){
-//        if let url:URL = URL(string: link){
-//            let session = URLSession.shared.dataTask(with: url, completionHandler: { (data, reponse, err) in
-//                if err == nil{
-//                    DispatchQueue.main.async {
-//                        self = UIImage(data: data!)
-//                    }
-//                }
-//            })
-//            session.resume()
-//        }
-//    }
-//}
 extension UIImageView{
     func loadImageurl(link:String){
         if  let url:URL = URL(string: link){
@@ -142,8 +128,6 @@ class CustomImageView : UIImageView{
                         }
                     }
                 }
-                
-                
             }).resume()
         }else{
 //            self.image = UIImage(named: "no_image_icon")
