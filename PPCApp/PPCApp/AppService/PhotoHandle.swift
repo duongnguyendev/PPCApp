@@ -35,15 +35,6 @@ class PhotoHandle : NSObject{
             }
         }
     }
-    
-    func resizePhotos(images: [UIImage],callback: @escaping PhotoCallBack){
-        for index in 0..<images.count{
-            var image = resizePhoto(image: images[index], targetSize: CGSize(width: 200, height: 200))
-        }
-        DispatchQueue.main.async {
-            return callback(images)
-        }
-    }
     func resizePhoto(image: UIImage,targetSize: CGSize)-> UIImage{
         let size = image.size
         

@@ -49,9 +49,7 @@ class SignInVC: BaseVC,UITextFieldDelegate{
         }
     @IBAction func forgotpassbtn(_ sender: Any) {
         
-        
     }
-    
     @IBOutlet weak var scroll: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()

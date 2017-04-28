@@ -123,7 +123,6 @@ extension HomeVC: HomeVCDelegate{
         cell.indexPage = currentPage
         cell.nextPage = next_page_url
         cell.homes = projects
-        
-        cell.collectionViewPost.reloadData()
+        cell.reloadCollectionViewFilter()
     }
 }

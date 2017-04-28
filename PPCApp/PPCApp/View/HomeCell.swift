@@ -11,6 +11,7 @@ import UIKit
     @objc optional func seleted(home : HomeDataModel)
 }
 class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     let cellId = "cellId"
     var indexPage: Int = 1
     var nextPage: String = ""
@@ -62,8 +63,11 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         addConstraintWithFormat(format: "H:|[v0]|", views: collectionViewPost)
     }
     
-    // MARK: - collection view delegate
+    func reloadCollectionViewFilter(){
+        self.collectionViewPost.reloadData()
+    }
     
+    // MARK: - collection view delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return homes.count
     }

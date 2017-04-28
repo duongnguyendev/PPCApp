@@ -97,7 +97,6 @@ class ProjectDetailVC2: BaseVC{
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 5
         button.backgroundColor = UIColor.navigationBar()
-        button.layer.borderWidth = 2
         
         return button
     }()
