@@ -47,15 +47,22 @@ extension SettingVC: UITableViewDataSource,UITableViewDelegate{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.row == 0{
-//            let detailVC = DetailLanguageVC()
-//            present(viewController: detailVC)
-//        }
+        if indexPath.row == 0{
+            let detailVC = DetailLanguageVC2()
+            present(viewController: detailVC)
+        }
         if indexPath.row == 1{
-            let sigout:UserDefaults = UserDefaults.standard
-            sigout.removeObject(forKey: "user")
-            let more = MoreVC()
-            present(viewController: more)
+            let alert = UIAlertController(title: "Thong Bao", message: "Ban Chac Chan Muon Logout", preferredStyle: .alert)
+            let act = UIAlertAction(title: "OK", style: .default, handler: { (true) in
+                let sigout:UserDefaults = UserDefaults.standard
+                sigout.removeObject(forKey: "user")
+                let more = MoreVC()
+                self.present(viewController: more)
+            })
+            let actcandle = UIAlertAction(title: "Candl", style: .cancel, handler: nil)
+            alert.addAction(act)
+            alert.addAction(actcandle)
+            present(alert, animated: true, completion: nil)
         }
     }
 }

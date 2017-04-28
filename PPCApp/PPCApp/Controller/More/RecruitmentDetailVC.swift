@@ -14,7 +14,7 @@ class RecruitmentDetailVC: BaseVC {
     
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var deadlinelbl: UILabel!
-    @IBOutlet weak var lbl: UILabel!
+    
     
     @IBOutlet weak var contenttextView: UITextView!
     var objectRecruiment:RecruitmentDataModel = RecruitmentDataModel()
@@ -32,9 +32,9 @@ class RecruitmentDetailVC: BaseVC {
         recruitmentImage.loadImageurl(link: objectRecruiment.image)
         titlelbl.text = objectRecruiment.title
         deadlinelbl.text = objectRecruiment.deadline
-        lbl.text = " - Yeu Cau"
+        
         contenttextView.text = objectRecruiment.content
-        print("aaaaa\(objectRecruiment.image)")
+       // print("aaaaa\(objectRecruiment.image)")
     }
     
 }

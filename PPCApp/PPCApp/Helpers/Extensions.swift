@@ -8,20 +8,7 @@
 
 import Foundation
 import UIKit
-//extension UIImage{
-//    func load(link:String){
-//        if let url:URL = URL(string: link){
-//            let session = URLSession.shared.dataTask(with: url, completionHandler: { (data, reponse, err) in
-//                if err == nil{
-//                    DispatchQueue.main.async {
-//                        self = UIImage(data: data!)
-//                    }
-//                }
-//            })
-//            session.resume()
-//        }
-//    }
-//}
+
 extension UIImageView{
     func loadImageurl(link:String){
         if  let url:URL = URL(string: link){
@@ -147,6 +134,32 @@ class CustomImageView : UIImageView{
             }).resume()
         }else{
 //            self.image = UIImage(named: "no_image_icon")
+        }
+    }
+}
+class checkBox:UIButton{
+    let checkedImage = UIImage(named: "ic_check_box")! as UIImage
+    let uncheckedImage = UIImage(named: "ic_check_box_outline_blank")! as UIImage
+    
+    // Bool property
+    var isChecked: Bool = false {
+        didSet{
+            if isChecked == true {
+                self.setImage(checkedImage, for: .normal)
+            } else {
+                self.setImage(uncheckedImage, for: .normal)
+            }
+        }
+    }
+    
+    override func awakeFromNib() {
+        self.addTarget(self, action: #selector(buttonClicked(sender:)), for: UIControlEvents.touchUpInside)
+        self.isChecked = false
+    }
+    
+    func buttonClicked(sender: UIButton) {
+        if sender == self {
+            isChecked = !isChecked
         }
     }
 }

@@ -36,8 +36,6 @@
 		033DFFB81E94C80C00D6F04B /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFB71E94C80C00D6F04B /* ProjectCell.xib */; };
 		033DFFBB1E94F9FF00D6F04B /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DFFBA1E94F9FF00D6F04B /* SettingCell.swift */; };
 		033DFFBD1E94FA0900D6F04B /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFBC1E94FA0900D6F04B /* SettingCell.xib */; };
-		033DFFC01E94FEE700D6F04B /* DetailLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DFFBF1E94FEE700D6F04B /* DetailLanguageVC.swift */; };
-		033DFFC21E94FEF800D6F04B /* DetailLanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFC11E94FEF800D6F04B /* DetailLanguageVC.xib */; };
 		039A054F1E8A6B3200002290 /* PartnersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039A054E1E8A6B3200002290 /* PartnersCell.xib */; };
 		03A9EA9E1E8B8FD500EE1150 /* PartnersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A9EA9D1E8B8FD500EE1150 /* PartnersService.swift */; };
 		03CD04111E91E5D3001DBB12 /* ProjectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CD04101E91E5D3001DBB12 /* ProjectVC.xib */; };
@@ -63,6 +61,10 @@
 		2296919C1EA603EF001EC516 /* TermsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296919B1EA603EF001EC516 /* TermsService.swift */; };
 		2296919F1EA60DCB001EC516 /* SiginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296919E1EA60DCB001EC516 /* SiginModel.swift */; };
 		229691A21EA6108F001EC516 /* SiginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229691A11EA6108F001EC516 /* SiginService.swift */; };
+		229B46391EB18AE0009D6DCA /* Celllanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229B46371EB18AE0009D6DCA /* Celllanguage.swift */; };
+		229B463A1EB18AE0009D6DCA /* Celllanguage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229B46381EB18AE0009D6DCA /* Celllanguage.xib */; };
+		229B463D1EB1ABCB009D6DCA /* DetailLanguageVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229B463B1EB1ABCB009D6DCA /* DetailLanguageVC2.swift */; };
+		229B463E1EB1ABCB009D6DCA /* DetailLanguageVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229B463C1EB1ABCB009D6DCA /* DetailLanguageVC2.xib */; };
 		22C1D0671EA0A2C300FB02BC /* RecruitmentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1D0661EA0A2C200FB02BC /* RecruitmentDataModel.swift */; };
 		22C1D06A1EA0A5CD00FB02BC /* RecuitmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1D0691EA0A5CD00FB02BC /* RecuitmentService.swift */; };
 		22DA008B1EA9C1FD000B8F23 /* UpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA00891EA9C1FD000B8F23 /* UpdateVC.swift */; };
@@ -148,8 +150,6 @@
 		033DFFB71E94C80C00D6F04B /* ProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCell.xib; sourceTree = "<group>"; };
 		033DFFBA1E94F9FF00D6F04B /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		033DFFBC1E94FA0900D6F04B /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
-		033DFFBF1E94FEE700D6F04B /* DetailLanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLanguageVC.swift; sourceTree = "<group>"; };
-		033DFFC11E94FEF800D6F04B /* DetailLanguageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLanguageVC.xib; sourceTree = "<group>"; };
 		039A054E1E8A6B3200002290 /* PartnersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartnersCell.xib; path = ../../Controller/More/PartnersCell.xib; sourceTree = "<group>"; };
 		03A9EA9D1E8B8FD500EE1150 /* PartnersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersService.swift; sourceTree = "<group>"; };
 		03CD04101E91E5D3001DBB12 /* ProjectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProjectVC.xib; path = ../More/ProjectVC.xib; sourceTree = "<group>"; };
@@ -175,6 +175,10 @@
 		2296919B1EA603EF001EC516 /* TermsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsService.swift; sourceTree = "<group>"; };
 		2296919E1EA60DCB001EC516 /* SiginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiginModel.swift; sourceTree = "<group>"; };
 		229691A11EA6108F001EC516 /* SiginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiginService.swift; sourceTree = "<group>"; };
+		229B46371EB18AE0009D6DCA /* Celllanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Celllanguage.swift; sourceTree = "<group>"; };
+		229B46381EB18AE0009D6DCA /* Celllanguage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Celllanguage.xib; sourceTree = "<group>"; };
+		229B463B1EB1ABCB009D6DCA /* DetailLanguageVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLanguageVC2.swift; sourceTree = "<group>"; };
+		229B463C1EB1ABCB009D6DCA /* DetailLanguageVC2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLanguageVC2.xib; sourceTree = "<group>"; };
 		22C1D0661EA0A2C200FB02BC /* RecruitmentDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentDataModel.swift; sourceTree = "<group>"; };
 		22C1D0691EA0A5CD00FB02BC /* RecuitmentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecuitmentService.swift; sourceTree = "<group>"; };
 		22DA00891EA9C1FD000B8F23 /* UpdateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateVC.swift; sourceTree = "<group>"; };
@@ -334,6 +338,7 @@
 		033DFFB91E94F9F100D6F04B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				229B46361EB18AA0009D6DCA /* DetailLanguage */,
 				033DFFBC1E94FA0900D6F04B /* SettingCell.xib */,
 				033DFFBA1E94F9FF00D6F04B /* SettingCell.swift */,
 			);
@@ -343,8 +348,8 @@
 		033DFFBE1E94FED100D6F04B /* DetailLanguage */ = {
 			isa = PBXGroup;
 			children = (
-				033DFFC11E94FEF800D6F04B /* DetailLanguageVC.xib */,
-				033DFFBF1E94FEE700D6F04B /* DetailLanguageVC.swift */,
+				229B463B1EB1ABCB009D6DCA /* DetailLanguageVC2.swift */,
+				229B463C1EB1ABCB009D6DCA /* DetailLanguageVC2.xib */,
 			);
 			name = DetailLanguage;
 			sourceTree = "<group>";
@@ -534,6 +539,15 @@
 				229691A11EA6108F001EC516 /* SiginService.swift */,
 			);
 			name = Signin;
+			sourceTree = "<group>";
+		};
+		229B46361EB18AA0009D6DCA /* DetailLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				229B46371EB18AE0009D6DCA /* Celllanguage.swift */,
+				229B46381EB18AE0009D6DCA /* Celllanguage.xib */,
+			);
+			name = DetailLanguage;
 			sourceTree = "<group>";
 		};
 		22C1D0651EA0A26600FB02BC /* Recruitment */ = {
@@ -888,7 +902,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				033DFFA91E94956500D6F04B /* SettingVC.xib in Resources */,
-				033DFFC21E94FEF800D6F04B /* DetailLanguageVC.xib in Resources */,
 				03CD04111E91E5D3001DBB12 /* ProjectVC.xib in Resources */,
 				033DFFBD1E94FA0900D6F04B /* SettingCell.xib in Resources */,
 				0322FDD71E88FBAB009B589B /* MoreCell.xib in Resources */,
@@ -904,6 +917,8 @@
 				4E13D2591E836BDC002E03A1 /* NewsVC.xib in Resources */,
 				229691961EA5FEB7001EC516 /* TermsCell.xib in Resources */,
 				2235AB8E1EA8B8220098AAF0 /* Profile.xib in Resources */,
+				229B463E1EB1ABCB009D6DCA /* DetailLanguageVC2.xib in Resources */,
+				229B463A1EB18AE0009D6DCA /* Celllanguage.xib in Resources */,
 				0314F0C51E8A036000A4E15D /* RecruitmentVC.xib in Resources */,
 				4ED32DE21E7F809C0075BF3F /* Assets.xcassets in Resources */,
 				033DFFB81E94C80C00D6F04B /* ProjectCell.xib in Resources */,
@@ -1062,6 +1077,7 @@
 				0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
 				4E8BDBA81EAD93E70061D68C /* NewDetailVC.swift in Sources */,
+				229B463D1EB1ABCB009D6DCA /* DetailLanguageVC2.swift in Sources */,
 				2296919C1EA603EF001EC516 /* TermsService.swift in Sources */,
 				4E456C581E8BF84D003D8C55 /* SearchVC.swift in Sources */,
 				4E13D2581E836BDC002E03A1 /* NewsVC.swift in Sources */,
@@ -1085,9 +1101,9 @@
 				4E13D22E1E836035002E03A1 /* APIService.swift in Sources */,
 				03EF40301E836F7000D14F0D /* NewService.swift in Sources */,
 				22C1D0671EA0A2C300FB02BC /* RecruitmentDataModel.swift in Sources */,
+				229B46391EB18AE0009D6DCA /* Celllanguage.swift in Sources */,
 				4ED32DE01E7F809C0075BF3F /* PPCApp.xcdatamodeld in Sources */,
 				4ED32DD81E7F809C0075BF3F /* AppDelegate.swift in Sources */,
-				033DFFC01E94FEE700D6F04B /* DetailLanguageVC.swift in Sources */,
 				4ED32E041E7FBC600075BF3F /* MainTabVC.swift in Sources */,
 				4E600B2C1E934AD50028C3F1 /* Places.swift in Sources */,
 			);
