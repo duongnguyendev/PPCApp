@@ -10,6 +10,8 @@ import UIKit
 
 class Profile: BaseVC {
 
+    var delegate:SuccessLogin?
+
     @IBOutlet weak var sroll: UIScrollView!
     
     @IBOutlet weak var AvataImg: UIImageView!
@@ -26,6 +28,9 @@ class Profile: BaseVC {
     @IBOutlet weak var changepass: UIButton!
     
     @IBAction func Achangepass(_ sender: Any) {
+        let change = ChangePassVC()
+        //present(viewController: change)
+        push(viewController: change)
     }
     
     var user:SigninModel = SigninModel()
@@ -38,17 +43,19 @@ class Profile: BaseVC {
         phoneImg.image = UIImage.fontAwesomeIcon(name: .addressCard, textColor: .darkGray, size: CGSize(width: phoneImg.frame.width, height: phoneImg.frame.height))
         addressImg.image = UIImage.fontAwesomeIcon(name: .map, textColor: .darkGray, size: CGSize(width: addressImg.frame.width, height: addressImg.frame.height))
         showProfile()
-        AvataImg.layer.cornerRadius = AvataImg.frame.height / 2 - 10
+        AvataImg.layer.cornerRadius = (AvataImg.bounds.size.height / 2.0 - 20)
         AvataImg.clipsToBounds = true
+        
         changepass.layer.cornerRadius = 3
         // Do any additional setup after loading the view.
+     
     }
 
     func showProfile(){
-    if Login == true{
+    
         let userLogin:UserDefaults = UserDefaults()
         if userLogin.object(forKey: "user") != nil{
-        print("asassassss\(userLogin.object(forKey: "user") as! Dictionary<String,Any>)")
+       // print("asassassss\(userLogin.object(forKey: "user") as! Dictionary<String,Any>)")
         user = SigninModel(dic: userLogin.object(forKey: "user") as! Dictionary<String, Any>)
         usertxt.text = user.fullname
         emailtxt.text = user.email
@@ -56,17 +63,8 @@ class Profile: BaseVC {
         addresstxt.text = user.address
         AvataImg.loadImageurl(link: user.avatar)
         }
-//        if userLogin.object(forKey: "signup") != nil
-//        {
-//            user = SigninModel(dic: userLogin.object(forKey: "signup") as! Dictionary<String, Any>)
-//            usertxt.text = user.fullname
-//            emailtxt.text = user.email
-//            phonetxt.text = user.phone
-//            addresstxt.text = user.address
-//            AvataImg.loadImageurl(link: user.avatar)
-//        }
         
-    }
+    
         let update = UIBarButtonItem(title: "Update", style: .plain, target: self, action: #selector(goUpdate))
         update.tintColor = UIColor.white
         if presented != nil{
@@ -76,15 +74,16 @@ class Profile: BaseVC {
     
     func goUpdate(){
         let update = UpdateVC()
-        present(viewController: update)
+        //present(viewController: update)
+        update.delegate = self.delegate
+       push(viewController: update)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
+       /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -114,3 +113,4 @@ class Profile: BaseVC {
 //    }
 
 }
+

@@ -28,9 +28,9 @@ class RecruitmentDataModel:NSObject{
         self.id = json["id"].int ?? -1
         self.image = json["image"].string ?? " "
         self.deadline = json["deadline"].string ?? ""
-        self.status = json["status"].string ?? ""
-        self.title = json["title"].string ?? ""
-        self.content = json["content"].string ?? ""
+        self.status = json["status"].string ?? " "
+        self.title = json["title"].string ?? " "
+        self.content = json["content"].string ?? " "
         
         
     }
