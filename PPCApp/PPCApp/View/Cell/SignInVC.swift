@@ -24,7 +24,7 @@ class SignInVC: BaseVC,UITextFieldDelegate{
             if self.signin.message == 1
             {
                 print("Thanhcong")
-                Login = true
+               // Login = true
                 let login:Dictionary<String,Any> = self.signin.toDic(log: self.signin)
                 UserDefaults.standard.set(login, forKey: "user")
                 
@@ -99,4 +99,5 @@ class SignInVC: BaseVC,UITextFieldDelegate{
 protocol SuccessLogin {
     func getUser(user:SigninModel)
     func signUpSuccess(user : SigninModel)
+    func updateSuccess(user:SigninModel)
 }
