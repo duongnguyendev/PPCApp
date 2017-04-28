@@ -5,7 +5,6 @@
 //  Created by Macbook Solution on 4/17/17.
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
-
 import Foundation
 import UIKit
 class ProjectDetailVC1: BaseVC {
@@ -362,7 +361,7 @@ class ProjectDetailVC1: BaseVC {
         projectTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     func setupButtonNextView(){
-        buttonNext.topAnchor.constraint(equalTo: projectTextField.bottomAnchor, constant: 40).isActive = true
+        buttonNext.topAnchor.constraint(equalTo: projectTextField.bottomAnchor, constant: 20).isActive = true
         buttonNext.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         //contentView.addConstraintWithFormat(format: "H:|[v0]|", views: buttonNext)
         buttonNext.widthAnchor.constraint(equalToConstant: 100).isActive = true

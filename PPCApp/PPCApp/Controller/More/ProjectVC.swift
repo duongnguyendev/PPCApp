@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 class ProjectVC: BaseVC {
+    
     @IBOutlet weak var tableView: UITableView!
     let ud = UserDefaults()
     var projects = [HomeDataModel]()
@@ -19,29 +20,32 @@ class ProjectVC: BaseVC {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProjectCell", bundle: nil), forCellReuseIdentifier: "ProjectCell")
-        
-        if ud.object(forKey: "user") == nil{
+        /*if ud.object(forKey: "user") == nil{
             let signinVC = SignInVC()
             present(viewController: signinVC)
-        }
+        }*/
     }
-    
     override func setupNavBar() {
         super.setupNavBar()
         addPostButton()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
-        if ud.object(forKey: "user") != nil{
+        /*if ud.object(forKey: "user") != nil{
             ProjectService.shared.fetchProjects(idUser: "8") { (mprojects, errMess) in
                 if errMess == 1{
                     self.projects = mprojects
                     self.tableView.reloadData()
                 }
              }
+        }*/
+        ProjectService.shared.fetchProjects(idUser: "8") { (mprojects, errMess) in
+            if errMess == 1{
+                self.projects = mprojects
+                self.tableView.reloadData()
+            }
         }
+
     }
-    
     //MARK: - setup nav
     func addPostButton(){
         let projectButton = UIBarButtonItem(image: UIImage(named: "add_project.png"), style: .done, target: self, action: #selector(handlePost))
@@ -49,15 +53,17 @@ class ProjectVC: BaseVC {
         self.navigationItem.rightBarButtonItem = projectButton
     }
     func handlePost(){
-        if ud.object(forKey: "user") != nil{
+        //Bug
+        /*if ud.object(forKey: "user") != nil{
             let proDetailVC1 = ProjectDetailVC1()
             present(viewController: proDetailVC1)
         }else{
             let signinVC = SignInVC()
             present(viewController: signinVC)
-        }
+        }*/
+        let proDetailVC1 = ProjectDetailVC1()
+        present(viewController: proDetailVC1)
     }
-    
 }
 extension ProjectVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
