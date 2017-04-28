@@ -22,11 +22,11 @@ class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImag
     @IBAction func Aavatabtn(_ sender: Any) {
         print("Click")
         
-//                let assets = PHAsset.fetchAssets(with: .image, options: nil)
-//                PHImageManager.default().requestImage(for: assets[0], targetSize: CGSize(width: 1000, height: 1000), contentMode: .default, options: nil, resultHandler: { (image, nil) in
-//                    //self.view.backgroundColor = UIColor.init(patternImage: image!)
-//                    self.avataImg.image = image
-//                })
+        //                let assets = PHAsset.fetchAssets(with: .image, options: nil)
+        //                PHImageManager.default().requestImage(for: assets[0], targetSize: CGSize(width: 1000, height: 1000), contentMode: .default, options: nil, resultHandler: { (image, nil) in
+        //                    //self.view.backgroundColor = UIColor.init(patternImage: image!)
+        //                    self.avataImg.image = image
+        //                })
         controller.delegate = self
         controller.sourceType = .photoLibrary
         //controller.allowsEditing = true
@@ -59,27 +59,28 @@ class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImag
     @IBAction func Acompletebtn(_ sender: Any) {
         uploadSigup(link: "http://api.perfectpropertyvn.com/vi/user/create")
         if sigup.message == 1{
-        let emailReg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailReg)
-        if emailTest.evaluate(with: emailtxt.text) == false {
-            let alert = UIAlertController(title: "Thong Bao", message: "Email Khong Dung Vui Long Nhap Lai", preferredStyle: .alert)
-            let act = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(act)
-            present(alert, animated: true, completion: nil)
-
+            let emailReg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+            let emailTest = NSPredicate(format: "SELF MATCHES %@", emailReg)
+            if emailTest.evaluate(with: emailtxt.text) == false {
+                let alert = UIAlertController(title: "Thong Bao", message: "Email Khong Dung Vui Long Nhap Lai", preferredStyle: .alert)
+                let act = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(act)
+                present(alert, animated: true, completion: nil)
+                
+            }
+            if phone.characters.count < 9 || phone.characters.count > 11{
+                let alert1 = UIAlertController(title: "Thong Bao", message: "SDT Khong Dung Vui Long Nhap Lai", preferredStyle: .alert)
+                let act1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert1.addAction(act1)
+                present(alert1, animated: true, completion: nil)
+                
+            }
+            else
+            {
+                uploadSigup(link: "http://api.perfectpropertyvn.com/vi/user/create")
+            }
+            
         }
-        if phone.characters.count < 9 || phone.characters.count > 11{
-            let alert1 = UIAlertController(title: "Thong Bao", message: "SDT Khong Dung Vui Long Nhap Lai", preferredStyle: .alert)
-            let act1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert1.addAction(act1)
-            present(alert1, animated: true, completion: nil)
-
-        }
-        else
-        {
-            uploadSigup(link: "http://api.perfectpropertyvn.com/vi/user/create")
-        }
-       
     }
     var avataImage:UIImage = UIImage()
     
@@ -171,8 +172,8 @@ class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImag
                     //print("ppppppppp\(response.result.value as Any)")
                     if let result = response.result.value as? Dictionary<String,Any>{
                         if result["message"] as! String == "1"{
-                        
-                        self.sigup = SigninModel(message: Int(result["message"] as! String)!, dic: result["data"] as! Dictionary<String, Any>)
+                            
+                            self.sigup = SigninModel(message: Int(result["message"] as! String)!, dic: result["data"] as! Dictionary<String, Any>)
                             let sigup = self.sigup.toDic(log: self.sigup)
                             UserDefaults.standard.set(sigup, forKey: "user")
                             self.delegate?.signUpSuccess(user: self.sigup)
