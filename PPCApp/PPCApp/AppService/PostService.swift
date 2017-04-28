@@ -32,12 +32,12 @@ class PostService: BaseService {
         
         let fetchOption = PHFetchOptions()
         fetchOption.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        
-        if let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOption){
-            if fetchResult.count > 0{
+        let fetchResult: PHFetchResult? = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOption)
+        if let mfetchResult = fetchResult {
+            if mfetchResult.count > 0{
                 var imagesPhoto = [UIImage]()
-                for index in 0..<fetchResult.count{
-                    imgManager.requestImage(for: fetchResult.object(at: index), targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: requestOpption, resultHandler: { (image,error) in
+                for index in 0..<mfetchResult.count{
+                    imgManager.requestImage(for: mfetchResult.object(at: index), targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: requestOpption, resultHandler: { (image,error) in
                         imagesPhoto.append(image!)
                     })
                 }

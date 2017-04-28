@@ -12,7 +12,7 @@ import Photos
 import Alamofire
 import SwiftyJSON
 class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
-
+    
     var delegate:SuccessLogin?
     var sigup:SigninModel = SigninModel()
     let controller = UIImagePickerController()
@@ -43,7 +43,7 @@ class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImag
     
     @IBOutlet weak var completebtn: UIButton!
     @IBAction func Acompletebtn(_ sender: Any) {
-       uploadSigup(link: "http://api.perfectpropertyvn.com/vi/user/create")
+        uploadSigup(link: "http://api.perfectpropertyvn.com/vi/user/create")
         if sigup.message == 1{
             
         }
@@ -72,7 +72,7 @@ class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImag
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: .UIKeyboardWillHide, object: nil)
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -139,13 +139,13 @@ class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImag
                     //print("ppppppppp\(response.result.value as Any)")
                     if let result = response.result.value as? Dictionary<String,Any>{
                         if result["message"] as! String == "1"{
-                        Login = true
-                        self.sigup = SigninModel(message: Int(result["message"] as! String)!, dic: result["data"] as! Dictionary<String, Any>)
+                            Login = true
+                            self.sigup = SigninModel(message: Int(result["message"] as! String)!, dic: result["data"] as! Dictionary<String, Any>)
                             let sigup = self.sigup.toDic(log: self.sigup)
                             UserDefaults.standard.set(sigup, forKey: "user")
                             self.delegate?.signUpSuccess(user: self.sigup)
                             self.dismiss(animated: true, completion: nil)
-                       // print("iiiiiii\(self.sigup.avatar)")
+                            // print("iiiiiii\(self.sigup.avatar)")
                             
                         }
                         else{
@@ -159,12 +159,12 @@ class SignupVC: BaseVC,UITextFieldDelegate,UINavigationControllerDelegate,UIImag
                     //sigup = SigninModel(message: (response.result.value?["message"])!, json: <#T##JSON#>)
                 }
                 break
-
+                
             case .failure(let err):
                 print("loiroi\(err)")
                 break
             }
-                    }
+        }
     }
 }
 
