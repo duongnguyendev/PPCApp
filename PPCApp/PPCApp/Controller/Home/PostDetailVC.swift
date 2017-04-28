@@ -10,6 +10,7 @@ import UIKit
 import MessageUI
 
 class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MFMailComposeViewControllerDelegate {
+    
     let margin : CGFloat = 20.0
     let cellId = "cellId"
     var home = HomeDataModel()

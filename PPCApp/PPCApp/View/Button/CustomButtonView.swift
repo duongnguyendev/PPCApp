@@ -38,7 +38,6 @@ class RadioButtonView: BaseButton{
         return label
     }()
     
-
     override func setupView() {
         super.setupView()
         addSubview(iconImageView)
@@ -50,7 +49,6 @@ class RadioButtonView: BaseButton{
         iconImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
         nameLabelView.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor, constant: 0).isActive = true
     }
-    
 }
 class CheckBox: BaseButton {
     
@@ -94,5 +92,48 @@ class CheckBox: BaseButton {
         iconImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
 
         nameLabelView.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor, constant: 0).isActive = true
+    }
+}
+class ChoosePhoto: BaseButton {
+    var bgrImage: UIImage!{
+        didSet{
+            bgrImageView.image = bgrImage
+        }
+    }
+    var flag: Bool?{
+        didSet{
+            if flag == true{
+                checkImageView.image = UIImage.fontAwesomeIcon(name: .checkCircle, textColor: UIColor.white, size: CGSize(width: 100, height: 100))
+            }else{
+                checkImageView.image = UIImage.fontAwesomeIcon(name: .circleO, textColor: UIColor.white, size: CGSize(width: 100, height: 100))
+            }
+        }
+    }
+    private let checkImageView : UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFit
+        return iv
+    }()
+    private let bgrImageView : UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleToFill
+        return iv
+    }()
+
+    override func setupView() {
+        super.setupView()
+       
+        addSubview(bgrImageView)
+        addSubview(checkImageView)
+        
+        addConstraintWithFormat(format: "H:[v0]|", views: checkImageView)
+        addConstraintWithFormat(format: "V:|[v0]", views: checkImageView)
+
+        addConstraintWithFormat(format: "H:|[v0]|", views: bgrImageView)
+        addConstraintWithFormat(format: "V:|[v0]|", views: bgrImageView)
+        checkImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        checkImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
     }
 }

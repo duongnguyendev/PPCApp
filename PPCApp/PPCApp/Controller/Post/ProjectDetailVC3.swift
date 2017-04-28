@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 import Photos
+
 class ProjectDetailVC3: BaseVC {
+    var images = [UIImage]()
     let margin : CGFloat = 20.0
     let imageController = UIImagePickerController()
     
@@ -24,8 +26,9 @@ class ProjectDetailVC3: BaseVC {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    let buttonProjectPicture: GeneralButton = {
-        let button = GeneralButton(type: UIButtonType.custom)
+    let buttonProjectPicture: GeneralPost = {
+        let button = GeneralPost(type: UIButtonType.custom)
+        button.name = "Project picture"
         button.addTarget(self, action: #selector(handleProjectPictureButton(_:)), for: .touchUpInside)
         return button
     }()
@@ -35,8 +38,9 @@ class ProjectDetailVC3: BaseVC {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let buttonProjectDetailPicture: GeneralButton = {
-        let button = GeneralButton(type: UIButtonType.custom)
+    let buttonProjectDetailPicture: GeneralPost = {
+        let button = GeneralPost(type: UIButtonType.custom)
+        button.name = "Project detail picture"
         button.addTarget(self, action: #selector(handleProjectPictureDetailButton(_:)), for: .touchUpInside)
         return button
         
@@ -52,8 +56,9 @@ class ProjectDetailVC3: BaseVC {
         cv.backgroundColor = UIColor.clear
         return cv
     }()
-    let buttonPlanPicture: GeneralButton = {
-        let button = GeneralButton(type: UIButtonType.custom)
+    let buttonPlanPicture: GeneralPost = {
+        let button = GeneralPost(type: UIButtonType.custom)
+        button.name = "General plan picture"
         button.addTarget(self, action: #selector(handlePlanPictureButton(_:)), for: .touchUpInside)
         return button
         
@@ -163,7 +168,7 @@ class ProjectDetailVC3: BaseVC {
         imageViewPlan.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
     }
     func setupButtonPostView(){
-        buttonPost.topAnchor.constraint(equalTo: imageViewPlan.bottomAnchor, constant: 40).isActive = true
+        buttonPost.topAnchor.constraint(equalTo: imageViewPlan.bottomAnchor, constant: 20).isActive = true
         buttonPost.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         buttonPost.widthAnchor.constraint(equalToConstant: 100).isActive = true
         buttonPost.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -178,6 +183,7 @@ class ProjectDetailVC3: BaseVC {
     
     func handleProjectPictureDetailButton(_ sender: UIButton){
         let photoVC = PhotoVC()
+        photoVC.delegate = self
         present(viewController: photoVC)
         print("Project Picture Detail Handle")
     }
@@ -194,12 +200,11 @@ extension ProjectDetailVC3: UICollectionViewDataSource,UICollectionViewDelegate,
     
     //MARK: - collectionView delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return 8
+        return images.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-        cell.detailImage.image = UIImage(named: "vinpearl")
-        //cell.detailImage.loadImageUsingUrlString(urlString: home.images[indexPath.item])
+        cell.detailImage.image = images[indexPath.item]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -211,7 +216,6 @@ extension ProjectDetailVC3: UICollectionViewDataSource,UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width/4 - 0.5, height: view.frame.size.width/4 - 0.5)
     }
-
 }
 extension ProjectDetailVC3: UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -222,5 +226,11 @@ extension ProjectDetailVC3: UINavigationControllerDelegate,UIImagePickerControll
         imageViewProject.image = projectImage
         
         self.dismiss(animated: true, completion: nil)
+    }
+}
+extension ProjectDetailVC3: ProjectDetailVC3Delegate{
+    func ChooseImages(images: [UIImage]) {
+        self.images = images
+        self.collectionViewImage.reloadData()
     }
 }

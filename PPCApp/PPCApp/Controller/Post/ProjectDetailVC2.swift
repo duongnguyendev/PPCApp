@@ -213,7 +213,7 @@ class ProjectDetailVC2: BaseVC{
     }
 
     func setupButtonNextView() {
-        buttonNext.topAnchor.constraint(equalTo: servicesTextField.bottomAnchor, constant: 40).isActive = true
+        buttonNext.topAnchor.constraint(equalTo: servicesTextField.bottomAnchor, constant: 20).isActive = true
         buttonNext.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         //contentView.addConstraintWithFormat(format: "H:|[v0]|", views: buttonNext)
         buttonNext.widthAnchor.constraint(equalToConstant: 100).isActive = true
