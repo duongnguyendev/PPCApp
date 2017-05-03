@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 @objc protocol ProjectVCDelegate {
     @objc optional func selected(project : HomeDataModel)
+    @objc optional func deleted(project : HomeDataModel)
 }
 class ProjectCell: UITableViewCell {
+    
     @IBOutlet weak var generalImage: CustomImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var typeProjectLabel: UILabel!
@@ -44,12 +46,13 @@ class ProjectCell: UITableViewCell {
     }
     
     @IBAction func handleEdit(_ sender: Any) {
-        if delegate != nil{
-            delegate?.selected!(project: project!)
-        }
+        
     }
     @IBAction func handleDelete(_ sender: Any) {
-        
+        if delegate != nil{
+            delegate?.deleted!(project: project!)
+        }
+
     }
 
     

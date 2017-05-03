@@ -9,40 +9,40 @@
 import Foundation
 import SwiftyJSON
 class HomeDataModel: NSObject{
-    let id: Int
-    let project_id: Int
-    let country_id : Int
-    let provine_id: Int
-    let district_id: Int
-    let type: Int
-    let floor: Int
-    let apartment: Int
-    let bedroom: Int
-    let bathroom: Int
-    let acreage: Int
-    let area_apartment: Float
-    let sale: String
-    let invoice: String
-    let price: String
-    let image: String
-    let address: String
-    let latitude: Float
-    let longtitude: Float
-    let phone: String
-    let email: String
-    let furniture: String
-    let create_at: String
-    let update_at: String
-    let status: Int
-    let image_overall: String
-    let investor: String
-    let id_user: Int
-    let title: String
-    let info: String
-    let ownership: String
-    let service: String
-    let project: String
-    let images: [String]
+    var id: Int
+    var project_id: Int
+    var country_id : Int
+    var provine_id: Int
+    var district_id: Int
+    var type: Int
+    var floor: Int
+    var apartment: Int
+    var bedroom: Int
+    var bathroom: Int
+    var acreage: Int
+    var area_apartment: Float
+    var sale: String
+    var invoice: String
+    var price: String
+    var image: String
+    var address: String
+    var latitude: Float
+    var longtitude: Float
+    var phone: String
+    var email: String
+    var furniture: String
+    var create_at: String
+    var update_at: String
+    var status: Int
+    var image_overall: String
+    var investor: String
+    var id_user: Int
+    var title: String
+    var info: String
+    var ownership: String
+    var service: String
+    var project: String
+    var images: [String]
     override init() {
         id = -1
         project_id = -1

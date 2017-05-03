@@ -102,24 +102,39 @@ class ProjectDetailVC2: BaseVC{
     }()
     
     func handleNextButton(_ sender: UIButton){
-        let proDetailVC3 = ProjectDetailVC3()
-        push(viewController: proDetailVC3)
+        if (checkInputProjectVC2()){
+            let proDetailVC3 = ProjectDetailVC3()
+            push(viewController: proDetailVC3)
+        }else{
+            let proDetailVC3 = ProjectDetailVC3()
+            push(viewController: proDetailVC3)
+        }
         //present(viewController: proDetailVC2)
     }
     
+    func checkInputProjectVC2() -> Bool{
+        if (titleTextField.text?.isEmpty)! || (investorTextField.text?.isEmpty)! || (areaProjectTextField.text?.isEmpty)! || (areaAppartmentsTextField.text?.isEmpty)! || (apartmentsTextField.text?.isEmpty)! || (floorsTextField.text?.isEmpty)! || (bedroomsTextField.text?.isEmpty)! || (bathroomsTextField.text?.isEmpty)! || (servicesTextField.text?.isEmpty)!{
+            return false
+        }
+       return true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Post Project"
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         
     }
+    
     override func setupView() {
         super.setupView()
         setupMainScrollView()
         setupcontentView()
         setupViewComponents()
     }
+    
     func setupMainScrollView() {
         view.addSubview(mainScrollView)
         mainScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
@@ -219,6 +234,4 @@ class ProjectDetailVC2: BaseVC{
         buttonNext.heightAnchor.constraint(equalToConstant: 40).isActive = true
         buttonNext.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
-    
-    
 }

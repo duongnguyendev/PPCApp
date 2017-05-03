@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 import Photos
-
 class ProjectDetailVC3: BaseVC {
     var images = [UIImage]()
     let margin : CGFloat = 20.0
     let imageController = UIImagePickerController()
-    
+    var type: Int?
+    var imgProjectData: Data?
+    var imgPlanData: Data?
+    var imgDetailData: [Data]?
     let mainScrollView : UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,20 +90,19 @@ class ProjectDetailVC3: BaseVC {
         super.viewDidLoad()
         title = "Post Project"
         collectionViewImage.register(ImageCell.self, forCellWithReuseIdentifier: "ImageCell")
+        
+        imageController.delegate = self
+        imageController.sourceType = .photoLibrary
     }
     override func viewWillAppear(_ animated: Bool) {
-        //let imageData:NSData = UIImagePNGRepresentation(UIImage(named: "vinpearl")!) as! NSData
-        //let strBase64 = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        //print("Base 64\(strBase64)")
+        
     }
     override func setupView() {
         super.setupView()
-        
         setupMainScrollView()
         setupContentView()
         setupComponentsView()
     }
-    
     func setupMainScrollView(){
         view.addSubview(mainScrollView)
         mainScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
@@ -117,7 +118,6 @@ class ProjectDetailVC3: BaseVC {
         contentView.rightAnchor.constraint(equalTo: mainScrollView.rightAnchor, constant: 0).isActive = true
         contentView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: 0).isActive = true
     }
-    
     func setupComponentsView(){
         contentView.addSubview(buttonProjectPicture)
         contentView.addSubview(imageViewProject)
@@ -132,7 +132,6 @@ class ProjectDetailVC3: BaseVC {
         setupPlanPictureView()
         setupButtonPostView()
     }
-    
     func setupProjectPictureView(){
         buttonProjectPicture.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         contentView.addConstraintWithFormat(format: "H:|[v0]|", views: buttonProjectPicture)
@@ -144,7 +143,6 @@ class ProjectDetailVC3: BaseVC {
         imageViewProject.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
         imageViewProject.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
-    
     func setupProjectPictureDetailView(){
         buttonProjectDetailPicture.topAnchor.constraint(equalTo: imageViewProject.bottomAnchor, constant: 2).isActive = true
         contentView.addConstraintWithFormat(format: "H:|[v0]|", views: buttonProjectDetailPicture)
@@ -154,7 +152,6 @@ class ProjectDetailVC3: BaseVC {
         contentView.addConstraintWithFormat(format: "H:|[v0]|", views: collectionViewImage)
         collectionViewImage.heightAnchor.constraint(equalToConstant: view.frame.size.width/2).isActive = true
     }
-    
     func setupPlanPictureView(){
         buttonPlanPicture.topAnchor.constraint(equalTo: collectionViewImage.bottomAnchor, constant: 2).isActive = true
         contentView.addConstraintWithFormat(format: "H:|[v0]|", views: buttonPlanPicture)
@@ -176,28 +173,66 @@ class ProjectDetailVC3: BaseVC {
     }
     //Click Button
     func handleProjectPictureButton(_ sender: UIButton){
-        imageController.delegate = self
-        imageController.sourceType = .photoLibrary
+        self.type = 0
         present(imageController, animated: true, completion: nil)
     }
-    
     func handleProjectPictureDetailButton(_ sender: UIButton){
         let photoVC = PhotoVC()
         photoVC.delegate = self
         present(viewController: photoVC)
-        print("Project Picture Detail Handle")
     }
-    
     func handlePlanPictureButton(_ sender: UIButton){
-        print("Project Plan Picture Handle")
+        self.type = 1
+        present(imageController, animated: true, completion: nil)
     }
     
     func handlePostButton(_ sender: UIButton){
-        print("Post Handle")
+        let post = PostDataModel()
+        post.project_id = 1
+        post.country_id = 1
+        post.provine_id = 1
+        post.district_id = 200
+        post.floor = 5
+        post.bedroom = 3
+        post.bathroom = 3
+        post.acreage = 8
+        post.price = "20 ty"
+        post.fileImage = imgProjectData
+        post.phone = "0962454497"
+        post.email = "dinhphong10@gmail.com"
+        post.type = 1
+        post.id_user = 8
+        post.area_apartment = 0.5
+        post.title = "Mường Thanh"
+        post.info = "Strategically located along the fringe of the city centre"
+        post.address = "Nguyen Duy Trinh Road, Binh Trung Dong Ward, District 2, Ho Chi Minh City"
+        post.investor = "CVH Spring Company Limited"
+        post.ownership = "Freehold for local Vietnamese, 50 years long term lease for foreigners"
+        post.service = "Elderly Fitness Corner"
+        post.langEN = 1
+        post.langVI = 1
+        post.fileImage_overload = imgPlanData
+        post.fileMultiImage = imgDetailData
+        
+        ProjectService.shared.postProject(post: post) { (mString) in
+            print("Succes\(mString)")
+        }
+    }
+    func checkImageProjectVC3()->Bool{
+        
+        return true
+    }
+    
+    func resizePhotoLibrary(images: [UIImage],completion: ([Data]?)->Void){
+        var data = [Data]()
+        for index in 0..<images.count{
+            let imgData = UIImageJPEGRepresentation(images[index], 0.1)
+            data.append(imgData!)
+        }
+        completion(data)
     }
 }
 extension ProjectDetailVC3: UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
-    
     //MARK: - collectionView delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return images.count
@@ -222,9 +257,14 @@ extension ProjectDetailVC3: UINavigationControllerDelegate,UIImagePickerControll
         dismiss(animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let projectImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imageViewProject.image = projectImage
-        
+        let imgProject = info[UIImagePickerControllerOriginalImage] as! UIImage
+        if type == 0{
+            imageViewProject.image = imgProject
+             self.imgProjectData = UIImageJPEGRepresentation(imgProject, 1)
+        }else{
+            imageViewPlan.image = imgProject
+            self.imgPlanData = UIImageJPEGRepresentation(imgProject, 0.1)
+        }
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -232,5 +272,8 @@ extension ProjectDetailVC3: ProjectDetailVC3Delegate{
     func ChooseImages(images: [UIImage]) {
         self.images = images
         self.collectionViewImage.reloadData()
+        resizePhotoLibrary(images: images) { (data) in
+            self.imgDetailData = data
+        }
     }
 }

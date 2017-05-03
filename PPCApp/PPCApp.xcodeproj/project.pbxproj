@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		030077221EA5B97C0050BEEA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030077211EA5B97C0050BEEA /* ImageCell.swift */; };
-		0305399F1EA47A9A00DFFF79 /* ProjectDetailVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305399E1EA47A9A00DFFF79 /* ProjectDetailVC1.swift */; };
-		0307944A1EADBB6E0039A96B /* ProjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030794491EADBB6E0039A96B /* ProjectService.swift */; };
 		030D94791E8DFEFA00F32857 /* PartnersDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D94781E8DFEFA00F32857 /* PartnersDataModel.swift */; };
 		031314601EAEF84E007B952F /* InfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0313145F1EAEF84E007B952F /* InfoTextField.swift */; };
 		031314621EAEFA59007B952F /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031314611EAEFA59007B952F /* CustomButtonView.swift */; };
@@ -33,6 +31,11 @@
 		0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1C81E83702000E6300F /* NewDataModel.swift */; };
 		0323E1CF1E83B70B00E6300F /* NewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0323E1CE1E83B70B00E6300F /* NewCell.xib */; };
 		0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323E1D01E83BAF600E6300F /* NewCell.swift */; };
+		0339EBE01EB9C5A000115B7E /* ProjectDetailVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339EBDD1EB9C5A000115B7E /* ProjectDetailVC1.swift */; };
+		0339EBE11EB9C5A000115B7E /* ProjectDetailVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339EBDE1EB9C5A000115B7E /* ProjectDetailVC2.swift */; };
+		0339EBE21EB9C5A000115B7E /* ProjectDetailVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339EBDF1EB9C5A000115B7E /* ProjectDetailVC3.swift */; };
+		0339EBE41EB9C5F400115B7E /* ProjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339EBE31EB9C5F400115B7E /* ProjectService.swift */; };
+		0339EBE61EB9C66000115B7E /* PostDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339EBE51EB9C66000115B7E /* PostDataModel.swift */; };
 		033DFFA71E94953400D6F04B /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DFFA61E94953400D6F04B /* SettingVC.swift */; };
 		033DFFA91E94956500D6F04B /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFA81E94956500D6F04B /* SettingVC.xib */; };
 		033DFFB81E94C80C00D6F04B /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFB71E94C80C00D6F04B /* ProjectCell.xib */; };
@@ -45,8 +48,6 @@
 		03A455B71EB21CB500388DEA /* PhotoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A455B61EB21CB500388DEA /* PhotoDataModel.swift */; };
 		03A455BB1EB2299D00388DEA /* PhotoHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A455BA1EB2299D00388DEA /* PhotoHandle.swift */; };
 		03A9EA9E1E8B8FD500EE1150 /* PartnersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A9EA9D1E8B8FD500EE1150 /* PartnersService.swift */; };
-		03B15A981EAE515900A71F77 /* ProjectDetailVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B15A971EAE515900A71F77 /* ProjectDetailVC2.swift */; };
-		03B15A9A1EAE64EE00A71F77 /* ProjectDetailVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B15A991EAE64EE00A71F77 /* ProjectDetailVC3.swift */; };
 		03C2531A1EB0AD4C00BE373C /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C253191EB0AD4C00BE373C /* PhotoVC.swift */; };
 		03CD04111E91E5D3001DBB12 /* ProjectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CD04101E91E5D3001DBB12 /* ProjectVC.xib */; };
 		03CD04131E91E5E5001DBB12 /* ProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CD04121E91E5E5001DBB12 /* ProjectVC.swift */; };
@@ -123,8 +124,6 @@
 
 /* Begin PBXFileReference section */
 		030077211EA5B97C0050BEEA /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		0305399E1EA47A9A00DFFF79 /* ProjectDetailVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC1.swift; sourceTree = "<group>"; };
-		030794491EADBB6E0039A96B /* ProjectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectService.swift; sourceTree = "<group>"; };
 		030D94781E8DFEFA00F32857 /* PartnersDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersDataModel.swift; sourceTree = SOURCE_ROOT; };
 		0313145F1EAEF84E007B952F /* InfoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTextField.swift; sourceTree = "<group>"; };
 		031314611EAEFA59007B952F /* CustomButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
@@ -150,6 +149,11 @@
 		0323E1C81E83702000E6300F /* NewDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewDataModel.swift; path = PPCApp/AppService/NewDataModel.swift; sourceTree = SOURCE_ROOT; };
 		0323E1CE1E83B70B00E6300F /* NewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewCell.xib; path = ../../Controller/News/NewCell.xib; sourceTree = "<group>"; };
 		0323E1D01E83BAF600E6300F /* NewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewCell.swift; path = ../../Controller/News/NewCell.swift; sourceTree = "<group>"; };
+		0339EBDD1EB9C5A000115B7E /* ProjectDetailVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC1.swift; sourceTree = "<group>"; };
+		0339EBDE1EB9C5A000115B7E /* ProjectDetailVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC2.swift; sourceTree = "<group>"; };
+		0339EBDF1EB9C5A000115B7E /* ProjectDetailVC3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC3.swift; sourceTree = "<group>"; };
+		0339EBE31EB9C5F400115B7E /* ProjectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectService.swift; sourceTree = "<group>"; };
+		0339EBE51EB9C66000115B7E /* PostDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDataModel.swift; sourceTree = "<group>"; };
 		033DFFA61E94953400D6F04B /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		033DFFA81E94956500D6F04B /* SettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		033DFFB51E94C80200D6F04B /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
@@ -163,8 +167,6 @@
 		03A455B61EB21CB500388DEA /* PhotoDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataModel.swift; sourceTree = "<group>"; };
 		03A455BA1EB2299D00388DEA /* PhotoHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoHandle.swift; sourceTree = "<group>"; };
 		03A9EA9D1E8B8FD500EE1150 /* PartnersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersService.swift; sourceTree = "<group>"; };
-		03B15A971EAE515900A71F77 /* ProjectDetailVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC2.swift; sourceTree = "<group>"; };
-		03B15A991EAE64EE00A71F77 /* ProjectDetailVC3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC3.swift; sourceTree = "<group>"; };
 		03C253191EB0AD4C00BE373C /* PhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		03CD04101E91E5D3001DBB12 /* ProjectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProjectVC.xib; path = ../More/ProjectVC.xib; sourceTree = "<group>"; };
 		03CD04121E91E5E5001DBB12 /* ProjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectVC.swift; path = ../More/ProjectVC.swift; sourceTree = "<group>"; };
@@ -266,10 +268,10 @@
 		0305399D1EA479BA00DFFF79 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				0339EBDD1EB9C5A000115B7E /* ProjectDetailVC1.swift */,
+				0339EBDE1EB9C5A000115B7E /* ProjectDetailVC2.swift */,
+				0339EBDF1EB9C5A000115B7E /* ProjectDetailVC3.swift */,
 				03C253181EB0AC7F00BE373C /* Photos */,
-				0305399E1EA47A9A00DFFF79 /* ProjectDetailVC1.swift */,
-				03B15A971EAE515900A71F77 /* ProjectDetailVC2.swift */,
-				03B15A991EAE64EE00A71F77 /* ProjectDetailVC3.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -387,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				03A455B61EB21CB500388DEA /* PhotoDataModel.swift */,
+				0339EBE51EB9C66000115B7E /* PostDataModel.swift */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -394,8 +397,8 @@
 		03A455B81EB2295D00388DEA /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				0339EBE31EB9C5F400115B7E /* ProjectService.swift */,
 				03A455B91EB2297A00388DEA /* Photo */,
-				030794491EADBB6E0039A96B /* ProjectService.swift */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -1092,11 +1095,11 @@
 				0314F0C31E8A033800A4E15D /* RecruitmentVC.swift in Sources */,
 				22C1D06A1EA0A5CD00FB02BC /* RecuitmentService.swift in Sources */,
 				2296919F1EA60DCB001EC516 /* SiginModel.swift in Sources */,
-				0307944A1EADBB6E0039A96B /* ProjectService.swift in Sources */,
 				226931601EA4554D0004EDDE /* AboutusDataModels.swift in Sources */,
 				0320CF631E8C9F0F00287090 /* RecruitmentCell.swift in Sources */,
 				03E92B301E9F17C500DC5D70 /* HomeDataModel.swift in Sources */,
 				0322FDD91E88FDA5009B589B /* MoreCell.swift in Sources */,
+				0339EBE61EB9C66000115B7E /* PostDataModel.swift in Sources */,
 				4E600B301E9377620028C3F1 /* BaseLauncher.swift in Sources */,
 				4E456C561E8BF831003D8C55 /* PostDetailInfoView.swift in Sources */,
 				4E600B2E1E9352120028C3F1 /* ImageDetailLauncher.swift in Sources */,
@@ -1116,7 +1119,6 @@
 				03C2531A1EB0AD4C00BE373C /* PhotoVC.swift in Sources */,
 				033DFFA71E94953400D6F04B /* SettingVC.swift in Sources */,
 				03CD04131E91E5E5001DBB12 /* ProjectVC.swift in Sources */,
-				0305399F1EA47A9A00DFFF79 /* ProjectDetailVC1.swift in Sources */,
 				03A455BB1EB2299D00388DEA /* PhotoHandle.swift in Sources */,
 				0314F0CD1E8A050900A4E15D /* PartnersVC.swift in Sources */,
 				4ED32E121E7FC38F0075BF3F /* BaseVC.swift in Sources */,
@@ -1124,8 +1126,8 @@
 				2296919C1EA603EF001EC516 /* TermsService.swift in Sources */,
 				4E456C581E8BF84D003D8C55 /* SearchVC.swift in Sources */,
 				4E13D2581E836BDC002E03A1 /* NewsVC.swift in Sources */,
-				03B15A981EAE515900A71F77 /* ProjectDetailVC2.swift in Sources */,
 				229691991EA60309001EC516 /* TermsModel.swift in Sources */,
+				0339EBE01EB9C5A000115B7E /* ProjectDetailVC1.swift in Sources */,
 				03152B9B1E934A980056C339 /* AboutVC.swift in Sources */,
 				031CF7581E9B2EF000A58994 /* SignInVC.swift in Sources */,
 				4E872DCD1E9246A000B0592F /* PickerLauncher.swift in Sources */,
@@ -1143,11 +1145,11 @@
 				03FDC76A1E8B4FBF001A2CD7 /* PartnersCell.swift in Sources */,
 				035C77521EB1A2FB008506EC /* PhotoCell.swift in Sources */,
 				4E13D22F1E836035002E03A1 /* PostService.swift in Sources */,
-				03B15A9A1EAE64EE00A71F77 /* ProjectDetailVC3.swift in Sources */,
 				2235AB8D1EA8B8220098AAF0 /* Profile.swift in Sources */,
 				4E13D2511E8365B3002E03A1 /* Extensions.swift in Sources */,
 				031314601EAEF84E007B952F /* InfoTextField.swift in Sources */,
 				4E13D22E1E836035002E03A1 /* APIService.swift in Sources */,
+				0339EBE11EB9C5A000115B7E /* ProjectDetailVC2.swift in Sources */,
 				03EF40301E836F7000D14F0D /* NewService.swift in Sources */,
 				22C1D0671EA0A2C300FB02BC /* RecruitmentDataModel.swift in Sources */,
 				4ED32DE01E7F809C0075BF3F /* PPCApp.xcdatamodeld in Sources */,
@@ -1155,6 +1157,8 @@
 				033DFFC01E94FEE700D6F04B /* DetailLanguageVC.swift in Sources */,
 				4ED32E041E7FBC600075BF3F /* MainTabVC.swift in Sources */,
 				4E600B2C1E934AD50028C3F1 /* Places.swift in Sources */,
+				0339EBE21EB9C5A000115B7E /* ProjectDetailVC3.swift in Sources */,
+				0339EBE41EB9C5F400115B7E /* ProjectService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

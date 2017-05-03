@@ -84,4 +84,7 @@ extension ProjectVC: ProjectVCDelegate{
         let proDetailVC1 = ProjectDetailVC1()
         present(viewController: proDetailVC1)
     }
+    func deleted(project: HomeDataModel){
+        
+    }
 }

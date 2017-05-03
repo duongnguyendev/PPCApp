@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 class ProjectDetailVC1: BaseVC {
+    let spaceLine : CGFloat = 2.0
+    let itemSize : CGFloat = 40.0
+    let margin: CGFloat = 20.0
+    
     var id_projectType: NSNumber = 0
     var id_country: NSNumber = 0
     var id_province: NSNumber = 0
     var id_district: NSNumber = 0
-    
-    let spaceLine : CGFloat = 2.0
-    let itemSize : CGFloat = 40.0
-    let margin: CGFloat = 20.0
     
     let mainScrollView : UIScrollView = {
         let scrollView = UIScrollView()
@@ -87,7 +87,6 @@ class ProjectDetailVC1: BaseVC {
         checkbox.flag = false
         return checkbox
     }()
-
     //Handle CheckBox Language
     func handlecheckboxVI(_ sender: CheckBox){
         if sender.flag!{
@@ -166,6 +165,7 @@ class ProjectDetailVC1: BaseVC {
     
     let phoneTextField: InfoTextField = {
         let view = InfoTextField()
+        view.keyboardType = UIKeyboardType.numbersAndPunctuation
         view.placeholder = "Phone"
         return view
     }()
@@ -204,14 +204,34 @@ class ProjectDetailVC1: BaseVC {
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 5
         button.backgroundColor = UIColor.navigationBar()
-        
         return button
     }()
     
     func handleNextButton(_ sender: UIButton){
-        let proDetailVC2 = ProjectDetailVC2()
-        push(viewController: proDetailVC2)
-        //present(viewController: proDetailVC2)
+        countryButton.value = "dasdas"
+        provinceButton.value = "VietName"
+        districtButton.value = "dasda"
+        typeOfProjectButton.value = "sadsa"
+        
+        emailTextField.text = "dinhphong10@gmail.com"
+        phoneTextField.text = "0962454497"
+        addressTextField.text = "dsadasdsas"
+        ownerTextField.text = "dopsadsa"
+        priceTextField.text = "dsadkjsajkdsa"
+        projectTextField.text = "221321"
+        if (checkInputProjectVC1()){
+            let proDetailVC2 = ProjectDetailVC2()
+            push(viewController: proDetailVC2)
+            print("Success")
+        }else{
+            print("Nhập Đầy Đủ Thông Tin")
+        }
+    }
+    func checkInputProjectVC1() -> Bool{
+        if (countryButton.value?.isEmpty)! || (provinceButton.value?.isEmpty)! || (districtButton.value?.isEmpty)! || (typeOfProjectButton.value?.isEmpty)! || (emailTextField.text?.isEmpty)! || (phoneTextField.text?.isEmpty)! || (addressTextField.text?.isEmpty)! || (ownerTextField.text?.isEmpty)! || (priceTextField.text?.isEmpty)! || (projectTextField.text?.isEmpty)!{
+            return false
+        }
+        return true
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -290,27 +310,21 @@ class ProjectDetailVC1: BaseVC {
     }
     
     func setupRadioButtonView(){
-        /*contentView.addConstraintWithFormat(format: "H:|[v0]|", views: radioSaleButton)
-        
-        radioSaleButton.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
-        radioSaleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true*/
         contentView.addConstraint(NSLayoutConstraint(item: radioSaleButton, attribute: .width, relatedBy: .equal, toItem: radioRentButton, attribute: .width, multiplier: 1, constant: 0))
-        // button Back
         radioSaleButton.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 2).isActive = true
         radioSaleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        // button Next
+        
         radioRentButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         radioRentButton.centerYAnchor.constraint(equalTo: radioSaleButton.centerYAnchor, constant: 0).isActive = true
-        
         contentView.addConstraintWithFormat(format: "H:|-\(margin)-[v0]-\(margin)-[v1]-\(margin)-|", views: radioSaleButton, radioRentButton)
     }
     
     func setupCheckBoxView(){
         contentView.addConstraint(NSLayoutConstraint(item: checkboxVI, attribute: .width, relatedBy: .equal, toItem: checkboxEN, attribute: .width, multiplier: 1, constant: 0))
-        //Checkbox Vietnamese
+        
         checkboxVI.topAnchor.constraint(equalTo: languageLabel.bottomAnchor, constant: 2).isActive = true
         checkboxVI.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        //Checkbox English
+        
         checkboxEN.heightAnchor.constraint(equalToConstant: 50).isActive = true
         checkboxEN.centerYAnchor.constraint(equalTo: checkboxVI.centerYAnchor, constant: 0).isActive = true
         contentView.addConstraintWithFormat(format: "H:|-\(margin)-[v0]-\(margin)-[v1]-\(margin)-|", views: checkboxVI, checkboxEN)
@@ -363,13 +377,13 @@ class ProjectDetailVC1: BaseVC {
     func setupButtonNextView(){
         buttonNext.topAnchor.constraint(equalTo: projectTextField.bottomAnchor, constant: 20).isActive = true
         buttonNext.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        //contentView.addConstraintWithFormat(format: "H:|[v0]|", views: buttonNext)
         buttonNext.widthAnchor.constraint(equalToConstant: 100).isActive = true
         buttonNext.heightAnchor.constraint(equalToConstant: 40).isActive = true
         buttonNext.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
 }
 extension ProjectDetailVC1: PickerViewDelegate{
+    
     func selectedProjectType(place: Place) {
         self.id_projectType = place.id!
         typeOfProjectButton.value = place.name
@@ -388,5 +402,6 @@ extension ProjectDetailVC1: PickerViewDelegate{
         self.id_district = place.id!
         districtButton.value = place.name
     }
+    
 }
 
