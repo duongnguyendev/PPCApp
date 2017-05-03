@@ -14,7 +14,6 @@
             <connections>
                 <outlet property="contenttextView" destination="4l1-Lp-L3t" id="7q3-vQ-dnu"/>
                 <outlet property="deadlinelbl" destination="OHd-FG-azo" id="AAX-PS-nKn"/>
-                <outlet property="lbl" destination="201-xd-NAM" id="ngI-jZ-BxO"/>
                 <outlet property="recruitmentImage" destination="Z4G-Jf-SYA" id="0oa-0J-6an"/>
                 <outlet property="titlelbl" destination="LDL-P4-vrm" id="fVc-E1-oVG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="LTT-A7-l3m"/>
@@ -29,7 +28,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDL-P4-vrm">
-                    <rect key="frame" x="0.0" y="217" width="375" height="40"/>
+                    <rect key="frame" x="5" y="217" width="375" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Q8U-ya-9RN"/>
                     </constraints>
@@ -38,7 +37,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHd-FG-azo">
-                    <rect key="frame" x="0.0" y="257" width="125" height="30"/>
+                    <rect key="frame" x="5" y="257" width="125" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="0GC-ja-BxX"/>
                     </constraints>
@@ -46,17 +45,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeu Cau" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="201-xd-NAM">
-                    <rect key="frame" x="0.0" y="287" width="125" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Lqg-4Y-pU3"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4l1-Lp-L3t">
-                    <rect key="frame" x="0.0" y="327" width="375" height="340"/>
+                    <rect key="frame" x="0.0" y="287" width="375" height="380"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -69,15 +59,12 @@
                 <constraint firstItem="OHd-FG-azo" firstAttribute="width" secondItem="LDL-P4-vrm" secondAttribute="width" multiplier="1:3" id="1xq-09-015"/>
                 <constraint firstItem="4l1-Lp-L3t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7dA-e0-HAt"/>
                 <constraint firstItem="LDL-P4-vrm" firstAttribute="top" secondItem="Z4G-Jf-SYA" secondAttribute="bottom" id="AB5-D3-NMx"/>
-                <constraint firstItem="4l1-Lp-L3t" firstAttribute="top" secondItem="201-xd-NAM" secondAttribute="bottom" id="dDc-Wp-Ly0"/>
+                <constraint firstItem="4l1-Lp-L3t" firstAttribute="top" secondItem="OHd-FG-azo" secondAttribute="bottom" id="XHC-2p-fxn"/>
                 <constraint firstItem="LDL-P4-vrm" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fVj-hG-lAJ"/>
-                <constraint firstItem="LDL-P4-vrm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="h4k-nN-8oZ"/>
+                <constraint firstItem="LDL-P4-vrm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="h4k-nN-8oZ"/>
                 <constraint firstItem="Z4G-Jf-SYA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="j6e-oA-Jim"/>
-                <constraint firstItem="201-xd-NAM" firstAttribute="width" secondItem="OHd-FG-azo" secondAttribute="width" id="jVh-3a-UMk"/>
-                <constraint firstItem="OHd-FG-azo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lJY-IG-7zI"/>
+                <constraint firstItem="OHd-FG-azo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="lJY-IG-7zI"/>
                 <constraint firstItem="Z4G-Jf-SYA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lVY-UW-8Oa"/>
-                <constraint firstItem="201-xd-NAM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mBn-Wh-7bD"/>
-                <constraint firstItem="201-xd-NAM" firstAttribute="top" secondItem="OHd-FG-azo" secondAttribute="bottom" id="mKj-ji-tey"/>
                 <constraint firstItem="OHd-FG-azo" firstAttribute="top" secondItem="LDL-P4-vrm" secondAttribute="bottom" id="mOS-DE-Ng9"/>
                 <constraint firstAttribute="bottom" secondItem="4l1-Lp-L3t" secondAttribute="bottom" id="oML-i8-ONR"/>
                 <constraint firstItem="Z4G-Jf-SYA" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="2:5" constant="-50" id="pXw-2c-obh"/>

@@ -44,7 +44,10 @@ extension RecruitmentVC: UITableViewDataSource,UITableViewDelegate{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecruitmentCell") as! RecruitmentCell
        // let index = String(indexPath.row)
-        cell.positionLabel.text = RecruitmentServices[indexPath.row].title
+       
+        cell.positionLabel.text = RecruitmentServices[indexPath.row].content
+        
+        print("111111\(RecruitmentServices[indexPath.row].title)")
         return cell
         
     }

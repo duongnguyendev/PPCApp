@@ -29,10 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QO3-Um-J7F">
-                        <rect key="frame" x="379.5" y="0.0" width="26.5" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="7rj-h7-MhD"/>
-                        </constraints>
+                        <rect key="frame" x="374" y="-3" width="32" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                         <state key="normal" backgroundImage="down"/>
                     </button>
@@ -49,11 +46,10 @@
                     <constraint firstItem="nOL-XC-NaW" firstAttribute="top" secondItem="Yjp-YD-VoI" secondAttribute="bottom" id="G8o-Q1-2Cd"/>
                     <constraint firstAttribute="trailing" secondItem="nOL-XC-NaW" secondAttribute="trailing" constant="5" id="PN1-Dr-ebq"/>
                     <constraint firstItem="Yjp-YD-VoI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="TOs-rC-NC3"/>
-                    <constraint firstAttribute="trailing" secondItem="QO3-Um-J7F" secondAttribute="trailing" constant="5" id="VVQ-jm-z8b"/>
-                    <constraint firstItem="QO3-Um-J7F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="d0I-bm-sHk"/>
                     <constraint firstItem="nOL-XC-NaW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="db8-0r-ROd"/>
                     <constraint firstItem="Yjp-YD-VoI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fWK-KL-jdf"/>
-                    <constraint firstItem="QO3-Um-J7F" firstAttribute="width" secondItem="Yjp-YD-VoI" secondAttribute="width" multiplier="1:14" id="lm1-vS-Qqa"/>
+                    <constraint firstAttribute="trailing" secondItem="QO3-Um-J7F" secondAttribute="trailing" constant="5" id="gBD-r9-XXX"/>
+                    <constraint firstItem="QO3-Um-J7F" firstAttribute="centerY" secondItem="Yjp-YD-VoI" secondAttribute="centerY" id="ptM-TV-E4r"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

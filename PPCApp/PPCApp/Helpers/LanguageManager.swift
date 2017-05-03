@@ -26,10 +26,12 @@ class LanguageManager: NSObject {
         let bundlePath = Bundle.main.path(forResource: languageCode, ofType: "lproj")
         bundle = Bundle(path: bundlePath!)
     }
+    
     func localized(string: String) -> String?{
         
         return NSLocalizedString(string, bundle: bundle!, comment: "")
     }
+    
     func setCurrent(language : Language){
         UserDefaults.standard.set([language.languageCode], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
