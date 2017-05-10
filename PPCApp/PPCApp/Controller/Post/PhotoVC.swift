@@ -2,7 +2,7 @@
 //  PhotoVC.swift
 //  PPCApp
 //
-//  Created by Macbook Solution on 4/26/17.
+//  Created by Macbook Solution on 5/4/17.
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
 
@@ -11,7 +11,6 @@ import UIKit
 @objc protocol ProjectDetailVC3Delegate {
     @objc optional func ChooseImages(images : [UIImage])
 }
-
 class PhotoVC: BaseVC{
     var chooseImages = [UIImage]()
     var delegate: ProjectDetailVC3Delegate?

@@ -104,7 +104,7 @@ class FilterVC: BaseVC {
     //MARK: - setup nav
     func addFilterButton(){
         let filterButton = UIBarButtonItem(title: "Complete", style: .done, target: self, action: #selector(handleComplete(_:)))
-        filterButton.customTitle()
+        filterButton.customTitle() 
         self.navigationItem.rightBarButtonItem = filterButton
     }
     
@@ -118,7 +118,6 @@ class FilterVC: BaseVC {
             }
         }
     }
-    
 }
 extension FilterVC: PickerViewDelegate{
     func selectedProjectType(place: Place) {

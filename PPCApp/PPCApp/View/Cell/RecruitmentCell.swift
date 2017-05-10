@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 class RecruitmentCell: UITableViewCell{
+    
     @IBOutlet weak var positionLabel: UILabel!
     
     override func awakeFromNib() {

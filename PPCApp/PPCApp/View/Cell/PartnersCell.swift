@@ -13,12 +13,6 @@ class PartnersCell: UITableViewCell {
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var fieldLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //Initialization code
-        companyLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightMedium)
-        fieldLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightThin)
-    }
     var partners: PartnersDataModel!{
         didSet{
             logoImage.loadImageurl(link: partners.image)

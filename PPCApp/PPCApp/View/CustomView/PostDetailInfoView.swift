@@ -66,6 +66,7 @@ class PostDetailInfoView: BaseView {
 }
 
 class GeneralButton: UIButton {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false

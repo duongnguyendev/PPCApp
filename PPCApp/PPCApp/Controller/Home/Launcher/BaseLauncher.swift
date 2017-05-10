@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class BaseLauncher: NSObject {
     var height : CGFloat = 100
     let windowFrame : CGRect = (UIApplication.shared.keyWindow?.frame)!

@@ -2,7 +2,7 @@
 //  PhotoHandle.swift
 //  PPCApp
 //
-//  Created by Macbook Solution on 4/27/17.
+//  Created by Macbook Solution on 5/4/17.
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
 
@@ -57,5 +57,5 @@ class PhotoHandle : NSObject{
         
         return newImage!
     }
-
+    
 }

@@ -9,42 +9,40 @@
 import Foundation
 import UIKit
 class ProjectVC: BaseVC {
-    
     @IBOutlet weak var tableView: UITableView!
     let ud = UserDefaults()
     var projects = [HomeDataModel]()
-    
+    var signin = SigninModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Project"
+        title = LanguageManager.shared.localized(string: "projectmanager")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProjectCell", bundle: nil), forCellReuseIdentifier: "ProjectCell")
-        /*if ud.object(forKey: "user") == nil{
-            let signinVC = SignInVC()
-            present(viewController: signinVC)
-        }*/
     }
     override func setupNavBar() {
         super.setupNavBar()
         addPostButton()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        /*if ud.object(forKey: "user") != nil{
-            ProjectService.shared.fetchProjects(idUser: "8") { (mprojects, errMess) in
-                if errMess == 1{
-                    self.projects = mprojects
-                    self.tableView.reloadData()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if ud.object(forKey: "user") != nil{
+            MoreService.shared.parseSignIn(completion: { (signin) in
+                self.signin = signin!
+                ProjectService.shared.fetchProjects(idUser: (signin?.id)!) { (mprojects, errMess) in
+                    if errMess == 1{
+                        self.projects = mprojects
+                        self.tableView.reloadData()
+                    }
                 }
-             }
-        }*/
-        ProjectService.shared.fetchProjects(idUser: "8") { (mprojects, errMess) in
-            if errMess == 1{
-                self.projects = mprojects
-                self.tableView.reloadData()
-            }
+            })
+        }else{
+            self.projects.removeAll()
+            self.tableView.reloadData()
         }
-
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        
     }
     //MARK: - setup nav
     func addPostButton(){
@@ -53,18 +51,12 @@ class ProjectVC: BaseVC {
         self.navigationItem.rightBarButtonItem = projectButton
     }
     func handlePost(){
-        //Bug
-        /*if ud.object(forKey: "user") != nil{
-            let proDetailVC1 = ProjectDetailVC1()
-            present(viewController: proDetailVC1)
-        }else{
-            let signinVC = SignInVC()
-            present(viewController: signinVC)
-        }*/
         let proDetailVC1 = ProjectDetailVC1()
+        proDetailVC1.post.id_user = signin.id
         present(viewController: proDetailVC1)
     }
 }
+
 extension ProjectVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return projects.count
@@ -80,11 +72,18 @@ extension ProjectVC: UITableViewDataSource,UITableViewDelegate{
     }
 }
 extension ProjectVC: ProjectVCDelegate{
-    func selected(project: HomeDataModel) {
+    func edit(project: HomeDataModel) {
         let proDetailVC1 = ProjectDetailVC1()
+        proDetailVC1.post = project
         present(viewController: proDetailVC1)
     }
-    func deleted(project: HomeDataModel){
-        
+    func remove(project: HomeDataModel) {
+        ProjectService.shared.deleteProject(id: project.id) { (errMessage) in
+            if errMessage == "1"{
+                let index = self.projects.index(of: project)
+                self.projects.remove(at: index!)
+                self.tableView.reloadData()
+            }
+        }
     }
 }

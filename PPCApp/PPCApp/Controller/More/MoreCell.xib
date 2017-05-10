@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3cy-ya-230" id="8Pb-Nq-Upt">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SQc-w3-lzM">
@@ -27,8 +27,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYe-q0-wik">
-                        <rect key="frame" x="40" y="14" width="34.5" height="16.5"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <rect key="frame" x="40" y="13.5" width="37" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -54,7 +54,7 @@
                 <outlet property="descLabel" destination="bYe-q0-wik" id="hRc-ni-zQ6"/>
                 <outlet property="iconImage" destination="SQc-w3-lzM" id="Fq1-Vi-hAf"/>
             </connections>
-            <point key="canvasLocation" x="83" y="755"/>
+            <point key="canvasLocation" x="15" y="320"/>
         </tableViewCell>
     </objects>
 </document>

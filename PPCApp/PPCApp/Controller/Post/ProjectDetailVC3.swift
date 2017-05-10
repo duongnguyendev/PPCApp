@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Photos
 class ProjectDetailVC3: BaseVC {
+    var post = HomeDataModel()
     var images = [UIImage]()
     let margin : CGFloat = 20.0
     let imageController = UIImagePickerController()
@@ -85,15 +86,33 @@ class ProjectDetailVC3: BaseVC {
         
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Post Project"
         collectionViewImage.register(ImageCell.self, forCellWithReuseIdentifier: "ImageCell")
-        
         imageController.delegate = self
         imageController.sourceType = .photoLibrary
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.mainScrollView.contentInset = contentInsets
+        self.mainScrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            self.mainScrollView.contentInset = contentInsets
+            self.mainScrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+
+    
     override func viewWillAppear(_ animated: Bool) {
         
     }
@@ -187,39 +206,18 @@ class ProjectDetailVC3: BaseVC {
     }
     
     func handlePostButton(_ sender: UIButton){
-        let post = PostDataModel()
-        post.project_id = 1
-        post.country_id = 1
-        post.provine_id = 1
-        post.district_id = 200
-        post.floor = 5
-        post.bedroom = 3
-        post.bathroom = 3
-        post.acreage = 8
-        post.price = "20 ty"
         post.fileImage = imgProjectData
-        post.phone = "0962454497"
-        post.email = "dinhphong10@gmail.com"
-        post.type = 1
-        post.id_user = 8
-        post.area_apartment = 0.5
-        post.title = "Mường Thanh"
-        post.info = "Strategically located along the fringe of the city centre"
-        post.address = "Nguyen Duy Trinh Road, Binh Trung Dong Ward, District 2, Ho Chi Minh City"
-        post.investor = "CVH Spring Company Limited"
-        post.ownership = "Freehold for local Vietnamese, 50 years long term lease for foreigners"
-        post.service = "Elderly Fitness Corner"
-        post.langEN = 1
-        post.langVI = 1
-        post.fileImage_overload = imgPlanData
+        post.fileImage_overall = imgPlanData
         post.fileMultiImage = imgDetailData
-        
-        ProjectService.shared.postProject(post: post) { (mString) in
-            print("Succes\(mString)")
+        ProjectService.shared.postProject(post: post) { (errMess) in
+            if errMess == 1{
+                self.dismiss(animated: true, completion: nil)
+            }else{
+            }
         }
+    
     }
     func checkImageProjectVC3()->Bool{
-        
         return true
     }
     
@@ -260,7 +258,7 @@ extension ProjectDetailVC3: UINavigationControllerDelegate,UIImagePickerControll
         let imgProject = info[UIImagePickerControllerOriginalImage] as! UIImage
         if type == 0{
             imageViewProject.image = imgProject
-             self.imgProjectData = UIImageJPEGRepresentation(imgProject, 1)
+            self.imgProjectData = UIImageJPEGRepresentation(imgProject, 0.1)
         }else{
             imageViewPlan.image = imgProject
             self.imgPlanData = UIImageJPEGRepresentation(imgProject, 0.1)

@@ -9,16 +9,8 @@
 import Foundation
 class NewService: BaseService{
     static let shared = NewService()
-    func getNews(indexPage: String,completion: @escaping (_ news: [NewDataModel]?,_ currentPage: Int,_ next_page_url: String)->Void){
-        let url = "news/all?page=" + indexPage
-        self.fetchNewsAll(pageUrl: url) { (news, errMess, currentPage, next_page_url) in
-            if errMess == 1{
-                completion(news,currentPage,next_page_url)
-            }
-        }
-    }
-    func fetchNewsAll(pageUrl: String,callback: @escaping NewsCallback){
-        let url = pageUrl
+    func getNews(indexPage: Int,callback: @escaping NewsCallback){
+        let url = "news/all?page=\(indexPage)"
         apiService.get(url: url) { (json, error) in
             if error == nil{
                 let errMess = json?["message"].int ?? -1
@@ -32,8 +24,6 @@ class NewService: BaseService{
                 DispatchQueue.main.async {
                     return callback(news,errMess,currentPage,nextPage)
                 }
-            }else{
-                
             }
         }
     }

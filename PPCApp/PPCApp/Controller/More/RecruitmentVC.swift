@@ -9,10 +9,8 @@
 import Foundation
 import UIKit
 class RecruitmentVC: BaseVC {
-    
     @IBOutlet weak var tableView: UITableView!
-    var RecruitmentServices = [RecruitmentDataModel]()
-    
+    var recruitements = [RecruitmentDataModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,43 +18,37 @@ class RecruitmentVC: BaseVC {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "RecruitmentCell", bundle: nil), forCellReuseIdentifier: "RecruitmentCell")
-        RecruitmentService.share.getRecruitmentData(indexPage: "") { (RecruitmentDatas) in
-            self.RecruitmentServices = RecruitmentDatas
-            self.tableView.reloadData()
-        }
-        
-    }
+           }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+        MoreService.shared.getRecruitments { (mRecruitements) in
+            self.recruitements = mRecruitements!
+            self.tableView.reloadData()
+        }
+
     }
 
 }
 extension RecruitmentVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RecruitmentServices.count
+        return recruitements.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecruitmentCell") as! RecruitmentCell
        // let index = String(indexPath.row)
-       
-        cell.positionLabel.text = RecruitmentServices[indexPath.row].content
-        
-        print("111111\(RecruitmentServices[indexPath.row].title)")
+        cell.positionLabel.text = recruitements[indexPath.row].title
         return cell
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Click Select Index Recruitment
-        
         let detailVC = RecruitmentDetailVC()
-        detailVC.objectRecruiment = RecruitmentServices[indexPath.row]
-        
+        detailVC.recruitment = recruitements[indexPath.row]
         present(viewController: detailVC)
     }
 

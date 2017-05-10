@@ -43,13 +43,20 @@ class HomeDataModel: NSObject{
     var service: String
     var project: String
     var images: [String]
+    
+    var langEN: Int?
+    var langVI: Int?
+    var fileImage: Data?
+    var fileImage_overall: Data?
+    var fileMultiImage: [Data]?
+    
     override init() {
         id = -1
         project_id = -1
         country_id = -1
         provine_id = -1
         district_id = -1
-        type =  -1
+        type =  0
         floor = -1
         apartment = -1
         bedroom = -1
@@ -78,6 +85,14 @@ class HomeDataModel: NSObject{
         service = ""
         images = []
         project = ""
+        
+        langEN = 0
+        langVI = 1
+        fileImage = nil
+        fileImage_overall = nil
+        fileMultiImage = nil
+        
+        
     }
     init(json: JSON) {
         id = json["id"].int ?? -1

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
 class APIService: NSObject {
     static let shared = APIService()
@@ -18,6 +19,7 @@ class APIService: NSObject {
             case .success(let value):
                 let json = JSON(value)
                 completion(json, nil)
+               // print("JSON: \(json)")
             case .failure(let error):
                 completion(nil, error)
                 print(error)
@@ -30,7 +32,7 @@ class APIService: NSObject {
             case .success(let value):
                 let json = JSON(value)
                 completion(json, nil)
-                //print("JSON: \(json)")
+                print("JSON: \(json)")
             case .failure(let error):
                 completion(nil, error)
                 print(error)
@@ -53,8 +55,8 @@ class APIService: NSObject {
     func urlFrom(request: String) -> String{
         return LanguageManager.shared.localized(string: "domainPPC")! + request
     }
+    
 }
-
 class BaseService: NSObject {
     
     let apiService = APIService()

@@ -16,7 +16,7 @@ class PhotoCell: BaseCell {
     var delegate: PhotoVCDelegate?
     var images = [UIImage]()
     let buttonPhoto: ChoosePhoto = {
-       let button = ChoosePhoto()
+        let button = ChoosePhoto()
         button.isSelected = false
         button.bgrImage = UIImage(named: "vinpearl")
         button.flag = false
@@ -41,6 +41,6 @@ class PhotoCell: BaseCell {
             }
             self.delegate?.selected!(sender: sender)
         }
-      
+        
     }
 }

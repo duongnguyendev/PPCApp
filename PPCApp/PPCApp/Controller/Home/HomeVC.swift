@@ -10,7 +10,7 @@ import UIKit
 import Photos
 class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PostVCDelegate {
     var typeSegmentControl: NSNumber = 0
-    var indexPath: IndexPath?
+    var indexPath: IndexPath = IndexPath(item: 0, section: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
         title = LanguageManager.shared.localized(string: "home")
@@ -46,6 +46,9 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         addFilterButton()
         addSearchButton()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.homeCollectionView.reloadData()
+    }
     override func setupView() {
         segmentedPostType.heightAnchor.constraint(equalToConstant: 25).isActive = true
         segmentedPostType.widthAnchor.constraint(equalToConstant: 180).isActive = true
@@ -79,9 +82,9 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeCell
+        cell.indexPage = 1
         cell.delegate = self
         cell.type = indexPath.item
-        self.indexPath = indexPath
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -94,15 +97,17 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let index = targetContentOffset.pointee.x / view.frame.width
         segmentedPostType.selectedSegmentIndex = Int(index)
         self.typeSegmentControl = NSNumber(value: segmentedPostType.selectedSegmentIndex)
+        self.indexPath = IndexPath(item: Int(index), section: 0)
     }
     //MARK: - setup nav
     func addFilterButton(){
-        let filterButton = UIBarButtonItem(title: "Filter", style: .done, target: self, action: #selector(handleFilter))
+        let filterButton = UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: .sliders, textColor: UIColor.white, size: CGSize(width: 30, height: 30)), style: .done, target: self, action: #selector(handleFilter))
         filterButton.customTitle()
+        filterButton.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = filterButton
     }
     func addSearchButton(){
-        let searchButton = UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: .search, textColor: UIColor.white, size: CGSize(width: 25, height: 30)), style: .done, target: self, action: #selector(handleSearch))
+        let searchButton = UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: .search, textColor: UIColor.white, size: CGSize(width: 30, height: 30)), style: .done, target: self, action: #selector(handleSearch))
         searchButton.customTitle()
         searchButton.tintColor = UIColor.white
         searchButton.imageInsets.left = -10
@@ -117,12 +122,12 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
 }
 extension HomeVC: HomeVCDelegate{
-    //Bug Không Load Data
     func Filter(projects: [HomeDataModel], currentPage: Int, next_page_url: String) {
-        let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath!) as! HomeCell
+        let cell = homeCollectionView.cellForItem(at: indexPath) as! HomeCell
         cell.indexPage = currentPage
         cell.nextPage = next_page_url
         cell.homes = projects
-        cell.reloadCollectionViewFilter()
+        
+        cell.collectionViewPost.reloadData()
     }
 }

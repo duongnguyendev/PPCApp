@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-class AboutusDataModels
+class AboutDataModel
 {
     var id:Int
     var image:String

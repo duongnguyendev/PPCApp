@@ -36,10 +36,10 @@ class PostCell: BaseCell {
         let homeIcon = UIImage.fontAwesomeIcon(name: .home, textColor: UIColor.navigationBar(), size: CGSize(width: 30, height: 30))
         let iv = UIImageView(image: homeIcon)
         iv.contentMode = .scaleAspectFill
-//        iv.backgroundColor = UIColor.brown
+        //        iv.backgroundColor = UIColor.brown
         return iv
     }()
-
+    
     override func setupView() {
         self.backgroundColor = UIColor.white
         addSubview(posterImageView)
@@ -62,7 +62,7 @@ class PostCell: BaseCell {
         labelAcreage.centerYAnchor.constraint(equalTo: iconHome.centerYAnchor, constant: 0).isActive = true
         labelAcreage.heightAnchor.constraint(equalTo: iconHome.heightAnchor, multiplier: 1).isActive = true
     }
-
+    
     var home: HomeDataModel?{
         didSet{
             self.posterImageView.loadImageUsingUrlString(urlString: (home?.image)!)

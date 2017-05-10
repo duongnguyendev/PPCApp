@@ -2,53 +2,43 @@
 //  TermsVC.swift
 //  PPCApp
 //
-//  Created by Macbook Solution on 3/28/17.
+//  Created by Macbook Solution on 5/7/17.
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
 
 import Foundation
 import UIKit
-class TermsVC: BaseVC {
+class TermsVC: BaseVC{
     
-    
-    @IBOutlet weak var tblTerms: UITableView!
-    var Termss = [TermsModel]()
+    @IBOutlet weak var tableView: UITableView!
+    var terms = [TermsModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Terms"
-        tblTerms.delegate = self
-        tblTerms.dataSource = self
-        let nib = UINib(nibName: "TermsCell", bundle: nil)
-        tblTerms.register(nib, forCellReuseIdentifier: "TermCell")
-        self.tblTerms.separatorStyle = .none
-        tblTerms.rowHeight = UITableViewAutomaticDimension
-        tblTerms.estimatedRowHeight = 140
-        TermsService.share.getTermsData(indexpage: "") { (termss) in
-            self.Termss = termss
-            self.tblTerms.reloadData()
-        }
-        
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-  
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "TermsCell", bundle: nil), forCellReuseIdentifier: "TermsCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
 
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        MoreService.shared.getTerms { (mTerms) in
+            if mTerms != nil{
+                self.terms = mTerms!
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
 }
 extension TermsVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Termss.count
+        return terms.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath) as! TermsCell
-        if indexPath.row == 0{
-            cell.title.textAlignment = .center
-        }
-        else{
-            cell.title.textAlignment = .left
-        }
-        cell.term = Termss[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TermsCell", for: indexPath) as! TermsCell
+        cell.term = terms[indexPath.row]
         return cell
     }
 }

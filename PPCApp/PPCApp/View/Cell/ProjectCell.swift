@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 @objc protocol ProjectVCDelegate {
-    @objc optional func selected(project : HomeDataModel)
-    @objc optional func deleted(project : HomeDataModel)
+    @objc optional func edit(project : HomeDataModel)
+    @objc optional func remove(project : HomeDataModel)
+    
 }
 class ProjectCell: UITableViewCell {
     
@@ -46,14 +47,15 @@ class ProjectCell: UITableViewCell {
     }
     
     @IBAction func handleEdit(_ sender: Any) {
-        
+        if delegate != nil{
+            delegate?.edit!(project: project!)
+        }
     }
     @IBAction func handleDelete(_ sender: Any) {
         if delegate != nil{
-            delegate?.deleted!(project: project!)
+            delegate?.remove!(project: project!)
         }
-
     }
-
+    
     
 }

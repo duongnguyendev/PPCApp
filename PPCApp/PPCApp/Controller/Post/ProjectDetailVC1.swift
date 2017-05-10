@@ -5,9 +5,11 @@
 //  Created by Macbook Solution on 4/17/17.
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
+
 import Foundation
 import UIKit
 class ProjectDetailVC1: BaseVC {
+    var post = HomeDataModel()
     let spaceLine : CGFloat = 2.0
     let itemSize : CGFloat = 40.0
     let margin: CGFloat = 20.0
@@ -52,16 +54,18 @@ class ProjectDetailVC1: BaseVC {
         button.addTarget(self, action: #selector(handleRadioRentButton(_:)), for: .touchUpInside)
         return button
     }()
-    //Handle RadioButton 
+    //Handle RadioButton
     func handleRadioSaleButton(_ sender: RadioButtonView){
         if sender.isSelected{
             sender.flag = true
+            post.type = 0
             radioRentButton.flag = false
         }
     }
     func handleRadioRentButton(_ sender: RadioButtonView){
         if sender.isSelected{
             sender.flag = true
+            post.type = 1
             radioSaleButton.flag = false
         }
     }
@@ -90,21 +94,25 @@ class ProjectDetailVC1: BaseVC {
     //Handle CheckBox Language
     func handlecheckboxVI(_ sender: CheckBox){
         if sender.flag!{
+            post.langVI = 0
             sender.flag = false
         }else{
+            post.langVI = 1
             sender.flag = true
         }
         print("Handle Check VI")
     }
     func handlecheckboxEN(_ sender: CheckBox){
         if sender.flag!{
+            post.langEN = 0
             sender.flag = false
         }else{
+            post.langEN = 1
             sender.flag = true
         }
         print("Handle Check EN")
     }
-
+    
     let countryButton : FilterButton = {
         let button = FilterButton()
         button.title = "Country"
@@ -207,22 +215,24 @@ class ProjectDetailVC1: BaseVC {
         return button
     }()
     
+    func inputPostProjectVC1(){
+        post.country_id = Int(id_country)
+        post.provine_id = Int(id_province)
+        post.district_id = Int(id_district)
+        post.project_id = Int(id_projectType)
+        post.email = emailTextField.text!
+        post.phone = phoneTextField.text!
+        post.address = addressTextField.text!
+        post.ownership = ownerTextField.text!
+        post.price = priceTextField.text!
+        post.info = projectTextField.text!
+    }
     func handleNextButton(_ sender: UIButton){
-        countryButton.value = "dasdas"
-        provinceButton.value = "VietName"
-        districtButton.value = "dasda"
-        typeOfProjectButton.value = "sadsa"
-        
-        emailTextField.text = "dinhphong10@gmail.com"
-        phoneTextField.text = "0962454497"
-        addressTextField.text = "dsadasdsas"
-        ownerTextField.text = "dopsadsa"
-        priceTextField.text = "dsadkjsajkdsa"
-        projectTextField.text = "221321"
+        self.inputPostProjectVC1()
         if (checkInputProjectVC1()){
             let proDetailVC2 = ProjectDetailVC2()
+            proDetailVC2.post = self.post
             push(viewController: proDetailVC2)
-            print("Success")
         }else{
             print("Nhập Đầy Đủ Thông Tin")
         }
@@ -236,10 +246,26 @@ class ProjectDetailVC1: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Post Project"
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         
     }
+    func keyboardWillHide(notification: NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.mainScrollView.contentInset = contentInsets
+        self.mainScrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            self.mainScrollView.contentInset = contentInsets
+            self.mainScrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
     override func setupView() {
         super.setupView()
         setupMainScrollView()
@@ -357,7 +383,7 @@ class ProjectDetailVC1: BaseVC {
         addressTextField.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor, constant: 2).isActive = true
         addressTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-
+    
     func setupOwnerView(){
         contentView.addConstraintWithFormat(format: "H:|-10-[v0]|", views: ownerTextField)
         ownerTextField.topAnchor.constraint(equalTo: addressTextField.bottomAnchor, constant: 2).isActive = true
@@ -404,4 +430,3 @@ extension ProjectDetailVC1: PickerViewDelegate{
     }
     
 }
-

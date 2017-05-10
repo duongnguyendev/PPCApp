@@ -38,6 +38,7 @@ class RadioButtonView: BaseButton{
         return label
     }()
     
+    
     override func setupView() {
         super.setupView()
         addSubview(iconImageView)
@@ -49,6 +50,7 @@ class RadioButtonView: BaseButton{
         iconImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
         nameLabelView.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor, constant: 0).isActive = true
     }
+    
 }
 class CheckBox: BaseButton {
     
@@ -80,7 +82,7 @@ class CheckBox: BaseButton {
         label.textColor = UIColor.navigationBar()
         return label
     }()
-
+    
     override func setupView() {
         super.setupView()
         addSubview(iconImageView)
@@ -90,10 +92,11 @@ class CheckBox: BaseButton {
         iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
         iconImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-
+        
         nameLabelView.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor, constant: 0).isActive = true
     }
 }
+
 class ChoosePhoto: BaseButton {
     var bgrImage: UIImage!{
         didSet{
@@ -121,16 +124,16 @@ class ChoosePhoto: BaseButton {
         iv.contentMode = .scaleToFill
         return iv
     }()
-
+    
     override func setupView() {
         super.setupView()
-       
+        
         addSubview(bgrImageView)
         addSubview(checkImageView)
         
         addConstraintWithFormat(format: "H:[v0]|", views: checkImageView)
         addConstraintWithFormat(format: "V:|[v0]", views: checkImageView)
-
+        
         addConstraintWithFormat(format: "H:|[v0]|", views: bgrImageView)
         addConstraintWithFormat(format: "V:|[v0]|", views: bgrImageView)
         checkImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true

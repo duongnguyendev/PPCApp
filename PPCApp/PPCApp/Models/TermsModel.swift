@@ -8,11 +8,11 @@
 
 import Foundation
 import SwiftyJSON
-class TermsModel:AnyObject{
+class TermsModel: NSObject{
     let id:Int
     let title:String
     let content:String
-    init() {
+    override init() {
         id = -1
         title = ""
         content = ""

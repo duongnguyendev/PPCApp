@@ -7,12 +7,21 @@
 //
 
 import UIKit
-
-class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+import Speech
+class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     var searchs = [HomeDataModel]()
     var indexPage: Int = 1
     var nextPage: String = ""
-    var textSearch:String?
+    var textSearch:String? {
+        didSet{
+            HomeService.shared.fetchHomesSearch(textSearch: textSearch!,indexPgae: indexPage) { (searchs, errMess, currentPage, next_page_url) in
+                self.indexPage = currentPage
+                self.nextPage = next_page_url
+                self.searchs = searchs
+                self.collectionSearchResult.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         collectionSearchResult.register(PostCell.self, forCellWithReuseIdentifier: cellId)
@@ -20,6 +29,22 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         title = "Search"
         self.collectionSearchResult.keyboardDismissMode = UIScrollViewKeyboardDismissMode.onDrag
+        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+            switch authStatus {
+            case .authorized:
+                //isButtonEnabled = true
+                break
+            case .denied:
+                //isButtonEnabled = false
+                break
+            case .restricted:
+                //isButtonEnabled = false
+                break
+            case .notDetermined:
+                //isButtonEnabled = false
+                break
+            }
+        }
     }
     lazy var collectionSearchResult : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -46,7 +71,6 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         bt.setTitleColor(UIColor.navigationBar(), for: .normal)
         bt.addTarget(self, action: #selector(handleButtonMic(_:)), for: .touchUpInside)
         return bt
-        
     }()
     override func setupView() {
         super.setupView()
@@ -55,7 +79,7 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         labelSearchIcon.text = String.fontAwesomeIcon(name: .search)
         labelSearchIcon.textAlignment = .center
         labelSearchIcon.textColor = UIColor.lightGray
-
+        
         view.addSubview(labelSearchIcon)
         view.addSubview(textFieldSearch)
         view.addSubview(buttonMic)
@@ -70,19 +94,87 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         buttonMic.centerYAnchor.constraint(equalTo: textFieldSearch.centerYAnchor, constant: 0).isActive = true
     }
     
+    let microLauncher = MicroLauncher()
+    
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: LanguageManager.shared.getCurrentLanguage().languageCode!))!
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private let audioEngine = AVAudioEngine()
+    
     func handleButtonMic (_ sender : UIButton){
         self.view.endEditing(true)
-        print("handleButtonMic")
+        microLauncher.show()
+        startRecording()
+    }
+    func startRecording() {
+        if recognitionTask != nil {  //1
+            recognitionTask?.cancel()
+            recognitionTask = nil
+        }
+        
+        let audioSession = AVAudioSession.sharedInstance()  //2
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        } catch {
+        }
+        
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()  //3
+        
+        guard let inputNode = audioEngine.inputNode else {
+            fatalError("Audio engine has no input node")
+        }  //4
+        
+        guard let recognitionRequest = recognitionRequest else {
+            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
+        } //5
+        
+        recognitionRequest.shouldReportPartialResults = true  //6
+        
+        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
+            
+            var isFinal = false  //8
+            
+            if result != nil {
+                self.handleSearch(text: (result?.bestTranscription.formattedString)!)
+                self.textFieldSearch.text = result?.bestTranscription.formattedString
+                
+                self.audioEngine.stop()
+                recognitionRequest.endAudio()
+                
+                isFinal = (result?.isFinal)!
+                self.microLauncher.close()
+            }
+            
+            if error != nil || isFinal {  //10
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+                
+                self.recognitionRequest = nil
+                self.recognitionTask = nil
+                
+                //self.microphoneButton.isEnabled = true
+            }
+        })
+        
+        let recordingFormat = inputNode.outputFormat(forBus: 0)  //11
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
+            self.recognitionRequest?.append(buffer)
+        }
+        
+        audioEngine.prepare()  //12
+        
+        do {
+            try audioEngine.start()
+        } catch {
+            print("audioEngine couldn't start because of an error.")
+        }
     }
     
     func handleSearch(text: String){
+        
         self.textSearch = text
-        HomeService.shared.fetchHomesSearch(textSearch: textSearch!,indexPgae: indexPage) { (searchs, errMess, currentPage, next_page_url) in
-            self.indexPage = currentPage
-            self.nextPage = next_page_url
-            self.searchs = searchs
-            self.collectionSearchResult.reloadData()
-        }
         print("Searching with text \(text)")
     }
     
@@ -119,6 +211,7 @@ class SearchVC: BaseVC, UITextFieldDelegate, UICollectionViewDelegate, UICollect
         postDetailVC.home = searchs[indexPath.item]
         push(viewController: postDetailVC)
     }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let index = indexPath.item
         if index == searchs.count - 1{

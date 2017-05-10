@@ -13,15 +13,13 @@ class SettingVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Setting"
-        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "SettingCell", bundle: nil), forCellReuseIdentifier: "SettingCell")
     }
     override func viewDidAppear(_ animated: Bool) {
-        
-        
     }
+    
 }
 extension SettingVC: UITableViewDataSource,UITableViewDelegate{
     
@@ -32,14 +30,12 @@ extension SettingVC: UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingCell") as! SettingCell
         switch indexPath.row {
         case 0:
-            cell.titleLabel.text = "Language"
+            cell.titleLabel.text = LanguageManager.shared.localized(string: "language")!
             cell.languageLabel.isHidden = false
-            cell.accessoryType = .disclosureIndicator
             return cell
         case 1:
-            cell.titleLabel.text = "Sign out"
+            cell.titleLabel.text = LanguageManager.shared.localized(string: "signout")!
             cell.languageLabel.isHidden = true
-            cell.accessoryType = .none
             return cell
         default:
             break
@@ -48,21 +44,12 @@ extension SettingVC: UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            let detailVC = DetailLanguageVC2()
-            present(viewController: detailVC)
-        }
-        if indexPath.row == 1{
-            let alert = UIAlertController(title: "Thong Bao", message: "Ban Chac Chan Muon Logout", preferredStyle: .alert)
-            let act = UIAlertAction(title: "OK", style: .default, handler: { (true) in
-                let sigout:UserDefaults = UserDefaults.standard
-                sigout.removeObject(forKey: "user")
-                let more = MoreVC()
-                self.present(viewController: more)
-            })
-            let actcandle = UIAlertAction(title: "Candl", style: .cancel, handler: nil)
-            alert.addAction(act)
-            alert.addAction(actcandle)
-            present(alert, animated: true, completion: nil)
+            let langVC = LanguageVC()
+            push(viewController: langVC)
+        }else{
+            let ud = UserDefaults.standard
+            ud.removeObject(forKey: "user")
+            self.goBack()
         }
     }
 }

@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 class ImageCell: BaseCell{
-    
     let detailImage : CustomImageView = {
         let iv = CustomImageView()
         return iv

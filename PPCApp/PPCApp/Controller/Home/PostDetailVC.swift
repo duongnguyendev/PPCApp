@@ -10,7 +10,6 @@ import UIKit
 import MessageUI
 
 class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MFMailComposeViewControllerDelegate {
-    
     let margin : CGFloat = 20.0
     let cellId = "cellId"
     var home = HomeDataModel()
@@ -110,7 +109,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     
     let buttonGeneralLayout : GeneralButton = {
         let button = GeneralButton(type: UIButtonType.custom)
-        button.addTarget(self, action: #selector(handleGeneralLayoutButton(_:)), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(handleGeneralLayoutButton(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -326,7 +325,6 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         if let url = URL(string: "tel://\(home.phone)") {
             UIApplication.shared.open(url, options: [:])
         }
-        print("Call")
     }
     
     func handleEmailButton(_ sender : UIButton) {
@@ -334,13 +332,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeVC, animated: true, completion: nil)
         } else {
-            
         }
-        print("Email")
-    }
-    
-    func handleGeneralLayoutButton(_ sender: UIButton){
-        print("General Layout")
     }
     
     func configuredMailComposeVC() -> MFMailComposeViewController {

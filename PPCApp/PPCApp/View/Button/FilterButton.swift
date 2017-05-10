@@ -25,7 +25,7 @@ class BaseButton: UIButton {
 }
 
 class FilterButton: BaseButton {
-
+    
     
     var value : String?{
         didSet{
@@ -79,5 +79,5 @@ class FilterButton: BaseButton {
         addConstraintWithFormat(format: "V:|[v0]|", views: arrowImageView)
         
     }
-
+    
 }

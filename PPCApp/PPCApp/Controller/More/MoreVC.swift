@@ -7,87 +7,78 @@
 //
 
 import UIKit
-//var Login:Bool = false
-class MoreVC: BaseVC,SuccessLogin {
+class MoreVC: BaseVC{
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var signImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarButton: UIButton!
-    let getuser:UserDefaults = UserDefaults()
-    var usermodel:SigninModel = SigninModel()
+    let ud = UserDefaults.standard
     var mores = [MoreDataModel]()
-    
+    var signin = SigninModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         signImage.layer.cornerRadius = 40
         signImage.clipsToBounds = true
         // Do any additional setup after loading the view.
-        title = "More"
-        
-        nameLabel.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        signImage.layer.cornerRadius = 40
-        signImage.clipsToBounds = true
-        title = "More"
+        title = LanguageManager.shared.localized(string: "more")
         tableView.dataSource = self
         tableView.delegate = self
-        
         tableView.register(UINib(nibName: "MoreCell", bundle: nil), forCellReuseIdentifier: "MoreCell")
-        MoreService.shared.getMores { (mores) in
-            self.mores = mores
-            self.tableView.reloadData()
-        }
-       //login()
-        
-       login()
-       
-    }
-   
-    func getUser(user: SigninModel) {
-        self.signImage.loadImageurl(link: user.avatar)
-        self.nameLabel.text = user.username
-        
-    }
-    func signUpSuccess(user: SigninModel) {
-        self.signImage.loadImageurl(link: user.avatar)
-        self.nameLabel.text = user.username
-
-    }
-    func updateSuccess(user: SigninModel) {
-        self.signImage.loadImageurl(link: user.avatar)
-        self.nameLabel.text = user.username
     }
     
-    func login(){
-        if (getuser.object(forKey: "user") != nil){
-            usermodel = SigninModel(dic: getuser.object(forKey: "user") as! Dictionary<String, Any>)
-            signImage.loadImageurl(link: usermodel.avatar)
-            nameLabel.text = usermodel.username
-            
-        }
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        if ud.object(forKey: "user") != nil{
+            MoreService.shared.parseSignIn(completion: { (signin) in
+                self.signin = signin!
+                self.signImage.loadImageurl(link: (signin?.avatar)!)
+                self.nameLabel.text = signin?.username
+            })
+        }
+    }
     override func viewDidAppear(_ animated: Bool) {
-        
+        MoreService.shared.getMores { (mores) in
+            self.mores = mores
+            self.tableView.reloadData()
+        }
+        if ud.object(forKey: "user") == nil{
+            self.signImage.image = UIImage(named: "sign")
+            self.nameLabel.text = "SignIn/SignUp"
+        }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        self.mores.removeAll()
     }
     @IBAction func avatarHandle(_ sender: Any) {
-        
-        if getuser.object(forKey: "user") == nil{
-        let signin = SignInVC()
-        signin.delegate = self
-        
-        present(viewController: signin)
-            //push(viewController: signin)
+        if ud.object(forKey: "user") != nil{
+            let profileVC = ProfileVC()
+            profileVC.signin = signin
+            present(viewController: profileVC)
+        }else{
+            let signin = SignInVC()
+            signin.delegate = self
+            present(viewController: signin)
         }
-        else{
-            let profile = Profile()
-            profile.delegate = self
-            present(viewController: profile)
-        }
+        
+    }
+}
+extension MoreVC: MoreVCDelegate{
+    
+    func SuccessSignIn(signin: SigninModel) {
+        signImage.loadImageurl(link: signin.avatar)
+        nameLabel.text = signin.username
+        self.signin = signin
+    }
+    
+    func SuccessSignUp(signup: SigninModel, avatar: Data) {
+        signImage.image = UIImage(data: avatar)
+        nameLabel.text = signup.username
+        self.signin = signup
     }
 }
 extension MoreVC: UITableViewDataSource,UITableViewDelegate{

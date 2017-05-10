@@ -2,14 +2,15 @@
 //  Celllanguage.swift
 //  PPCApp
 //
-//  Created by NguoiNb on 4/27/17.
+//  Created by NguoiNb on 4/28/17.
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
 
 import UIKit
 
-class Celllanguage: UITableViewCell {
+class LanguageCell: UITableViewCell {
 
+    @IBOutlet weak var languageLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +21,5 @@ class Celllanguage: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
     
 }

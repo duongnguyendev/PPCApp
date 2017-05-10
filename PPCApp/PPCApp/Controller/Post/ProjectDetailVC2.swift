@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 class ProjectDetailVC2: BaseVC{
+    var post = HomeDataModel()
     let margin : CGFloat = 20.0
     let mainScrollView : UIScrollView = {
         let scrollView = UIScrollView()
@@ -100,10 +101,22 @@ class ProjectDetailVC2: BaseVC{
         
         return button
     }()
-    
+    func inputPostProjectVC2(){
+        post.title = titleTextField.text!
+        post.investor = investorTextField.text!
+        post.acreage = Int(areaProjectTextField.text!)!
+        post.area_apartment = Float(areaProjectTextField.text!)!
+        post.floor = Int(floorsTextField.text!)!
+        post.bedroom = Int(bedroomsTextField.text!)!
+        post.bathroom = Int(bathroomsTextField.text!)!
+        post.service = servicesTextField.text!
+    }
+
     func handleNextButton(_ sender: UIButton){
+        self.inputPostProjectVC2()
         if (checkInputProjectVC2()){
             let proDetailVC3 = ProjectDetailVC3()
+            proDetailVC3.post = self.post
             push(viewController: proDetailVC3)
         }else{
             let proDetailVC3 = ProjectDetailVC3()
@@ -116,16 +129,31 @@ class ProjectDetailVC2: BaseVC{
         if (titleTextField.text?.isEmpty)! || (investorTextField.text?.isEmpty)! || (areaProjectTextField.text?.isEmpty)! || (areaAppartmentsTextField.text?.isEmpty)! || (apartmentsTextField.text?.isEmpty)! || (floorsTextField.text?.isEmpty)! || (bedroomsTextField.text?.isEmpty)! || (bathroomsTextField.text?.isEmpty)! || (servicesTextField.text?.isEmpty)!{
             return false
         }
-       return true
+        return true
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Post Project"
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+    }
+    func keyboardWillHide(notification: NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.mainScrollView.contentInset = contentInsets
+        self.mainScrollView.scrollIndicatorInsets = contentInsets
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            self.mainScrollView.contentInset = contentInsets
+            self.mainScrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     override func setupView() {
@@ -225,7 +253,7 @@ class ProjectDetailVC2: BaseVC{
         servicesTextField.topAnchor.constraint(equalTo: bathroomsTextField.bottomAnchor, constant: 2).isActive = true
         servicesTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-
+    
     func setupButtonNextView() {
         buttonNext.topAnchor.constraint(equalTo: servicesTextField.bottomAnchor, constant: 20).isActive = true
         buttonNext.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true

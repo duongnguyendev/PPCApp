@@ -6,6 +6,7 @@
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
 
+
 import Foundation
 import UIKit
 class BaseTextField: UITextField {
@@ -38,14 +39,6 @@ class InfoTextField: BaseTextField {
         self.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
         self.textColor = UIColor.navigationBar()
         
-        //addSubview(textFieldContent)
-        //addSubview(textViewContent)
-        //addConstraintWithFormat(format: "H:|-20-[v0]-20-|", views: textFieldContent)
-        //addConstraintWithFormat(format: "V:|[v0]|", views: textFieldContent)
-        //textFieldContent.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
-        //addConstraintWithFormat(format: "V:|-20-[v0]-20-|", views: labelTitle)
-        //addConstraintWithFormat(format: "H:|-15-[v0]-15-|", views: textViewContent)
-        //addConstraintWithFormat(format: "V:|-10-[v0(15)]-(\(-5))-[v1]|", views: labelTitle, textViewContent)
     }
     
 }
