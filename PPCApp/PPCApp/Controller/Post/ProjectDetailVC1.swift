@@ -247,17 +247,13 @@ class ProjectDetailVC1: BaseVC {
         super.viewDidLoad()
         title = "Post Project"
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        
+       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
         self.mainScrollView.contentInset = contentInsets
         self.mainScrollView.scrollIndicatorInsets = contentInsets
     }
-    
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)

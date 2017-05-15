@@ -15,7 +15,7 @@ class ProjectVC: BaseVC {
     var signin = SigninModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = LanguageManager.shared.localized(string: "projectmanager")
+        title = LanguageManager.shared.localized(string: "projectmanage")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProjectCell", bundle: nil), forCellReuseIdentifier: "ProjectCell")
@@ -51,9 +51,17 @@ class ProjectVC: BaseVC {
         self.navigationItem.rightBarButtonItem = projectButton
     }
     func handlePost(){
-        let proDetailVC1 = ProjectDetailVC1()
-        proDetailVC1.post.id_user = signin.id
-        present(viewController: proDetailVC1)
+        if ud.object(forKey: "user") != nil{
+            let proDetailVC1 = ProjectDetailVC1()
+            proDetailVC1.post.id_user = signin.id
+            present(viewController: proDetailVC1)
+        }else{
+            let alertController = UIAlertController(title: "Thông báo", message: "Bạn chưa đăng nhập", preferredStyle: UIAlertControllerStyle.alert)
+            let dissmisAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            }
+            alertController.addAction(dissmisAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 

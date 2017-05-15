@@ -116,6 +116,8 @@ class MoreService: BaseService {
                 let json = jsons?["data"]
                 let signin = SigninModel(json: json!)
                 completion(signin,message)
+            }else{
+                completion(nil,-1)
             }
         }
     }
@@ -142,8 +144,7 @@ class MoreService: BaseService {
         }
     }
     
-    func postSignUp(signup: SigninModel,avatar: Data?,completion: @escaping (_ errMess: String?)-> Void){
-        
+    func postSignUp(signup: SigninModel,avatar: Data?,completion: @escaping (_ signin: SigninModel?, _ errMess: String?)-> Void){
         let url = "user/create"
         let parameters = [
             "username": signup.username,
@@ -166,16 +167,52 @@ class MoreService: BaseService {
                     let value = response.result.value
                     let json = JSON(value!)
                     let errMess = json["message"].string ?? ""
-                    completion(errMess)
+                    let signin = SigninModel(json: json["data"])
+                    completion(signin,errMess)
                 })
                 break
             case .failure:
-                completion(nil)
+                
                 break
             }
         }
     }
 
+    func updateProfile(profile: SigninModel,avatar: Data?,completion: @escaping (_ profile: SigninModel?, _ errMess: Int?)-> Void){
+        
+        let url = "user/update"
+        let parameters = [
+            "id": profile.id,
+            "username": profile.username,
+            "fullname": profile.fullname,
+            "email": profile.email,
+            "phone": profile.phone,
+            "address": profile.address
+        ] as [String : Any]
+        
+        Alamofire.upload(multipartFormData: { (datas) in
+            for (key, value) in parameters {
+                datas.append("\(value)".data(using: .utf8)!, withName: key)
+            }
+            if avatar != nil{
+                datas.append(avatar!, withName: "avatar", fileName: "avatar.jpeg", mimeType: "image/jpeg")
+            }
+        }, to: apiService.urlFrom(request: url)) { (result) in
+            switch result{
+            case .success(let value, _, _):
+                value.responseJSON(completionHandler: { (response) in
+                    let value = response.result.value
+                    let json = JSON(value!)
+                    let errMess = json["message"].int ?? -1
+                    let profile = SigninModel(json: json["data"])
+                    completion(profile,errMess)
+                })
+                break
+            case .failure:
+                break
+            }
+        }
+    }
     func updatePassword(id: Int,oldpass: String,newpass: String){
         let url = "user/changepass"
         let parameters = [
@@ -188,6 +225,17 @@ class MoreService: BaseService {
                 
             }
         }
-
+    }
+    
+    func forgotPassword(email: String){
+        let url = "forgetpass/"
+        let parameters = ["email": email]
+        apiService.post(url: url, parameters: parameters) { (json, error) in
+            if error == nil{
+                
+            }else{
+                
+            }
+        }
     }
 }

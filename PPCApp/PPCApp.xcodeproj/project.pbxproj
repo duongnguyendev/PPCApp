@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		030077221EA5B97C0050BEEA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030077211EA5B97C0050BEEA /* ImageCell.swift */; };
+		03019EE81EC953E500D99167 /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03019EE71EC953E500D99167 /* UpdateProfileVC.swift */; };
+		03019EEC1EC9552000D99167 /* UpdateProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03019EEB1EC9552000D99167 /* UpdateProfileVC.xib */; };
 		030D94791E8DFEFA00F32857 /* PartnersDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D94781E8DFEFA00F32857 /* PartnersDataModel.swift */; };
 		031314601EAEF84E007B952F /* InfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0313145F1EAEF84E007B952F /* InfoTextField.swift */; };
 		031314621EAEFA59007B952F /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031314611EAEFA59007B952F /* CustomButtonView.swift */; };
@@ -119,6 +121,8 @@
 
 /* Begin PBXFileReference section */
 		030077211EA5B97C0050BEEA /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		03019EE71EC953E500D99167 /* UpdateProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
+		03019EEB1EC9552000D99167 /* UpdateProfileVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateProfileVC.xib; sourceTree = "<group>"; };
 		030D94781E8DFEFA00F32857 /* PartnersDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersDataModel.swift; sourceTree = SOURCE_ROOT; };
 		0313145F1EAEF84E007B952F /* InfoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTextField.swift; sourceTree = "<group>"; };
 		031314611EAEFA59007B952F /* CustomButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
@@ -254,9 +258,9 @@
 		0305399D1EA479BA00DFFF79 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				03CA72411EC2C349005D7C04 /* ProjectDetailVC1.swift */,
 				03CA723F1EC2C349005D7C04 /* ProjectDetailVC2.swift */,
 				03CA72401EC2C349005D7C04 /* ProjectDetailVC3.swift */,
-				03CA72411EC2C349005D7C04 /* ProjectDetailVC1.swift */,
 				03CA72421EC2C349005D7C04 /* PhotoVC.swift */,
 			);
 			name = Post;
@@ -339,8 +343,8 @@
 		037D4D391E8E3CEF00A132BE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				0333A40A1EC2CA1C0094CC73 /* LanguageVC.swift */,
 				0333A40B1EC2CA1C0094CC73 /* LanguageVC.xib */,
+				0333A40A1EC2CA1C0094CC73 /* LanguageVC.swift */,
 				0333A40C1EC2CA1C0094CC73 /* SettingVC.swift */,
 				0333A40D1EC2CA1C0094CC73 /* SettingVC.xib */,
 			);
@@ -518,10 +522,12 @@
 				0333A4161EC2CC110094CC73 /* SignUpVC.swift */,
 				0333A4131EC2CBFB0094CC73 /* SignInVC.xib */,
 				0333A4121EC2CBFB0094CC73 /* SignInVC.swift */,
-				0333A3EE1EC2C8A10094CC73 /* ChangePassVC.swift */,
 				0333A3EF1EC2C8A10094CC73 /* ChangePassVC.xib */,
+				0333A3EE1EC2C8A10094CC73 /* ChangePassVC.swift */,
 				0333A3F31EC2C8C90094CC73 /* ProfileVC.xib */,
 				0333A3F21EC2C8C90094CC73 /* ProfileVC.swift */,
+				03019EEB1EC9552000D99167 /* UpdateProfileVC.xib */,
+				03019EE71EC953E500D99167 /* UpdateProfileVC.swift */,
 			);
 			name = Sign;
 			path = ../../View/Cell;
@@ -837,6 +843,7 @@
 				0333A4091EC2CA010094CC73 /* TermsVC.xib in Resources */,
 				0333A4111EC2CA1C0094CC73 /* SettingVC.xib in Resources */,
 				0322FDD71E88FBAB009B589B /* MoreCell.xib in Resources */,
+				03019EEC1EC9552000D99167 /* UpdateProfileVC.xib in Resources */,
 				0333A4011EC2C9620094CC73 /* PartnersVC.xib in Resources */,
 				4E13D2551E836BC1002E03A1 /* MoreVC.xib in Resources */,
 				0333A3F11EC2C8A10094CC73 /* ChangePassVC.xib in Resources */,
@@ -992,6 +999,7 @@
 				03CA72221EC2B150005D7C04 /* PhotoHandle.swift in Sources */,
 				4E13D2321E836059002E03A1 /* LanguageManager.swift in Sources */,
 				0333A4041EC2C9AA0094CC73 /* AboutVC.swift in Sources */,
+				03019EE81EC953E500D99167 /* UpdateProfileVC.swift in Sources */,
 				030D94791E8DFEFA00F32857 /* PartnersDataModel.swift in Sources */,
 				030077221EA5B97C0050BEEA /* ImageCell.swift in Sources */,
 				4E13D2541E836BC1002E03A1 /* MoreVC.swift in Sources */,

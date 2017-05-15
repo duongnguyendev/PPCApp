@@ -89,6 +89,8 @@ class HomeService: BaseService {
                 DispatchQueue.main.async {
                     return callback(homes,errMess,currentPage,nextPage)
                 }
+            }else{
+                
             }
         }
     }

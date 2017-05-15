@@ -29,7 +29,6 @@ class RecruitmentVC: BaseVC {
             self.recruitements = mRecruitements!
             self.tableView.reloadData()
         }
-
     }
 
 }

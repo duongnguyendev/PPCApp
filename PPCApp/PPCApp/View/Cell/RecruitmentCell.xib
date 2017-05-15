@@ -19,8 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="342" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recruitment 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWm-tz-EaV">
-                        <rect key="frame" x="18" y="24" width="94.5" height="17.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recruitment 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWm-tz-EaV">
+                        <rect key="frame" x="18" y="24" width="306" height="17.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -28,6 +28,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="BWm-tz-EaV" firstAttribute="centerY" secondItem="sCg-y3-HZp" secondAttribute="centerY" id="Doh-ZU-0yW"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BWm-tz-EaV" secondAttribute="trailing" constant="10" id="RhJ-ej-yn0"/>
                     <constraint firstItem="BWm-tz-EaV" firstAttribute="leading" secondItem="sCg-y3-HZp" secondAttribute="leadingMargin" constant="10" id="wwa-QL-Qq3"/>
                 </constraints>
             </tableViewCellContentView>

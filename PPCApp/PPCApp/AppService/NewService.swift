@@ -9,7 +9,7 @@
 import Foundation
 class NewService: BaseService{
     static let shared = NewService()
-    func getNews(indexPage: Int,callback: @escaping NewsCallback){
+    func getNews(indexPage: Int,completion: @escaping (([NewDataModel]?,Int?,Int?,String?)->())){
         let url = "news/all?page=\(indexPage)"
         apiService.get(url: url) { (json, error) in
             if error == nil{
@@ -21,11 +21,11 @@ class NewService: BaseService{
                     let new = NewDataModel(json: jsons)
                     news.append(new)
                 })
-                DispatchQueue.main.async {
-                    return callback(news,errMess,currentPage,nextPage)
-                }
+                completion(news,errMess,currentPage,nextPage)
             }
         }
     }
+    
+    
 
 }

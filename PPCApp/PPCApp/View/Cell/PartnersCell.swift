@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 class PartnersCell: UITableViewCell {
     
-    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var logoImage: CustomImageView!
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var fieldLabel: UILabel!
     var partners: PartnersDataModel!{
         didSet{
-            logoImage.loadImageurl(link: partners.image)
+            logoImage.loadImageUsingUrlString(urlString: partners.image)
             companyLabel.text = partners.name
             fieldLabel.text = partners.link
         }

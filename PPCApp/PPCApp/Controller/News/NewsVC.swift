@@ -24,23 +24,21 @@ class NewsVC: BaseVC {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         NewService.shared.getNews(indexPage: indexPage) { (news, error, currentPage, next_page_url) in
             if error == 1{
-                self.indexPage = currentPage
-                self.nextPage = next_page_url
-                self.news = news
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                    self.tableView.reloadData()
-                }
-                
+                self.indexPage = currentPage!
+                self.nextPage = next_page_url!
+                self.news = news!
+                self.tableView.reloadData()
             }
         }
+
     }
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        self.news.removeAll()
         self.indexPage = 1
         self.nextPage = ""
-        self.news.removeAll()
     }
 }
 extension NewsVC: UITableViewDataSource,UITableViewDelegate{
@@ -67,15 +65,13 @@ extension NewsVC: UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let index = indexPath.row
-        if index == news.count - 1{
+        if index == news.count - 3{
             if self.nextPage != ""{
                 NewService.shared.getNews(indexPage: self.indexPage + 1) { (news, error,currentPage, next_page_url) in
-                    self.indexPage = currentPage
-                    self.nextPage = next_page_url
-                    self.news = self.news + news
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                        self.tableView.reloadData()
-                    }
+                    self.indexPage = currentPage!
+                    self.nextPage = next_page_url!
+                    self.news = self.news + news!
+                    self.tableView.reloadData()
                 }
             }
         }
