@@ -23,7 +23,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="OF6-X6-W48"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,7 +48,7 @@
                 <outlet property="content" destination="jKw-vA-lHX" id="O68-au-buk"/>
                 <outlet property="title" destination="Q6a-NI-Tsm" id="RLi-yi-Agf"/>
             </connections>
-            <point key="canvasLocation" x="29" y="103.5"/>
+            <point key="canvasLocation" x="37" y="73"/>
         </tableViewCell>
     </objects>
 </document>

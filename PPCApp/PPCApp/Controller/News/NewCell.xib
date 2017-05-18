@@ -26,13 +26,13 @@
                             <constraint firstAttribute="width" secondItem="bDf-5F-sYk" secondAttribute="height" multiplier="16:9" id="VDO-ad-q5W"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEASONS AVANUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lN2-ed-g5x">
-                        <rect key="frame" x="8" y="234" width="134" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEASONS AVANUE" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lN2-ed-g5x">
+                        <rect key="frame" x="8" y="234" width="373" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzW-OV-kL8">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzW-OV-kL8">
                         <rect key="frame" x="8" y="258" width="383" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
@@ -48,6 +48,7 @@
                     <constraint firstItem="bDf-5F-sYk" firstAttribute="top" secondItem="dJ2-ca-y8P" secondAttribute="top" id="cE9-CJ-MET"/>
                     <constraint firstItem="qzW-OV-kL8" firstAttribute="top" secondItem="lN2-ed-g5x" secondAttribute="bottom" constant="6" id="gSd-MI-I2f"/>
                     <constraint firstItem="qzW-OV-kL8" firstAttribute="leading" secondItem="dJ2-ca-y8P" secondAttribute="leadingMargin" id="j7n-1f-WjC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="lN2-ed-g5x" secondAttribute="trailing" constant="10" id="zWC-7j-a1C"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

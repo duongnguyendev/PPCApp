@@ -96,6 +96,8 @@ class ProjectDetailVC3: BaseVC {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+       
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -111,11 +113,30 @@ class ProjectDetailVC3: BaseVC {
             self.mainScrollView.scrollIndicatorInsets = contentInsets
         }
     }
-
-    
     override func viewWillAppear(_ animated: Bool) {
-        
+        if post.image.contains("") && post.image_overall.contains(""){
+            
+        }else{
+            imageViewProject.loadImageUsingUrlString(urlString: post.image)
+            imageViewPlan.loadImageUsingUrlString(urlString: post.image_overall)
+            
+            self.parseData(link: post.image, completion: { (data, error) in
+                self.imgProjectData = data
+            })
+            self.parseData(link: post.image_overall, completion: { (data, error) in
+                self.imgPlanData = data
+            })
+
+        }
     }
+    func parseData(link: String,completion:@escaping ((Data?,Error?)->())){
+        let url = URL(string: link)
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            completion(data,nil)
+        }
+        task.resume()
+    }
+
     override func setupView() {
         super.setupView()
         setupMainScrollView()
@@ -204,21 +225,44 @@ class ProjectDetailVC3: BaseVC {
         self.type = 1
         present(imageController, animated: true, completion: nil)
     }
-    
     func handlePostButton(_ sender: UIButton){
+        if checkImageProjectVC3(){
+            if post.lang == ""{
+                ProjectService.shared.postProject(post: post) { (errMess) in
+                    if errMess == 1{
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "incorrect_postproject")!)
+                    }
+                }
+
+            }else{
+                ProjectService.shared.updateProject(post: post) { (errMess) in
+                    if errMess == 1{
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "incorrect_postproject")!)
+                    }
+                }
+            }
+            
+        }else{
+             self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
+        }
+    }
+    func checkImageProjectVC3()->Bool{
+        if imgProjectData == nil || imgPlanData == nil{
+            return false
+        }
         post.fileImage = imgProjectData
         post.fileImage_overall = imgPlanData
         post.fileMultiImage = imgDetailData
-        ProjectService.shared.postProject(post: post) { (errMess) in
-            if errMess == 1{
-                self.dismiss(animated: true, completion: nil)
-            }else{
-            }
-        }
-    
-    }
-    func checkImageProjectVC3()->Bool{
         return true
+    }
+    func showAlertController(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func resizePhotoLibrary(images: [UIImage],completion: ([Data]?)->Void){
@@ -233,11 +277,19 @@ class ProjectDetailVC3: BaseVC {
 extension ProjectDetailVC3: UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     //MARK: - collectionView delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+        if post.images.count > 0{
+            return post.images.count
+        }
         return images.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-        cell.detailImage.image = images[indexPath.item]
+        if post.images.count > 0{
+            cell.detailImage.loadImageUsingUrlString(urlString: post.images[indexPath.item])
+        }else{
+            cell.detailImage.image = images[indexPath.item]
+        }
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -268,6 +320,7 @@ extension ProjectDetailVC3: UINavigationControllerDelegate,UIImagePickerControll
 }
 extension ProjectDetailVC3: ProjectDetailVC3Delegate{
     func ChooseImages(images: [UIImage]) {
+        self.post.images.removeAll()
         self.images = images
         self.collectionViewImage.reloadData()
         resizePhotoLibrary(images: images) { (data) in

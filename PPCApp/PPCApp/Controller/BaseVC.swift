@@ -66,4 +66,5 @@ class BaseVC: UIViewController {
     func setupView(){
         
     }
+    
 }

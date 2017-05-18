@@ -17,9 +17,6 @@ class NewCell: UITableViewCell{
     
     var new: NewDataModel?{
         didSet{
-            //APIService.shared.getImage(url: (new?.image)!) { (image, error) in
-                //self.newImage.image = image
-            //}
             newImage.loadImageUsingUrlString(urlString: (new?.image)!)
             titleLabel.text = new?.title
             new?.content.htmlAttributedString(completion: { (mString) in

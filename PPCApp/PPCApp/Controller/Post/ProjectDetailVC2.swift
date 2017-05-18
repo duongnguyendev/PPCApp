@@ -41,6 +41,7 @@ class ProjectDetailVC2: BaseVC{
     let areaProjectTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
+        view.keyboardType = .numberPad
         view.placeholder = "The area of project"
         return view
     }()
@@ -48,6 +49,7 @@ class ProjectDetailVC2: BaseVC{
     let areaAppartmentsTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
+        view.keyboardType = .numberPad
         view.placeholder = "The area of apartments"
         return view
     }()
@@ -55,6 +57,7 @@ class ProjectDetailVC2: BaseVC{
     let apartmentsTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
+        view.keyboardType = .numberPad
         view.placeholder = "Quality of apartments"
         return view
     }()
@@ -62,6 +65,8 @@ class ProjectDetailVC2: BaseVC{
     let floorsTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
+        view.keyboardType = .numberPad
+
         view.placeholder = "Quality of floors"
         return view
     }()
@@ -69,6 +74,7 @@ class ProjectDetailVC2: BaseVC{
     let bedroomsTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
+        view.keyboardType = .numberPad
         view.placeholder = "Quality of bedrooms"
         return view
     }()
@@ -76,6 +82,7 @@ class ProjectDetailVC2: BaseVC{
     let bathroomsTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
+        view.keyboardType = .numberPad
         view.placeholder = "Quality of bathrooms"
         return view
     }()
@@ -105,7 +112,8 @@ class ProjectDetailVC2: BaseVC{
         post.title = titleTextField.text!
         post.investor = investorTextField.text!
         post.acreage = Int(areaProjectTextField.text!)!
-        post.area_apartment = Float(areaProjectTextField.text!)!
+        post.area_apartment = Int(areaAppartmentsTextField.text!)!
+        post.apartment = Int(apartmentsTextField.text!)!
         post.floor = Int(floorsTextField.text!)!
         post.bedroom = Int(bedroomsTextField.text!)!
         post.bathroom = Int(bathroomsTextField.text!)!
@@ -113,25 +121,28 @@ class ProjectDetailVC2: BaseVC{
     }
 
     func handleNextButton(_ sender: UIButton){
-        self.inputPostProjectVC2()
-        if (checkInputProjectVC2()){
+        if checkInputProjectVC2(){
             let proDetailVC3 = ProjectDetailVC3()
             proDetailVC3.post = self.post
             push(viewController: proDetailVC3)
         }else{
-            let proDetailVC3 = ProjectDetailVC3()
-            push(viewController: proDetailVC3)
+            self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
         }
-        //present(viewController: proDetailVC2)
     }
     
     func checkInputProjectVC2() -> Bool{
         if (titleTextField.text?.isEmpty)! || (investorTextField.text?.isEmpty)! || (areaProjectTextField.text?.isEmpty)! || (areaAppartmentsTextField.text?.isEmpty)! || (apartmentsTextField.text?.isEmpty)! || (floorsTextField.text?.isEmpty)! || (bedroomsTextField.text?.isEmpty)! || (bathroomsTextField.text?.isEmpty)! || (servicesTextField.text?.isEmpty)!{
             return false
         }
+        self.inputPostProjectVC2()
         return true
     }
-    
+    func showAlertController(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Post Project"
@@ -154,6 +165,15 @@ class ProjectDetailVC2: BaseVC{
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        titleTextField.text! = post.title
+        investorTextField.text! = post.investor
+        areaProjectTextField.text! = String(post.acreage)
+        areaAppartmentsTextField.text! = String(post.area_apartment)
+        apartmentsTextField.text = String(post.apartment)
+        floorsTextField.text! = String(post.floor)
+        bedroomsTextField.text! = String(post.bedroom)
+        bathroomsTextField.text! = String(post.bathroom)
+        servicesTextField.text! = post.service
     }
     
     override func setupView() {
@@ -257,7 +277,6 @@ class ProjectDetailVC2: BaseVC{
     func setupButtonNextView() {
         buttonNext.topAnchor.constraint(equalTo: servicesTextField.bottomAnchor, constant: 20).isActive = true
         buttonNext.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        //contentView.addConstraintWithFormat(format: "H:|[v0]|", views: buttonNext)
         buttonNext.widthAnchor.constraint(equalToConstant: 100).isActive = true
         buttonNext.heightAnchor.constraint(equalToConstant: 40).isActive = true
         buttonNext.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true

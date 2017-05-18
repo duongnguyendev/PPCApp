@@ -25,7 +25,7 @@ class ChangePassVC: BaseVC{
         title = "ChangePass"
         oldImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
         newImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
-        confirmImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: .darkGray, size: CGSize(width: 30, height: 30))
+        confirmImage.image = UIImage(named: "confirm_pass")
     }
     
     override func setupNavBar() {
@@ -43,9 +43,34 @@ class ChangePassVC: BaseVC{
     func handleChangeButton(){
         let oldpass = oldTextField.text!
         let newpass = newTextField.text!
-        //let confirmpass = confirmTextField.text!
-        
-        MoreService.shared.updatePassword(id: profile.id, oldpass: oldpass, newpass: newpass)
-        
+        let confirmpass = confirmTextField.text!
+        if checkInputChangePass(){
+            if newpass == confirmpass{
+                MoreService.shared.updatePassword(id: profile.id, oldpass: oldpass, newpass: newpass, completion: { (errMess) in
+                    if errMess == 1{
+                        self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "changepass")!)
+                    }else if errMess == 0{
+                          self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "incorrect_changepass")!)
+                    }
+                })
+            }else{
+                self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "changepass")!)
+
+            }
+        }else{
+            self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
+        }
+    }
+    
+    func checkInputChangePass()-> Bool{
+        if (oldTextField.text?.isEmpty)! || (newTextField.text?.isEmpty)! || (confirmTextField.text?.isEmpty)!{
+            return false
+        }
+        return true
+    }
+    func showAlertController(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

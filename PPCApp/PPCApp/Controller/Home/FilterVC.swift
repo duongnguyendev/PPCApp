@@ -18,6 +18,7 @@ class FilterVC: BaseVC {
     var id_country: NSNumber = 0
     var id_province: NSNumber = 0
     var id_district: NSNumber = 0
+    
     var typeSegementControl: NSNumber = 0
     
     var delegate: HomeVCDelegate?
@@ -26,8 +27,9 @@ class FilterVC: BaseVC {
         super.viewDidLoad()
         title = "Filter"
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        
+    override func viewWillAppear(_ animated: Bool) {
+        provinceButton.isEnabled = false
+        districtButton.isEnabled = false
     }
     let countryButton : FilterButton = {
         let button = FilterButton()
@@ -38,6 +40,7 @@ class FilterVC: BaseVC {
     }()
     let provinceButton : FilterButton = {
         let button = FilterButton()
+        button.isEnabled = false
         button.addTarget(self, action: #selector(handleProvinceButton(_:)), for: .touchUpInside)
         button.title = "Province"
         button.value = "All"
@@ -46,6 +49,7 @@ class FilterVC: BaseVC {
     
     let districtButton : FilterButton = {
         let button = FilterButton()
+        button.isEnabled = false
         button.addTarget(self, action: #selector(handleDistrictButton(_:)), for: .touchUpInside)
         button.title = "District"
         button.value = "All"
@@ -121,21 +125,33 @@ class FilterVC: BaseVC {
 }
 extension FilterVC: PickerViewDelegate{
     func selectedProjectType(place: Place) {
-        self.id_projectType = place.id!
+        self.id_projectType = place.id
         typeOfProjectButton.value = place.name
     }
     func selectedCountry(place: Place){
         countryButton.value = place.name
-        self.id_country = place.id!
-        provinceLauncher.id = place.id
+        self.id_country = place.id
+        HomeService.shared.fetchPlaces(pageUrl: "province?id_country=\(id_country)") { (places, errMess) in
+            self.provinceLauncher.provinces = places
+            self.id_province = places[0].id
+            self.provinceButton.value = places[0].name
+            self.provinceButton.isEnabled = true
+        }
     }
     func selectedProvince(place: Place) {
         provinceButton.value = place.name
-        self.id_province = place.id!
-        districtLauncher.id = place.id
+        self.id_province = place.id
+        HomeService.shared.fetchPlaces(pageUrl: "district?id_province=\(id_province)") { (places, errMess) in
+            if places.count > 0{
+                self.districtLauncher.dictricts = places
+                self.id_district = places[0].id
+                self.districtButton.value = places[0].name
+                 self.districtButton.isEnabled = true
+            }
+        }
     }
     func selectedDistrict(place: Place) {
-        self.id_district = place.id!
+        self.id_district = place.id
         districtButton.value = place.name
     }
 }

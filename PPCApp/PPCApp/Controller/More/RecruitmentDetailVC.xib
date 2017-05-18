@@ -33,8 +33,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDL-P4-vrm">
-                    <rect key="frame" x="20" y="232.5" width="38.5" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDL-P4-vrm">
+                    <rect key="frame" x="20" y="232.5" width="335" height="18"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -51,6 +51,7 @@
                 <constraint firstAttribute="trailing" secondItem="Z4G-Jf-SYA" secondAttribute="trailing" id="0lX-z1-6rk"/>
                 <constraint firstAttribute="bottom" secondItem="4l1-Lp-L3t" secondAttribute="bottom" id="DDa-zd-Qxi"/>
                 <constraint firstItem="OHd-FG-azo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Ecu-pH-TwZ"/>
+                <constraint firstAttribute="trailing" secondItem="LDL-P4-vrm" secondAttribute="trailing" constant="20" id="HSt-Na-4Sa"/>
                 <constraint firstItem="4l1-Lp-L3t" firstAttribute="top" secondItem="OHd-FG-azo" secondAttribute="bottom" constant="7.5" id="IMW-31-Wwt"/>
                 <constraint firstItem="Z4G-Jf-SYA" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1:3" id="KtA-H6-GSV"/>
                 <constraint firstAttribute="trailing" secondItem="4l1-Lp-L3t" secondAttribute="trailing" id="Led-Zr-kM2"/>

@@ -10,7 +10,7 @@ import UIKit
 class MoreVC: BaseVC{
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var signImage: UIImageView!
+    @IBOutlet weak var signImage: CustomImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarButton: UIButton!
     let ud = UserDefaults.standard
@@ -36,7 +36,7 @@ class MoreVC: BaseVC{
         if ud.object(forKey: "user") != nil{
             MoreService.shared.parseSignIn(completion: { (signin) in
                 self.signin = signin!
-                self.signImage.loadImageurl(link: (signin?.avatar)!)
+                self.signImage.loadImageUsingUrlString(urlString: (signin?.avatar)!)
                 self.nameLabel.text = signin?.username
             })
         }
@@ -48,7 +48,7 @@ class MoreVC: BaseVC{
         }
         if ud.object(forKey: "user") == nil{
             self.signImage.image = UIImage(named: "sign")
-            self.nameLabel.text = "SignIn/SignUp"
+            self.nameLabel.text = "Sign In/Sign Up"
         }
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -57,7 +57,7 @@ class MoreVC: BaseVC{
     @IBAction func avatarHandle(_ sender: Any) {
         if ud.object(forKey: "user") != nil{
             let profileVC = ProfileVC()
-            profileVC.signin = signin
+            profileVC.profile = signin
             present(viewController: profileVC)
         }else{
             let signin = SignInVC()
@@ -68,16 +68,16 @@ class MoreVC: BaseVC{
     }
 }
 extension MoreVC: MoreVCDelegate{
-    
     func SuccessSignIn(signin: SigninModel) {
-        signImage.loadImageurl(link: signin.avatar)
+        signImage.loadImageUsingUrlString(urlString: signin.avatar)
         nameLabel.text = signin.username
+        MoreService.shared.saveSignIn(signin: signin)
         self.signin = signin
     }
-    
-    func SuccessSignUp(signup: SigninModel, avatar: Data) {
-        signImage.image = UIImage(data: avatar)
+    func SuccessSignUp(signup: SigninModel) {
+        signImage.loadImageUsingUrlString(urlString: signup.avatar)
         nameLabel.text = signup.username
+        MoreService.shared.saveSignIn(signin: signup)
         self.signin = signup
     }
 }

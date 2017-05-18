@@ -18,7 +18,7 @@ class MainTabVC: UITabBarController {
         //let homeIcon = UIImage.fontAwesomeIcon(name: .home, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
         let homeIcon = UIImage(named: "home.png")
         let homeIconSelect = UIImage(named: "home_select.png")
-        let tabHomeBarItem = UITabBarItem(title: "Home", image: homeIcon, selectedImage: homeIconSelect)
+        let tabHomeBarItem = UITabBarItem(title: LanguageManager.shared.localized(string: "Home"), image: homeIcon, selectedImage: homeIconSelect)
         tabHomeBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                             NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)
@@ -30,7 +30,8 @@ class MainTabVC: UITabBarController {
         //let postIcon = UIImage.fontAwesomeIcon(name: .upload, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
         let projectIcon = UIImage(named: "project.png")
         let projectIconSelect = UIImage(named: "project_select.png")
-        let tabPostBarItem = UITabBarItem(title: "Project Manager", image: projectIcon, selectedImage: projectIconSelect)
+
+        let tabPostBarItem = UITabBarItem(title: LanguageManager.shared.localized(string: "projectmanage"), image: projectIcon, selectedImage: projectIconSelect)
         tabPostBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                                NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)
@@ -42,7 +43,7 @@ class MainTabVC: UITabBarController {
         //let newsIcon = UIImage.fontAwesomeIcon(name: .newspaperO, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
         let newsIcon = UIImage(named: "news.png")
         let newsIconSelect = UIImage(named: "news_select.png")
-        let tabNewsBarItem = UITabBarItem(title: "News", image: newsIcon, selectedImage: newsIconSelect)
+        let tabNewsBarItem = UITabBarItem(title: LanguageManager.shared.localized(string: "News"), image: newsIcon, selectedImage: newsIconSelect)
         tabNewsBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                                NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)
@@ -55,7 +56,7 @@ class MainTabVC: UITabBarController {
         //let moreIcon = UIImage.fontAwesomeIcon(name: .ellipsisH, textColor: UIColor.blue, size: CGSize(width: 40, height: 40))
         let moreIcon = UIImage(named: "more.png")
         let moreIconSelect = UIImage(named: "more_select.png")
-        let tabMoreBarItem = UITabBarItem(title: "More", image: moreIcon, selectedImage: moreIconSelect)
+        let tabMoreBarItem = UITabBarItem(title: LanguageManager.shared.localized(string: "More"), image: moreIcon, selectedImage: moreIconSelect)
         tabMoreBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBar(),
                                                NSFontAttributeName: UIFont.systemFont(ofSize: 12)],
                                               for: UIControlState.selected)

@@ -101,7 +101,6 @@ class PickerLauncher: BaseLauncher, UIPickerViewDelegate, UIPickerViewDataSource
 //MARK: - Type of project Launcher
 class TypeOfProjectLauncher: PickerLauncher {
     var projects: [Place]?
-    
     override init() {
         super.init()
         fretchItem()
@@ -163,17 +162,15 @@ class CountryLauncher: PickerLauncher {
 }
 //MARK: - ProvinceLauncher
 class ProvinceLauncher: PickerLauncher {
-    var provinces: [Place]?
-    var id: NSNumber?{
+    
+    var provinces: [Place]? {
         didSet{
-            HomeService.shared.fetchPlaces(pageUrl: "province?id_country=\(id!)") { (places, errMess) in
-                self.provinces = places
-                self.picker.reloadAllComponents()
-            }
+            self.picker.reloadAllComponents()
         }
     }
+
     override func fretchItem() {
-        
+         self.picker.reloadAllComponents()
     }
     override func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if self.provinces == nil {
@@ -195,13 +192,9 @@ class ProvinceLauncher: PickerLauncher {
 
 //MARK: - District Launcher
 class DistrictLauncher: PickerLauncher {
-    var dictricts: [Place]?
-    var id: NSNumber?{
+    var dictricts: [Place]?{
         didSet{
-            HomeService.shared.fetchPlaces(pageUrl: "district?id_province=\(id!)") { (places, errMess) in
-                self.dictricts = places
-                self.picker.reloadAllComponents()
-            }
+            self.picker.reloadAllComponents()
         }
     }
     override func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

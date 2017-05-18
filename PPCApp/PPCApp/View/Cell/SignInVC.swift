@@ -11,7 +11,7 @@ import UIKit
 import FontAwesome_swift
 protocol MoreVCDelegate {
     func SuccessSignIn(signin: SigninModel)
-    func SuccessSignUp(signup: SigninModel,avatar: Data)
+    func SuccessSignUp(signup: SigninModel)
 }
 class SignInVC: BaseVC{
     @IBOutlet weak var userImage: UIImageView!
@@ -43,29 +43,51 @@ class SignInVC: BaseVC{
     @IBAction func handleSigInButton(_ sender: Any) {
         let username = userTextField.text
         let password = passTextField.text
-        MoreService.shared.getSignIn(username: username!, password: password!) { (signModel, errMess) in
-            if errMess == 1{
-                MoreService.shared.saveSignIn(signin: signModel!)
-                if self.delegate != nil{
-                    self.delegate?.SuccessSignIn(signin: signModel!)
-                     self.goBack()
+        if (checkInputSignIn()){
+            MoreService.shared.getSignIn(username: username!, password: password!) { (signModel, errMess) in
+                if errMess == 1{
+                    if self.delegate != nil{
+                        self.delegate?.SuccessSignIn(signin: signModel!)
+                    }
+                    self.dismiss(animated: true, completion: nil)
+                }else if errMess == 0{
+                    self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_signin")!)
+                }else{
+                    self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "incorrectInternet")!)
                 }
-            }else{
-                
             }
+        }else{
+            self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
         }
     }
+    func showAlertController(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func checkInputSignIn() -> Bool{
+        if (userTextField.text?.isEmpty)! || (passTextField.text?.isEmpty)!{
+            return false
+        }
+        return true
+    }
+
     @IBAction func handleSignUpButton(_ sender: Any) {
         let signupVC = SignUpVC()
         signupVC.delegate = self.delegate
         push(viewController: signupVC)
     }
+    @IBAction func handleForgotButton(_ sender: Any) {
+        
+    }
+    
+    
     func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
         self.mainScrollView.contentInset = contentInsets
         self.mainScrollView.scrollIndicatorInsets = contentInsets
     }
-    
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)

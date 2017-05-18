@@ -37,7 +37,6 @@ extension PartnersVC: UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PartnersCell") as! PartnersCell
-        //cell.partners = partnerss[indexPath.row]
         cell.partners = partners[indexPath.row]
         return cell
     }

@@ -60,7 +60,7 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
     override func setupView() {
         collectionViewPost.register(PostCell.self, forCellWithReuseIdentifier: cellId)
         addSubview(collectionViewPost)
-        addConstraintWithFormat(format: "V:|[v0]-49-|", views: collectionViewPost)
+        addConstraintWithFormat(format: "V:|[v0]-40-|", views: collectionViewPost)
         addConstraintWithFormat(format: "H:|[v0]|", views: collectionViewPost)
     }
     
@@ -95,9 +95,7 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
                     self.indexPage = currentPage
                     self.nextPage = next_page_url
                     self.homes = self.homes + mhomes!
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                        self.collectionViewPost.reloadData()
-                    }
+                    self.collectionViewPost.reloadData()
                 }
                 
             }

@@ -49,10 +49,11 @@ class HomeService: BaseService {
         let url = pageUrl
         apiService.get(url: url) { (json, error) in
             if error == nil{
-                let errMess = json?["message"].int ?? -1
                 var places = [Place]()
+                places.removeAll()
+                let errMess = json?["message"].int ?? -1
                 json?["data"].array?.forEach({ (jsons) in
-                    let id = jsons["id"].number ?? -1
+                    let id = jsons["id"].number ?? 0
                     let name = jsons["name"].string ?? ""
                     let place = Place.init(id: id, name: name)
                     
@@ -75,7 +76,7 @@ class HomeService: BaseService {
             "id_province": id_province,
             "id_district": id_district,
             "type": type
-        ]
+        ] as [String : Any]
         apiService.post(url: url, parameters: parameters) { (json, error) in
             if error == nil{
                 let errMess = json?["message"].int ?? -1
@@ -89,6 +90,8 @@ class HomeService: BaseService {
                 DispatchQueue.main.async {
                     return callback(homes,errMess,currentPage,nextPage)
                 }
+            }else{
+                
             }
         }
     }

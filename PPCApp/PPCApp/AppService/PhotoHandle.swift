@@ -11,7 +11,6 @@ import UIKit
 import Photos
 class PhotoHandle : NSObject{
     static let shared = PhotoHandle()
-    
     func fetchPhotos(completion: (_ images: [UIImage])-> Void){
         let imgManager = PHImageManager.default()
         let requestOpption = PHImageRequestOptions()

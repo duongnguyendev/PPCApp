@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 class Place: NSObject {
     //var index : Int?
-    let id : NSNumber?
+    let id : NSNumber
     let name : String?
     init(id : NSNumber, name : String) {
         self.id = id
