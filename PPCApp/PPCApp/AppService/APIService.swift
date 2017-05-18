@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import AlamofireImage
 import SwiftyJSON
 class APIService: NSObject {
     static let shared = APIService()
