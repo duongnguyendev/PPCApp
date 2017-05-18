@@ -41,7 +41,7 @@ class SignUpVC: BaseVC,UINavigationControllerDelegate,UIImagePickerControllerDel
         avataImage.image = UIImage.fontAwesomeIcon(name: .camera, textColor: .darkGray, size: CGSize(width: 120, height: 120))
         userImage.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
         passImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
-        comfirmImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: .darkGray, size: CGSize(width: 30, height: 30))
+        comfirmImage.image = UIImage(named: "confirm_pass")
         fullnameImage.image = UIImage.fontAwesomeIcon(name: .laptop,textColor: .darkGray, size: CGSize(width: 30, height: 30))
         phoneImage.image = UIImage.fontAwesomeIcon(name: .phone, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
         adressImage.image = UIImage.fontAwesomeIcon(name: .mapMarker, textColor: .darkGray, size: CGSize(width: 30, height: 30))

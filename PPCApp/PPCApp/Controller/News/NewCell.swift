@@ -19,9 +19,9 @@ class NewCell: UITableViewCell{
         didSet{
             newImage.loadImageUsingUrlString(urlString: (new?.image)!)
             titleLabel.text = new?.title
-            /*new?.content.htmlAttributedString(completion: { (mString) in
+            new?.content.htmlAttributedString(completion: { (mString) in
                 contentLabel.attributedText = mString
-            })*/
+            })
         }
     }
 }

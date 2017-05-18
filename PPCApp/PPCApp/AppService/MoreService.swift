@@ -213,7 +213,7 @@ class MoreService: BaseService {
             }
         }
     }
-    func updatePassword(id: Int,oldpass: String,newpass: String){
+    func updatePassword(id: Int,oldpass: String,newpass: String,completion: @escaping (_ errMess: Int?)-> Void){
         let url = "user/changepass"
         let parameters = [
             "id": id,
@@ -222,7 +222,10 @@ class MoreService: BaseService {
         ] as [String : Any]
         apiService.post(url: url, parameters: parameters) { (json, error) in
            if error == nil{
-                
+                let message = json?["message"].int ?? -1
+                completion(message)
+            }else{
+                completion(nil)
             }
         }
     }

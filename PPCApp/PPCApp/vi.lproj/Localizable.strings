@@ -28,3 +28,6 @@ message_signup = "Email or tài khoản đã tồn tại";
 message_signin = "Tài khoản và mật khẩu không đúng";
 incorrectEmail = "Sai định dạng email";
 incorrectInternet = "Mất kết nối";
+changepass = "Thay đổi mật khẩu thành công";
+incorrect_changepass = "Thay đổi mật khẩu thất bại";
+incorrect_postproject = "Đăng dự án thất bại";

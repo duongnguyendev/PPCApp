@@ -95,9 +95,7 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
                     self.indexPage = currentPage
                     self.nextPage = next_page_url
                     self.homes = self.homes + mhomes!
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                        self.collectionViewPost.reloadData()
-                    }
+                    self.collectionViewPost.reloadData()
                 }
                 
             }

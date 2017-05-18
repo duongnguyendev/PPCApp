@@ -35,8 +35,7 @@ class NewsVC: BaseVC {
         }
 
     }
-    override func viewDidAppear(_ animated: Bool) {
-        self.news.removeAll()
+    override func viewWillDisappear(_ animated: Bool) {
         self.indexPage = 1
         self.nextPage = ""
     }

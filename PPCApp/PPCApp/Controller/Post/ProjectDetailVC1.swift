@@ -13,10 +13,9 @@ class ProjectDetailVC1: BaseVC {
     let spaceLine : CGFloat = 2.0
     let itemSize : CGFloat = 40.0
     let margin: CGFloat = 20.0
-    
     var id_projectType: NSNumber = 0
     var id_country: NSNumber = 0
-    var id_province: NSNumber = 0
+    var id_provine: NSNumber = 0
     var id_district: NSNumber = 0
     
     let mainScrollView : UIScrollView = {
@@ -54,6 +53,7 @@ class ProjectDetailVC1: BaseVC {
         button.addTarget(self, action: #selector(handleRadioRentButton(_:)), for: .touchUpInside)
         return button
     }()
+    
     //Handle RadioButton
     func handleRadioSaleButton(_ sender: RadioButtonView){
         if sender.isSelected{
@@ -81,7 +81,7 @@ class ProjectDetailVC1: BaseVC {
         let checkbox = CheckBox()
         checkbox.name = "Vietnamese"
         checkbox.addTarget(self, action: #selector(handlecheckboxVI(_:)), for: .touchUpInside)
-        checkbox.flag = true
+        checkbox.flag = false
         return checkbox
     }()
     let checkboxEN: CheckBox = {
@@ -112,7 +112,6 @@ class ProjectDetailVC1: BaseVC {
         }
         print("Handle Check EN")
     }
-    
     let countryButton : FilterButton = {
         let button = FilterButton()
         button.title = "Country"
@@ -173,7 +172,8 @@ class ProjectDetailVC1: BaseVC {
     
     let phoneTextField: InfoTextField = {
         let view = InfoTextField()
-        view.keyboardType = UIKeyboardType.numbersAndPunctuation
+        view.keyboardType = UIKeyboardType.numberPad
+        view.addTarget(self, action: #selector(phoneTextField_textChange(_:)), for: .editingChanged)
         view.placeholder = "Phone"
         return view
     }()
@@ -216,10 +216,10 @@ class ProjectDetailVC1: BaseVC {
     }()
     
     func inputPostProjectVC1(){
-        post.country_id = Int(id_country)
-        post.provine_id = Int(id_province)
-        post.district_id = Int(id_district)
-        post.project_id = Int(id_projectType)
+        post.country_id = id_country
+        post.provine_id = id_provine
+        post.district_id = id_district
+        post.project_id = id_projectType
         post.email = emailTextField.text!
         post.phone = phoneTextField.text!
         post.address = addressTextField.text!
@@ -228,26 +228,89 @@ class ProjectDetailVC1: BaseVC {
         post.info = projectTextField.text!
     }
     func handleNextButton(_ sender: UIButton){
-        self.inputPostProjectVC1()
-        if (checkInputProjectVC1()){
-            let proDetailVC2 = ProjectDetailVC2()
-            proDetailVC2.post = self.post
-            push(viewController: proDetailVC2)
+        if checkInputProjectVC1(){
+            if validateEmail(email: emailTextField.text!){
+                let proDetailVC2 = ProjectDetailVC2()
+                proDetailVC2.post = self.post
+                push(viewController: proDetailVC2)
+            }else{
+                self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "incorrectEmail")!)
+            }
+            
         }else{
-            print("Nhập Đầy Đủ Thông Tin")
+            self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
         }
+    }
+    func phoneTextField_textChange(_ sender: Any){
+        let lenght = phoneTextField.text?.characters.count
+        let metin = phoneTextField.text
+        if lenght! > 11{
+            let index = metin?.index((metin?.startIndex)!, offsetBy: 11)
+            phoneTextField.text = phoneTextField.text?.substring(to: index!)
+        }
+    }
+    func validateEmail(email: String) ->Bool {
+        let mobileFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let mobileTest = NSPredicate(format: "SELF MATCHES %@", mobileFormat)
+        let mobileTestResult = mobileTest.evaluate(with: email)
+        if mobileTestResult {
+            return true
+        }
+        return false
     }
     func checkInputProjectVC1() -> Bool{
-        if (countryButton.value?.isEmpty)! || (provinceButton.value?.isEmpty)! || (districtButton.value?.isEmpty)! || (typeOfProjectButton.value?.isEmpty)! || (emailTextField.text?.isEmpty)! || (phoneTextField.text?.isEmpty)! || (addressTextField.text?.isEmpty)! || (ownerTextField.text?.isEmpty)! || (priceTextField.text?.isEmpty)! || (projectTextField.text?.isEmpty)!{
+        if (countryButton.value?.isEmpty)! || (provinceButton.value?.isEmpty)! || (districtButton.value?.isEmpty)! || (typeOfProjectButton.value?.isEmpty)! || (emailTextField.text?.isEmpty)! || (phoneTextField.text?.isEmpty)! || (addressTextField.text?.isEmpty)! || (ownerTextField.text?.isEmpty)! || (priceTextField.text?.isEmpty)! || (projectTextField.text?.isEmpty)! ||
+            (checkboxEN.flag == false && checkboxVI.flag == false){
             return false
         }
+        self.inputPostProjectVC1()
         return true
     }
+    
+    func showAlertController(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Post Project"
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if post.type == 0{
+            radioRentButton.flag = false
+            radioSaleButton.flag = true
+        }else{
+            radioSaleButton.flag = false
+            radioRentButton.flag = true
+        }
+        if post.langEN == 1{
+            checkboxEN.flag = true
+            checkboxVI.isEnabled = false
+        }else if post.langVI == 1{
+            checkboxVI.flag = true
+            checkboxEN.isEnabled = false
+        }
+        self.id_country = post.country_id
+        self.id_provine = post.provine_id
+        self.id_district = post.district_id
+        self.id_projectType = post.project_id
+        countryButton.value = post.country
+        provinceButton.value = post.province
+        districtButton.value = post.district
+        typeOfProjectButton.value = post.project
+        emailTextField.text! = post.email
+        phoneTextField.text! = post.phone
+        addressTextField.text! = post.address
+        ownerTextField.text! = post.ownership
+        priceTextField.text! = post.price
+        projectTextField.text! = post.info
+       
     }
     func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
@@ -405,23 +468,32 @@ class ProjectDetailVC1: BaseVC {
     }
 }
 extension ProjectDetailVC1: PickerViewDelegate{
-    
     func selectedProjectType(place: Place) {
-        self.id_projectType = place.id!
+        self.id_projectType = place.id
         typeOfProjectButton.value = place.name
     }
     func selectedCountry(place: Place){
         countryButton.value = place.name
-        self.id_country = place.id!
-        provinceLauncher.id = place.id
+        self.id_country = place.id
+        HomeService.shared.fetchPlaces(pageUrl: "province?id_country=\(id_country)") { (places, errMess) in
+            self.provinceLauncher.provinces = places
+            self.id_provine = places[0].id
+            self.provinceButton.value = places[0].name
+        }
     }
     func selectedProvince(place: Place) {
         provinceButton.value = place.name
-        self.id_province = place.id!
-        districtLauncher.id = place.id
+        self.id_provine = place.id
+        HomeService.shared.fetchPlaces(pageUrl: "district?id_province=\(id_provine)") { (places, errMess) in
+            if places.count > 0{
+                self.districtLauncher.dictricts = places
+                self.id_district = places[0].id
+                self.districtButton.value = places[0].name
+            }
+        }
     }
     func selectedDistrict(place: Place) {
-        self.id_district = place.id!
+        self.id_district = place.id
         districtButton.value = place.name
     }
     

@@ -29,3 +29,6 @@ message_signup = "Email or username already exists!";
 message_signin = "The account or password is not correct";
 incorrectEmail = "Email address format invalid!";
 incorrectInternet = "No Connection";
+changepass = "Change password success";
+incorrect_changepass = "Change password failed";
+incorrect_postproject = "Post project failed";

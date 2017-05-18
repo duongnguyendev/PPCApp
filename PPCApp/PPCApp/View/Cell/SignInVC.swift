@@ -49,7 +49,7 @@ class SignInVC: BaseVC{
                     if self.delegate != nil{
                         self.delegate?.SuccessSignIn(signin: signModel!)
                     }
-                    self.goBack()
+                    self.dismiss(animated: true, completion: nil)
                 }else if errMess == 0{
                     self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_signin")!)
                 }else{

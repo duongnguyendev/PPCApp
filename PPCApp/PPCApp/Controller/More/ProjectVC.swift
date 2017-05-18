@@ -20,11 +20,6 @@ class ProjectVC: BaseVC {
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProjectCell", bundle: nil), forCellReuseIdentifier: "ProjectCell")
     }
-    override func setupNavBar() {
-        super.setupNavBar()
-        addPostButton()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         if ud.object(forKey: "user") != nil{
             MoreService.shared.parseSignIn(completion: { (signin) in
@@ -40,9 +35,11 @@ class ProjectVC: BaseVC {
             self.projects.removeAll()
             self.tableView.reloadData()
         }
+
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        
+    override func setupNavBar() {
+        super.setupNavBar()
+        addPostButton()
     }
     //MARK: - setup nav
     func addPostButton(){
@@ -56,12 +53,30 @@ class ProjectVC: BaseVC {
             proDetailVC1.post.id_user = signin.id
             present(viewController: proDetailVC1)
         }else{
-            let alertController = UIAlertController(title: "Thông báo", message: "Bạn chưa đăng nhập", preferredStyle: UIAlertControllerStyle.alert)
-            let dissmisAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-            }
-            alertController.addAction(dissmisAction)
-            self.present(alertController, animated: true, completion: nil)
+            let signinVC = SignInVC()
+            signinVC.delegate = self
+            present(viewController: signinVC)
         }
+    }
+    func showAlertController(projects: [HomeDataModel],title: String,message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let EnAction = UIAlertAction(title: "Tiếng Anh", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            let proDetailVC1 = ProjectDetailVC1()
+            projects[1].langEN = 1
+            projects[1].langVI = 0
+            proDetailVC1.post = projects[1]
+            self.present(viewController: proDetailVC1)
+        }
+        let ViAction = UIAlertAction(title: "Tiếng Việt", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            let proDetailVC1 = ProjectDetailVC1()
+            projects[0].langEN = 0
+            projects[0].langVI = 1
+            proDetailVC1.post = projects[0]
+            self.present(viewController: proDetailVC1)
+        }
+        alertController.addAction(EnAction)
+        alertController.addAction(ViAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -81,17 +96,55 @@ extension ProjectVC: UITableViewDataSource,UITableViewDelegate{
 }
 extension ProjectVC: ProjectVCDelegate{
     func edit(project: HomeDataModel) {
-        let proDetailVC1 = ProjectDetailVC1()
-        proDetailVC1.post = project
-        present(viewController: proDetailVC1)
+        ProjectService.shared.fetchUpdateProject(id: project.id) { (projects, errMess) in
+            if errMess == 1{
+                if (projects?.count)! > 1{
+                    self.showAlertController(projects: projects!, title: "", message: "Bạn muốn chọn ngôn ngữ nào!")
+                }else{
+                    if (projects?[0].lang?.contains("vi"))!{
+                        projects?[0].langVI = 1
+                    }else{
+                        projects?[0].langEN = 1
+                    }
+                    let proDetailVC1 = ProjectDetailVC1()
+                    proDetailVC1.post = (projects?[0])!
+                    self.present(viewController: proDetailVC1)
+                }
+            }
+        }
     }
     func remove(project: HomeDataModel) {
-        ProjectService.shared.deleteProject(id: project.id) { (errMessage) in
-            if errMessage == "1"{
-                let index = self.projects.index(of: project)
-                self.projects.remove(at: index!)
+        let alertController = UIAlertController(title: "Thông báo", message: "Bạn có muốn xoá hay không?", preferredStyle: UIAlertControllerStyle.alert)
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            ProjectService.shared.deleteProject(id: project.id) { (errMessage) in
+                if errMessage == "1"{
+                    let index = self.projects.index(of: project)
+                    self.projects.remove(at: index!)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+        }
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension ProjectVC: MoreVCDelegate{
+    func SuccessSignIn(signin: SigninModel) {
+        MoreService.shared.saveSignIn(signin: signin)
+        self.signin = signin
+        ProjectService.shared.fetchProjects(idUser: (signin.id)) { (mprojects, errMess) in
+            if errMess == 1{
+                self.projects = mprojects
                 self.tableView.reloadData()
             }
         }
     }
+    func SuccessSignUp(signup: SigninModel) {
+        
+    }
+    
 }
