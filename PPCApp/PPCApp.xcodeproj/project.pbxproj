@@ -45,6 +45,7 @@
 		033DFFB81E94C80C00D6F04B /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033DFFB71E94C80C00D6F04B /* ProjectCell.xib */; };
 		035C77521EB1A2FB008506EC /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035C77511EB1A2FB008506EC /* PhotoCell.swift */; };
 		039A054F1E8A6B3200002290 /* PartnersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039A054E1E8A6B3200002290 /* PartnersCell.xib */; };
+		03AE8CD01ECEEFC80018ED99 /* ImagePlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE8CCF1ECEEFC80018ED99 /* ImagePlanVC.swift */; };
 		03CA72171EC2B110005D7C04 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA72161EC2B110005D7C04 /* APIService.swift */; };
 		03CA72191EC2B129005D7C04 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA72181EC2B129005D7C04 /* HomeService.swift */; };
 		03CA721B1EC2B130005D7C04 /* MoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA721A1EC2B130005D7C04 /* MoreService.swift */; };
@@ -159,6 +160,7 @@
 		033DFFB71E94C80C00D6F04B /* ProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCell.xib; sourceTree = "<group>"; };
 		035C77511EB1A2FB008506EC /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		039A054E1E8A6B3200002290 /* PartnersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartnersCell.xib; path = ../../Controller/More/PartnersCell.xib; sourceTree = "<group>"; };
+		03AE8CCF1ECEEFC80018ED99 /* ImagePlanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePlanVC.swift; sourceTree = "<group>"; };
 		03CA72161EC2B110005D7C04 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		03CA72181EC2B129005D7C04 /* HomeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		03CA721A1EC2B130005D7C04 /* MoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreService.swift; sourceTree = "<group>"; };
@@ -345,10 +347,18 @@
 			children = (
 				0333A40B1EC2CA1C0094CC73 /* LanguageVC.xib */,
 				0333A40A1EC2CA1C0094CC73 /* LanguageVC.swift */,
-				0333A40C1EC2CA1C0094CC73 /* SettingVC.swift */,
 				0333A40D1EC2CA1C0094CC73 /* SettingVC.xib */,
+				0333A40C1EC2CA1C0094CC73 /* SettingVC.swift */,
 			);
 			name = Setting;
+			sourceTree = "<group>";
+		};
+		03AE8CCE1ECEEFA60018ED99 /* ImagePlan */ = {
+			isa = PBXGroup;
+			children = (
+				03AE8CCF1ECEEFC80018ED99 /* ImagePlanVC.swift */,
+			);
+			name = ImagePlan;
 			sourceTree = "<group>";
 		};
 		03CA72121EC2B038005D7C04 /* Home */ = {
@@ -682,6 +692,7 @@
 			children = (
 				03CA72371EC2C2F6005D7C04 /* FilterVC.swift */,
 				03CA72381EC2C2F6005D7C04 /* HomeVC.swift */,
+				03AE8CCE1ECEEFA60018ED99 /* ImagePlan */,
 				03CA72391EC2C2F6005D7C04 /* PostDetailVC.swift */,
 				03CA723A1EC2C2F6005D7C04 /* SearchVC.swift */,
 				4E872DCE1E92529400B0592F /* Launcher */,
@@ -802,7 +813,7 @@
 				TargetAttributes = {
 					4ED32DD31E7F809C0075BF3F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FE5FXN233L;
+						DevelopmentTeam = 7R93MWJ8VY;
 						ProvisioningStyle = Automatic;
 					};
 					4ED32DEA1E7F809C0075BF3F = {
@@ -993,6 +1004,7 @@
 				4E600B2E1E9352120028C3F1 /* ImageDetailLauncher.swift in Sources */,
 				0323E1C91E83702000E6300F /* NewDataModel.swift in Sources */,
 				03CA72281EC2BFAD005D7C04 /* AboutCell.swift in Sources */,
+				03AE8CD01ECEEFC80018ED99 /* ImagePlanVC.swift in Sources */,
 				03CA72341EC2C162005D7C04 /* RecruitmentCell.swift in Sources */,
 				4E6E21611EAD96A3006A5488 /* ProjectCell.swift in Sources */,
 				0323E1D11E83BAF600E6300F /* NewCell.swift in Sources */,
@@ -1202,11 +1214,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FE5FXN233L;
+				DEVELOPMENT_TEAM = 7R93MWJ8VY;
 				INFOPLIST_FILE = PPCApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dinhphong.PPCApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HBBS.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1219,12 +1231,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FE5FXN233L;
+				DEVELOPMENT_TEAM = 7R93MWJ8VY;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = PPCApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dinhphong.PPCApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HBBS.PPCApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

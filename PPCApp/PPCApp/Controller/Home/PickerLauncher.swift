@@ -121,11 +121,14 @@ class TypeOfProjectLauncher: PickerLauncher {
         return projects?[row].name
     }
     override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        let project = projects?[row]
-        if delegate != nil{
-            delegate?.selectedProjectType!(place: project!)
+        if (projects?.count)! > 0{
+            let project = projects?[row]
+            if delegate != nil{
+                delegate?.selectedProjectType!(place: project!)
+            }
+            self.close()
         }
-        self.close()
+       
     }
     
 }
@@ -153,11 +156,14 @@ class CountryLauncher: PickerLauncher {
         return countries?[row].name
     }
     override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        let country = countries?[row]
-        if delegate != nil{
-            delegate?.selectedCountry!(place: country!)
+        if (countries?.count)! > 0{
+            let country = countries?[row]
+            if delegate != nil{
+                delegate?.selectedCountry!(place: country!)
+            }
+            self.close()
         }
-        self.close()
+        
     }
 }
 //MARK: - ProvinceLauncher
@@ -182,11 +188,14 @@ class ProvinceLauncher: PickerLauncher {
         return provinces?[row].name
     }
     override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        let dictrict = provinces?[row]
-        if delegate != nil{
-            delegate?.selectedProvince!(place: dictrict!)
+        if (provinces?.count)! > 0{
+            let dictrict = provinces?[row]
+            if delegate != nil{
+                delegate?.selectedProvince!(place: dictrict!)
+            }
+            self.close()
         }
-        self.close()
+       
     }
 }
 
@@ -207,10 +216,13 @@ class DistrictLauncher: PickerLauncher {
         return dictricts?[row].name
     }
     override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        let district = dictricts?[row]
-        if delegate != nil{
-            delegate?.selectedDistrict!(place: district!)
+        if (dictricts?.count)! > 0{
+            let district = dictricts?[row]
+            if delegate != nil{
+                delegate?.selectedDistrict!(place: district!)
+            }
+            self.close()
         }
-        self.close()
+        
     }
 }

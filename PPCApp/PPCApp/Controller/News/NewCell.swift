@@ -15,13 +15,20 @@ class NewCell: UITableViewCell{
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
+    @IBOutlet weak var webview: UIWebView!
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        webview.scrollView.isScrollEnabled = false
+    }
     var new: NewDataModel?{
         didSet{
             newImage.loadImageUsingUrlString(urlString: (new?.image)!)
             titleLabel.text = new?.title
-            new?.content.htmlAttributedString(completion: { (mString) in
+            /*new?.content.htmlAttributedString(completion: { (mString) in
                 contentLabel.attributedText = mString
-            })
+            })*/
+            webview.loadHTMLString((new?.content)!, baseURL: nil)
+            
         }
     }
 }

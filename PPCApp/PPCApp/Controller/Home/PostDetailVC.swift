@@ -32,7 +32,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         investorsView.content = home.investor
         locationsView.content = home.address
         projectAreaView.content = ((home.acreage).description) + " m2"
-        apartmentInfomationView.content = "Floors: \(((home.floor).description))\nBedrooms: \(((home.bedroom).description))\nBathrooms: \(((home.bathroom).description))"
+        apartmentInfomationView.content = "Floors: \(home.floor)\nBedrooms: \(home.bedroom)\nBathrooms: \(home.bathroom)"
         totalApartmentView.content = ((home.bedroom).description)
         home.service.htmlAttributedString { (mService) in
             convenientServicesView.content = mService?.string
@@ -109,7 +109,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     
     let buttonGeneralLayout : GeneralButton = {
         let button = GeneralButton(type: UIButtonType.custom)
-        //button.addTarget(self, action: #selector(handleGeneralLayoutButton(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleGeneralLayoutButton(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -331,10 +331,15 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         let mailComposeVC = configuredMailComposeVC()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeVC, animated: true, completion: nil)
-        } else {
+        } else{
+            
         }
     }
-    
+    func handleGeneralLayoutButton(_ sender: UIButton){
+        let planVC = ImagePlanVC()
+        planVC.imgPlanString = home.image_overall
+        present(viewController: planVC)
+    }
     func configuredMailComposeVC() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self

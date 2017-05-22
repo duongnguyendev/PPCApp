@@ -18,7 +18,6 @@ class AboutCell: UITableViewCell {
             about?.content.htmlAttributedString(completion: { (mString) in
                 contentLabel.attributedText = mString
             })
-
         }
     }
 }

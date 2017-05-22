@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 class ImageCell: BaseCell{
     let detailImage : CustomImageView = {
-        let iv = CustomImageView()
+        let iv = CustomImageView(image: UIImage(named: "no_image"))
         return iv
     }()
     override func setupView() {
