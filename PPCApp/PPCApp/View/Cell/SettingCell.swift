@@ -15,4 +15,5 @@ class SettingCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
 }

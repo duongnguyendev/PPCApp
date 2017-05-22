@@ -38,14 +38,14 @@ class SignUpVC: BaseVC,UINavigationControllerDelegate,UIImagePickerControllerDel
         title = "SignUp"
         avataImage.layer.cornerRadius = 60
         avataImage.clipsToBounds = true
-        avataImage.image = UIImage.fontAwesomeIcon(name: .camera, textColor: .darkGray, size: CGSize(width: 120, height: 120))
-        userImage.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
-        passImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
+        avataImage.image = UIImage.fontAwesomeIcon(name: .camera, textColor: .navigationBar(), size: CGSize(width: 120, height: 120))
+        userImage.image = UIImage.fontAwesomeIcon(name: .user, textColor: .navigationBar(), size: CGSize(width: 30, height: 30))
+        passImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: .navigationBar(), size: CGSize(width: 30, height: 30))
         comfirmImage.image = UIImage(named: "confirm_pass")
-        fullnameImage.image = UIImage.fontAwesomeIcon(name: .laptop,textColor: .darkGray, size: CGSize(width: 30, height: 30))
-        phoneImage.image = UIImage.fontAwesomeIcon(name: .phone, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
-        adressImage.image = UIImage.fontAwesomeIcon(name: .mapMarker, textColor: .darkGray, size: CGSize(width: 30, height: 30))
-        emailImage.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: .darkGray, size: CGSize(width: 30, height: 30))
+        fullnameImage.image = UIImage.fontAwesomeIcon(name: .laptop,textColor: .navigationBar(), size: CGSize(width: 30, height: 30))
+        phoneImage.image = UIImage.fontAwesomeIcon(name: .phone, textColor: .navigationBar(), size: CGSize(width: 30, height: 30))
+        adressImage.image = UIImage.fontAwesomeIcon(name: .mapMarker, textColor: .navigationBar(), size: CGSize(width: 30, height: 30))
+        emailImage.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: .navigationBar(), size: CGSize(width: 30, height: 30))
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)

@@ -145,13 +145,13 @@ class ProjectDetailVC1: BaseVC {
     let provinceLauncher = ProvinceLauncher()
     let districtLauncher = DistrictLauncher()
     let typeOfProjectLauncher = TypeOfProjectLauncher()
-    
     //MARK: - Handle button
     func handleCountryButton(_ sender: UIButton){
         self.countryLaucher.delegate = self
         self.countryLaucher.show()
     }
     func handleProvinceButton(_ sender: UIButton){
+        
         self.provinceLauncher.delegate = self
         self.provinceLauncher.show()
     }
@@ -169,7 +169,6 @@ class ProjectDetailVC1: BaseVC {
         view.placeholder = "Email"
         return view
     }()
-    
     let phoneTextField: InfoTextField = {
         let view = InfoTextField()
         view.keyboardType = UIKeyboardType.numberPad
@@ -177,31 +176,26 @@ class ProjectDetailVC1: BaseVC {
         view.placeholder = "Phone"
         return view
     }()
-    
     let addressTextField: InfoTextField = {
         let view = InfoTextField()
         view.placeholder = "Address"
         return view
     }()
-    
     let ownerTextField: InfoTextField = {
         let view = InfoTextField()
         view.placeholder = "Forms of property ownership"
         return view
     }()
-    
     let priceTextField: InfoTextField = {
         let view = InfoTextField()
         view.placeholder = "Price"
         return view
     }()
-    
     let projectTextField: InfoTextField = {
         let view = InfoTextField()
         view.placeholder = "Project Infomation"
         return view
     }()
-    
     let buttonNext : UIButton = {
         let button = UIButton(type: UIButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -214,7 +208,6 @@ class ProjectDetailVC1: BaseVC {
         button.backgroundColor = UIColor.navigationBar()
         return button
     }()
-    
     func inputPostProjectVC1(){
         post.country_id = id_country
         post.provine_id = id_provine
@@ -236,7 +229,6 @@ class ProjectDetailVC1: BaseVC {
             }else{
                 self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "incorrectEmail")!)
             }
-            
         }else{
             self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
         }
@@ -270,7 +262,7 @@ class ProjectDetailVC1: BaseVC {
     
     func showAlertController(title: String,message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -281,36 +273,38 @@ class ProjectDetailVC1: BaseVC {
        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
-        
-        if post.type == 0{
-            radioRentButton.flag = false
-            radioSaleButton.flag = true
+        if post.langEN == 0 && post.langVI == 0{
+            
         }else{
-            radioSaleButton.flag = false
-            radioRentButton.flag = true
+            if post.type == 0{
+                radioRentButton.flag = false
+                radioSaleButton.flag = true
+            }else{
+                radioSaleButton.flag = false
+                radioRentButton.flag = true
+            }
+            if post.langEN == 1{
+                checkboxEN.flag = true
+                checkboxVI.isEnabled = false
+            }else if post.langVI == 1{
+                checkboxVI.flag = true
+                checkboxEN.isEnabled = false
+            }
+            self.id_country = post.country_id
+            self.id_provine = post.provine_id
+            self.id_district = post.district_id
+            self.id_projectType = post.project_id
+            countryButton.value = post.country
+            provinceButton.value = post.province
+            districtButton.value = post.district
+            typeOfProjectButton.value = post.project
+            emailTextField.text! = post.email
+            phoneTextField.text! = post.phone
+            addressTextField.text! = post.address
+            ownerTextField.text! = post.ownership
+            priceTextField.text! = post.price
+            projectTextField.text! = post.info
         }
-        if post.langEN == 1{
-            checkboxEN.flag = true
-            checkboxVI.isEnabled = false
-        }else if post.langVI == 1{
-            checkboxVI.flag = true
-            checkboxEN.isEnabled = false
-        }
-        self.id_country = post.country_id
-        self.id_provine = post.provine_id
-        self.id_district = post.district_id
-        self.id_projectType = post.project_id
-        countryButton.value = post.country
-        provinceButton.value = post.province
-        districtButton.value = post.district
-        typeOfProjectButton.value = post.project
-        emailTextField.text! = post.email
-        phoneTextField.text! = post.phone
-        addressTextField.text! = post.address
-        ownerTextField.text! = post.ownership
-        priceTextField.text! = post.price
-        projectTextField.text! = post.info
-       
     }
     func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
@@ -471,10 +465,12 @@ extension ProjectDetailVC1: PickerViewDelegate{
     func selectedProjectType(place: Place) {
         self.id_projectType = place.id
         typeOfProjectButton.value = place.name
+        self.post.project = place.name!
     }
     func selectedCountry(place: Place){
         countryButton.value = place.name
         self.id_country = place.id
+        self.post.country = place.name!
         HomeService.shared.fetchPlaces(pageUrl: "province?id_country=\(id_country)") { (places, errMess) in
             self.provinceLauncher.provinces = places
             self.id_provine = places[0].id
@@ -484,6 +480,7 @@ extension ProjectDetailVC1: PickerViewDelegate{
     func selectedProvince(place: Place) {
         provinceButton.value = place.name
         self.id_provine = place.id
+        self.post.province = place.name!
         HomeService.shared.fetchPlaces(pageUrl: "district?id_province=\(id_provine)") { (places, errMess) in
             if places.count > 0{
                 self.districtLauncher.dictricts = places
@@ -495,6 +492,7 @@ extension ProjectDetailVC1: PickerViewDelegate{
     func selectedDistrict(place: Place) {
         self.id_district = place.id
         districtButton.value = place.name
+        self.post.district = place.name!
     }
     
 }

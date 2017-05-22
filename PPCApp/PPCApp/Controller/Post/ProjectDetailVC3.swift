@@ -114,7 +114,7 @@ class ProjectDetailVC3: BaseVC {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        if post.image.contains("") && post.image_overall.contains(""){
+        if (post.image == "") && (post.image_overall == ""){
             
         }else{
             imageViewProject.loadImageUsingUrlString(urlString: post.image)
@@ -126,7 +126,6 @@ class ProjectDetailVC3: BaseVC {
             self.parseData(link: post.image_overall, completion: { (data, error) in
                 self.imgPlanData = data
             })
-
         }
     }
     func parseData(link: String,completion:@escaping ((Data?,Error?)->())){
@@ -261,7 +260,7 @@ class ProjectDetailVC3: BaseVC {
     }
     func showAlertController(title: String,message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

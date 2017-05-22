@@ -139,7 +139,7 @@ class ProjectDetailVC2: BaseVC{
     }
     func showAlertController(title: String,message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -165,15 +165,19 @@ class ProjectDetailVC2: BaseVC{
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        titleTextField.text! = post.title
-        investorTextField.text! = post.investor
-        areaProjectTextField.text! = String(post.acreage)
-        areaAppartmentsTextField.text! = String(post.area_apartment)
-        apartmentsTextField.text = String(post.apartment)
-        floorsTextField.text! = String(post.floor)
-        bedroomsTextField.text! = String(post.bedroom)
-        bathroomsTextField.text! = String(post.bathroom)
-        servicesTextField.text! = post.service
+        if post.title == ""{
+           
+        }else{
+            titleTextField.text! = post.title
+            investorTextField.text! = post.investor
+            areaProjectTextField.text! = String(post.acreage)
+            areaAppartmentsTextField.text! = String(post.area_apartment)
+            apartmentsTextField.text = String(post.apartment)
+            floorsTextField.text! = String(post.floor)
+            bedroomsTextField.text! = String(post.bedroom)
+            bathroomsTextField.text! = String(post.bathroom)
+            servicesTextField.text! = post.service
+        }
     }
     
     override func setupView() {

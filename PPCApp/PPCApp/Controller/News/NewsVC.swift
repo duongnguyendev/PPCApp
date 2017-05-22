@@ -19,6 +19,7 @@ class NewsVC: BaseVC {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "NewCell", bundle: nil), forCellReuseIdentifier: "NewCell")
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

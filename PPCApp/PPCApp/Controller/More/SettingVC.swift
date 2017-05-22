@@ -18,8 +18,15 @@ class SettingVC: BaseVC {
         tableView.register(UINib(nibName: "SettingCell", bundle: nil), forCellReuseIdentifier: "SettingCell")
     }
     override func viewDidAppear(_ animated: Bool) {
+        
     }
-    
+    func statusLanguage()->String{
+        let language = LanguageManager.shared.getCurrentLanguage().languageCode
+        if language == "vi" || language == "vi-VN"{
+            return LanguageManager.shared.localized(string: "vietnamese")!
+        }
+        return LanguageManager.shared.localized(string: "english")!
+    }
 }
 extension SettingVC: UITableViewDataSource,UITableViewDelegate{
     
@@ -31,6 +38,7 @@ extension SettingVC: UITableViewDataSource,UITableViewDelegate{
         switch indexPath.row {
         case 0:
             cell.titleLabel.text = LanguageManager.shared.localized(string: "language")!
+            cell.languageLabel.text = statusLanguage()
             cell.languageLabel.isHidden = false
             return cell
         case 1:
