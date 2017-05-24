@@ -66,6 +66,7 @@ class ProfileVC: BaseVC{
         phoneTextField.text = profile.phone
         addressTextField.text = profile.address
         avatarImage.loadImageurl(link: profile.avatar)
+        changepassButton.setTitle(LanguageManager.shared.localized(string: "changepass"), for: .normal)
     }
     
     @IBAction func handleChangeButton(_ sender: Any) {

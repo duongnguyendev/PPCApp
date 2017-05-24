@@ -76,7 +76,7 @@ password = "Password";
 confirmpassword = "Comfirm password";
 fullname = "Full name";
 phonenumber = "Phone number";
-
+change = "Change";
 signup = "Sign up";
 profile = "Profile";
 update = "Update";
