@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="381" height="386"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cEr-hd-6NT" id="TGm-6w-vCN">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="385"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="385.66666666666669"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vinpearl" translatesAutoresizingMaskIntoConstraints="NO" id="lCk-U2-g3A" customClass="CustomImageView" customModule="PPCApp" customModuleProvider="target">
@@ -39,17 +39,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zer-hR-h9h">
-                        <rect key="frame" x="8" y="225" width="110" height="20"/>
+                        <rect key="frame" x="8" y="226.33333333333337" width="110" height="17.666666666666657"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="cuk-gJ-DSy"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of project:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkZ-7v-EEN">
                         <rect key="frame" x="8" y="254" width="110" height="17"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -61,7 +61,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iz7-h6-1Je">
                         <rect key="frame" x="8" y="281" width="110" height="17"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -73,7 +73,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jz-3X-srd">
-                        <rect key="frame" x="136" y="325" width="101" height="35"/>
+                        <rect key="frame" x="136" y="325" width="100.66666666666666" height="35"/>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.13333333333333333" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <state key="normal" title="Edit">
@@ -89,7 +89,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-Zp-Wdx">
-                        <rect key="frame" x="253" y="325" width="100" height="35"/>
+                        <rect key="frame" x="252.66666666666663" y="325" width="100.33333333333337" height="35"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="MEQ-Tv-iYF"/>
@@ -110,9 +110,9 @@
                             <action selector="handleDelete:" destination="cEr-hd-6NT" eventType="touchUpInside" id="zEi-Bf-lZI"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manipulations:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K79-8F-0ex">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manipulation:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K79-8F-0ex">
                         <rect key="frame" x="8" y="334" width="110" height="17"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -158,9 +158,13 @@
                 <outlet property="deleteButton" destination="MHw-Zp-Wdx" id="Qqb-MR-gA0"/>
                 <outlet property="editButton" destination="4Jz-3X-srd" id="jDe-mD-Om4"/>
                 <outlet property="generalImage" destination="lCk-U2-g3A" id="rC0-Hu-tJU"/>
+                <outlet property="manipulation" destination="K79-8F-0ex" id="VTa-lC-JHF"/>
+                <outlet property="status" destination="Iz7-h6-1Je" id="b2W-IK-Dur"/>
                 <outlet property="statusLabel" destination="giA-FV-WC8" id="5Zj-HN-xQX"/>
+                <outlet property="title" destination="Zer-hR-h9h" id="i1b-LB-A5x"/>
                 <outlet property="titleLabel" destination="gHX-b5-041" id="rI7-sj-zRd"/>
                 <outlet property="typeProjectLabel" destination="Eo0-xu-cUm" id="b37-yQ-6Kd"/>
+                <outlet property="typeofproject" destination="jkZ-7v-EEN" id="4wz-D5-brj"/>
             </connections>
             <point key="canvasLocation" x="-255.5" y="-305"/>
         </tableViewCell>

@@ -31,7 +31,7 @@ class ProjectDetailVC3: BaseVC {
     }()
     let buttonProjectPicture: GeneralPost = {
         let button = GeneralPost(type: UIButtonType.custom)
-        button.name = "Project picture"
+        button.name = LanguageManager.shared.localized(string: "projectPicture")
         button.addTarget(self, action: #selector(handleProjectPictureButton(_:)), for: .touchUpInside)
         return button
     }()
@@ -43,7 +43,7 @@ class ProjectDetailVC3: BaseVC {
     }()
     let buttonProjectDetailPicture: GeneralPost = {
         let button = GeneralPost(type: UIButtonType.custom)
-        button.name = "Project detail picture"
+        button.name = LanguageManager.shared.localized(string: "detailPicture")
         button.addTarget(self, action: #selector(handleProjectPictureDetailButton(_:)), for: .touchUpInside)
         return button
         
@@ -61,7 +61,7 @@ class ProjectDetailVC3: BaseVC {
     }()
     let buttonPlanPicture: GeneralPost = {
         let button = GeneralPost(type: UIButtonType.custom)
-        button.name = "General plan picture"
+        button.name = LanguageManager.shared.localized(string: "planPicture")
         button.addTarget(self, action: #selector(handlePlanPictureButton(_:)), for: .touchUpInside)
         return button
         

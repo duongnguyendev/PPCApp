@@ -27,14 +27,14 @@ class ProjectDetailVC2: BaseVC{
     let titleTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
-        view.placeholder = "Title"
+        view.placeholder = LanguageManager.shared.localized(string: "title")
         return view
     }()
     
     let investorTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
-        view.placeholder = "Investor"
+        view.placeholder = LanguageManager.shared.localized(string: "investor")
         return view
     }()
     
@@ -42,7 +42,7 @@ class ProjectDetailVC2: BaseVC{
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
         view.keyboardType = .numberPad
-        view.placeholder = "The area of project"
+        view.placeholder = LanguageManager.shared.localized(string: "projectArea")
         return view
     }()
     
@@ -50,7 +50,7 @@ class ProjectDetailVC2: BaseVC{
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
         view.keyboardType = .numberPad
-        view.placeholder = "The area of apartments"
+        view.placeholder = LanguageManager.shared.localized(string: "apartmentsArea")
         return view
     }()
     
@@ -58,7 +58,7 @@ class ProjectDetailVC2: BaseVC{
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
         view.keyboardType = .numberPad
-        view.placeholder = "Quality of apartments"
+        view.placeholder = LanguageManager.shared.localized(string: "apartmentsQuality")
         return view
     }()
     
@@ -67,7 +67,7 @@ class ProjectDetailVC2: BaseVC{
         view.textAlignment = NSTextAlignment.left
         view.keyboardType = .numberPad
 
-        view.placeholder = "Quality of floors"
+        view.placeholder = LanguageManager.shared.localized(string: "floorsQuality")
         return view
     }()
     
@@ -75,7 +75,7 @@ class ProjectDetailVC2: BaseVC{
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
         view.keyboardType = .numberPad
-        view.placeholder = "Quality of bedrooms"
+        view.placeholder = LanguageManager.shared.localized(string: "bedQuality")
         return view
     }()
     
@@ -83,7 +83,7 @@ class ProjectDetailVC2: BaseVC{
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
         view.keyboardType = .numberPad
-        view.placeholder = "Quality of bathrooms"
+        view.placeholder = LanguageManager.shared.localized(string: "bathQuality")
         return view
     }()
     
@@ -91,7 +91,7 @@ class ProjectDetailVC2: BaseVC{
     let servicesTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
-        view.placeholder = "Conveninents of services"
+        view.placeholder = LanguageManager.shared.localized(string: "service")
         return view
     }()
     

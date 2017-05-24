@@ -68,7 +68,10 @@ class MainTabVC: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.viewControllers?[0].title = LanguageManager.shared.localized(string: "home")
+        self.viewControllers?[1].title = LanguageManager.shared.localized(string: "projectmanage")
+        self.viewControllers?[2].title = LanguageManager.shared.localized(string: "news")
+        self.viewControllers?[3].title = LanguageManager.shared.localized(string: "more")
     }
 
 }

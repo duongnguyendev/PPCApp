@@ -15,6 +15,7 @@
                 <outlet property="adressImage" destination="JY6-vh-BKz" id="t4b-QG-6sd"/>
                 <outlet property="avataImage" destination="QMa-Bq-Nvx" id="t40-T8-Qc8"/>
                 <outlet property="comfirmImage" destination="Y7v-sJ-QOO" id="4nd-ka-g4W"/>
+                <outlet property="completeButton" destination="16o-og-NyY" id="kAc-Bb-g9r"/>
                 <outlet property="confirmTextField" destination="QSb-Ke-p4l" id="MlX-Tq-CaQ"/>
                 <outlet property="emailImage" destination="Ygy-BJ-7lB" id="vW5-9J-qzR"/>
                 <outlet property="emailTextField" destination="o3X-e4-YB1" id="pl1-Op-KFZ"/>

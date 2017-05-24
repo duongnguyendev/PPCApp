@@ -10,22 +10,16 @@ import Foundation
 import UIKit
 class NewDetailVC: BaseVC{
     
-    @IBOutlet weak var bgrImage: CustomImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var webView: UIWebView!
     var new = NewDataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.numberOfLines = 2
+        //titleLabel.numberOfLines = 2
     }
     override func viewDidAppear(_ animated: Bool) {
         title = new.title
-        bgrImage.loadImageUsingUrlString(urlString: new.image)
-        titleLabel.text = new.title
-        new.content.htmlAttributedString(completion: { (mString) in
-            contentTextView.attributedText = mString
-        })
+        webView.loadHTMLString(new.content, baseURL: nil)
     }
     
 }

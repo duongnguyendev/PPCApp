@@ -13,7 +13,7 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     var indexPath: IndexPath = IndexPath(item: 0, section: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = LanguageManager.shared.localized(string: "home")
+        
         //        let assets = PHAsset.fetchAssets(with: .image, options: nil)
         //        PHImageManager.default().requestImage(for: assets[0], targetSize: CGSize(width: 1000, height: 1000), contentMode: .default, options: nil, resultHandler: { (image, nil) in
         //            self.view.backgroundColor = UIColor.init(patternImage: image!)
@@ -23,8 +23,8 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     let segmentedPostType : UISegmentedControl = {
         let segmented = UISegmentedControl()
-        segmented.insertSegment(withTitle: "Sale", at: 0, animated: true)
-        segmented.insertSegment(withTitle: "Rent", at: 1, animated: true)
+        segmented.insertSegment(withTitle: LanguageManager.shared.localized(string: "sale"), at: 0, animated: true)
+        segmented.insertSegment(withTitle: LanguageManager.shared.localized(string: "rent"), at: 1, animated: true)
         segmented.tintColor = UIColor.white
         segmented.translatesAutoresizingMaskIntoConstraints = false
         segmented.selectedSegmentIndex = 0
@@ -47,6 +47,9 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         addSearchButton()
     }
     override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "home")
+        segmentedPostType.setTitle(LanguageManager.shared.localized(string: "sale"), forSegmentAt: 0)
+        segmentedPostType.setTitle(LanguageManager.shared.localized(string: "rent"), forSegmentAt: 1)
         self.homeCollectionView.reloadData()
     }
     override func setupView() {

@@ -18,14 +18,13 @@ class BaseButton: UIButton {
     func setupView(){
         
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
 
 class FilterButton: BaseButton {
-    
     
     var value : String?{
         didSet{
@@ -77,7 +76,6 @@ class FilterButton: BaseButton {
         addConstraintWithFormat(format: "V:|[v0]|", views: titleLabelView)
         addConstraintWithFormat(format: "V:|[v0]|", views: valueLableView)
         addConstraintWithFormat(format: "V:|[v0]|", views: arrowImageView)
-        
     }
     
 }

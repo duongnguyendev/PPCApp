@@ -14,7 +14,6 @@ class TermsVC: BaseVC{
     var terms = [TermsModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Terms"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "TermsCell", bundle: nil), forCellReuseIdentifier: "TermsCell")
@@ -22,13 +21,15 @@ class TermsVC: BaseVC{
         tableView.estimatedRowHeight = 140
 
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "terms")
         MoreService.shared.getTerms { (mTerms) in
             if mTerms != nil{
                 self.terms = mTerms!
                 self.tableView.reloadData()
             }
         }
+
     }
     
 }

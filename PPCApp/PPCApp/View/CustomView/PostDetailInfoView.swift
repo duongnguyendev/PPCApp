@@ -79,7 +79,7 @@ class GeneralButton: UIButton {
         let rightArrowImage = UIImageView(image: UIImage.fontAwesomeIcon(name: .angleRight, textColor: UIColor.lightGray, size: CGSize(width: 100, height: 100)))
         rightArrowImage.translatesAutoresizingMaskIntoConstraints = false
         let labelTitle = UILabel()
-        labelTitle.text = "General Layout"
+        labelTitle.text = LanguageManager.shared.localized(string: "generallayout")
         labelTitle.textColor = UIColor.navigationBar()
         addSubview(iconImage)
         addSubview(labelTitle)

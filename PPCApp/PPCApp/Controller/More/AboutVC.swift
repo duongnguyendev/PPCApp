@@ -22,15 +22,16 @@ class AboutVC: BaseVC {
         tableView.estimatedRowHeight = 140
 
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "about")
         MoreService.shared.getAbouts { (mAbouts) in
             if mAbouts != nil{
                 self.abouts = mAbouts!
                 self.tableView.reloadData()
             }
         }
+
     }
-    
 }
 extension AboutVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

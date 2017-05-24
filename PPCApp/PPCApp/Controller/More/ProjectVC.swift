@@ -9,16 +9,20 @@
 import Foundation
 import UIKit
 class ProjectVC: BaseVC {
+    
     @IBOutlet weak var tableView: UITableView!
     let ud = UserDefaults()
     var projects = [HomeDataModel]()
     var signin = SigninModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = LanguageManager.shared.localized(string: "projectmanage")
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProjectCell", bundle: nil), forCellReuseIdentifier: "ProjectCell")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "projectmanage")
     }
     override func viewDidAppear(_ animated: Bool) {
         if ud.object(forKey: "user") != nil{

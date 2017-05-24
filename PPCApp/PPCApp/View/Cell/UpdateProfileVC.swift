@@ -31,7 +31,6 @@ class UpdateProfileVC: BaseVC{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Update Profile"
         avatarImageView.layer.cornerRadius = (avatarImageView.bounds.size.height / 2.0)
         avatarImageView.clipsToBounds = true
         
@@ -53,14 +52,14 @@ class UpdateProfileVC: BaseVC{
         avatarImageView.loadImageUsingUrlString(urlString: profile.avatar)
     }
     override func viewWillAppear(_ animated: Bool) {
-
+        title = LanguageManager.shared.localized(string: "updateprofile")
     }
     override func setupNavBar() {
         super.setupNavBar()
         self.addCompleteButton()
     }
     func addCompleteButton(){
-        let completeButton = UIBarButtonItem(title: "Complete" , style: .done, target: self, action: #selector(handleCompleteProfile))
+        let completeButton = UIBarButtonItem(title: LanguageManager.shared.localized(string: "complete") , style: .done, target: self, action: #selector(handleCompleteProfile))
         completeButton.customTitle()
         completeButton.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = completeButton
@@ -112,7 +111,7 @@ class UpdateProfileVC: BaseVC{
     }
     func showAlertController(title: String,message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
