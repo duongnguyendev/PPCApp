@@ -22,13 +22,23 @@ class ProjectCell: UITableViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var typeofproject: UILabel!
+    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var manipulation: UILabel!
+    
     var delegate: ProjectVCDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //deleteButton.layer.borderWidth = 2.0
         editButton.backgroundColor = UIColor.navigationBar()
         deleteButton.layer.borderColor = UIColor.navigationBar().cgColor
+        title.text = LanguageManager.shared.localized(string: "title")! + ":"
+        typeofproject.text = LanguageManager.shared.localized(string: "typeofproject")! + ":"
+        status.text = LanguageManager.shared.localized(string: "status")! + ":"
+        manipulation.text = LanguageManager.shared.localized(string: "manipulation")! + ":"
+        editButton.setTitle(LanguageManager.shared.localized(string: "edit"), for: .normal)
+        deleteButton.setTitle(LanguageManager.shared.localized(string: "delete"), for: .normal)
     }
     
     var project: HomeDataModel?{
@@ -41,9 +51,9 @@ class ProjectCell: UITableViewCell {
     }
     func statusProject(status: Int)->String{
         if status == 0{
-            return "Not Approve"
+            return LanguageManager.shared.localized(string: "not_approved")!
         }
-        return "Approve"
+        return LanguageManager.shared.localized(string: "approved")!
     }
     
     @IBAction func handleEdit(_ sender: Any) {

@@ -29,13 +29,13 @@ class SignUpVC: BaseVC,UINavigationControllerDelegate,UIImagePickerControllerDel
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     
+    @IBOutlet weak var completeButton: UIButton!
     var avatarData:Data?
     var delegate: MoreVCDelegate?
     var signup = SigninModel()
     let avartaController = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "SignUp"
         avataImage.layer.cornerRadius = 60
         avataImage.clipsToBounds = true
         avataImage.image = UIImage.fontAwesomeIcon(name: .camera, textColor: .navigationBar(), size: CGSize(width: 120, height: 120))
@@ -54,7 +54,16 @@ class SignUpVC: BaseVC,UINavigationControllerDelegate,UIImagePickerControllerDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "signup")
+        userTextField.placeholder = LanguageManager.shared.localized(string: "username")
+        passTextField.placeholder = LanguageManager.shared.localized(string: "password")
+        confirmTextField.placeholder = LanguageManager.shared.localized(string: "confirmpassword")
+        fullnameTextField.placeholder = LanguageManager.shared.localized(string: "fullname")
+        phoneTextField.placeholder = LanguageManager.shared.localized(string: "phonenumber")
+        addressTextField.placeholder = LanguageManager.shared.localized(string: "address")
+        completeButton.setTitle(LanguageManager.shared.localized(string: "complete"), for: .normal)
+    }
     func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
         self.mainScrollView.contentInset = contentInsets

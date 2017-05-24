@@ -13,7 +13,6 @@ class LanguageVC: BaseVC {
     var languages: [Language] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Language"
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -23,7 +22,7 @@ class LanguageVC: BaseVC {
         self.languagesString()
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        title = LanguageManager.shared.localized(string: "language")
     }
     func languagesString(){
         let en = Language(languageCode: "en", language: LanguageManager.shared.localized(string:"english")!)

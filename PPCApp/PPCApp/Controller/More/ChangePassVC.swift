@@ -22,12 +22,13 @@ class ChangePassVC: BaseVC{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "ChangePass"
         oldImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
         newImage.image = UIImage.fontAwesomeIcon(name: .lock, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
         confirmImage.image = UIImage(named: "confirm_pass")
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "changepass")
+    }
     override func setupNavBar() {
         super.setupNavBar()
         self.addChangeButton()

@@ -14,18 +14,17 @@ class NewsVC: BaseVC {
     var nextPage: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = LanguageManager.shared.localized(string: "news")
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "NewCell", bundle: nil), forCellReuseIdentifier: "NewCell")
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "news")
         NewService.shared.getNews(indexPage: indexPage) { (news, error, currentPage, next_page_url) in
             if error == 1{
                 self.indexPage = currentPage!

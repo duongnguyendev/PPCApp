@@ -25,16 +25,18 @@ class FilterVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Filter"
+        
     }
     override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "filter")
+        
         provinceButton.isEnabled = false
         districtButton.isEnabled = false
     }
     let countryButton : FilterButton = {
         let button = FilterButton()
-        button.title = "Country"
-        button.value = "All"
+        button.title = LanguageManager.shared.localized(string: "country")
+        button.value = LanguageManager.shared.localized(string: "all")
         button.addTarget(self, action: #selector(handleCountryButton(_:)), for: .touchUpInside)
         return button
     }()
@@ -42,8 +44,8 @@ class FilterVC: BaseVC {
         let button = FilterButton()
         button.isEnabled = false
         button.addTarget(self, action: #selector(handleProvinceButton(_:)), for: .touchUpInside)
-        button.title = "Province"
-        button.value = "All"
+        button.title = LanguageManager.shared.localized(string: "province")
+        button.value = LanguageManager.shared.localized(string: "all")
         return button
     }()
     
@@ -51,16 +53,16 @@ class FilterVC: BaseVC {
         let button = FilterButton()
         button.isEnabled = false
         button.addTarget(self, action: #selector(handleDistrictButton(_:)), for: .touchUpInside)
-        button.title = "District"
-        button.value = "All"
+        button.title = LanguageManager.shared.localized(string: "district")
+        button.value = LanguageManager.shared.localized(string: "all")
         return button
     }()
     
     let typeOfProjectButton : FilterButton = {
         let button = FilterButton()
         button.addTarget(self, action: #selector(handleTypeOfProjectButton(_:)), for: .touchUpInside)
-        button.title = "Type of Projects"
-        button.value = "All"
+        button.title = LanguageManager.shared.localized(string: "typeofproject")
+        button.value = LanguageManager.shared.localized(string: "all")
         return button
     }()
     
@@ -107,7 +109,7 @@ class FilterVC: BaseVC {
     }
     //MARK: - setup nav
     func addFilterButton(){
-        let filterButton = UIBarButtonItem(title: "Complete", style: .done, target: self, action: #selector(handleComplete(_:)))
+        let filterButton = UIBarButtonItem(title: LanguageManager.shared.localized(string: "complete"), style: .done, target: self, action: #selector(handleComplete(_:)))
         filterButton.customTitle() 
         self.navigationItem.rightBarButtonItem = filterButton
     }

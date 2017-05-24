@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class ProjectDetailVC1: BaseVC {
+class ProjectDetailVC1: BaseVC,UITextFieldDelegate{
     var post = HomeDataModel()
     let spaceLine : CGFloat = 2.0
     let itemSize : CGFloat = 40.0
@@ -33,13 +33,13 @@ class ProjectDetailVC1: BaseVC {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.text = "Transaction form"
+        label.text = LanguageManager.shared.localized(string: "transactionform")
         label.textColor = UIColor.navigationBar()
         return label
     }()
     let radioSaleButton: RadioButtonView = {
         let button = RadioButtonView()
-        button.name = "Sale"
+        button.name = LanguageManager.shared.localized(string: "sale")
         button.isSelected = true
         button.flag = true
         button.addTarget(self, action: #selector(handleRadioSaleButton(_:)), for: .touchUpInside)
@@ -47,7 +47,7 @@ class ProjectDetailVC1: BaseVC {
     }()
     let radioRentButton: RadioButtonView = {
         let button = RadioButtonView()
-        button.name = "Rent"
+        button.name = LanguageManager.shared.localized(string: "rent")
         button.isSelected = true
         button.flag = false
         button.addTarget(self, action: #selector(handleRadioRentButton(_:)), for: .touchUpInside)
@@ -73,20 +73,20 @@ class ProjectDetailVC1: BaseVC {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.text = "Select language of the post"
+        label.text = LanguageManager.shared.localized(string: "selectlanuage")
         label.textColor = UIColor.navigationBar()
         return label
     }()
     let checkboxVI: CheckBox = {
         let checkbox = CheckBox()
-        checkbox.name = "Vietnamese"
+        checkbox.name = LanguageManager.shared.localized(string: "vietnamese")
         checkbox.addTarget(self, action: #selector(handlecheckboxVI(_:)), for: .touchUpInside)
         checkbox.flag = false
         return checkbox
     }()
     let checkboxEN: CheckBox = {
         let checkbox = CheckBox()
-        checkbox.name = "English"
+        checkbox.name = LanguageManager.shared.localized(string: "english")
         checkbox.addTarget(self, action: #selector(handlecheckboxEN(_:)), for: .touchUpInside)
         checkbox.flag = false
         return checkbox
@@ -114,7 +114,7 @@ class ProjectDetailVC1: BaseVC {
     }
     let countryButton : FilterButton = {
         let button = FilterButton()
-        button.title = "Country"
+        button.title = LanguageManager.shared.localized(string: "country")
         button.value = ""
         button.addTarget(self, action: #selector(handleCountryButton(_:)), for: .touchUpInside)
         return button
@@ -122,21 +122,21 @@ class ProjectDetailVC1: BaseVC {
     let provinceButton : FilterButton = {
         let button = FilterButton()
         button.addTarget(self, action: #selector(handleProvinceButton(_:)), for: .touchUpInside)
-        button.title = "Province"
+        button.title = LanguageManager.shared.localized(string: "province")
         button.value = ""
         return button
     }()
     let districtButton : FilterButton = {
         let button = FilterButton()
         button.addTarget(self, action: #selector(handleDistrictButton(_:)), for: .touchUpInside)
-        button.title = "District"
+        button.title = LanguageManager.shared.localized(string: "district")
         button.value = ""
         return button
     }()
     let typeOfProjectButton : FilterButton = {
         let button = FilterButton()
         button.addTarget(self, action: #selector(handleTypeOfProjectButton(_:)), for: .touchUpInside)
-        button.title = "Type of Projects"
+        button.title = LanguageManager.shared.localized(string: "typeofproject")
         button.value = ""
         return button
     }()
@@ -166,36 +166,41 @@ class ProjectDetailVC1: BaseVC {
     
     let emailTextField: InfoTextField = {
         let view = InfoTextField()
-        view.placeholder = "Email"
+        view.placeholder = LanguageManager.shared.localized(string: "email")
         return view
     }()
     let phoneTextField: InfoTextField = {
         let view = InfoTextField()
         view.keyboardType = UIKeyboardType.numberPad
         view.addTarget(self, action: #selector(phoneTextField_textChange(_:)), for: .editingChanged)
-        view.placeholder = "Phone"
+        view.placeholder = LanguageManager.shared.localized(string: "phone")
         return view
     }()
     let addressTextField: InfoTextField = {
         let view = InfoTextField()
-        view.placeholder = "Address"
+        view.placeholder = LanguageManager.shared.localized(string: "address")
         return view
     }()
     let ownerTextField: InfoTextField = {
         let view = InfoTextField()
-        view.placeholder = "Forms of property ownership"
+        view.placeholder = LanguageManager.shared.localized(string: "ownership")
         return view
     }()
     let priceTextField: InfoTextField = {
         let view = InfoTextField()
-        view.placeholder = "Price"
+        view.placeholder = LanguageManager.shared.localized(string: "price")
         return view
     }()
     let projectTextField: InfoTextField = {
         let view = InfoTextField()
-        view.placeholder = "Project Infomation"
+        view.placeholder = LanguageManager.shared.localized(string: "projectInfo")
         return view
     }()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+
     let buttonNext : UIButton = {
         let button = UIButton(type: UIButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -271,6 +276,13 @@ class ProjectDetailVC1: BaseVC {
         title = "Post Project"
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        emailTextField.delegate = self
+        phoneTextField.delegate = self
+        addressTextField.delegate = self
+        ownerTextField.delegate = self
+        priceTextField.delegate = self
+        projectTextField.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         if post.langEN == 0 && post.langVI == 0{

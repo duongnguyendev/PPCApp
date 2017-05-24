@@ -14,23 +14,23 @@ class RecruitmentVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Recruitment"
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "RecruitmentCell", bundle: nil), forCellReuseIdentifier: "RecruitmentCell")
-           }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "recruitment")
         MoreService.shared.getRecruitments { (mRecruitements) in
             self.recruitements = mRecruitements!
             self.tableView.reloadData()
         }
     }
-
 }
 extension RecruitmentVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

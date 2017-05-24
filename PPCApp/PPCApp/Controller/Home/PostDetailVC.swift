@@ -32,7 +32,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         investorsView.content = home.investor
         locationsView.content = home.address
         projectAreaView.content = ((home.acreage).description) + " m2"
-        apartmentInfomationView.content = "Floors: \(home.floor)\nBedrooms: \(home.bedroom)\nBathrooms: \(home.bathroom)"
+        apartmentInfomationView.content = "\(LanguageManager.shared.localized(string: "floors")!): \(home.floor)\n\(LanguageManager.shared.localized(string: "bedrooms")!): \(home.bedroom)\n\(LanguageManager.shared.localized(string: "bathrooms")!): \(home.bathroom)"
         totalApartmentView.content = ((home.bedroom).description)
         home.service.htmlAttributedString { (mService) in
             convenientServicesView.content = mService?.string
@@ -61,7 +61,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         let button = UIButton(type: UIButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleCallButton(_:)), for: .touchUpInside)
-        button.setTitle("Call", for: .normal)
+        button.setTitle(LanguageManager.shared.localized(string: "call"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
         button.setTitleColor(UIColor.title(), for: .normal)
         button.backgroundColor = UIColor.navigationBar()
@@ -74,7 +74,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         let button = UIButton(type: UIButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleEmailButton(_:)), for: .touchUpInside)
-        button.setTitle("Mail", for: .normal)
+        button.setTitle(LanguageManager.shared.localized(string: "mail"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
         button.setTitleColor(UIColor.navigationBar(), for: .normal)
         button.layer.masksToBounds = true
@@ -115,49 +115,49 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     
     let projectView : PostDetailInfoView = {
         let view = PostDetailInfoView()
-        view.title = "Project"
+        view.title = LanguageManager.shared.localized(string: "project")
         view.content = "Seasons Avenue"
         return view
     }()
     let investorsView : PostDetailInfoView = {
         let view = PostDetailInfoView()
-        view.title = "Investors"
+        view.title = LanguageManager.shared.localized(string: "investor")
         view.content = "Novaland Group"
         return view
     }()
     let locationsView : PostDetailInfoView = {
         let view = PostDetailInfoView()
-        view.title = "Locations"
+        view.title = LanguageManager.shared.localized(string: "locations")
         view.content = "537 Nguy Duy Trinh, District 2, Ho Chi Minh City, VietNam"
         return view
     }()
     let formsOfPropertyView : PostDetailInfoView = {
         let view = PostDetailInfoView()
-        view.title = "Forms of property ownership"
+        view.title = LanguageManager.shared.localized(string: "ownership")
         view.content = "Freehold for local Vietnamese, 50 years long term lease for foreignes"
         return view
     }()
     let projectAreaView : PostDetailInfoView = {
         let view = PostDetailInfoView()
-        view.title = "Project area"
+        view.title = LanguageManager.shared.localized(string: "projectArea")
         view.content = "40m2"
         return view
     }()
     let apartmentInfomationView : PostDetailInfoView = {
         let view = PostDetailInfoView()
-        view.title = "Apartmet infomation"
+        view.title = LanguageManager.shared.localized(string: "apartmentInfo")
         view.content = "Floors: 2\nBedrooms: 2\nBathrooms: 1"
         return view
     }()
     let totalApartmentView : PostDetailInfoView = {
         let view = PostDetailInfoView()
-        view.title = "Total Apartments"
+        view.title = LanguageManager.shared.localized(string: "apartmentTotal")
         view.content = "25 apartments"
         return view
     }()
     let convenientServicesView : PostDetailInfoView = {
         let view = PostDetailInfoView()
-        view.title = "Convenient Services"
+        view.title = LanguageManager.shared.localized(string: "service")
         view.content = "Swimming pool\nMulti-purpose hall\nGym\nOutdoor Family Corner\nPicnicLawn\nFood reflexology track\nChildren Playground\nBBQ Cabana"
         return view
     }()

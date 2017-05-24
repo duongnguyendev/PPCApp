@@ -22,7 +22,7 @@ class MoreVC: BaseVC{
         signImage.layer.cornerRadius = 40
         signImage.clipsToBounds = true
         // Do any additional setup after loading the view.
-        title = LanguageManager.shared.localized(string: "more")
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MoreCell", bundle: nil), forCellReuseIdentifier: "MoreCell")
@@ -42,6 +42,7 @@ class MoreVC: BaseVC{
         }
     }
     override func viewDidAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "more")
         MoreService.shared.getMores { (mores) in
             self.mores = mores
             self.tableView.reloadData()

@@ -26,7 +26,6 @@ class SignInVC: BaseVC{
     var delegate: MoreVCDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sign In"
         userImage.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
         passImage.image = UIImage.fontAwesomeIcon(name: FontAwesome.lock, textColor: UIColor.darkGray, size: CGSize(width: 30, height: 30))
         signupButton.layer.borderWidth = 2
@@ -36,8 +35,8 @@ class SignInVC: BaseVC{
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "signin")
     }
     
     @IBAction func handleSigInButton(_ sender: Any) {

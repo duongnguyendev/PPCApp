@@ -22,7 +22,8 @@ class PartnersVC: BaseVC {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "partners")
         MoreService.shared.getPartners { (mPartners) in
             self.partners = mPartners!
             self.tableView.reloadData()

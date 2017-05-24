@@ -27,7 +27,6 @@ class ProfileVC: BaseVC{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "Profile"
         userImage.image = UIImage.fontAwesomeIcon(name: .user, textColor: .darkGray, size: CGSize(width: 30, height: 30))
         fullnameImage.image = UIImage.fontAwesomeIcon(name: .addressCard, textColor: .darkGray, size: CGSize(width: 30, height: 30))
         emailImage.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: .darkGray, size: CGSize(width: 30, height: 30))
@@ -46,7 +45,7 @@ class ProfileVC: BaseVC{
         self.addUpdateButton()
     }
     func addUpdateButton(){
-        let updateButton = UIBarButtonItem(title: "Update" , style: .done, target: self, action: #selector(handleUpdateProfile))
+        let updateButton = UIBarButtonItem(title: LanguageManager.shared.localized(string: "update") , style: .done, target: self, action: #selector(handleUpdateProfile))
         updateButton.customTitle()
         updateButton.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = updateButton
@@ -60,6 +59,7 @@ class ProfileVC: BaseVC{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "profile")
         userTextField.text = profile.username
         fullnameTextField.text = profile.fullname
         emailTextField.text = profile.email

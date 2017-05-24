@@ -17,8 +17,8 @@ class SettingVC: BaseVC {
         tableView.delegate = self
         tableView.register(UINib(nibName: "SettingCell", bundle: nil), forCellReuseIdentifier: "SettingCell")
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
+    override func viewWillAppear(_ animated: Bool) {
+        title = LanguageManager.shared.localized(string: "setting")
     }
     func statusLanguage()->String{
         let language = LanguageManager.shared.getCurrentLanguage().languageCode
