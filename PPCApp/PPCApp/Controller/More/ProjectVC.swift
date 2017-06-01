@@ -9,17 +9,17 @@
 import Foundation
 import UIKit
 class ProjectVC: BaseVC {
-    
+    @IBOutlet weak var nodataImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     let ud = UserDefaults()
     var projects = [HomeDataModel]()
     var signin = SigninModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProjectCell", bundle: nil), forCellReuseIdentifier: "ProjectCell")
+        nodataImageView.image = UIImage(named: LanguageManager.shared.localized(string: "nodata")!)
     }
     override func viewWillAppear(_ animated: Bool) {
         title = LanguageManager.shared.localized(string: "projectmanage")
@@ -30,8 +30,16 @@ class ProjectVC: BaseVC {
                 self.signin = signin!
                 ProjectService.shared.fetchProjects(idUser: (signin?.id)!) { (mprojects, errMess) in
                     if errMess == 1{
-                        self.projects = mprojects
-                        self.tableView.reloadData()
+                        if mprojects.count == 0{
+                            self.nodataImageView.alpha = 1
+                            self.tableView.alpha = 0
+                        }else{
+                            self.nodataImageView.alpha = 0
+                            self.tableView.alpha = 1
+
+                            self.projects = mprojects
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             })
@@ -53,9 +61,9 @@ class ProjectVC: BaseVC {
     }
     func handlePost(){
         if ud.object(forKey: "user") != nil{
-            let proDetailVC1 = ProjectDetailVC1()
-            proDetailVC1.post.id_user = signin.id
-            present(viewController: proDetailVC1)
+            let proPostVC1 = ProjectPostVC1()
+            proPostVC1.post.id_user = signin.id
+            present(viewController: proPostVC1)
         }else{
             let signinVC = SignInVC()
             signinVC.delegate = self
@@ -65,18 +73,18 @@ class ProjectVC: BaseVC {
     func showAlertController(projects: [HomeDataModel],title: String,message: String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         let EnAction = UIAlertAction(title: "Tiếng Anh", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-            let proDetailVC1 = ProjectDetailVC1()
+            let proEditVC1 = ProjectEditVC1()
             projects[1].langEN = 1
             projects[1].langVI = 0
-            proDetailVC1.post = projects[1]
-            self.present(viewController: proDetailVC1)
+            proEditVC1.post = projects[1]
+            self.present(viewController: proEditVC1)
         }
         let ViAction = UIAlertAction(title: "Tiếng Việt", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-            let proDetailVC1 = ProjectDetailVC1()
+            let proEditVC1 = ProjectEditVC1()
             projects[0].langEN = 0
             projects[0].langVI = 1
-            proDetailVC1.post = projects[0]
-            self.present(viewController: proDetailVC1)
+            proEditVC1.post = projects[0]
+            self.present(viewController: proEditVC1)
         }
         alertController.addAction(EnAction)
         alertController.addAction(ViAction)
@@ -110,9 +118,9 @@ extension ProjectVC: ProjectVCDelegate{
                     }else{
                         projects?[0].langEN = 1
                     }
-                    let proDetailVC1 = ProjectDetailVC1()
-                    proDetailVC1.post = (projects?[0])!
-                    self.present(viewController: proDetailVC1)
+                    let proEditVC1 = ProjectEditVC1()
+                    proEditVC1.post = (projects?[0])!
+                    self.present(viewController: proEditVC1)
                 }
             }
         }

@@ -21,9 +21,9 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
     var type : Int?{
         didSet{
             if type == 0{
-                fetchSale(type: type!)
+                fetchHome(type: type!)
             }else{
-                fetchRent(type: type!)
+                fetchHome(type: type!)
             }
         }
     }
@@ -37,31 +37,40 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
-    func fetchSale(type: Int){
+    
+     lazy var nodataImage: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.alpha = 0
+        iv.image = UIImage(named: LanguageManager.shared.localized(string: "nodata")!)
+        iv.contentMode = .scaleAspectFit
+        return iv
+    }()
+    func fetchHome(type: Int){
         HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (mhomes, currentPage, next_page_url) in
-            self.indexPage = currentPage
-            self.nextPage = next_page_url
-            self.homes = mhomes!
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                self.collectionViewPost.reloadData()
-            }
-        }
-    }
-    func fetchRent(type: Int){
-        HomeService.shared.getHomes(indexPage: String(indexPage), type: type) { (mhomes, currentPage, next_page_url) in
-            self.indexPage = currentPage
-            self.nextPage = next_page_url
-            self.homes = mhomes!
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                self.collectionViewPost.reloadData()
+            if mhomes?.count == 0{
+                self.collectionViewPost.alpha = 0
+                self.nodataImage.alpha = 1
+            }else{
+                self.collectionViewPost.alpha = 1
+                self.nodataImage.alpha = 0
+                self.indexPage = currentPage
+                self.nextPage = next_page_url
+                self.homes = mhomes!
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                    self.collectionViewPost.reloadData()
+                }
             }
         }
     }
     override func setupView() {
         collectionViewPost.register(PostCell.self, forCellWithReuseIdentifier: cellId)
         addSubview(collectionViewPost)
+        addSubview(nodataImage)
         addConstraintWithFormat(format: "V:|[v0]-40-|", views: collectionViewPost)
         addConstraintWithFormat(format: "H:|[v0]|", views: collectionViewPost)
+        addConstraintWithFormat(format: "V:|[v0]-40-|", views: nodataImage)
+        addConstraintWithFormat(format: "H:|[v0]|", views: nodataImage)
     }
     
     // MARK: - collection view delegate

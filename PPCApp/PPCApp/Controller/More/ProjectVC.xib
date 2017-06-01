@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjectVC" customModule="PPCApp" customModuleProvider="target">
             <connections>
+                <outlet property="nodataImageView" destination="CzS-Uj-GlW" id="t7d-Gg-rS4"/>
                 <outlet property="tableView" destination="kaC-5z-xXF" id="igu-rE-PEJ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="xZ1-aT-3ef"/>
             </connections>
@@ -24,15 +25,25 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodata" translatesAutoresizingMaskIntoConstraints="NO" id="CzS-Uj-GlW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="CzS-Uj-GlW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="63T-n4-fh5"/>
                 <constraint firstAttribute="trailing" secondItem="kaC-5z-xXF" secondAttribute="trailing" id="PKM-yN-05i"/>
                 <constraint firstAttribute="bottom" secondItem="kaC-5z-xXF" secondAttribute="bottom" id="StQ-a1-h8E"/>
                 <constraint firstItem="kaC-5z-xXF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="enT-o7-jSv"/>
+                <constraint firstAttribute="bottom" secondItem="CzS-Uj-GlW" secondAttribute="bottom" id="hRa-FL-gGe"/>
+                <constraint firstItem="CzS-Uj-GlW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="n6p-6V-4AO"/>
                 <constraint firstItem="kaC-5z-xXF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="npk-1T-eGv"/>
+                <constraint firstAttribute="trailing" secondItem="CzS-Uj-GlW" secondAttribute="trailing" id="q2e-7e-1Is"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="102.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="nodata" width="350" height="200"/>
+    </resources>
 </document>

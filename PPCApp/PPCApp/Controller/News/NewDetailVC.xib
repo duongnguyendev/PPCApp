@@ -20,17 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3B-Nt-1HG">
+                <webView clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="R3B-Nt-1HG">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </webView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="R3B-Nt-1HG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5Ts-WI-12H"/>
-                <constraint firstItem="R3B-Nt-1HG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="caK-br-e6g"/>
-                <constraint firstAttribute="trailing" secondItem="R3B-Nt-1HG" secondAttribute="trailing" id="dCv-Gm-7h6"/>
-                <constraint firstAttribute="bottom" secondItem="R3B-Nt-1HG" secondAttribute="bottom" id="rt0-eu-wOS"/>
+                <constraint firstItem="R3B-Nt-1HG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="06t-Po-B1l"/>
+                <constraint firstItem="R3B-Nt-1HG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tW5-al-fbF"/>
+                <constraint firstAttribute="trailing" secondItem="R3B-Nt-1HG" secondAttribute="trailing" id="yWY-IW-3FC"/>
+                <constraint firstAttribute="bottom" secondItem="R3B-Nt-1HG" secondAttribute="bottom" id="zzl-7x-1e2"/>
             </constraints>
             <point key="canvasLocation" x="36.5" y="5.5"/>
         </view>

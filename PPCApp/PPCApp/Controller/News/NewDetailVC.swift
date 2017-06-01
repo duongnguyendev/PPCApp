@@ -16,6 +16,7 @@ class NewDetailVC: BaseVC{
     override func viewDidLoad() {
         super.viewDidLoad()
         //titleLabel.numberOfLines = 2
+        webView.scalesPageToFit = true
     }
     override func viewDidAppear(_ animated: Bool) {
         title = new.title

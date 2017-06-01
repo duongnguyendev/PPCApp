@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class ProjectDetailVC2: BaseVC{
+class ProjectPostVC2: BaseVC{
     var post = HomeDataModel()
     let margin : CGFloat = 20.0
     let mainScrollView : UIScrollView = {
@@ -53,15 +53,6 @@ class ProjectDetailVC2: BaseVC{
         view.placeholder = LanguageManager.shared.localized(string: "apartmentsArea")
         return view
     }()
-    
-    let apartmentsTextField: InfoTextField = {
-        let view = InfoTextField()
-        view.textAlignment = NSTextAlignment.left
-        view.keyboardType = .numberPad
-        view.placeholder = LanguageManager.shared.localized(string: "apartmentsQuality")
-        return view
-    }()
-    
     let floorsTextField: InfoTextField = {
         let view = InfoTextField()
         view.textAlignment = NSTextAlignment.left
@@ -99,7 +90,7 @@ class ProjectDetailVC2: BaseVC{
         let button = UIButton(type: UIButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleNextButton(_:)), for: .touchUpInside)
-        button.setTitle("Next", for: .normal)
+        button.setTitle(LanguageManager.shared.localized(string: "next"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.masksToBounds = true
@@ -113,7 +104,6 @@ class ProjectDetailVC2: BaseVC{
         post.investor = investorTextField.text!
         post.acreage = Int(areaProjectTextField.text!)!
         post.area_apartment = Int(areaAppartmentsTextField.text!)!
-        post.apartment = Int(apartmentsTextField.text!)!
         post.floor = Int(floorsTextField.text!)!
         post.bedroom = Int(bedroomsTextField.text!)!
         post.bathroom = Int(bathroomsTextField.text!)!
@@ -122,16 +112,16 @@ class ProjectDetailVC2: BaseVC{
 
     func handleNextButton(_ sender: UIButton){
         if checkInputProjectVC2(){
-            let proDetailVC3 = ProjectDetailVC3()
-            proDetailVC3.post = self.post
-            push(viewController: proDetailVC3)
+            let proPostVC3 = ProjectPostVC3()
+            proPostVC3.post = self.post
+            push(viewController: proPostVC3)
         }else{
             self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
         }
     }
     
     func checkInputProjectVC2() -> Bool{
-        if (titleTextField.text?.isEmpty)! || (investorTextField.text?.isEmpty)! || (areaProjectTextField.text?.isEmpty)! || (areaAppartmentsTextField.text?.isEmpty)! || (apartmentsTextField.text?.isEmpty)! || (floorsTextField.text?.isEmpty)! || (bedroomsTextField.text?.isEmpty)! || (bathroomsTextField.text?.isEmpty)! || (servicesTextField.text?.isEmpty)!{
+        if (titleTextField.text?.isEmpty)! || (investorTextField.text?.isEmpty)! || (areaProjectTextField.text?.isEmpty)! || (areaAppartmentsTextField.text?.isEmpty)! || (floorsTextField.text?.isEmpty)! || (bedroomsTextField.text?.isEmpty)! || (bathroomsTextField.text?.isEmpty)! || (servicesTextField.text?.isEmpty)!{
             return false
         }
         self.inputPostProjectVC2()
@@ -145,7 +135,6 @@ class ProjectDetailVC2: BaseVC{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Post Project"
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
@@ -165,19 +154,7 @@ class ProjectDetailVC2: BaseVC{
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if post.title == ""{
-           
-        }else{
-            titleTextField.text! = post.title
-            investorTextField.text! = post.investor
-            areaProjectTextField.text! = String(post.acreage)
-            areaAppartmentsTextField.text! = String(post.area_apartment)
-            apartmentsTextField.text = String(post.apartment)
-            floorsTextField.text! = String(post.floor)
-            bedroomsTextField.text! = String(post.bedroom)
-            bathroomsTextField.text! = String(post.bathroom)
-            servicesTextField.text! = post.service
-        }
+        title = LanguageManager.shared.localized(string: "postproject")
     }
     
     override func setupView() {
@@ -208,7 +185,6 @@ class ProjectDetailVC2: BaseVC{
         contentView.addSubview(investorTextField)
         contentView.addSubview(areaProjectTextField)
         contentView.addSubview(areaAppartmentsTextField)
-        contentView.addSubview(apartmentsTextField)
         contentView.addSubview(floorsTextField)
         contentView.addSubview(bedroomsTextField)
         contentView.addSubview(bathroomsTextField)
@@ -219,7 +195,6 @@ class ProjectDetailVC2: BaseVC{
         setupInvestorView()
         setupAreaProjectView()
         setupAreaAppartmentsView()
-        setupApartmentsView()
         setupFloorsView()
         setupBedRoomsView()
         setupBathRoomsView()
@@ -250,15 +225,9 @@ class ProjectDetailVC2: BaseVC{
         areaAppartmentsTextField.topAnchor.constraint(equalTo: areaProjectTextField.bottomAnchor, constant: 2).isActive = true
         areaAppartmentsTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-    
-    func setupApartmentsView(){
-        contentView.addConstraintWithFormat(format: "H:|-10-[v0]|", views: apartmentsTextField)
-        apartmentsTextField.topAnchor.constraint(equalTo: areaAppartmentsTextField.bottomAnchor, constant: 2).isActive = true
-        apartmentsTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
     func setupFloorsView(){
         contentView.addConstraintWithFormat(format: "H:|-10-[v0]|", views: floorsTextField)
-        floorsTextField.topAnchor.constraint(equalTo: apartmentsTextField.bottomAnchor, constant: 2).isActive = true
+        floorsTextField.topAnchor.constraint(equalTo: areaAppartmentsTextField.bottomAnchor, constant: 2).isActive = true
         floorsTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     func setupBedRoomsView(){

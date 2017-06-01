@@ -61,7 +61,7 @@ class SignInVC: BaseVC{
     }
     func showAlertController(title: String,message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -78,9 +78,9 @@ class SignInVC: BaseVC{
         push(viewController: signupVC)
     }
     @IBAction func handleForgotButton(_ sender: Any) {
-        
+        let forgotVC = ForgotVC()
+        push(viewController: forgotVC)
     }
-    
     
     func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero

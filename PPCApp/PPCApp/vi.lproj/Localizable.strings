@@ -31,7 +31,8 @@ update = "Chỉnh sửa";
 change = "Thay đổi";
 updateprofile = "Chỉnh sửa thông tin";
 changepass = "Thay đổi mật khẩu";
-english = "Tiếng Anh";
+forgotpass = "Quên mật khẩu";
+english = "English";
 vietnamese= "Tiếng Việt";
 
 home = "Trang chủ";
@@ -50,9 +51,11 @@ floors = "Tầng";
 bedrooms = "Phòng ngủ";
 bathrooms = "Phòng tắm";
 apartmentTotal = "Tổng số căn hộ";
+nodata = "nodata_vi";
 
 projectmanage = "Quản lý dự án";
-transactionform = "Hình thứ giao dịch";
+postproject = "Đăng bài";
+transactionform = "Hình thức giao dịch";
 selectlanuage = "Chọn ngôn ngữ cho bài viết";
 country = "Quốc gia";
 province = "Tỉnh/Thành phố";
@@ -82,6 +85,7 @@ approved = "Đã duyệt";
 manipulation = "Thao tác xử lý";
 edit = "Chỉnh sửa";
 delete = "Xoá";
+next = "Tiếp theo";
 news = "Tin tức";
 
 message_inputinfo = "Hãy điền đầy đủ thông tin!";

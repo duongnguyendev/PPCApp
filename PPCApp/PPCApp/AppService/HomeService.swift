@@ -68,6 +68,30 @@ class HomeService: BaseService {
         }
     }
     
+    func fetchPlacesFilter(pageUrl: String,callback: @escaping PlaceCallback){
+        let url = pageUrl
+        apiService.get(url: url) { (json, error) in
+            if error == nil{
+                var places = [Place]()
+                places.append(Place(id: 0, name: LanguageManager.shared.localized(string: "all")!))
+                let errMess = json?["message"].int ?? -1
+                json?["data"].array?.forEach({ (jsons) in
+                    let id = jsons["id"].number ?? 0
+                    let name = jsons["name"].string ?? ""
+                    let place = Place.init(id: id, name: name)
+                    
+                    places.append(place)
+                })
+                DispatchQueue.main.async {
+                    return callback(places,errMess)
+                }
+            }else{
+                
+            }
+        }
+    }
+
+    
     func fetchHomesFilter(id_projectType: NSNumber,id_country: NSNumber,id_province: NSNumber,id_district: NSNumber,type: NSNumber,callback: @escaping HomeCallback){
         let url = "property/filter"
         let parameters = [
@@ -117,6 +141,20 @@ class HomeService: BaseService {
                 }
             }
         }
+    }
+    
+    func getEmailPhone(completion: @escaping (_ email: String?,_ phone: String?,_ message: Int?)->Void){
+        let url = "email-sdt"
+        apiService.get(url: url) { (json, error) in
+            if error == nil{
+                let message = json?["message"].int ?? 0
+                let email = json?["email"].string ?? ""
+                let phone = json?["sdt"].string ?? ""
+                
+                completion(email,phone,message)
+            }
+        }
+        
     }
     
 }
