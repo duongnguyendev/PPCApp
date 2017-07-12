@@ -230,14 +230,15 @@ class MoreService: BaseService {
         }
     }
     
-    func forgotPassword(email: String){
+    func forgotPassword(email: String,completion: @escaping (_ message: Int?)-> Void){
         let url = "forgetpass/"
         let parameters = ["email": email]
         apiService.post(url: url, parameters: parameters) { (json, error) in
             if error == nil{
-                
+                let message = json?["message"].int ?? 0
+                completion(message)
             }else{
-                
+                completion(nil)
             }
         }
     }

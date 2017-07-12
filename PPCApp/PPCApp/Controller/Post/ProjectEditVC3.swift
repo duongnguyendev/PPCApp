@@ -1,15 +1,16 @@
 //
-//  ProjectDetailVC3.swift
+//  ProjectEditVC3.swift
 //  PPCApp
 //
-//  Created by Macbook Solution on 4/24/17.
+//  Created by Macbook Solution on 5/31/17.
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import Photos
-class ProjectDetailVC3: BaseVC {
+class ProjectEditVC3: BaseVC {
+    
     var post = HomeDataModel()
     var images = [UIImage]()
     let margin : CGFloat = 20.0
@@ -76,7 +77,7 @@ class ProjectDetailVC3: BaseVC {
         let button = UIButton(type: UIButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handlePostButton(_:)), for: .touchUpInside)
-        button.setTitle("Post Project", for: .normal)
+        button.setTitle(LanguageManager.shared.localized(string: "postproject"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.masksToBounds = true
@@ -96,8 +97,8 @@ class ProjectDetailVC3: BaseVC {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-       
+        imageViewProject.loadImageUsingUrlString(urlString: post.image)
+        imageViewPlan.loadImageUsingUrlString(urlString: post.image_overall)
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -114,19 +115,13 @@ class ProjectDetailVC3: BaseVC {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        if (post.image == "") && (post.image_overall == ""){
-            
-        }else{
-            imageViewProject.loadImageUsingUrlString(urlString: post.image)
-            imageViewPlan.loadImageUsingUrlString(urlString: post.image_overall)
-            
-            self.parseData(link: post.image, completion: { (data, error) in
-                self.imgProjectData = data
-            })
-            self.parseData(link: post.image_overall, completion: { (data, error) in
-                self.imgPlanData = data
-            })
-        }
+        title = LanguageManager.shared.localized(string: "postproject")
+        self.parseData(link: post.image, completion: { (data, error) in
+            self.imgProjectData = data
+        })
+        self.parseData(link: post.image_overall, completion: { (data, error) in
+            self.imgPlanData = data
+        })
     }
     func parseData(link: String,completion:@escaping ((Data?,Error?)->())){
         let url = URL(string: link)
@@ -135,7 +130,7 @@ class ProjectDetailVC3: BaseVC {
         }
         task.resume()
     }
-
+    
     override func setupView() {
         super.setupView()
         setupMainScrollView()
@@ -234,7 +229,7 @@ class ProjectDetailVC3: BaseVC {
                         self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "incorrect_postproject")!)
                     }
                 }
-
+                
             }else{
                 ProjectService.shared.updateProject(post: post) { (errMess) in
                     if errMess == 1{
@@ -246,7 +241,7 @@ class ProjectDetailVC3: BaseVC {
             }
             
         }else{
-             self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
+            self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
         }
     }
     func checkImageProjectVC3()->Bool{
@@ -273,7 +268,7 @@ class ProjectDetailVC3: BaseVC {
         completion(data)
     }
 }
-extension ProjectDetailVC3: UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
+extension ProjectEditVC3: UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     //MARK: - collectionView delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         if post.images.count > 0{
@@ -301,7 +296,7 @@ extension ProjectDetailVC3: UICollectionViewDataSource,UICollectionViewDelegate,
         return CGSize(width: view.frame.size.width/4 - 0.5, height: view.frame.size.width/4 - 0.5)
     }
 }
-extension ProjectDetailVC3: UINavigationControllerDelegate,UIImagePickerControllerDelegate{
+extension ProjectEditVC3: UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
@@ -317,7 +312,7 @@ extension ProjectDetailVC3: UINavigationControllerDelegate,UIImagePickerControll
         self.dismiss(animated: true, completion: nil)
     }
 }
-extension ProjectDetailVC3: ProjectDetailVC3Delegate{
+extension ProjectEditVC3: ProjectDetailVC3Delegate{
     func ChooseImages(images: [UIImage]) {
         self.post.images.removeAll()
         self.images = images

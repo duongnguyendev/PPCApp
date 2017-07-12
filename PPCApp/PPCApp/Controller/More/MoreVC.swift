@@ -49,7 +49,7 @@ class MoreVC: BaseVC{
         }
         if ud.object(forKey: "user") == nil{
             self.signImage.image = UIImage(named: "sign")
-            self.nameLabel.text = "Sign In/Sign Up"
+            self.nameLabel.text = LanguageManager.shared.localized(string: "sign_inup")
         }
     }
     override func viewDidDisappear(_ animated: Bool) {

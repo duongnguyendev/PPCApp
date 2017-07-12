@@ -55,11 +55,11 @@ class ChangePassVC: BaseVC{
                     }
                 })
             }else{
-                self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "changepass")!)
+                self.showAlertController(title: "OK", message: LanguageManager.shared.localized(string: "changepass")!)
 
             }
         }else{
-            self.showAlertController(title: "", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
+            self.showAlertController(title: "OK", message: LanguageManager.shared.localized(string: "message_inputinfo")!)
         }
     }
     

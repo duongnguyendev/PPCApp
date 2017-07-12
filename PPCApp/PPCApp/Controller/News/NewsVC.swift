@@ -64,12 +64,13 @@ extension NewsVC: UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let index = indexPath.row
-        if index == news.count - 3{
+        if index == news.count - 2{
             if self.nextPage != ""{
                 NewService.shared.getNews(indexPage: self.indexPage + 1) { (news, error,currentPage, next_page_url) in
                     self.indexPage = currentPage!
                     self.nextPage = next_page_url!
                     self.news = self.news + news!
+
                     self.tableView.reloadData()
                 }
             }

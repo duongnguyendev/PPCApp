@@ -29,10 +29,11 @@ class ProjectCell: UITableViewCell {
     
     var delegate: ProjectVCDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func layoutSubviews() {
+        super.layoutSubviews()
         editButton.backgroundColor = UIColor.navigationBar()
         deleteButton.layer.borderColor = UIColor.navigationBar().cgColor
+
         title.text = LanguageManager.shared.localized(string: "title")! + ":"
         typeofproject.text = LanguageManager.shared.localized(string: "typeofproject")! + ":"
         status.text = LanguageManager.shared.localized(string: "status")! + ":"

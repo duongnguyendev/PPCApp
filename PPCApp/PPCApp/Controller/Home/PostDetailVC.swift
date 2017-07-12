@@ -13,10 +13,19 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     let margin : CGFloat = 20.0
     let cellId = "cellId"
     var home = HomeDataModel()
+    var email:String = ""
+    var phone: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = home.title
         collectionViewImage.register(ImageCell.self, forCellWithReuseIdentifier: "ImageCell")
+        HomeService.shared.getEmailPhone { (mEmail, mPhone, message) in
+            if message == 1{
+                self.email = mEmail!
+                self.phone = mPhone!
+            }
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         showInfoHome()
@@ -322,7 +331,7 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
     //MARK: - Handle button
     
     func handleCallButton(_ sender : UIButton) {
-        if let url = URL(string: "tel://\(home.phone)") {
+        if let url = URL(string: "tel://\(phone)") {
             UIApplication.shared.open(url, options: [:])
         }
     }
@@ -344,13 +353,16 @@ class PostDetailVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         
-        mailComposerVC.setToRecipients([home.email])
+        mailComposerVC.setToRecipients([email])
         mailComposerVC.setSubject(home.title)
         mailComposerVC.setMessageBody("", isHTML: false)
         
         return mailComposerVC
     }
     
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
     //MARK: - collectionView delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return home.images.count

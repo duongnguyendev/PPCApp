@@ -5,7 +5,6 @@
 //  Created by Nguyen Duy Duong on 3/20/17.
 //  Copyright © 2017 Nguyen Duy Duong. All rights reserved.
 //
-
 import UIKit
 import Photos
 class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PostVCDelegate {
@@ -13,11 +12,6 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     var indexPath: IndexPath = IndexPath(item: 0, section: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        let assets = PHAsset.fetchAssets(with: .image, options: nil)
-        //        PHImageManager.default().requestImage(for: assets[0], targetSize: CGSize(width: 1000, height: 1000), contentMode: .default, options: nil, resultHandler: { (image, nil) in
-        //            self.view.backgroundColor = UIColor.init(patternImage: image!)
-        //        })
         segmentedPostType.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         homeCollectionView.register(HomeCell.self, forCellWithReuseIdentifier: cellId)
     }
@@ -64,8 +58,8 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     //MARK: - segment
     func segmentedValueChanged(_ sender : UISegmentedControl){
         self.typeSegmentControl = NSNumber(value: sender.selectedSegmentIndex)
-        let index = IndexPath(item: sender.selectedSegmentIndex, section: 0)
-        self.homeCollectionView.scrollToItem(at: index, at: .left, animated: true)
+        indexPath = IndexPath(item: sender.selectedSegmentIndex, section: 0)
+        self.homeCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
     }
     //Mark: - nav button handle
     
@@ -79,7 +73,7 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let searchVC = SearchVC()
         self.present(viewController: searchVC)
     }
-    // collection delegate
+    //collection delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return 2
     }
@@ -101,6 +95,7 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         segmentedPostType.selectedSegmentIndex = Int(index)
         self.typeSegmentControl = NSNumber(value: segmentedPostType.selectedSegmentIndex)
         self.indexPath = IndexPath(item: Int(index), section: 0)
+        self.homeCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
     }
     //MARK: - setup nav
     func addFilterButton(){
@@ -127,10 +122,16 @@ class HomeVC: BaseVC, UICollectionViewDelegate, UICollectionViewDataSource, UICo
 extension HomeVC: HomeVCDelegate{
     func Filter(projects: [HomeDataModel], currentPage: Int, next_page_url: String) {
         let cell = homeCollectionView.cellForItem(at: indexPath) as! HomeCell
-        cell.indexPage = currentPage
-        cell.nextPage = next_page_url
-        cell.homes = projects
-        
-        cell.collectionViewPost.reloadData()
+        if projects.count == 0{
+            cell.collectionViewPost.alpha = 0
+            cell.nodataImage.alpha = 1
+        }else{
+            cell.collectionViewPost.alpha = 1
+            cell.nodataImage.alpha = 0
+            cell.indexPage = currentPage
+            cell.nextPage = next_page_url
+            cell.homes = projects
+            cell.collectionViewPost.reloadData()
+        }
     }
 }

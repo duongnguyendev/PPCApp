@@ -29,7 +29,6 @@ class FilterVC: BaseVC {
     }
     override func viewWillAppear(_ animated: Bool) {
         title = LanguageManager.shared.localized(string: "filter")
-        
         provinceButton.isEnabled = false
         districtButton.isEnabled = false
     }
@@ -66,10 +65,10 @@ class FilterVC: BaseVC {
         return button
     }()
     
-    let countryLaucher = CountryLauncher()
-    let provinceLauncher = ProvinceLauncher()
-    let districtLauncher = DistrictLauncher()
-    let typeOfProjectLauncher = TypeOfProjectLauncher()
+    let countryLaucher = CountryFilterLauncher()
+    let provinceLauncher = ProvinceFilterLauncher()
+    let districtLauncher = DistrictFilterLauncher()
+    let typeOfProjectLauncher = TypeOfProjectFilterLauncher()
     
     override func setupView() {
         super.setupView()
@@ -133,22 +132,28 @@ extension FilterVC: PickerViewDelegate{
     func selectedCountry(place: Place){
         countryButton.value = place.name
         self.id_country = place.id
-        HomeService.shared.fetchPlaces(pageUrl: "province?id_country=\(id_country)") { (places, errMess) in
-            self.provinceLauncher.provinces = places
-            self.id_province = places[0].id
-            self.provinceButton.value = places[0].name
-            self.provinceButton.isEnabled = true
+        HomeService.shared.fetchPlacesFilter(pageUrl: "province?id_country=\(id_country)") { (places, errMess) in
+            if places.count > 0{
+                self.provinceLauncher.provinces = places
+                self.id_province = places[0].id
+                self.provinceButton.value = places[0].name
+                self.provinceButton.isEnabled = true
+            }else{
+                self.provinceButton.value = ""
+            }
         }
     }
     func selectedProvince(place: Place) {
         provinceButton.value = place.name
         self.id_province = place.id
-        HomeService.shared.fetchPlaces(pageUrl: "district?id_province=\(id_province)") { (places, errMess) in
+        HomeService.shared.fetchPlacesFilter(pageUrl: "district?id_province=\(id_province)") { (places, errMess) in
             if places.count > 0{
                 self.districtLauncher.dictricts = places
                 self.id_district = places[0].id
                 self.districtButton.value = places[0].name
                  self.districtButton.isEnabled = true
+            }else{
+                self.districtButton.value = ""
             }
         }
     }

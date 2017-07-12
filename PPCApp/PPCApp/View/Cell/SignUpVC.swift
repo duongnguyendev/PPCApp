@@ -110,7 +110,7 @@ class SignUpVC: BaseVC,UINavigationControllerDelegate,UIImagePickerControllerDel
     }
     func showAlertController(title: String,message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     func checkInputInfo()-> Bool{
